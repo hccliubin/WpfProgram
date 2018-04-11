@@ -20,3 +20,17 @@ F:\WpfProgram\Source\Modules\ProcessingBatchModule\bin\Debug\Microsoft.Practices
 F:\WpfProgram\Source\Modules\ProcessingBatchModule\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 F:\WpfProgram\Source\Modules\ProcessingBatchModule\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 F:\WpfProgram\Source\Modules\ProcessingBatchModule\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+F:\GitHub\WpfProgram\Product\Debug\ProcessingBatchModule.dll
+F:\GitHub\WpfProgram\Product\Debug\ProcessingBatchModule.pdb
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\View\NavigationBar.g.cs
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\View\ProcessingBatchContent.g.cs
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\ProcessingBatchModule_MarkupCompile.cache
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\ProcessingBatchModule_MarkupCompile.lref
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\Themes\Generic.baml
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\View\NavigationBar.baml
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\View\ProcessingBatchContent.baml
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\ProcessingBatchModule.g.resources
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\ProcessingBatchModule.Properties.Resources.resources
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\ProcessingBatchModule.csproj.GenerateResource.Cache
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\ProcessingBatchModule.dll
+F:\GitHub\WpfProgram\Source\Modules\ProcessingBatchModule\obj\Debug\ProcessingBatchModule.pdb

@@ -3,3 +3,8 @@ F:\新建文件夹\WpfProgram\Product\Debug\HeBianGu.General.Logger.pdb
 F:\新建文件夹\WpfProgram\Source\General\HeBianGu.General.Logger\obj\Debug\HeBianGu.General.Logger.csprojResolveAssemblyReference.cache
 F:\新建文件夹\WpfProgram\Source\General\HeBianGu.General.Logger\obj\Debug\HeBianGu.General.Logger.dll
 F:\新建文件夹\WpfProgram\Source\General\HeBianGu.General.Logger\obj\Debug\HeBianGu.General.Logger.pdb
+F:\GitHub\WpfProgram\Source\General\HeBianGu.General.Logger\obj\Debug\HeBianGu.General.Logger.csprojResolveAssemblyReference.cache
+F:\GitHub\WpfProgram\Product\Debug\HeBianGu.General.Logger.dll
+F:\GitHub\WpfProgram\Product\Debug\HeBianGu.General.Logger.pdb
+F:\GitHub\WpfProgram\Source\General\HeBianGu.General.Logger\obj\Debug\HeBianGu.General.Logger.dll
+F:\GitHub\WpfProgram\Source\General\HeBianGu.General.Logger\obj\Debug\HeBianGu.General.Logger.pdb

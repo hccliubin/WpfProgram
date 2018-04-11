@@ -4,7 +4,7 @@
 library
 C#
 .cs
-F:\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\
 HeBianGu.Base.WpfBase
 none
 false
@@ -16,5 +16,5 @@ DEBUG;TRACE
 151270957945
 Color\Colors.xaml;Color\CommonColor.xaml;Color\ConvertResource.xaml;Color\KeyBindingResource.xaml;Color\Size.xaml;Color\StoryBoardResource.xaml;Themes\Generic.xaml;
 
-True
+False
 

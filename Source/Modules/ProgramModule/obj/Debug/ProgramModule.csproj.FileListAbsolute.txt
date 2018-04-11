@@ -20,3 +20,17 @@ F:\WpfProgram\Source\Modules\ProgramModule\bin\Debug\Microsoft.Practices.Prism.M
 F:\WpfProgram\Source\Modules\ProgramModule\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 F:\WpfProgram\Source\Modules\ProgramModule\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 F:\WpfProgram\Source\Modules\ProgramModule\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+F:\GitHub\WpfProgram\Product\Debug\ProgramModule.dll
+F:\GitHub\WpfProgram\Product\Debug\ProgramModule.pdb
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\View\NavigationBar.g.cs
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\View\ProgramContent.g.cs
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\ProgramModule_MarkupCompile.cache
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\ProgramModule_MarkupCompile.lref
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\Themes\Generic.baml
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\View\NavigationBar.baml
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\View\ProgramContent.baml
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\ProgramModule.g.resources
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\ProgramModule.Properties.Resources.resources
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\ProgramModule.csproj.GenerateResource.Cache
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\ProgramModule.dll
+F:\GitHub\WpfProgram\Source\Modules\ProgramModule\obj\Debug\ProgramModule.pdb

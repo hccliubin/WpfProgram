@@ -20,3 +20,17 @@ F:\WpfProgram\Source\Modules\SystemFolderModule\bin\Debug\Microsoft.Practices.Pr
 F:\WpfProgram\Source\Modules\SystemFolderModule\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 F:\WpfProgram\Source\Modules\SystemFolderModule\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 F:\WpfProgram\Source\Modules\SystemFolderModule\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+F:\GitHub\WpfProgram\Product\Debug\SystemFolderModule.dll
+F:\GitHub\WpfProgram\Product\Debug\SystemFolderModule.pdb
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\View\NavigationBar.g.cs
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\View\SystemFolderContent.g.cs
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\SystemFolderModule_MarkupCompile.cache
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\SystemFolderModule_MarkupCompile.lref
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\Themes\Generic.baml
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\View\NavigationBar.baml
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\View\SystemFolderContent.baml
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\SystemFolderModule.g.resources
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\SystemFolderModule.Properties.Resources.resources
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\SystemFolderModule.csproj.GenerateResource.Cache
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\SystemFolderModule.dll
+F:\GitHub\WpfProgram\Source\Modules\SystemFolderModule\obj\Debug\SystemFolderModule.pdb

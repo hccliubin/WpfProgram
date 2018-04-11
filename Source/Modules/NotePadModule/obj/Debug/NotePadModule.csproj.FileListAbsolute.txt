@@ -20,3 +20,17 @@ F:\WpfProgram\Source\Modules\NotePadModule\bin\Debug\Microsoft.Practices.Service
 F:\WpfProgram\Source\Modules\NotePadModule\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
 F:\WpfProgram\Source\Modules\NotePadModule\bin\Debug\Microsoft.Practices.Prism.MefExtensions.dll
 F:\WpfProgram\Source\Modules\NotePadModule\bin\Debug\Microsoft.Practices.Prism.MefExtensions.xml
+F:\GitHub\WpfProgram\Product\Debug\NotePadModule.dll
+F:\GitHub\WpfProgram\Product\Debug\NotePadModule.pdb
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\View\NavigationBar.g.cs
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\View\NotePadContent.g.cs
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\NotePadModule_MarkupCompile.cache
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\NotePadModule_MarkupCompile.lref
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\Themes\Generic.baml
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\View\NavigationBar.baml
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\View\NotePadContent.baml
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\NotePadModule.g.resources
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\NotePadModule.Properties.Resources.resources
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\NotePadModule.csproj.GenerateResource.Cache
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\NotePadModule.dll
+F:\GitHub\WpfProgram\Source\Modules\NotePadModule\obj\Debug\NotePadModule.pdb

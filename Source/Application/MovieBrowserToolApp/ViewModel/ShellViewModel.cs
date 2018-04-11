@@ -58,8 +58,6 @@ namespace MovieBrowserToolApp.ViewModel
             // Todo ：默认打开第一个 
             this.CurrentCase = this.CaseSource[0];
 
-            this.ButtonClickFunc("OpenCase");
-
         }
 
 
@@ -145,6 +143,11 @@ namespace MovieBrowserToolApp.ViewModel
             set
             {
                 _currentCase = value;
+
+
+                // Todo ：打开案例 
+                this.ButtonClickFunc("OpenCase");
+
                 RaisePropertyChanged();
             }
         }

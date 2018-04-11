@@ -20,3 +20,17 @@ F:\WpfProgram\Source\Modules\IntergrationToolModule\bin\Debug\Microsoft.Practice
 F:\WpfProgram\Source\Modules\IntergrationToolModule\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 F:\WpfProgram\Source\Modules\IntergrationToolModule\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 F:\WpfProgram\Source\Modules\IntergrationToolModule\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+F:\GitHub\WpfProgram\Product\Debug\IntergrationToolModule.dll
+F:\GitHub\WpfProgram\Product\Debug\IntergrationToolModule.pdb
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\View\IntergrationToolContent.g.cs
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\View\NavigationBar.g.cs
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\IntergrationToolModule_MarkupCompile.cache
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\IntergrationToolModule_MarkupCompile.lref
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\Themes\Generic.baml
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\View\IntergrationToolContent.baml
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\View\NavigationBar.baml
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\IntergrationToolModule.g.resources
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\IntergrationToolModule.Properties.Resources.resources
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\IntergrationToolModule.csproj.GenerateResource.Cache
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\IntergrationToolModule.dll
+F:\GitHub\WpfProgram\Source\Modules\IntergrationToolModule\obj\Debug\IntergrationToolModule.pdb

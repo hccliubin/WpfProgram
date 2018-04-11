@@ -4,7 +4,7 @@
 library
 C#
 .cs
-F:\新建文件夹\WpfProgram\Source\General\HeBianGu.General.WpfDocument\obj\Debug\
+F:\GitHub\WpfProgram\Source\General\HeBianGu.General.WpfDocument\obj\Debug\
 HeBianGu.General.WpfDocument
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 3628339631
 
-182030376054
+18-1762242761
 13738642453
 UserControl1.xaml;View\DocumentPage.xaml;View\DocumnetControl.xaml;
 
-True
+False
 

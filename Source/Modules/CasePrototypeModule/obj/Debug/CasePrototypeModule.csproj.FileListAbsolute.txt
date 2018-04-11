@@ -23,3 +23,17 @@ F:\WpfProgram\Source\Modules\CasePrototypeModule\bin\Debug\Microsoft.Practices.P
 F:\WpfProgram\Source\Modules\CasePrototypeModule\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
 F:\WpfProgram\Source\Modules\CasePrototypeModule\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 F:\WpfProgram\Source\Modules\CasePrototypeModule\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+F:\GitHub\WpfProgram\Product\Debug\CasePrototypeModule.dll
+F:\GitHub\WpfProgram\Product\Debug\CasePrototypeModule.pdb
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule.csprojResolveAssemblyReference.cache
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\View\ContentControl.g.cs
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\View\NavigationBar.g.cs
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule_MarkupCompile.cache
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule_MarkupCompile.lref
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\View\ContentControl.baml
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\View\NavigationBar.baml
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule.g.resources
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule.Properties.Resources.resources
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule.csproj.GenerateResource.Cache
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule.dll
+F:\GitHub\WpfProgram\Source\Modules\CasePrototypeModule\obj\Debug\CasePrototypeModule.pdb

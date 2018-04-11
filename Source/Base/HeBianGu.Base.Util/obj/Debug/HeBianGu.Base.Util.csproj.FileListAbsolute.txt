@@ -4,3 +4,8 @@ F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\bin\Debug\HeBianGu.
 F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\bin\Debug\HeBianGu.Base.Util.pdb
 F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\obj\Debug\HeBianGu.Base.Util.dll
 F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\obj\Debug\HeBianGu.Base.Util.pdb
+F:\GitHub\WpfProgram\Product\Debug\HeBianGu.Base.Util.dll
+F:\GitHub\WpfProgram\Product\Debug\HeBianGu.Base.Util.pdb
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.Util\obj\Debug\HeBianGu.Base.Util.csprojResolveAssemblyReference.cache
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.Util\obj\Debug\HeBianGu.Base.Util.dll
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.Util\obj\Debug\HeBianGu.Base.Util.pdb
