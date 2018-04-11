@@ -1,0 +1,23 @@
+﻿<Application x:Class="WindowStartToolApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WindowStartToolApp"
+                xmlns:c="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
+                <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>-->
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--默认样式-->
+            <Style TargetType="{x:Type c:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}"/>
+
+            <!--设置全局样式-->
+
+            <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBar}"></Style>
+            <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewer}"></Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="ClipBoardModule.View.ClipBoardContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClipBoardModule.View"
+             xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
+             xmlns:c="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib" 
+             xmlns:m="clr-namespace:HeBianGu.General.ModuleManager;assembly=HeBianGu.General.ModuleManager"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <!--创建菜单资源-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.ModuleManager;component/ModuleResource/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <ContextMenu x:Key="ContextMenu" Style="{StaticResource DefaultContextMenu}">
+                <MenuItem Header="复制" Icon="&#xe62c;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding ObjectCommond}" CommandParameter="Copy"/>
+                <MenuItem Header="删除" Icon="&#xe63b;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding ObjectCommond}" CommandParameter="Delete"/>
+                <MenuItem Header="打开" Icon="&#xe63b;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding ObjectCommond}" CommandParameter="Open"/>
+                <MenuItem Header="归档" Icon="&#xe63b;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding ObjectCommond}" CommandParameter="Save"/>
+
+            </ContextMenu>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <Grid>
+        <ListBox Style="{StaticResource ClipBoardStype}"
+                 ItemsSource="{Binding CommonSource}" 
+                 SelectedItem="{Binding Current}"
+                 base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}"
+                 base:ControlAttachEvent.PreviewMouseDoubleClick="{Binding DoubleClickCommond}" 
+                 ContextMenu="{StaticResource ContextMenu}"
+                 />
+
+
+    </Grid>
+</UserControl>

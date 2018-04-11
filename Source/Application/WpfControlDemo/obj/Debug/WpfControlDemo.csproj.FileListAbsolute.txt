@@ -1,0 +1,15 @@
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\WpfControlDemo.exe.config
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\WpfControlDemo.exe
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\WpfControlDemo.pdb
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.Base.WpfBase.dll
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.General.WpfControlLib.dll
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.Base.WpfBase.pdb
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.Base.WpfBase.xml
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.General.WpfControlLib.pdb
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.General.WpfControlLib.xml
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.Base.Util.dll
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.Base.Util.pdb
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.Control.UserControls.dll
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.Control.UserControls.pdb
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.General.WpfDocument.dll
+F:\WpfProgram\Source\Application\WpfControlDemo\bin\Debug\HeBianGu.General.WpfDocument.pdb

@@ -1,0 +1,6 @@
+F:\WpfProgram\Source\Base\HeBianGu.Base.Util\bin\Debug\HeBianGu.Base.Util.dll
+F:\WpfProgram\Source\Base\HeBianGu.Base.Util\bin\Debug\HeBianGu.Base.Util.pdb
+F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\bin\Debug\HeBianGu.Base.Util.dll
+F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\bin\Debug\HeBianGu.Base.Util.pdb
+F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\obj\Debug\HeBianGu.Base.Util.dll
+F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.Util\obj\Debug\HeBianGu.Base.Util.pdb

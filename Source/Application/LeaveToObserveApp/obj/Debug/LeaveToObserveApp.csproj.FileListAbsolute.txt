@@ -1,0 +1,16 @@
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\LeaveToObserveApp.exe.config
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\LeaveToObserveApp.exe
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\LeaveToObserveApp.pdb
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.Base.WpfBase.dll
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.General.WpfControlLib.dll
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.Base.WpfBase.pdb
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.Base.WpfBase.xml
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.General.WpfControlLib.pdb
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.General.WpfControlLib.xml
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\Microsoft.Windows.Shell.dll
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.Base.Util.dll
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.Base.Util.pdb
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.General.Logger.dll
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\log4net.dll
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\HeBianGu.General.Logger.pdb
+F:\WpfProgram\Source\Application\LeaveToObserveApp\bin\Debug\log4net.xml

@@ -1,0 +1,55 @@
+﻿<Page x:Class="WpfControlDemo.View.DataPagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfControlDemo.View"
+      xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="1000"
+      Title="DataPagePage">
+
+    <Grid>
+
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock Text="分开绑定"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DataGrid ItemsSource="{Binding Path=ItemsSource,ElementName=dataPager}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
+                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <wpfcontrollib:DataPager Grid.Row="1" 
+                                     Name="dataPager" 
+                                     PageSizeList="10,20,30"
+                                     ItemsSource="{Binding Path=Students}"
+                                     Total="{Binding Path=Total}"
+                                     PageChanged="dataPager_PageChanged" />
+                </Grid>
+
+                <TextBlock Text="自定义分页控件"/>
+                <Grid>
+                    <wpfcontrollib:PagingDataGrid 
+            PageSizeList="10,20,30"
+            ItemsSource="{Binding Students}" 
+            Total="{Binding Total}" 
+            PagingChanged="PagingDataGrid_PagingChanged">
+                        <wpfcontrollib:PagingDataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
+                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
+                        </wpfcontrollib:PagingDataGrid.Columns>
+                    </wpfcontrollib:PagingDataGrid>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

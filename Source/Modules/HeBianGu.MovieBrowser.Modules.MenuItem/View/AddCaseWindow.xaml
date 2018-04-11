@@ -1,0 +1,39 @@
+﻿<wpfcontrollib:WindowBase x:Class="HeBianGu.MovieBrowser.Modules.MenuItem.View.AddCaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HeBianGu.MovieBrowser.Modules.MenuItem.View"
+         xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
+         xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
+        mc:Ignorable="d" Height="150" Width="500" Style="{StaticResource MessageWindowStyle}"
+                          >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--默认样式-->
+            
+            <Style TargetType="{x:Type wpfcontrollib:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}"/>
+            <Style TargetType="{x:Type wpfcontrollib:FTextBox}" BasedOn="{StaticResource DefaultTextBox}"></Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <wpfcontrollib:FTextBox Width="400" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入案例名称" Text="{Binding CaseName}"
+                         Style="{StaticResource LabelClearButtonTextBox}" base:ControlAttachProperty.Label="案例名称" HorizontalAlignment="Center"></wpfcontrollib:FTextBox>
+
+        <wpfcontrollib:FTextBox Grid.Row="1" Width="400" Height="30" Margin="3" Style="{StaticResource LabelOpenFolderTextBox}" HorizontalAlignment="Center" Text="{Binding CasePath}"></wpfcontrollib:FTextBox>
+
+        <wpfcontrollib:FButton Grid.Row="2" Content="确定" Click="FButton_Click"/>
+    </Grid>
+</wpfcontrollib:WindowBase>

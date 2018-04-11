@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="WindowToolModule.View.RegeditTool"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WindowToolModule.View"
+             xmlns:c="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib" 
+          xmlns:m="clr-namespace:HeBianGu.General.ModuleManager;assembly=HeBianGu.General.ModuleManager"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.ModuleManager;component/ModuleResource/ModuleResource.xaml" />
+    </UserControl.Resources>
+
+    <Grid>
+        <c:FButton x:Name="btn_bar" FIcon="&#xe660;" ToolTip="注册表" Style="{StaticResource FButton_Transparency}" Click="btn_bar_Click"  />
+    </Grid>
+</UserControl>

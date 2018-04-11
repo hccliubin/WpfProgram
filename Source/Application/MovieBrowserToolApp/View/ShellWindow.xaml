@@ -1,0 +1,264 @@
+﻿<windowbase:WindowBase  x:Class="MovieBrowserToolApp.ShellWindow"
+             xmlns:windowbase="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+       xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieBrowserToolApp"
+       xmlns:prism="http://www.codeplex.com/prism"                 
+    Style="{StaticResource ResourceKey=DefaultWindowStyle}"
+    Height="500" Width="1200">
+
+    <Window.Resources>
+        <!--创建菜单资源-->
+        <ResourceDictionary>
+            <!--<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.ModuleManager;component/ModuleResource/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>-->
+
+            <ContextMenu x:Key="CaseContextMenu" Style="{StaticResource DefaultContextMenu}">
+                <MenuItem Header="打开案例" Icon="&#xe62c;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="OpenCase"/>
+                <MenuItem Header="删除案例" Icon="&#xe66b;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="DeleteCase"/>
+                <MenuItem Header="保存案例" Icon="&#xe661;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="SaveCase"/>
+                <MenuItem Header="重命名" Icon="&#xe661;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ReNameCase"/>
+                <MenuItem Header="全部整理" Icon="&#xe661;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ClearOrder"/>
+
+            </ContextMenu>
+
+            <!--文件项模板-->
+            <DataTemplate  x:Key="CaseItemTemplate">
+                <Grid>
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+
+
+
+
+
+                    <TextBlock VerticalAlignment="Center" Margin="5" FontStyle="Italic"/>
+
+                    <!--<TextBlock ToolTip="{Binding CasePath}" FontSize="20" VerticalAlignment="Center" Margin="5" 
+                                   Text="{Binding CaseName}" Foreground="Black" FontWeight="Normal"  Grid.Column="1" />-->
+
+                    <RadioButton Style="{StaticResource BoxRadioButton}" IsChecked="{Binding IsOpen}" GroupName="sssssss" FontSize="20"  Margin="5"   Grid.Column="1"  ToolTip="{Binding CasePath}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" SharedSizeGroup="MiddleColumn" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Image Width="30" Margin="2,2,2,1" Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
+                                    <Image.OpacityMask>
+                                        <!--设置图片背景色包含转换规则-->
+                                        <ImageBrush ImageSource="{Binding ImagePath,Converter={StaticResource iconConverter}}"/>
+                                    </Image.OpacityMask>
+                                </Image>
+                            </Grid>
+
+                            <TextBlock ToolTip="{Binding CasePath}" FontSize="20" VerticalAlignment="Center" Margin="5" 
+                                   Text="{Binding CaseName}" Foreground="Black" FontWeight="Normal"  Grid.Column="1" />
+
+                        </Grid>
+                    </RadioButton>
+
+                    <Grid.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource Story_OpacityLeftToRight}" />
+                        </EventTrigger>
+                    </Grid.Triggers>
+                </Grid>
+            </DataTemplate>
+
+            <!--<ControlTemplate x:Key="ListBox_Buzy" TargetType="{x:Type ListBox}">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel IsItemsHost="True"/>
+                    </ScrollViewer>
+                    <local:WaitingBox IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
+                </Grid>
+            </ControlTemplate>-->
+
+            <!--文件集合样式-->
+            <Style x:Key="CaseListStyle" TargetType="{x:Type ListBox}">
+                <Setter Property="ItemTemplate" Value="{StaticResource CaseItemTemplate}"/>
+                <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+                <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                <Setter Property="AllowDrop"   Value="True"/>
+                <!--<Setter Property="OpacityMask">
+                    <Setter.Value>
+                        <RadialGradientBrush>
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="White" Offset="0.861"/>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>-->
+
+                <!--<Setter Property="Template" Value="{StaticResource ListBox_Buzy}"/>-->
+
+            </Style>
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="365*"/>
+            <RowDefinition Height="36*"/>
+        </Grid.RowDefinitions>
+
+
+        <Menu HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="513">
+            <MenuItem Header="案例管理"  Style="{DynamicResource DefaultMenuItem}" >
+                <MenuItem Header="新增案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+                <MenuItem Header="打开案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+                <MenuItem Header="删除案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase"  />
+                <MenuItem Header="设备监控" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+            </MenuItem>
+            <MenuItem Header="设置" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+            <MenuItem Header="帮助" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+            <MenuItem Header="关于" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+        </Menu>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListBox  Style="{StaticResource CaseListStyle}"  ItemsSource="{Binding CaseSource}" ContextMenu="{StaticResource CaseContextMenu}"  SelectedItem="{Binding CurrentCase}"/>
+
+
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+
+            <Grid Grid.Column="2" >
+                <Grid.RowDefinitions>
+                    <!--<RowDefinition Height="37*"/>-->
+                    <RowDefinition Height="570*"/>
+                </Grid.RowDefinitions>
+
+                <!--<ItemsControl Grid.Row="0" prism:RegionManager.RegionName="MainToolRegion" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <ItemsControl.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ItemsControl.RenderTransform>
+                        -->
+                <!--定义集合模板-->
+                <!--
+                        <ItemsControl.Template>
+                            <ControlTemplate>
+                                <ScrollViewer x:Name="scrolls" Padding="{TemplateBinding Padding}"  
+                                      PanningMode="Both" 
+                                      Grid.Row="1"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      HorizontalScrollBarVisibility="Visible"
+                                      Style="{StaticResource CenterScrollViewer}">
+                                    <ItemsPresenter />
+                                </ScrollViewer>
+
+                                <ControlTemplate.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard  Storyboard="{StaticResource Story_OpacityRightToLeft}"/>
+                                    </EventTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </ItemsControl.Template>
+
+                        -->
+                <!--定义项容器模板-->
+                <!--
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>-->
+
+                <Border Background="{StaticResource S_WhiteCommon}" Grid.Row="2"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Background="{StaticResource S_Gray}" Grid.Row="1" Grid.Column="0"/>
+
+
+                    <ItemsControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="MainNavigationRegion">
+                        <ItemsControl.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ItemsControl.RenderTransform>
+
+                        <ItemsControl.Template>
+                            <ControlTemplate>
+                                <ScrollViewer x:Name="scrolls" Padding="{TemplateBinding Padding}"  
+                                      PanningMode="Both" 
+                                      Grid.Row="1" 
+                                      Style="{StaticResource CenterScrollViewer}">
+                                    <ItemsPresenter />
+                                </ScrollViewer>
+
+                                <ControlTemplate.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard  Storyboard="{StaticResource Story_OpacityDownToUp}"/>
+                                    </EventTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </ItemsControl.Template>
+                    </ItemsControl>
+                    <!--</Grid>-->
+
+                    <!--右侧内容-->
+                    <ContentControl prism:RegionManager.RegionName="MainContentRegion" 
+                            Grid.Column="1"  
+                            AutomationProperties.AutomationId="PositionSummaryTab" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+
+                    <!--<Controls:AnimatedTabControl
+                    x:Name="PositionBuySellTab"
+                    SelectedIndex="0"  
+                    VerticalAlignment="Stretch"
+                    ItemContainerStyle="{StaticResource ShellTabItemStyle}" 
+                    Background="{StaticResource headerBarBG}" 
+                    prism:RegionManager.RegionName="MainContentRegion"
+                    AutomationProperties.AutomationId="PositionSummaryTab" />-->
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+
+
+
+
+
+        <!--菜单-->
+
+        <!--<windowbase:FButton FIcon="&#xe60d;" Style="{StaticResource FButton_Transparency}" Grid.Row="3" FIconSize="25" AllowsAnimation="False" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="0,2,0,1" Width="45" />-->
+    </Grid>
+</windowbase:WindowBase>

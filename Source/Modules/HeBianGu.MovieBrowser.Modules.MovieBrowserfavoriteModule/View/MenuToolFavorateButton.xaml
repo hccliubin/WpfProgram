@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule.View.MenuToolFavorateButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule.View"
+             xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
+             xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.ModuleManager;component/ModuleResource/ModuleResource.xaml" />
+    </UserControl.Resources>
+
+    <Grid>
+        <wpfcontrollib:FButton x:Name="btn_bar" FIcon="&#xe921;" Content="收藏夹"  
+                   ToolTip="{Binding ElementName=btn_bar, Path=Content}" 
+                   Style="{StaticResource ModuleFButtonStyle}" 
+                   Click="NavigateToEmailRadioButton_Click" 
+                   base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}"/>
+    </Grid>
+</UserControl>

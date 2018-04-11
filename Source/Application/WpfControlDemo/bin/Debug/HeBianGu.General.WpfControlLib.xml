@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HeBianGu.General.WpfControlLib</name>
+    </assembly>
+    <members>
+        <member name="P:HeBianGu.General.WpfControlLib.Commond.ControlCommand.OpenFileCommand">
+            <summary> 运行文件 </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.AnimatedTabControl">
+            <summary>
+            AnimatedTabControl.xaml 的交互逻辑
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.BulletCheckBox">
+            <summary>
+            BulletCheckBox.xaml 的交互逻辑
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.BulletCheckBox.Text">
+            <summary>
+            默认文本（未选中）
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.BulletCheckBox.CheckedText">
+            <summary>
+            选中状态文本
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.BulletCheckBox.CheckedForeground">
+            <summary>
+            选中状态前景样式
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.BulletCheckBox.CheckedBackground">
+            <summary>
+            选中状态背景色
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.FButton">
+            <summary> FButton依赖属性 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.PressedBackground">
+            <summary> 鼠标按下背景样式 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.PressedForeground">
+            <summary> 鼠标按下前景样式（图标、文字） </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.MouseOverBackground">
+            <summary> 鼠标进入背景样式 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.MouseOverForeground">
+            <summary> 鼠标进入前景样式 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.FIcon">
+            <summary> 按钮字体图标编码 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.FIconSize">
+            <summary> 按钮字体图标大小 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.FIconMargin">
+            <summary> 字体图标间距 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.AllowsAnimation">
+            <summary> 是否启用Ficon动画 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.CornerRadius">
+            <summary> 按钮圆角大小,左上，右上，右下，左下 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.Orientation">
+            <summary> 图标和文字的布局方式 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.IsChecked">
+            <summary> 按钮是否被选中 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.FButton.IconFontWeight">
+            <summary> 按钮字体图标编码 </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.FCheckBox">
+            <summary>
+            FCheckBox.xaml 的交互逻辑
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.FTextBox">
+            <summary>
+            FTextBox.xaml 的交互逻辑
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.HighlightTextBlock">
+            <summary> 高亮查找文本 </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.MultiComboBox">
+            <summary>
+            MultiComboBox.xaml 的交互逻辑
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.MultiComboBox.SelectedItems">
+            <summary>
+            获取选择项集合
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.MultiComboBox.SelectedIndex">
+            <summary>
+            设置或获取选择项
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.PagingDataGrid">
+            <summary> 分页DataGrid </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.IsShowPagingProperty">
+            <summary>
+            是否显示分页
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.AllowPagingProperty">
+            <summary>
+            是否允许分页
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.PageSizeListProperty">
+            <summary>
+            显示每页记录数字符串列表
+            例:10,20,30
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.PageSizeItemsSourceProperty">
+            <summary>
+            显示每页记录数集合
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.TotalProperty">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.PageSizeProperty">
+            <summary>
+            每页记录数，默认：10
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.PageIndexProperty">
+            <summary>
+            当前页码，默认：1
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.PageCountProperty">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.StartProperty">
+            <summary>
+            起始记录数
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.EndProperty">
+            <summary>
+            终止记录数
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.PagingDataGrid.SortFieldProperty">
+            <summary>
+            排序字段
+            </summary>
+        </member>
+        <member name="E:HeBianGu.General.WpfControlLib.PagingDataGrid.PagingChanged">
+            <summary>
+            分页事件
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.PagingDataGrid.OnApplyTemplate">
+            <summary>
+            应用样式
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.ProgressBarControl">
+            <summary>
+            进度条
+            </summary>
+            <summary>
+            ProgressBarControl
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.ProgressBarControl_OnLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            加载后刷新
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.ProgressBarControl.EllipseCount">
+            <summary>
+            获取或设置圆圈数量
+            默认12
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.ProgressBarControl.EllipseSize">
+            <summary>
+            获取或设置圆圈大小
+            默认10
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.ProgressBarControl.CanvasSize">
+            <summary>
+            获取或设置面板大小
+            默认80
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.ProgressBarControl.StepAngle">
+            <summary>
+            获取或设置每次旋转角度
+            默认10.0
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.ProgressBarControl.TimeSpan">
+            <summary>
+            获取或设置每次旋转间隔时间（毫秒）
+            默认100毫秒
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.HandleLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Canvas加载
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.SetEclipsePosition(HeBianGu.General.WpfControlLib.ProgressBarDataModel)">
+            <summary>
+            设置圆的位置和旋转角度
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.SetEclipseOpacity(System.Int32)">
+            <summary>  设置透明度  </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.HandleUnloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Canvas卸载时
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.HandleAnimationTick(System.Object,System.EventArgs)">
+            <summary>
+            超过计时器间隔时发生。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressBarControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.ProgressBarDataModel">
+            <summary>
+            进度条Model类
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.WaitingBox">
+            <summary>
+            WaitingBox.xaml 的交互逻辑
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.DataPager">
+            <summary>
+            DataPager.xaml 的交互逻辑
+            </summary>
+            <summary>
+            DataPager
+            </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.DataPager.ItemsSourceProperty">
+            <summary>
+            ItemsSource数据源
+            </summary>
+        </member>
+        <member name="E:HeBianGu.General.WpfControlLib.DataPager.PageChanged">
+            <summary>
+            分页更改事件
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.DataPager.PageSizeItems">
+            <summary>
+            显示每页记录数集合
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.DataPager.PageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.DataPager.Start">
+            <summary>
+            开始记录数
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.DataPager.End">
+            <summary>
+            结束记录数
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.DataPager.RaisePageChanged">
+            <summary>
+            引发分页更改事件
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.DataPager.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.PageChangedEventArgs">
+            <summary>
+            分页更改参数
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.CloseStoryService">
+            <summary> 此类的说明 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.CloseStoryService.DownToUpClose(System.Windows.Window)">
+            <summary> 从下到上移动关闭窗口 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.CloseStoryService.UoToDownClose(System.Windows.Window)">
+            <summary> 从下到上移动关闭窗口 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.CloseStoryService.DownToUpOpsClose(System.Windows.Window)">
+            <summary> 从下到上渐隐藏窗体 </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.CloseStoryService.t">
+            <summary> 单例模式 </summary>
+        </member>
+        <member name="F:HeBianGu.General.WpfControlLib.CloseStoryService.localLock">
+            <summary> 多线程锁 </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.CloseStoryService.Instance">
+            <summary> 创建指定对象的单例实例 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.CloseStoryService.#ctor">
+            <summary> 禁止外部实例 </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.MessageWindow">
+            <summary>
+            MessageWindow.xaml 的交互逻辑
+            </summary>
+            <summary>
+            MessageWindow
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.MessageWindow.Result">
+            <summary> 说明 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.MessageWindow.ShowDialog(System.String,System.String,System.Tuple{System.String,System.Action}[])">
+            <summary> 显示窗口 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.MessageWindow.ShowDialogWith(System.String,System.String,System.Tuple{System.String,System.Action{HeBianGu.General.WpfControlLib.MessageWindow}}[])">
+            <summary> 显示窗口 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.MessageWindow.ShowSumit(System.String,System.String)">
+            <summary> 只有确定的按钮 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.MessageWindow.ShowDialog(System.String,System.Windows.Controls.Grid)">
+            <summary>
+            弹出消息框
+            </summary>
+            <param name="message">消息</param>
+            <param name="owner">父级窗体</param>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.MessageWindow.Window_Closed(System.Object,System.EventArgs)">
+            <summary>  窗体关闭事件  </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.MessageWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.ProgressWindow">
+            <summary>
+            ProgressWindow.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ProgressWindow
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressWindow.ShowDialogWith(System.Action{HeBianGu.General.WpfControlLib.ProgressWindow},System.String,System.Tuple{System.String,System.Action}[])">
+            <summary> 显示窗口 </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.ProgressWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:HeBianGu.General.WpfControlLib.WindowBase">
+            <summary>
+            WindowBase.xaml 的交互逻辑
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.WindowBase.FIcon">
+            <summary>
+            按钮字体图标编码
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.WindowBase.FIconSize">
+            <summary>
+            按钮字体图标大小
+            </summary>
+        </member>
+        <member name="P:HeBianGu.General.WpfControlLib.WindowBase.CaptionHeight">
+            <summary>
+            标题高度
+            </summary>
+        </member>
+        <member name="M:HeBianGu.General.WpfControlLib.WindowBase.BegionStoryClose">
+            <summary> 用于重写关闭到那个花 </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

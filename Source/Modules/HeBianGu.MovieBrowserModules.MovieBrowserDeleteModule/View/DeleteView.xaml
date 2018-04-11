@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule.View.DeleteView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule.View"
+          mc:Ignorable="d" 
+             xmlns:usercontrols="clr-namespace:HeBianGu.MovieBrower.UserControls;assembly=HeBianGu.MovieBrower.UserControls"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <usercontrols:MovieGridUserControl DataSource="{Binding CommonSource}">
+            <usercontrols:MovieGridUserControl.ContextMenu>
+                <ContextMenu  StaysOpen="true">
+                    <MenuItem Header="打开" Command="{Binding RelayCommand}" CommandParameter="Open"/>
+                    <MenuItem Header="预览" Command="{Binding RelayCommand}" CommandParameter="ShowImage"/>
+                    <MenuItem Header="还原"  Command="{Binding RelayCommand}" CommandParameter="ReLoad"/>
+                    <MenuItem Header="收藏"  Command="{Binding RelayCommand}" CommandParameter="Favorite"/>
+                    <MenuItem Header="彻底删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteDeep"/>
+                </ContextMenu>
+            </usercontrols:MovieGridUserControl.ContextMenu>
+        </usercontrols:MovieGridUserControl>
+    </Grid>
+</UserControl>

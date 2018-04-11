@@ -1,0 +1,71 @@
+﻿<Page x:Class="WpfControlDemo.View.RadarChartPagexaml"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfControlDemo.View"
+      mc:Ignorable="d" 
+     xmlns:usercontrol="clr-namespace:HeBianGu.Control.UserControls;assembly=HeBianGu.Control.UserControls"
+      Title="RadarChartPagexaml">
+
+    <Grid>
+        <StackPanel>
+                
+        <usercontrol:RadarChartControl x:Name="RadarChartControl" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <usercontrol:RadarChartControl.Arguments>
+                    <usercontrol:ArgumentModel Name="C#" ></usercontrol:ArgumentModel>
+                    <usercontrol:ArgumentModel Name="JAVA" ></usercontrol:ArgumentModel>
+                    <usercontrol:ArgumentModel Name="Python" ></usercontrol:ArgumentModel>
+                    <usercontrol:ArgumentModel Name="VB" ></usercontrol:ArgumentModel>
+                    <usercontrol:ArgumentModel Name="VB2" ></usercontrol:ArgumentModel>
+                    <usercontrol:ArgumentModel Name="其它" ></usercontrol:ArgumentModel>
+                </usercontrol:RadarChartControl.Arguments>
+                <usercontrol:RadarChartControl.Datas>
+                    <usercontrol:ChartItem Name="应聘者A" Color="#FF07C507">
+                        <usercontrol:ChartItem.DataList>
+                            <usercontrol:ChartData Data="1"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="3"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="3"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="4"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="4"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="4"></usercontrol:ChartData>
+                        </usercontrol:ChartItem.DataList>
+                    </usercontrol:ChartItem>
+                    <usercontrol:ChartItem Name="应聘者B" Color="#FF508BF3">
+                        <usercontrol:ChartItem.DataList>
+                            <usercontrol:ChartData Data="4"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="1"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="2"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="1"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="1"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="4"></usercontrol:ChartData>
+                        </usercontrol:ChartItem.DataList>
+                    </usercontrol:ChartItem>
+                    <usercontrol:ChartItem Name="应聘者C" Color="#FFF73131">
+                        <usercontrol:ChartItem.DataList>
+                            <usercontrol:ChartData Data="2"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="2"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="3"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="3"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="3"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="4"></usercontrol:ChartData>
+                        </usercontrol:ChartItem.DataList>
+                    </usercontrol:ChartItem>
+
+                    <usercontrol:ChartItem Name="应聘者D" Color="#FF93F053">
+                        <usercontrol:ChartItem.DataList>
+                            <usercontrol:ChartData Data="5"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="5"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="5"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="5"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="5"></usercontrol:ChartData>
+                            <usercontrol:ChartData Data="5"></usercontrol:ChartData>
+                        </usercontrol:ChartItem.DataList>
+                    </usercontrol:ChartItem>
+
+                </usercontrol:RadarChartControl.Datas>
+            </usercontrol:RadarChartControl>
+
+        </StackPanel>
+    </Grid>
+</Page>
