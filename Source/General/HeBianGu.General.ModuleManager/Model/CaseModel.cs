@@ -75,13 +75,13 @@ namespace HeBianGu.General.ModuleManager.Model
         //    set { _deleteJson = value; }
         //}
 
-        private bool _isOpen;
-        /// <summary> 说明 </summary>
-        public bool IsOpen
-        {
-            get { return _isOpen; }
-            set { _isOpen = value; }
-        }
+        //private bool _isOpen;
+        ///// <summary> 说明 </summary>
+        //public bool IsOpen
+        //{
+        //    get { return _isOpen; }
+        //    set { _isOpen = value; }
+        //}
 
 
 
