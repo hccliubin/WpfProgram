@@ -96,13 +96,17 @@ namespace MovieBrowserToolApp.ViewModel
         /// <summary> 说明 </summary>
         public bool IsOpen
         {
-            get { return _model.IsOpen; }
+            get { return _isOpen; }
             set
             {
-                _model.IsOpen = value;
+                _isOpen = value;
                 RaisePropertyChanged();
+
+
             }
         }
+
+
 
         /// <summary> 图片路径 </summary>
         public Icon ImagePath
