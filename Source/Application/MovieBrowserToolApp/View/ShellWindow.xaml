@@ -186,7 +186,7 @@
                             <ControlTemplate>
                                 <ScrollViewer x:Name="scrolls" Padding="{TemplateBinding Padding}"  
                                       PanningMode="Both" 
-                                      Grid.Row="1" 
+                                      Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                                       Style="{StaticResource CenterScrollViewer}">
                                     <ItemsPresenter />
                                 </ScrollViewer>

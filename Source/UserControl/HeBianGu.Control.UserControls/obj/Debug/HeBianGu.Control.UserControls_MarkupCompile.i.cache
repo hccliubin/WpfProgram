@@ -16,5 +16,5 @@ DEBUG;TRACE
 19932767191
 BatteryControl\BatteryControl.xaml;ChartControl\RadarChartControl\ChartButton.xaml;ChartControl\RadarChartControl\RadarChartControl.xaml;ChartControl\RadarChartControl\RadarChartTitleList.xaml;TPageControl\PageBar.xaml;TPageControl\TPageControl.xaml;
 
-True
+False
 
