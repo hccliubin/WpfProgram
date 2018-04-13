@@ -15,6 +15,7 @@
 */
 #endregion
 using HeBianGu.Base.WpfBase;
+using HeBianGu.General.Logger;
 using HeBianGu.General.ModuleManager.Model;
 using HeBianGu.General.ModuleManager.Service;
 using HeBianGu.MovieBrower.UserControls;
@@ -27,6 +28,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MovieBrowserToolApp.ViewModel
 {
@@ -41,6 +43,13 @@ namespace MovieBrowserToolApp.ViewModel
             RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
 
             this.LoadData();
+
+
+            // Todo ：注册运行日志 
+            Log4Servcie.Instance.RunLog += l =>
+              {
+                  Application.Current.Dispatcher.Invoke(() => this.Message = l);
+              };
         }
 
 
@@ -58,6 +67,18 @@ namespace MovieBrowserToolApp.ViewModel
             // Todo ：默认打开第一个 
             this.CurrentCase = this.CaseSource[0];
 
+        }
+
+        private string _message;
+        /// <summary> 说明 </summary>
+        public string Message
+        {
+            get { return _message; }
+            set
+            {
+                _message = value;
+                RaisePropertyChanged();
+            }
         }
 
 

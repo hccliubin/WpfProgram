@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.MovieBrower.UserCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule", "..\Source\Modules\HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule\HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule.csproj", "{01D83067-E1AD-4C6A-928B-BF5CA637F3AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.UserControls", "..\Source\UserControl\HeBianGu.Control.UserControls\HeBianGu.Control.UserControls.csproj", "{0C615DBB-F647-4386-B323-18AAA895D2C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{01D83067-E1AD-4C6A-928B-BF5CA637F3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01D83067-E1AD-4C6A-928B-BF5CA637F3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01D83067-E1AD-4C6A-928B-BF5CA637F3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,5 +120,6 @@ Global
 		{08D5A4B5-B04A-419C-81B0-EFDD6D377730} = {B1057448-CB6E-4FB3-8891-278F90E28EF9}
 		{3FEECBC2-01D1-41DA-A6EA-E90EA27C8F0D} = {67EC4BBB-A54B-4F7A-A44A-942A64D8AD97}
 		{01D83067-E1AD-4C6A-928B-BF5CA637F3AF} = {B1057448-CB6E-4FB3-8891-278F90E28EF9}
+		{0C615DBB-F647-4386-B323-18AAA895D2C1} = {67EC4BBB-A54B-4F7A-A44A-942A64D8AD97}
 	EndGlobalSection
 EndGlobal

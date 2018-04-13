@@ -74,15 +74,8 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
-
-        // Todo ：主要用来做筛选的缓存 
-        List<MovieFileViewModel> _allFileCatche = new List<MovieFileViewModel>();
-        public List<MovieFileViewModel> AllFileCatche { get => _allFileCatche; set => _allFileCatche = value; }
-
         private void Instance_CaseChanged(General.ModuleManager.Model.CaseModel obj)
         {
-
-            _allFileCatche.Clear();
             // Todo ：加载数据 
             foreach (var item in ViewModelItem)
             {
@@ -92,13 +85,11 @@ namespace HeBianGu.MovieBrower.UserControls
 
                 item.CommonSource.Clear();
 
-                foreach (var it in caseItem.Collection)
+                foreach (var it in caseItem.Collection) 
                 {
                     MovieFileViewModel vm = new MovieFileViewModel(it);
 
                     item.CommonSource.Add(vm);
-
-                    AllFileCatche.Add(vm);
                 }
             }
         }

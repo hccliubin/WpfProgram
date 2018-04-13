@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UserControls.Reports
+namespace HeBianGu.Control.UserControls
 {
     /// <summary> 分页滑动控件 </summary>
     public partial class TPageControl : UserControl
@@ -136,9 +136,11 @@ namespace UserControls.Reports
         {
             wrapPanelPages.Children.Clear();
             pageCount = 0;
-            pageSelect = 0;
+            PageSelect = 0;
             imageLeft.Visibility = System.Windows.Visibility.Hidden;
             imageRight.Visibility = System.Windows.Visibility.Hidden;
+
+            pageBar1.Clear();
         }
 
         private void _AddPage(List<Panel> panels, int defaultPageNum)
@@ -165,21 +167,26 @@ namespace UserControls.Reports
 
                 //改变页
                 if (defaultPageNum > 0)
-                    pageSelect = defaultPageNum;
-                if (pageSelect > pageCount)
-                    pageSelect = pageCount;
-                if (pageSelect == 0)
-                    pageSelect = 1;
-                Canvas.SetLeft(wrapPanelPages, -GetActualWidth() * (pageSelect - 1));
+                    PageSelect = defaultPageNum;
+                if (PageSelect > pageCount)
+                    PageSelect = pageCount;
+                if (PageSelect == 0)
+                    PageSelect = 1;
+                Canvas.SetLeft(wrapPanelPages, -GetActualWidth() * (PageSelect - 1));
+
                 //改变按钮状态
                 ChangeButtonStatus();
+
                 pageBar1.CreatePageEllipse(pageCount, ChangePage);
-                pageBar1.SelectPage(pageSelect);
+
+                pageBar1.SelectPage(PageSelect);
+
                 pageBar1.Visibility = System.Windows.Visibility.Visible;
+
             }
             else
             {
-                pageSelect = 0;
+                PageSelect = 0;
             }
 
             if (this.pageCount == 1) this.pageBar1.Visibility = Visibility.Hidden;
@@ -189,19 +196,19 @@ namespace UserControls.Reports
         {
             //改变页
             if (defaultPageNum > 0)
-                pageSelect = defaultPageNum;
-            if (pageSelect > pageCount)
-                pageSelect = pageCount;
-            if (pageSelect == 0)
-                pageSelect = 1;
-            Canvas.SetLeft(wrapPanelPages, -GetActualWidth() * (pageSelect - 1));
+                PageSelect = defaultPageNum;
+            if (PageSelect > pageCount)
+                PageSelect = pageCount;
+            if (PageSelect == 0)
+                PageSelect = 1;
+            Canvas.SetLeft(wrapPanelPages, -GetActualWidth() * (PageSelect - 1));
             //改变按钮状态
             ChangeButtonStatus();
 
 
 
             pageBar1.CreatePageEllipse(pageCount, ChangePage);
-            pageBar1.SelectPage(pageSelect);
+            pageBar1.SelectPage(PageSelect);
             pageBar1.Visibility = System.Windows.Visibility.Visible;
 
             if (this.pageCount == 1) this.pageBar1.Visibility = Visibility.Hidden;
@@ -209,9 +216,9 @@ namespace UserControls.Reports
 
         void ChangePage(int index)
         {
-            this.pageSelect = index;
+            this.PageSelect = index;
 
-            Canvas.SetLeft(wrapPanelPages, -(pageSelect - 1) * GetActualWidth());
+            Canvas.SetLeft(wrapPanelPages, -(PageSelect - 1) * GetActualWidth());
         }
 
 
@@ -228,7 +235,7 @@ namespace UserControls.Reports
             }
             if (isRight)
             {
-                if (pageSelect == pageCount)
+                if (PageSelect == pageCount)
                 {
                     lock (changeLock)
                     {
@@ -241,8 +248,8 @@ namespace UserControls.Reports
 
                     isInMove = true;
                     double listLeft_now = Canvas.GetLeft(wrapPanelPages);
-                    double listLeft_sur = -(pageSelect - 1) * pageWidth;
-                    double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                    double listLeft_sur = -(PageSelect - 1) * pageWidth;
+                    double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                     double toX = -pageWidth;
                     double time = 1000 * Math.Abs(Math.Abs(toX) - Math.Abs(formX)) / pageWidth;
                     sboardRightBegin(formX, toX, time);
@@ -250,7 +257,7 @@ namespace UserControls.Reports
             }
             else
             {
-                if (pageSelect == 1)
+                if (PageSelect == 1)
                 {
                     lock (changeLock)
                     {
@@ -262,9 +269,9 @@ namespace UserControls.Reports
                 {
                     isInMove = true;
                     double listLeft_now = Canvas.GetLeft(wrapPanelPages);
-                    double listLeft_sur = -(pageSelect - 1) * pageWidth;
+                    double listLeft_sur = -(PageSelect - 1) * pageWidth;
                     //启动左翻动画-翻页
-                    double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                    double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                     double toX = pageWidth;
                     double time = 1000 * Math.Abs(Math.Abs(toX) - Math.Abs(formX)) / pageWidth;
                     sboardLeftBegin(formX, toX, time);
@@ -279,19 +286,19 @@ namespace UserControls.Reports
             {
                 return;
             }
-            if (pageSelect == 1 && pageCount == 1)
+            if (PageSelect == 1 && pageCount == 1)
             {
                 imageLeft.Visibility = System.Windows.Visibility.Hidden;
                 imageRight.Visibility = System.Windows.Visibility.Hidden;
             }
-            else if (pageSelect == 1 && pageCount > 1)
+            else if (PageSelect == 1 && pageCount > 1)
             {
                 imageLeft.Visibility = System.Windows.Visibility.Hidden;
                 imageRight.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
-                if (pageSelect == pageCount)
+                if (PageSelect == pageCount)
                 {
                     imageLeft.Visibility = System.Windows.Visibility.Visible;
                     imageRight.Visibility = System.Windows.Visibility.Hidden;
@@ -354,15 +361,15 @@ namespace UserControls.Reports
             isDown = false;
             isMoveSure = false;
             double listLeft_now = Canvas.GetLeft(wrapPanelPages);
-            double listLeft_sur = -(pageSelect - 1) * pageWidth;
+            double listLeft_sur = -(PageSelect - 1) * pageWidth;
             //右翻页动作
             if (listLeft_now < listLeft_sur)
             {
-                if (pageSelect == pageCount)
+                if (PageSelect == pageCount)
                 {
                     //已经达到最大页面-回滚
                     isInMove = true;
-                    double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                    double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                     double toX = 0;
                     double time = 1000 * Math.Abs(formX) / pageWidth;
                     Canvas.SetLeft(wrapPanelPages, listLeft_sur);
@@ -382,7 +389,7 @@ namespace UserControls.Reports
                     {
                         //启动右翻动画-翻页
                         isInMove = true;
-                        double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                        double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                         double toX = -pageWidth;
                         double time = 1000 * Math.Abs(Math.Abs(toX) - Math.Abs(formX)) / pageWidth;
                         Canvas.SetLeft(wrapPanelPages, listLeft_sur);
@@ -394,7 +401,7 @@ namespace UserControls.Reports
                     {
                         //未达到翻页要求-回滚
                         isInMove = true;
-                        double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                        double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                         double toX = 0;
                         double time = 1000 * Math.Abs(formX) / pageWidth;
                         Canvas.SetLeft(wrapPanelPages, listLeft_sur);
@@ -408,10 +415,10 @@ namespace UserControls.Reports
             else
             {
                 //第一页左翻-回滚
-                if (pageSelect == 1)
+                if (PageSelect == 1)
                 {
                     isInMove = true;
-                    double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                    double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                     double toX = 0;
                     double time = 1000 * Math.Abs(formX) / pageWidth;
                     Canvas.SetLeft(wrapPanelPages, listLeft_sur);
@@ -432,7 +439,7 @@ namespace UserControls.Reports
                     {
                         isInMove = true;
                         //启动左翻动画-翻页
-                        double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                        double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                         double toX = pageWidth;
                         double time = 1000 * Math.Abs(Math.Abs(toX) - Math.Abs(formX)) / pageWidth;
                         Canvas.SetLeft(wrapPanelPages, listLeft_sur);
@@ -444,7 +451,7 @@ namespace UserControls.Reports
                     {
                         isInMove = true;
                         //未达到翻页要求-回滚
-                        double formX = listLeft_now + (pageSelect - 1) * pageWidth;
+                        double formX = listLeft_now + (PageSelect - 1) * pageWidth;
                         double toX = 0;
                         double time = 1000 * Math.Abs(formX) / pageWidth;
                         Canvas.SetLeft(wrapPanelPages, listLeft_sur);
@@ -460,41 +467,24 @@ namespace UserControls.Reports
 
         #region 翻页按钮
 
-        private void imageLeft_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            imageLeft.Effect = new DropShadowEffect();
-        }
-
-        private void imageLeft_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            imageLeft.Effect = null;
-        }
-
         private void imageLeft_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
 
-            this.imageLeft.Source = new BitmapImage(new Uri("Images/左滑.png", UriKind.Relative));
+            //this.imageLeft.Source = new BitmapImage(new Uri("Images/左滑.png", UriKind.Relative));
             //翻页
-            sboardLeftIamge.Begin();
+            //sboardLeftIamge.Begin();
 
             ChangePage(false);
         }
 
-        private void imageRight_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            imageRight.Effect = new DropShadowEffect();
-        }
 
-        private void imageRight_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            imageRight.Effect = null;
-        }
 
         private void imageRight_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            this.imageRight.Source = new BitmapImage(new Uri("Images/右滑.png", UriKind.Relative));
+            //this.imageRight.Source = new BitmapImage(new Uri("Images/右滑.png", UriKind.Relative));
             //翻页
-            sboardRightIamge.Begin();
+            //sboardRightIamge.Begin();
+
             ChangePage(true);
         }
 
@@ -532,46 +522,50 @@ namespace UserControls.Reports
         //右翻页结束
         private void sboardRight_Completed(object sender, EventArgs e)
         {
-            pageSelect++;
-            pageBar1.SelectPage(pageSelect);
+            PageSelect++;
+
+            pageBar1.SelectPage(PageSelect);
+
             sboard.Stop();
+
             ChangeButtonStatus();
-            Canvas.SetLeft(wrapPanelPages, -(pageSelect - 1) * GetActualWidth());
+
+            Canvas.SetLeft(wrapPanelPages, -(PageSelect - 1) * GetActualWidth());
             lock (changeLock)
             {
                 isInMove = false;
             }
 
             if (this.SelectChanged != null)
-                this.SelectChanged(pageSelect);
+                this.SelectChanged(PageSelect);
         }
 
         //左翻页结束
         private void sboardLeft_Completed(object sender, EventArgs e)
         {
-            pageSelect--;
-            pageBar1.SelectPage(pageSelect);
+            PageSelect--;
+            pageBar1.SelectPage(PageSelect);
             sboard.Stop();
             ChangeButtonStatus();
-            Canvas.SetLeft(wrapPanelPages, -(pageSelect - 1) * GetActualWidth());
+            Canvas.SetLeft(wrapPanelPages, -(PageSelect - 1) * GetActualWidth());
             lock (changeLock)
             {
                 isInMove = false;
             }
 
             if (this.SelectChanged != null)
-                this.SelectChanged(pageSelect);
+                this.SelectChanged(PageSelect);
         }
 
-        private void imageLeft_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            this.imageLeft.Source = new BitmapImage(new Uri("Images/left.png", UriKind.Relative));
-        }
+        //private void imageLeft_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    this.imageLeft.Source = new BitmapImage(new Uri("Images/left.png", UriKind.Relative));
+        //}
 
-        private void imageRight_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            this.imageRight.Source = new BitmapImage(new Uri("Images/right.png", UriKind.Relative));
-        }
+        //private void imageRight_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    this.imageRight.Source = new BitmapImage(new Uri("Images/right.png", UriKind.Relative));
+        //}
 
         #endregion
 
@@ -584,19 +578,20 @@ namespace UserControls.Reports
 
         public void OnNext()
         {
-            this.imageRight_MouseLeftButtonDown(null, null);
+            ChangePage(true);
         }
 
         public void OnLast()
         {
-            this.imageLeft_MouseLeftButtonDown(null, null);
+
+            ChangePage(false);
         }
 
         public bool CanNext
         {
             get
             {
-                return this.pageSelect < this.pageCount - 1;
+                return this.PageSelect < this.pageCount - 1;
             }
         }
 
@@ -604,7 +599,7 @@ namespace UserControls.Reports
         {
             get
             {
-                return this.pageSelect > 0;
+                return this.PageSelect > 0;
             }
         }
 
@@ -622,8 +617,6 @@ namespace UserControls.Reports
 
                     FindAll<T>(p, collection);
                 }
-
-
             }
 
             return collection;
@@ -789,7 +782,7 @@ namespace UserControls.Reports
 
                 tPageControl1.ClearPage();
 
-                foreach (var item in ctrls.Cast<Control>())
+                foreach (var item in ctrls.Cast<System.Windows.Controls.Control>())
                 {
                     WrapPanel rectangle = new WrapPanel();
                     rectangle.Width = tPageControl1.Width;
@@ -822,7 +815,7 @@ namespace UserControls.Reports
 
                 this.ClearPage();
 
-                foreach (var item in ctrls.Cast<Control>())
+                foreach (var item in ctrls.Cast<System.Windows.Controls.Control>())
                 {
                     WrapPanel rectangle = new WrapPanel();
                     rectangle.Width = this.Width;
@@ -852,9 +845,21 @@ namespace UserControls.Reports
             set { SetValue(BindControlsProperty, value); }
         }
 
+        public int PageSelect { get => pageSelect; set => pageSelect = value; }
+
         // Using a DependencyProperty as the backing store for BindControls.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BindControlsProperty =
             DependencyProperty.Register("BindControls", typeof(List<UserControl>), typeof(TPageControl), new PropertyMetadata(null,PropertyChangedCallback));
+
+        private void imageRight_Click(object sender, RoutedEventArgs e)
+        {
+            this.OnNext();
+        }
+
+        private void imageLeft_Click(object sender, RoutedEventArgs e)
+        {
+            this.OnLast();
+        }
 
         public static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -920,7 +925,7 @@ namespace UserControls.Reports
             Storyboard.SetTarget(animation, element);
             DependencyProperty[] propertyChain = new DependencyProperty[]
                     {
-                        Control.RenderTransformProperty,
+                        System.Windows.Controls.Control.RenderTransformProperty,
                         TransformGroup.ChildrenProperty,
                         TranslateTransform.XProperty,
                     };

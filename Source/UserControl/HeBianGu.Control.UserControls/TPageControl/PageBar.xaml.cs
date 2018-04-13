@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace UserControls.Reports
+namespace HeBianGu.Control.UserControls
 {
     /// <summary>
     /// PageBar.xaml 的交互逻辑
@@ -29,7 +29,9 @@ namespace UserControls.Reports
         public void CreatePageEllipse(int pagecout, Action<int> action)
         {
             canvas1.Children.Clear();
+
             ellipseList.Clear();
+
             //设置控件长度
             canvas1.Width = this.Width = ellipse_Peripheral + (ellipse_Diameter + ellipse_Peripheral) * pagecout;
             //画点
@@ -69,5 +71,15 @@ namespace UserControls.Reports
                 }
             }
         }
+
+
+        /// <summary> 清理 </summary>
+        public void Clear()
+        {
+            canvas1.Children.Clear();
+
+            ellipseList.Clear();
+        }
+
     }
 }

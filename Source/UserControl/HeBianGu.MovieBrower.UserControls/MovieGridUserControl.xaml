@@ -11,6 +11,7 @@
              xmlns:evaluatecontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.EvaluateControl"
              xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:imageviewcontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.ImageViewControl"
              mc:Ignorable="d" >
     <UserControl.Resources>
         <collections:ArrayList x:Key="OrderItems">
@@ -141,7 +142,7 @@
 
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="370"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -173,10 +174,17 @@
                  ItemsSource="{Binding CommonSource}"
                  SelectedItem="{Binding SelectItem}"  FontSize="12" 
                  base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}"
-                 >
-      
+                 SelectionChanged="lb_list_SelectionChanged"
+                 MouseDoubleClick="lb_list_MouseDoubleClick">
         </ListBox>
 
+        <imageviewcontrol:ImageViewUserControl x:Name="imageView" Grid.Row="1" Grid.Column="2" ImagePaths="{Binding ImagePath}" SelectValue="{Binding SelectImage,Mode=TwoWay}" >
+            <imageviewcontrol:ImageViewUserControl.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteImage"/>
 
+                </ContextMenu>
+            </imageviewcontrol:ImageViewUserControl.ContextMenu>
+        </imageviewcontrol:ImageViewUserControl>
     </Grid>
 </UserControl>

@@ -8,7 +8,7 @@
              xmlns:usercontrols="clr-namespace:HeBianGu.MovieBrower.UserControls;assembly=HeBianGu.MovieBrower.UserControls"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <usercontrols:MovieGridUserControl DataSource="{Binding CommonSource}">
+        <usercontrols:MovieGridUserControl x:Name="mgu_list" DataSource="{Binding CommonSource}">
             <usercontrols:MovieGridUserControl.ContextMenu>
                 <ContextMenu  StaysOpen="true">
                     <MenuItem Header="打开" Command="{Binding RelayCommand}" CommandParameter="Open"/>

@@ -1,4 +1,5 @@
-﻿using HeBianGu.General.ModuleManager.ModuleManager;
+﻿using HeBianGu.Base.Util;
+using HeBianGu.General.ModuleManager.ModuleManager;
 using HeBianGu.General.ModuleManager.Service;
 using HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule;
 using Microsoft.Practices.Prism.Modularity;
@@ -74,6 +75,14 @@ namespace MovieBrowserToolApp
                     this.RegionManager.RequestNavigate(RegionNames.MainContentRegion, InboxViewUri);
                 }
             };
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+
+            // Todo ：注册监视剪贴板 
+            ClipBoardRegisterService.Instance.Register(this);
         }
     }
 }

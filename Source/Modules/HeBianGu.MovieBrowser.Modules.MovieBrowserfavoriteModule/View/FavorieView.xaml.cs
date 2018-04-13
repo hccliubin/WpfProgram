@@ -1,4 +1,5 @@
 ﻿using HeBianGu.MovieBrower.UserControls;
+using HeBianGu.MovieBrower.UserControls.DataManager;
 using HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -25,18 +26,35 @@ namespace HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule.View
     public partial class FavorieView : UserControl
     {
 
+        MovieBroswerViewModelBase _viewModel;
+
+
         public FavorieView()
         {
             InitializeComponent();
 
-            this.DataContext = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == General.ModuleManager.Model.FileType.Favorate);
+            _viewModel = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == General.ModuleManager.Model.FileType.Favorate);
 
-            this.Loaded += FavorieView_Loaded;
+            this.DataContext = _viewModel;
+
+            this.Loaded += CommonContent_Loaded;
+
+            this.mgu_list.LeftClilk += (object sender, RoutedEventArgs e) =>
+            {
+                _viewModel.DoCommandWith("ShowImage");
+            };
+
+            this.mgu_list.DoubleClilk += (object sender, RoutedEventArgs e) =>
+            {
+                _viewModel.DoCommandWith("Open");
+            };
+
         }
 
-        private void FavorieView_Loaded(object sender, RoutedEventArgs e)
+
+        private void CommonContent_Loaded(object sender, RoutedEventArgs e)
         {
-            //_vm.RelayCommand.Execute("Load");
+
         }
     }
 }

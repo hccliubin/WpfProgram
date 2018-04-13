@@ -1,10 +1,12 @@
-﻿<UserControl x:Class="UserControls.Reports.TPageControl"
+﻿<UserControl x:Class="HeBianGu.Control.UserControls.TPageControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:UserControls.Reports" 
+             xmlns:local="clr-namespace:HeBianGu.Control.UserControls"
+             xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
              mc:Ignorable="d"  Background="Transparent" >
+    
     <UserControl.Resources>
         <Storyboard x:Key="StoryboardRightImage">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="imageRight">
@@ -47,23 +49,26 @@
         </Rectangle>-->
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="LeftGrid" Width="0"/>
+                <ColumnDefinition x:Name="LeftGrid" Width="50"/>
                 <ColumnDefinition Width="0"/>
                 <ColumnDefinition x:Name="CenterGrid" Width="*"/>
-                <ColumnDefinition x:Name="RightGrid" Width="0"/>
+                <ColumnDefinition x:Name="RightGrid" Width="50"/>
                 <ColumnDefinition Width="0"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <!--<RowDefinition Height="40"/>-->
-                <RowDefinition Height="230*"/>
-                <!--<RowDefinition Height="40"/>-->
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
 
             <Border Grid.Column="2"  Grid.Row="1"  CornerRadius="10" Background="{StaticResource CheckForeground}" ></Border>
 
-            <Image x:Name="imageLeft" Grid.Column="0" Grid.ColumnSpan="2"  Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="87" Width="86"
-               MouseEnter="imageLeft_MouseEnter" MouseLeave="imageLeft_MouseLeave" MouseLeftButtonDown="imageLeft_MouseLeftButtonDown" MouseLeftButtonUp="imageLeft_MouseLeftButtonUp"
+            <!--<Image x:Name="imageLeft" Grid.Column="0" Grid.ColumnSpan="2"  Stretch="Fill" 
+                   RenderTransformOrigin="0.5,0.5" Height="87" Width="86"
+                   MouseEnter="imageLeft_MouseEnter" MouseLeave="imageLeft_MouseLeave" 
+                   MouseLeftButtonDown="imageLeft_MouseLeftButtonDown" 
+                   MouseLeftButtonUp="imageLeft_MouseLeftButtonUp"
                    Visibility="Hidden" >
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -73,10 +78,11 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
+            </Image>-->
 
-            </Image>
-            <Image x:Name="imageRight" Grid.Column="3" Grid.RowSpan="2" Stretch="Fill" RenderTransformOrigin="0.5,0.5"  Height="87" Width="86"
-               MouseEnter="imageRight_MouseEnter" MouseLeave="imageRight_MouseLeave" MouseLeftButtonDown="imageRight_MouseLeftButtonDown" MouseLeftButtonUp="imageRight_MouseLeftButtonUp" Visibility="Hidden" Margin="29,136,28,136" Grid.ColumnSpan="2">
+            <!--<Image x:Name="imageRight" Grid.Column="3" Grid.RowSpan="2" Stretch="Fill" RenderTransformOrigin="0.5,0.5"  Height="87" Width="86"
+               MouseEnter="imageRight_MouseEnter" MouseLeave="imageRight_MouseLeave" MouseLeftButtonDown="imageRight_MouseLeftButtonDown" 
+                   MouseLeftButtonUp="imageRight_MouseLeftButtonUp" Visibility="Hidden" Margin="29,136,28,136" Grid.ColumnSpan="2">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -85,16 +91,35 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
-            </Image>
+            </Image>-->
+
+
+            <wpfcontrollib:FButton x:Name="imageLeft" Click="imageLeft_Click" ToolTip="上一页" Grid.Column="0" Grid.RowSpan="2" FIcon="&#xe671;" Style="{StaticResource FButton_Transparency}">
+                <wpfcontrollib:FButton.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="50"  Color="#007ACC" />
+                </wpfcontrollib:FButton.Effect>
+            </wpfcontrollib:FButton>
+
+            <wpfcontrollib:FButton x:Name="imageRight" Click="imageRight_Click" ToolTip="下一页" Grid.Column="3" Grid.RowSpan="2" FIcon="&#xe66d;" Style="{StaticResource FButton_Transparency}">
+                <wpfcontrollib:FButton.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="50"  Color="#007ACC" />
+                </wpfcontrollib:FButton.Effect>
+            </wpfcontrollib:FButton>
             
-            
-            <ScrollViewer Name="scrolls" Grid.Column="2" Grid.Row="1"  PreviewMouseDown="scrolls_PreviewMouseDown" PreviewMouseMove="scrolls_PreviewMouseMove" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
-                <Canvas   Name="canvasPageContent" Height="2000" Width="1500" Background="Transparent"   PreviewMouseLeftButtonDown="canvasPageContent_PreviewMouseLeftButtonDown" 
-                          PreviewMouseLeftButtonUp="canvasPageContent_PreviewMouseLeftButtonUp" PreviewMouseMove="canvasPageContent_PreviewMouseMove" 
-                          MouseLeave="canvasPageContent_MouseLeave" SizeChanged="canvasPageContent_SizeChanged">
+            <ScrollViewer Name="scrolls" Grid.Column="2" Grid.Row="1"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                          PreviewMouseDown="scrolls_PreviewMouseDown" PreviewMouseMove="scrolls_PreviewMouseMove" 
+                          HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
+                
+                <Canvas   Name="canvasPageContent" Background="Transparent"   
+                          PreviewMouseLeftButtonDown="canvasPageContent_PreviewMouseLeftButtonDown" 
+                          PreviewMouseLeftButtonUp="canvasPageContent_PreviewMouseLeftButtonUp" 
+                          PreviewMouseMove="canvasPageContent_PreviewMouseMove" 
+                          MouseLeave="canvasPageContent_MouseLeave" 
+                          SizeChanged="canvasPageContent_SizeChanged">
                 <Canvas.Clip>
                     <RectangleGeometry x:Name="canvasPageRectangle" RadiusX="0" RadiusY="0" Rect="0,0,380,360" />
                 </Canvas.Clip>
+                    
                 <WrapPanel Canvas.Left="0" Name="wrapPanelPages" Width="{Binding ActualWidth, ElementName=canvasPageContent, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=canvasPageContent, Mode=OneWay}">
                     <WrapPanel.RenderTransform>
                         <TransformGroup>
@@ -107,9 +132,12 @@
                 </WrapPanel>
             </Canvas>
             </ScrollViewer>
+            
         </Grid>
+        
         <Grid Height="20" VerticalAlignment="Bottom">
             <local:PageBar HorizontalAlignment="Center" x:Name="pageBar1" VerticalAlignment="Center" Visibility="Hidden"/>
         </Grid>
+        
     </Grid>
 </UserControl>

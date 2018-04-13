@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:MovieBrowserToolApp"
        xmlns:prism="http://www.codeplex.com/prism"                 
     Style="{StaticResource ResourceKey=DefaultWindowStyle}"
-    Height="855" Width="1014">
+    Height="600" Width="1100">
 
     <Window.Resources>
         <!--创建菜单资源-->
@@ -207,8 +207,10 @@
                             AutomationProperties.AutomationId="PositionSummaryTab" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
 
                 </Grid>
+
             </Grid>
         </Grid>
+        <windowbase:FButton Grid.Row="3" Style="{StaticResource FButton_Transparency}" FIcon="&#xe6b5;" Content="{Binding Message}" HorizontalAlignment="Left"/>
 
     </Grid>
 </windowbase:WindowBase>

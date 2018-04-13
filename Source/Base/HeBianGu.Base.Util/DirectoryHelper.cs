@@ -390,7 +390,6 @@ namespace HeBianGu.Base.Util
 
                     if (match == null || match(dd))
                     {
-
                         ss.Add(d.FullName);
                     }
                 }
@@ -398,8 +397,5 @@ namespace HeBianGu.Base.Util
 
             return ss;
         }
-
-
-
     }
 }

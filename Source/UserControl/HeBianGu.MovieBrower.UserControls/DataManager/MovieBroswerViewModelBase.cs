@@ -16,6 +16,7 @@
 #endregion
 using HeBianGu.Base.Util;
 using HeBianGu.Base.WpfBase;
+using HeBianGu.General.Logger;
 using HeBianGu.General.ModuleManager.Model;
 using HeBianGu.General.ModuleManager.Service;
 using HeBianGu.General.WpfControlLib;
@@ -32,6 +33,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace HeBianGu.MovieBrower.UserControls.DataManager
@@ -82,6 +84,28 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
         public MovieBroswerViewModelBase()
         {
             RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
+
+            ClipBoardRegisterService.Instance.ClipBoardChanged += Instance_ClipBoardChanged;
+
+
+        }
+
+        private void Instance_ClipBoardChanged()
+        {
+            //Todo  ：复制的图片 
+            BitmapSource bit = System.Windows.Clipboard.GetImage();
+
+            if (bit != null)
+            {
+                if (this.SelectItem != null)
+                {
+                    this.ButtonClickFunc("InsertImage");
+
+                    this.ButtonClickFunc("ShowImage");
+
+                    Log4Servcie.Instance.Info("保存图片成功！" + this.Type);
+                }
+            }
         }
 
         FileType _type = FileType.Normal;
@@ -127,6 +151,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
             else if (buttonName == "Favorite")
             {
+                if (this.SelectItem == null) return;
+
                 var favorite = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == FileType.Favorate);
 
                 favorite.CommonSource.Add(this.SelectItem);
@@ -137,6 +163,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
             else if (buttonName == "Delete")
             {
+                if (this.SelectItem == null) return;
+
                 var delete = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == FileType.Delete);
 
                 delete.CommonSource.Add(this.SelectItem);
@@ -146,6 +174,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
             else if (buttonName == "DeleteDeep")
             {
+                if (this.SelectItem == null) return;
+
                 string folderFullName = Path.GetDirectoryName(this.SelectItem.FilePath);
 
                 var folderName = Path.GetFileNameWithoutExtension(folderFullName);
@@ -161,7 +191,6 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.CommonSource.Remove(this.SelectItem);
 
-                MovieBrowserDataManager.Instance.AllFileCatche.Remove(this.SelectItem);
             }
 
             else if (buttonName == "ReLoad")
@@ -175,36 +204,61 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             else if (buttonName == "ShowImage")
             {
 
+                if (this.SelectItem == null) return;
+
                 var folder = Path.GetDirectoryName(this.SelectItem.FilePath);
 
                 var collection = DirectoryHelper.GetAllFile(folder, l => l.Extension.EndsWith("jpg"));
 
+                collection.Reverse();
+
+                List<string> cs = new List<string>();
+
                 if (collection == null || collection.Count == 0)
                 {
-                    MessageWindow.ShowDialog("不存在预览图片！");
+                    Log4Servcie.Instance.Info("不存在预览图片");
+                    this.ImagePath = new ObservableCollection<string>();
                     return;
                 }
 
+                this.ImagePath.Clear();
+
+                ObservableCollection<string> ss = new ObservableCollection<string>();
+
                 foreach (var item in collection)
                 {
-                    Process.Start(item);
+                    ss.Add(item);
                 }
+
+                this.ImagePath = ss;
+
+                //foreach (var item in collection)
+                //{
+
+                //    UserControl uc = new UserControl();
+
+                //    System.Windows.Controls.Image image = new System.Windows.Controls.Image();
+
+                //    image.Source = new BitmapImage(new Uri(item, UriKind.Absolute));
+
+                //    uc.Content = image;
+
+                //    image.Margin = new Thickness(50);
+
+                //    cs.Add(uc);
+                //}
+
+                //this.Controls = cs;
             }
             else if (buttonName == "InsertImage")
             {
+                if (this.SelectItem == null) return;
 
                 string folder = Path.GetDirectoryName(this.SelectItem.FilePath);
 
                 string imageName = Path.GetFileNameWithoutExtension(this.SelectItem.FilePath);
 
-                string imagePath = Path.Combine(folder, imageName + ".jpg");
-
-                // Todo ：如果存在生成随机图片名称
-                if (File.Exists(imagePath))
-                {
-                    imagePath = Path.Combine(folder, imageName + Guid.NewGuid() + ".jpg");
-                }
-
+                string imagePath = Path.Combine(folder, imageName +DateTime.Now.ToString("yyyyMMddhhmmss")+ ".jpg");
 
                 var image = Clipboard.GetImage();
 
@@ -232,8 +286,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
             else if (buttonName == "Refresh")
             {
-
-                var filters = this.FilterType.Split(new char[] { '\\' },StringSplitOptions.RemoveEmptyEntries).ToList();
+                var filters = this.FilterType.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 List<MovieFileViewModel> items = new List<MovieFileViewModel>();
 
@@ -260,7 +313,6 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                     items = this.CommonSource.OrderByDescending(l => l.Size).ToList();
                 }
 
-
                 // Todo ：匹配规则 
                 Predicate<string> match = l =>
                   {
@@ -278,7 +330,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                       return true;
                   };
 
-              
+
                 this.CommonSource.Clear();
 
                 foreach (var item in items)
@@ -288,7 +340,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                     this.CommonSource.Add(item);
                 }
 
-                var matchIitems = items.FindAll(l => filters.Count==0|| filters.Exists(k => match(l.Type))).ToList();
+                var matchIitems = items.FindAll(l => filters.Count == 0 || filters.Exists(k => match(l.Type))).ToList();
 
                 //var matchIitems = MovieBrowserDataManager.Instance.AllFileCatche.FindAll(l => filters.Exists(k => match(l.Type))).ToList()
 
@@ -298,7 +350,21 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
             }
 
+            else if(buttonName== "DeleteImage")
+            {
+                this.ImagePath.Remove(this.SelectImage);
 
+                ObservableCollection<string> collection = new ObservableCollection<string>();
+
+                foreach (var item in this.ImagePath)
+                {
+                    collection.Add(item);
+                }
+
+                this.ImagePath = collection;
+
+                //File.Delete(this.SelectImage);
+            }
             // Todo ：全选 
             if (obj is bool)
             {
@@ -309,6 +375,12 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
             }
 
+        }
+
+        /// <summary> 触发命令 </summary>
+        public void DoCommandWith(object obj)
+        {
+            this.RelayCommand.Execute(obj);
         }
 
 
@@ -324,7 +396,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
-        private string _filterType=string.Empty;
+        private string _filterType = string.Empty;
         /// <summary> 说明 </summary>
         public string FilterType
         {
@@ -336,7 +408,30 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
-   
+
+        private ObservableCollection<string> _imagePath=new ObservableCollection<string>();
+        /// <summary> 说明 </summary>
+        public ObservableCollection<string> ImagePath
+        {
+            get { return _imagePath; }
+            set
+            {
+                _imagePath = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _selectImage;
+        /// <summary> 说明 </summary>
+        public string SelectImage
+        {
+            get { return _selectImage; }
+            set
+            {
+                _selectImage = value;
+                RaisePropertyChanged();
+            }
+        }
 
 
     }

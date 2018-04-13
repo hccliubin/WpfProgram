@@ -31,6 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -42,10 +44,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionExtention.cs" />
     <Compile Include="BaseFactory.cs" />
+    <Compile Include="ClipBoardRegisterService.cs" />
     <Compile Include="ObjectExtend.cs" />
     <Compile Include="ConvertExtention.cs" />
     <Compile Include="KeyHelper.cs" />

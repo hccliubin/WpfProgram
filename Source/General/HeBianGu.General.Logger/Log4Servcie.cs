@@ -15,6 +15,8 @@ namespace HeBianGu.General.Logger
 
         public static Log4Servcie Instance = new Log4Servcie();
 
+        public event Action<string> RunLog;
+
         #region - 内部方法 -
 
         void InitLogPath(string repository)
@@ -111,6 +113,11 @@ namespace HeBianGu.General.Logger
             foreach (var item in message)
             {
                 Logger.Info(message);
+
+                if (this.RunLog != null)
+                {
+                    this.RunLog(item);
+                }
             }
         }
 

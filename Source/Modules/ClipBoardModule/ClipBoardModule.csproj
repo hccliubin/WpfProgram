@@ -59,7 +59,6 @@
     <Compile Include="Provider\ClipBoardProvider.cs" />
     <Compile Include="Provider\SaveBoardProvider.cs" />
     <Compile Include="SaveBoardModule.cs" />
-    <Compile Include="Service\ClipBoardRegisterService.cs" />
     <Compile Include="ViewModel\ClipBoardViewModel.cs" />
     <Compile Include="ViewModel\SaveBoardViewModel.cs" />
     <Compile Include="View\ClipBoardContent.xaml.cs">
@@ -118,7 +117,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Service\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Base\HeBianGu.Base.Util\HeBianGu.Base.Util.csproj">
       <Project>{06ffa263-bffa-45df-8e59-dc8fbe0b3007}</Project>

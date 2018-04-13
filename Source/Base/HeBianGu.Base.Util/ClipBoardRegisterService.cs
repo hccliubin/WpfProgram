@@ -14,7 +14,6 @@
  * ========================================================================
 */
 #endregion
-using HeBianGu.Base.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +23,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace ClipBoardModule.Service
+namespace HeBianGu.Base.Util
 {
 
     /// <summary> 剪贴板服务 </summary>

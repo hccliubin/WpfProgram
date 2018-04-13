@@ -1,4 +1,5 @@
 ﻿using HeBianGu.MovieBrower.UserControls;
+using HeBianGu.MovieBrower.UserControls.DataManager;
 using HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -24,19 +25,35 @@ namespace HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule.View
     [Export("DeleteView")]
     public partial class DeleteView : UserControl
     {
+        MovieBroswerViewModelBase _viewModel;
+
+
         public DeleteView()
         {
             InitializeComponent();
 
-            this.DataContext = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == General.ModuleManager.Model.FileType.Delete);
+            _viewModel = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == General.ModuleManager.Model.FileType.Delete);
+
+            this.DataContext = _viewModel;
 
             this.Loaded += CommonContent_Loaded;
 
+            this.mgu_list.LeftClilk += (object sender, RoutedEventArgs e) =>
+            {
+                _viewModel.DoCommandWith("ShowImage");
+            };
+
+            this.mgu_list.DoubleClilk += (object sender, RoutedEventArgs e) =>
+            {
+                _viewModel.DoCommandWith("Open");
+            };
+
         }
+
 
         private void CommonContent_Loaded(object sender, RoutedEventArgs e)
         {
-            //_vm.RelayCommand.Execute("Load");
+
         }
     }
 }

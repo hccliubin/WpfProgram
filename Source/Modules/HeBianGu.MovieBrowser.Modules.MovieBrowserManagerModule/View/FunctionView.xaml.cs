@@ -1,4 +1,5 @@
 ﻿using HeBianGu.MovieBrower.UserControls;
+using HeBianGu.MovieBrower.UserControls.DataManager;
 using HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -24,16 +25,31 @@ namespace HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule.View
     [Export("FunctionView")]
     public partial class FunctionView : UserControl
     {
-        
+        MovieBroswerViewModelBase _viewModel;
+
+
         public FunctionView()
         {
             InitializeComponent();
 
-            this.DataContext = MovieBrowserDataManager.Instance.ViewModelItem.Find(l=>l.Type==General.ModuleManager.Model.FileType.Normal);
+            _viewModel= MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == General.ModuleManager.Model.FileType.Normal);
+
+            this.DataContext = _viewModel;
 
             this.Loaded += CommonContent_Loaded;
-        
+
+            this.mgu_list.LeftClilk += (object sender, RoutedEventArgs e) =>
+            {
+                _viewModel.DoCommandWith("ShowImage");
+            };
+
+            this.mgu_list.DoubleClilk += (object sender, RoutedEventArgs e) =>
+            {
+                _viewModel.DoCommandWith("Open");
+            };
+            
         }
+
 
         private void CommonContent_Loaded(object sender, RoutedEventArgs e)
         {

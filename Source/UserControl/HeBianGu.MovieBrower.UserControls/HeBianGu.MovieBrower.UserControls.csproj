@@ -62,6 +62,12 @@
     <Compile Include="EvaluateControl\FivePointUserControl.xaml.cs">
       <DependentUpon>FivePointUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageViewControl\ImageItemUserControl.xaml.cs">
+      <DependentUpon>ImageItemUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageViewControl\ImageViewUserControl.xaml.cs">
+      <DependentUpon>ImageViewUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MovieGridUserControl.xaml.cs">
       <DependentUpon>MovieGridUserControl.xaml</DependentUpon>
     </Compile>
@@ -96,6 +102,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ImageViewControl\ImageItemUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageViewControl\ImageViewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MovieGridUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,6 +124,10 @@
       <Project>{435feb82-599f-48e3-8891-755acf8e4117}</Project>
       <Name>HeBianGu.Base.WpfBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\General\HeBianGu.General.Logger\HeBianGu.General.Logger.csproj">
+      <Project>{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}</Project>
+      <Name>HeBianGu.General.Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\General\HeBianGu.General.ModuleManager\HeBianGu.General.ModuleManager.csproj">
       <Project>{0a44787b-1386-4a3b-b7d4-c9e72249aa8a}</Project>
       <Name>HeBianGu.General.ModuleManager</Name>
@@ -117,6 +135,10 @@
     <ProjectReference Include="..\..\General\HeBianGu.General.WpfControlLib\HeBianGu.General.WpfControlLib.csproj">
       <Project>{b49dc15f-b43c-4306-adf4-8fa6f5df7f84}</Project>
       <Name>HeBianGu.General.WpfControlLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HeBianGu.Control.UserControls\HeBianGu.Control.UserControls.csproj">
+      <Project>{0c615dbb-f647-4386-b323-18aaa895d2c1}</Project>
+      <Name>HeBianGu.Control.UserControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
