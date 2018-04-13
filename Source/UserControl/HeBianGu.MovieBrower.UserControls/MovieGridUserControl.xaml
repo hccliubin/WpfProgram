@@ -12,70 +12,6 @@
              xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" >
-
-    <!--<DataGrid Name="dg_Main" Grid.Row="0" ItemsSource="{Binding CommonSource}"  HeadersVisibility="Column" SelectedItem="{Binding SelectItem}">
-        <DataGrid.Columns>
-
-            <DataGridCheckBoxColumn Header="选中" Width="50" Binding="{Binding IsCheck}"/>
-
-            <DataGridTemplateColumn Width="50" >
-                <DataGridTemplateColumn.HeaderTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="图标" />
-                    </DataTemplate>
-                </DataGridTemplateColumn.HeaderTemplate>
-
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <Image Width="30" Margin="2,2,2,1"  
-                                   Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
-                            <Image.OpacityMask>
-                                -->
-    <!--设置图片背景色包含转换规则-->
-    <!--
-                                <ImageBrush ImageSource="{Binding ImagePath,Converter={StaticResource iconConverter}}"/>
-                            </Image.OpacityMask>
-                        </Image>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>
-
-            <DataGridTextColumn Header="文件名称" Width="*" Binding="{Binding FileName}" />
-
-            <DataGridTextColumn Header="上次访问时间" Width="*" Binding="{Binding LastTime}" />
-
-            <DataGridTextColumn Header="评分" Width="*"  IsReadOnly="False" Binding="{Binding Score,Mode=TwoWay}" />
-
-            <DataGridTemplateColumn Header="文件描述"  Width="*" IsReadOnly="True">
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <Viewbox>
-                            <evaluatecontrol:EvaluateUserControl x:Name="fivePointStarGroup1" HorizontalAlignment="Stretch"   
-                               VerticalAlignment="Stretch" SelectBackground="Yellow" Radius="30" 
-                               UnSelectBackground="DarkGray" ItemsCount="5" SelectCount="{Binding Score,Mode=TwoWay}">
-                            </evaluatecontrol:EvaluateUserControl>
-                        </Viewbox>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>
-
-            <DataGridTextColumn Header="类型" Width="*" Binding="{Binding Type}" />
-
-            <DataGridTextColumn Header="访问次数" Width="*" Binding="{Binding Count}" />
-
-        </DataGrid.Columns>
-
-
-        <DataGrid.ContextMenu>
-            <ContextMenu  StaysOpen="true">
-                <MenuItem Header="打开" Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                <MenuItem Header="收藏"  Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                <MenuItem Header="彻底删除"  Command="{Binding RelayCommand}" CommandParameter="Open"/>
-            </ContextMenu>
-        </DataGrid.ContextMenu>
-    </DataGrid>-->
-
     <UserControl.Resources>
         <collections:ArrayList x:Key="OrderItems">
             <system:String >名称</system:String>
@@ -88,7 +24,7 @@
         <!--文件项模板-->
         <DataTemplate  x:Key="MovieItemTemplate">
 
-            <Grid  Width="1000" HorizontalAlignment="Left" Visibility="{Binding IsVisible}">
+            <Grid HorizontalAlignment="Left" Visibility="{Binding IsVisible}">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -102,21 +38,20 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="0.2*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="25" />
                     <RowDefinition Height="25" />
                 </Grid.RowDefinitions>
 
 
-                <wpfcontrollib:FCheckBox  Grid.Column="0" Grid.RowSpan="2" IsChecked="{Binding IsChecked}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <wpfcontrollib:FCheckBox  Grid.Column="0" Grid.RowSpan="4" 
+                                          IsChecked="{Binding IsChecked}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-                <Grid  Margin="5,0" Grid.Column="1" Grid.RowSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Image Width="30" Margin="2,2,2,1" Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
+                <Grid  Grid.Column="1" Grid.RowSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Image Width="50"  ToolTip="{Binding FilePath}" Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
                         <Image.OpacityMask>
                             <!--设置图片背景色包含转换规则-->
                             <ImageBrush ImageSource="{Binding ImagePath,Converter={StaticResource iconConverter}}"/>
@@ -124,24 +59,16 @@
                     </Image>
                 </Grid>
 
-                <TextBlock  Margin="5,0"  Grid.Column="2" FontSize="15" Grid.ColumnSpan="8" ToolTip="{Binding FilePath}" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                   Text="{Binding FileName}" Foreground="Black" FontWeight="Bold"/>
+         
+               
+                <!--文件名称-->
+                <TextBlock  Margin="5,0"  Grid.Column="2" FontSize="15"
+                             VerticalAlignment="Center" HorizontalAlignment="Left"
+                                 ToolTip="{Binding FileName}"  Text="{Binding FileName}" Foreground="Black" FontWeight="Bold"/>
 
-                <TextBlock Margin="5,0" Grid.Column="5" Grid.Row="1" Text="{Binding LastTime}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-                <!--<TextBlock  Grid.Column="4"  Text="{Binding Type}"  Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
-
-                <!--<ComboBox  Margin="5,0" Grid.Column="4" Style="{StaticResource ClearButtonComboBox}" Width="20"   base:ControlAttachProperty.Watermark="请选择类别">
-                    <ComboBoxItem Content="1"/>
-                    <ComboBoxItem Content="2"/>
-                    <ComboBoxItem Content="3"/>
-                </ComboBox>-->
-
-                <wpfcontrollib:MultiComboBox Margin="5,0" Background="Transparent" Grid.Row="1" Grid.Column="3" Height="20" IsEditable="True" ItemsSource="{x:Static local:LocalConfiger.Types}" SelectText="{Binding Type,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
-
-                <TextBlock  Margin="5,0" Grid.Column="4" Grid.Row="1"  Text="{Binding Count}" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-                <TextBlock  Margin="5,0" Grid.Column="2" Grid.Row="1" Background="Transparent">
+                <!--评分-->
+                <TextBlock  Margin="0,0" Grid.Column="2" Grid.Row="4" Background="Transparent">
                             <Viewbox>
                                 <evaluatecontrol:EvaluateUserControl x:Name="fivePointStarGroup1" HorizontalAlignment="Stretch"   
                                VerticalAlignment="Stretch" SelectBackground="Orange" Radius="30" Background="Transparent"
@@ -150,9 +77,27 @@
                             </Viewbox>
                 </TextBlock>
 
-                <!--<TextBlock  Margin="5,0" Grid.Column="7"  Text="{Binding Type,Mode=TwoWay}" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <!--类别-->
+                <wpfcontrollib:MultiComboBox Margin="5,0" Background="Transparent" Width="250"
+                                             Grid.Row="2" Grid.Column="2" Height="20" IsEditable="True" 
+                                             ItemsSource="{x:Static local:LocalConfiger.Types}" 
+                                             SelectText="{Binding Type,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                             HorizontalAlignment="Left" />
 
-                <TextBlock  Margin="5,0" Grid.Column="8"  Text="{Binding Score,Mode=TwoWay}" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
+
+                <TextBlock Margin="5,0" Grid.Column="2" Grid.Row="1">
+                    <Run Text="总次数："/>
+                      <Run Text="{Binding  Count}" Foreground="{StaticResource S_RedNotice}"/>
+                      <Run Text="   最新时间："/>
+                      <Run Text="{Binding LastTime}"  Foreground="{StaticResource S_RedNotice}"/>
+                </TextBlock>
+                
+                <!--访问时间--><!--
+                <TextBlock Margin="5,0" Grid.Column="2" Grid.Row="1" Text="{Binding LastTime}"  />
+
+                --><!--次数--><!--
+                <TextBlock  Margin="5,0" Grid.Column="2" Grid.Row="1"  Text="{Binding Count}" Width="30" />-->
+
 
 
                 <Grid.Triggers>
@@ -194,10 +139,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--<Border BorderThickness="1,1,1,1" Grid.RowSpan="2" BorderBrush="{StaticResource S_BlackNotice}"/>-->
-        
 
-        <StackPanel Orientation="Horizontal">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Border BorderThickness="1,1,1,1" Grid.RowSpan="2" BorderBrush="{StaticResource S_BlackNotice}"/>-->
+
+        <GridSplitter Grid.Column="1" Grid.Row="1" Width="5" HorizontalAlignment="Stretch" />
+
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="3">
 
             <wpfcontrollib:FCheckBox Content="全选" Margin="10" FontSize="15"  Command="{Binding RelayCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
 
@@ -220,15 +174,7 @@
                  SelectedItem="{Binding SelectItem}"  FontSize="12" 
                  base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}"
                  >
-            <!--<ListBox.ContextMenu>
-                <ContextMenu  StaysOpen="true">
-                    --><!--<MenuItem Header="打开" Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                    <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                    <MenuItem Header="收藏"  Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                    <MenuItem Header="彻底删除"  Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                    <MenuItem Header="插入图片"  Command="{Binding RelayCommand}" CommandParameter="Open"/>--><!--
-                </ContextMenu>
-            </ListBox.ContextMenu>-->
+      
         </ListBox>
 
 

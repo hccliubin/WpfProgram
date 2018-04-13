@@ -81,6 +81,8 @@ namespace HeBianGu.MovieBrower.UserControls
 
         private void Instance_CaseChanged(General.ModuleManager.Model.CaseModel obj)
         {
+
+            _allFileCatche.Clear();
             // Todo ：加载数据 
             foreach (var item in ViewModelItem)
             {

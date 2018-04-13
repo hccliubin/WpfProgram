@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:MovieBrowserToolApp"
        xmlns:prism="http://www.codeplex.com/prism"                 
     Style="{StaticResource ResourceKey=DefaultWindowStyle}"
-    Height="500" Width="1200">
+    Height="855" Width="1014">
 
     <Window.Resources>
         <!--创建菜单资源-->

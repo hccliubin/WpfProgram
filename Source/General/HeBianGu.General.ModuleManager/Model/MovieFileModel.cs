@@ -50,7 +50,7 @@ namespace HeBianGu.General.ModuleManager.Model
                 this.IsFile = false;
             }
 
-            this.LastTime = DateTime.Now;
+            this.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
         private string _fileName;
@@ -77,9 +77,9 @@ namespace HeBianGu.General.ModuleManager.Model
             set { _isFile = value; }
         }
 
-        private DateTime _lastTime;
+        private string _lastTime;
         /// <summary> 说明 </summary>
-        public DateTime LastTime
+        public string LastTime
         {
             get { return _lastTime; }
             set

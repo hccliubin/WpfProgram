@@ -59,7 +59,7 @@ namespace HeBianGu.MovieBrower.UserControls
                 this.IsFile = false;
             }
 
-            this.LastTime = DateTime.Now;
+            this.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
         private string _fileName;
@@ -92,9 +92,9 @@ namespace HeBianGu.MovieBrower.UserControls
             get { return Base.Util.IconHelper.Instance.GetSystemInfoIcon(FilePath); }
         }
 
-        private DateTime _lastTime;
+        private string _lastTime;
         /// <summary> 说明 </summary>
-        public DateTime LastTime
+        public string LastTime
         {
             get { return _lastTime; }
             set

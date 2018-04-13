@@ -178,11 +178,19 @@ namespace HeBianGu.General.ModuleManager.Service
                 string json = File.ReadAllText(filePath[0]);
 
                 CaseModel model = json.SerializeDeJson<CaseModel>();
+        
 
                 models.Add(model);
             }
 
             return models;
+        }
+
+
+        /// <summary> 版本兼容 </summary>
+        void VersionConvertSupport(CaseModel model)
+        {
+            
         }
 
         public void DeleteCase(CaseModel mode)
@@ -223,12 +231,29 @@ namespace HeBianGu.General.ModuleManager.Service
             {
                 var collection = model.ListJson.SerializeDeJson<List<MovieFileModel>>();
 
+
+                foreach (var item in collection)
+                {
+                    this.VersionConvertSupport(item);
+                }
+
+
                 foreach (var item in _caseItems)
                 {
                     item.Create(collection);
                 }
             }
         }
+
+        /// <summary> 版本兼容 </summary>
+        void VersionConvertSupport(MovieFileModel item)
+        {
+            if(item.LastTime.Contains("Date"))
+            {
+                item.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            }
+        }
+
 
         /// <summary> 整理文件 </summary>
         public void ClearOrder(CaseModel model)

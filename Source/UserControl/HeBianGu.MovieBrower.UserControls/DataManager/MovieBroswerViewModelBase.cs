@@ -118,7 +118,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 Process.Start(SelectItem.FilePath);
 
-                this.SelectItem.LastTime = DateTime.Now;
+                this.SelectItem.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
                 int count = this.SelectItem.Count + 1;
 
@@ -233,7 +233,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             else if (buttonName == "Refresh")
             {
 
-                var filters = this.FilterType.Split('/').ToList();
+                var filters = this.FilterType.Split(new char[] { '\\' },StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 List<MovieFileViewModel> items = new List<MovieFileViewModel>();
 
@@ -264,6 +264,10 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 // Todo ：匹配规则 
                 Predicate<string> match = l =>
                   {
+                      // Todo ：没选过滤规则 
+                      if (filters == null || filters.Count == 0) return true;
+
+                      // Todo ：当前项是空 
                       if (l == null) return false;
 
                       foreach (var item in filters)
@@ -280,12 +284,15 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 foreach (var item in items)
                 {
                     item.IsVisible = Visibility.Collapsed;
+
                     this.CommonSource.Add(item);
                 }
 
-                List<MovieFileViewModel> itemsNew = MovieBrowserDataManager.Instance.AllFileCatche.FindAll(l => filters.Exists(k => match(l.Type))).ToList();
+                var matchIitems = items.FindAll(l => filters.Count==0|| filters.Exists(k => match(l.Type))).ToList();
 
-                foreach (var item in itemsNew)
+                //var matchIitems = MovieBrowserDataManager.Instance.AllFileCatche.FindAll(l => filters.Exists(k => match(l.Type))).ToList()
+
+                foreach (var item in matchIitems)
                 {
                     item.IsVisible = Visibility.Visible;
                 }
