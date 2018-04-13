@@ -160,6 +160,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
 
                 this.CommonSource.Remove(this.SelectItem);
+
+                MovieBrowserDataManager.Instance.AllFileCatche.Remove(this.SelectItem);
             }
 
             else if (buttonName == "ReLoad")
@@ -281,7 +283,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                     this.CommonSource.Add(item);
                 }
 
-                List<MovieFileViewModel> itemsNew = items.FindAll(l => filters.Exists(k => match(l.Type))).ToList();
+                List<MovieFileViewModel> itemsNew = MovieBrowserDataManager.Instance.AllFileCatche.FindAll(l => filters.Exists(k => match(l.Type))).ToList();
 
                 foreach (var item in itemsNew)
                 {

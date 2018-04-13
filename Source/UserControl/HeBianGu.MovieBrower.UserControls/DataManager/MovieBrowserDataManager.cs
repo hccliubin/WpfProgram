@@ -40,6 +40,7 @@ namespace HeBianGu.MovieBrower.UserControls
             set { _viewModelItem = value; }
         }
 
+
         public void Register(MovieBroswerViewModelBase vm)
         {
             _viewModelItem.Add(vm);
@@ -73,6 +74,11 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
+
+        // Todo ：主要用来做筛选的缓存 
+        List<MovieFileViewModel> _allFileCatche = new List<MovieFileViewModel>();
+        public List<MovieFileViewModel> AllFileCatche { get => _allFileCatche; set => _allFileCatche = value; }
+
         private void Instance_CaseChanged(General.ModuleManager.Model.CaseModel obj)
         {
             // Todo ：加载数据 
@@ -89,6 +95,8 @@ namespace HeBianGu.MovieBrower.UserControls
                     MovieFileViewModel vm = new MovieFileViewModel(it);
 
                     item.CommonSource.Add(vm);
+
+                    AllFileCatche.Add(vm);
                 }
             }
         }
