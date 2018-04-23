@@ -24,11 +24,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace MovieBrowserToolApp.ViewModel
 {
@@ -48,7 +50,7 @@ namespace MovieBrowserToolApp.ViewModel
             // Todo ：注册运行日志 
             Log4Servcie.Instance.RunLog += l =>
               {
-                  Application.Current.Dispatcher.Invoke(() => this.Message = l);
+                  System.Windows.Application.Current.Dispatcher.Invoke(() => this.Message = l);
               };
         }
 
@@ -105,6 +107,7 @@ namespace MovieBrowserToolApp.ViewModel
                     CaseModel model = new CaseModel();
                     model.CaseName = addWindow.ViewModel.CaseName;
                     model.CasePath = addWindow.ViewModel.CasePath;
+                    model.FolderPath = CaseNotifyService.LocalCaseFolder;
                     CaseNotifyService.Instance.CreateCase(model);
                     this.CaseSource.Add(new CaseViewModel(model));
                 }
@@ -194,6 +197,45 @@ namespace MovieBrowserToolApp.ViewModel
                     // Todo ：默认打开第一个 
                     this.CurrentCase = this.CaseSource[0];
                 }
+            }
+
+            // Todo ：打开案例 
+            else if (buttonName == "OpenOutCase")
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+
+                string format = "文本文件(*{0}) | *{0}| 所有文件(*.*) | *.*";
+
+                dialog.Filter = string.Format(format, CaseNotifyService.extend);
+
+                var result = dialog.ShowDialog();
+
+                if (result != DialogResult.OK) return;
+
+                string path = Path.GetDirectoryName(dialog.FileName);
+
+                var caseModel = CaseNotifyService.Instance.LoadCase(path);
+
+                CaseViewModel model= new CaseViewModel(caseModel);
+
+                this.CaseSource.Add(model);
+
+                this.CurrentCase = model;
+
+            }
+
+            // Todo ：另存为 
+            else if (buttonName == "SaveOutCase")
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+                var result = dialog.ShowDialog();
+
+                if (result != DialogResult.OK) return;
+
+                string path = dialog.SelectedPath;
+
+                CaseNotifyService.Instance.SaveOutLoad(CurrentCase.Model, path);
             }
         }
 

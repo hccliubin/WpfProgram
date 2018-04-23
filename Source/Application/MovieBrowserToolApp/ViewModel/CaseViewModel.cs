@@ -107,6 +107,19 @@ namespace MovieBrowserToolApp.ViewModel
         }
 
 
+        private string _folderPath;
+        /// <summary> 说明 </summary>
+        public string FolderPath
+        {
+            get { return _model.FolderPath; }
+            set
+            {
+                _model.FolderPath = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
 
         /// <summary> 图片路径 </summary>
         public Icon ImagePath

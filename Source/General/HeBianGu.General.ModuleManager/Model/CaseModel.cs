@@ -58,6 +58,17 @@ namespace HeBianGu.General.ModuleManager.Model
             set { _listJson = value; }
         }
 
+        [NonSerialized]
+        private string _folderPath;
+        /// <summary> 说明 </summary>
+        
+        public string FolderPath
+        {
+            get { return _folderPath; }
+            set { _folderPath = value; }
+        }
+
+
 
         //private string _favJson;
         ///// <summary> 说明 </summary>

@@ -53,7 +53,6 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.ViewModel
             }
         }
 
-
     }
 
     partial class AddCaseViewModel : INotifyPropertyChanged

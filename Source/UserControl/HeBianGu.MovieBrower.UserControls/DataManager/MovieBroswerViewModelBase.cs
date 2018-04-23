@@ -228,7 +228,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                     return;
                 }
 
-                this.ImagePath.Clear();
+                this.ImagePath=null;
 
                 ObservableCollection<string> ss = new ObservableCollection<string>();
 

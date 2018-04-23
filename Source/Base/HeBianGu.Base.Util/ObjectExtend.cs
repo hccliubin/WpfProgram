@@ -202,7 +202,10 @@ namespace HeBianGu.Base.Util
 
                 if (f.PropertyType != field.PropertyType) continue;
 
-                f.SetValue(obj, field.GetValue(v));
+                if(f.CanWrite)
+                {
+                    f.SetValue(obj, field.GetValue(v));
+                }
             }
         }
 

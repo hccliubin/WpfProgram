@@ -139,17 +139,15 @@ namespace HeBianGu.General.ModuleManager.Service
             return Directory.GetFiles(LocalCaseFolder).ToList();
         }
 
-        const string extend = ".prj";
-
-        const string extendFavorite = ".fav";
-
+        public const string extend = ".prj";
+ 
 
         /// <summary> 创建案例 </summary>
         public void CreateCase(CaseModel model)
         {
             if (model == null) return;
 
-            string casePath = Path.Combine(LocalCaseFolder, model.CaseName);
+            string casePath = Path.Combine(model.FolderPath, model.CaseName);
 
             if (!Directory.Exists(casePath))
             {
@@ -173,19 +171,30 @@ namespace HeBianGu.General.ModuleManager.Service
 
             foreach (var item in collection)
             {
-                var filePath = item.GetAllFile(l => l.Extension == extend);
+                CaseModel model = this.LoadCase(item);
 
-                if (filePath == null || filePath.Count == 0) continue;
-
-                string json = File.ReadAllText(filePath[0]);
-
-                CaseModel model = json.SerializeDeJson<CaseModel>();
-
+                if (model == null) continue;
 
                 models.Add(model);
             }
 
             return models;
+        }
+
+        /// <summary> 加载案例 </summary>
+        public CaseModel LoadCase(string folder)
+        {
+            var filePath = folder.GetAllFile(l => l.Extension == extend);
+
+            if (filePath == null || filePath.Count == 0) return null;
+
+            string json = File.ReadAllText(filePath[0]);
+
+            CaseModel model = json.SerializeDeJson<CaseModel>();
+
+            model.FolderPath = folder;
+
+            return model;
         }
 
 
@@ -356,6 +365,7 @@ namespace HeBianGu.General.ModuleManager.Service
 
         }
 
+
         public bool MatchFile(string fileFullName)
         {
             if (MatchTypes == null) return true;
@@ -369,6 +379,7 @@ namespace HeBianGu.General.ModuleManager.Service
         public void SaveCase(CaseModel model)
         {
             if (model == null) return;
+
             List<MovieFileModel> models = new List<MovieFileModel>();
 
             foreach (var item in this.CaseItems)
@@ -378,10 +389,29 @@ namespace HeBianGu.General.ModuleManager.Service
 
             string s = models.SerializeJson<List<MovieFileModel>>();
 
-
             model.ListJson = s;
 
             this.CreateCase(model);
+        }
+
+        /// <summary> 另存为 </summary>
+        public void SaveOutLoad(CaseModel model, string path)
+        {
+            if (model == null) return;
+            // Todo ：复制文件 
+
+            //string newFolder = Path.Combine(path, model.CaseName);
+
+            CaseModel caseModel = new CaseModel();
+
+            caseModel.CopyFromObj(model);
+
+            caseModel.FolderPath = path;
+
+            this.CreateCase(caseModel);
+
+            this.SaveCase(caseModel);
+
         }
 
     }
