@@ -1,6 +1,5 @@
 F:\GitHub\WpfProgram\Product\Debug\HeBianGu.General.WpfDocument.dll
 F:\GitHub\WpfProgram\Product\Debug\HeBianGu.General.WpfDocument.pdb
-F:\GitHub\WpfProgram\Source\General\HeBianGu.General.WpfDocument\obj\Debug\HeBianGu.General.WpfDocument.csprojResolveAssemblyReference.cache
 F:\GitHub\WpfProgram\Source\General\HeBianGu.General.WpfDocument\obj\Debug\UserControl1.g.cs
 F:\GitHub\WpfProgram\Source\General\HeBianGu.General.WpfDocument\obj\Debug\View\DocumentPage.g.cs
 F:\GitHub\WpfProgram\Source\General\HeBianGu.General.WpfDocument\obj\Debug\View\DocumnetControl.g.cs

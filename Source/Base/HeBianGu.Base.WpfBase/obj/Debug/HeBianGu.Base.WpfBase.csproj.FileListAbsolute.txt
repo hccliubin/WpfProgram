@@ -19,7 +19,6 @@ F:\新建文件夹\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBian
 F:\GitHub\WpfProgram\Product\Debug\HeBianGu.Base.WpfBase.xml
 F:\GitHub\WpfProgram\Product\Debug\HeBianGu.Base.WpfBase.dll
 F:\GitHub\WpfProgram\Product\Debug\HeBianGu.Base.WpfBase.pdb
-F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.WpfBase.csprojResolveAssemblyReference.cache
 F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\GeneratedInternalTypeHelper.g.cs
 F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.WpfBase_MarkupCompile.cache
 F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.WpfBase_MarkupCompile.lref

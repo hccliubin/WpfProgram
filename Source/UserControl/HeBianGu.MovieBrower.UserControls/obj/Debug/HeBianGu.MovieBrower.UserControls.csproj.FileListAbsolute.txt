@@ -40,3 +40,7 @@ F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\De
 F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\Debug\HeBianGu.MovieBrower.UserControls.csproj.GenerateResource.Cache
 F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\Debug\HeBianGu.MovieBrower.UserControls.dll
 F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\Debug\HeBianGu.MovieBrower.UserControls.pdb
+F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\Debug\ImageViewControl\ImageItemUserControl.g.cs
+F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\Debug\ImageViewControl\ImageViewUserControl.g.cs
+F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\Debug\ImageViewControl\ImageItemUserControl.baml
+F:\GitHub\WpfProgram\Source\UserControl\HeBianGu.MovieBrower.UserControls\obj\Debug\ImageViewControl\ImageViewUserControl.baml
