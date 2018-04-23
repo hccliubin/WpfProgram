@@ -59,13 +59,14 @@ namespace MovieBrowserToolApp.ViewModel
             var collection = CaseNotifyService.Instance.LoadAllCase();
 
             if (collection == null || collection.Count == 0) return;
+
             foreach (var item in collection)
             {
                 this.CaseSource.Add(new CaseViewModel(item));
             }
 
             // Todo ：默认打开第一个 
-            this.CurrentCase = this.CaseSource[0];
+            this.ButtonClickFunc("ShowDefault");
 
         }
 
@@ -82,6 +83,8 @@ namespace MovieBrowserToolApp.ViewModel
         }
 
 
+
+
         /// <summary>
         /// 按钮点击事件
         /// </summary>
@@ -90,6 +93,8 @@ namespace MovieBrowserToolApp.ViewModel
         {
             string buttonName = obj as string;
 
+
+            // Todo ：增加案例 
             if (buttonName == "AddCase")
             {
                 AddCaseWindow addWindow = new AddCaseWindow();
@@ -104,6 +109,8 @@ namespace MovieBrowserToolApp.ViewModel
                     this.CaseSource.Add(new CaseViewModel(model));
                 }
             }
+
+            // Todo ：打开案例 
             else if (buttonName == "OpenCase")
             {
                 if (_caseSource == null) return;
@@ -112,7 +119,12 @@ namespace MovieBrowserToolApp.ViewModel
                 {
                     item.IsOpen = false;
                 }
-                this.CurrentCase.IsOpen = true;
+
+                if (this.CurrentCase != null)
+                {
+                    this.CurrentCase.IsOpen = true;
+
+                }
 
                 if (_lastCase != null && _lastCase != CurrentCase)
                 {
@@ -121,11 +133,13 @@ namespace MovieBrowserToolApp.ViewModel
                 }
 
                 // Todo ：加载本次案例 
-                CaseNotifyService.Instance.OnCaseChanged(CurrentCase.Model);
+                CaseNotifyService.Instance.OnCaseChanged(CurrentCase == null ? null : CurrentCase.Model);
 
                 _lastCase = CurrentCase;
 
             }
+
+            // Todo ：删除案例 
             else if (buttonName == "DeleteCase")
             {
                 if (CurrentCase == _lastCase) _lastCase = null;
@@ -134,17 +148,24 @@ namespace MovieBrowserToolApp.ViewModel
 
                 this.CaseSource.Remove(CurrentCase);
 
+                // Todo ：默认打开第一个 
+                this.ButtonClickFunc("ShowDefault");
             }
+
+            // Todo ：重命名 
             else if (buttonName == "ReNameCase")
             {
 
             }
+
+            // Todo ：保存案例 
             else if (buttonName == "SaveCase")
             {
                 if (_caseSource == null) return;
 
                 CaseNotifyService.Instance.OnSaveCase(CurrentCase.Model);
             }
+
             else if (buttonName == "ClearOrder")
             {
                 // Todo ：整理到同级别
@@ -153,7 +174,27 @@ namespace MovieBrowserToolApp.ViewModel
                 this.ButtonClickFunc("OpenCase");
             }
 
+            // Todo ：重新加载 
+            else if (buttonName == "RefreshLoad")
+            {
+                // Todo ：整理到同级别
+                CaseNotifyService.Instance.RefreshLoad(CurrentCase.Model);
 
+                this.ButtonClickFunc("OpenCase");
+            }
+
+            else if (buttonName == "ShowDefault")
+            {
+                if (this.CaseSource == null || this.CaseSource.Count == 0)
+                {
+                    this.CurrentCase = null;
+                }
+                else
+                {
+                    // Todo ：默认打开第一个 
+                    this.CurrentCase = this.CaseSource[0];
+                }
+            }
         }
 
         private CaseViewModel _currentCase;

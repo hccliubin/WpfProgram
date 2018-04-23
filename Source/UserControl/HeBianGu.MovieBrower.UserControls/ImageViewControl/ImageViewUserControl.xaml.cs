@@ -31,7 +31,9 @@ namespace HeBianGu.MovieBrower.UserControls.ImageViewControl
 
             this.tpageControl.SelectChanged += l =>
             {
-                this.SelectValue = this.ImagePaths[l];
+                this.SelectValue = this.ImagePaths[l- 1];
+
+                //this.SelectValue = this.ImagePaths[l-1];
             };
         }
 
@@ -54,15 +56,15 @@ namespace HeBianGu.MovieBrower.UserControls.ImageViewControl
 
             List<UserControl> userControls = new List<UserControl>();
 
-            if (e.NewValue==null)
+            if (e.NewValue == null)
             {
                 control.tpageControl.BindControls = userControls;
                 return;
             }
 
-            ObservableCollection<string> collection=e.NewValue as ObservableCollection<string>;
+            ObservableCollection<string> collection = e.NewValue as ObservableCollection<string>;
 
-            if(collection.Count>0)
+            if (collection.Count > 0)
             {
                 control.SelectValue = collection[0];
             }
@@ -95,7 +97,7 @@ namespace HeBianGu.MovieBrower.UserControls.ImageViewControl
         // Using a DependencyProperty as the backing store for SelectValue.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SelectValueProperty =
             DependencyProperty.Register("SelectValue", typeof(string), typeof(ImageViewUserControl), new PropertyMetadata(null));
-  
+
     }
 
     partial class ImageViewUserControl : INotifyPropertyChanged

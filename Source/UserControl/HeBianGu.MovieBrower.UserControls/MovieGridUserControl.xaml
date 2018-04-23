@@ -152,14 +152,14 @@
         <GridSplitter Grid.Column="1" Grid.Row="1" Width="5" HorizontalAlignment="Stretch" />
 
 
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="3">
+        <StackPanel Background="{StaticResource S_Gray}" Orientation="Horizontal" Grid.ColumnSpan="3">
 
-            <wpfcontrollib:FCheckBox Content="全选" Margin="10" FontSize="15"  Command="{Binding RelayCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
+            <!--<wpfcontrollib:FCheckBox Content="全选" Margin="10" FontSize="15"  Command="{Binding RelayCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />-->
 
-            <ComboBox Margin="10" ItemsSource="{StaticResource OrderItems}" base:ControlAttachProperty.Label="排序规则" SelectedIndex="{Binding OrderByIndex}"
+            <ComboBox Margin="0,10" ItemsSource="{StaticResource OrderItems}" base:ControlAttachProperty.Label="排序规则" SelectedIndex="{Binding OrderByIndex}"  Width="370"
                       Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="没有选择排序" />
 
-            <wpfcontrollib:MultiComboBox Margin="5,0" Background="White" Grid.Row="1"  
+            <wpfcontrollib:MultiComboBox Margin="5,0" Background="White" Grid.Row="1" 
                                          base:ControlAttachProperty.Label="过滤规则:" Grid.Column="3"  IsEditable="True" 
                                          ItemsSource="{x:Static local:LocalConfiger.Types}" 
                                          SelectText="{Binding FilterType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"

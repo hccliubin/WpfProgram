@@ -76,21 +76,31 @@ namespace HeBianGu.MovieBrower.UserControls
 
         private void Instance_CaseChanged(General.ModuleManager.Model.CaseModel obj)
         {
+
             // Todo ：加载数据 
             foreach (var item in ViewModelItem)
             {
+
+                if(obj==null)
+                {
+                    item.DoCommandWith("Clear");
+                    continue;
+                }
+
                 var caseItem = CaseNotifyService.Instance.CaseItems.Find(l => l.FileType == item.Type);
 
                 item.CaseItem = caseItem;
 
                 item.CommonSource.Clear();
 
-                foreach (var it in caseItem.Collection) 
+                foreach (var it in caseItem.Collection)
                 {
                     MovieFileViewModel vm = new MovieFileViewModel(it);
 
                     item.CommonSource.Add(vm);
                 }
+
+                item.DoCommandWith("SetDefault");
             }
         }
 

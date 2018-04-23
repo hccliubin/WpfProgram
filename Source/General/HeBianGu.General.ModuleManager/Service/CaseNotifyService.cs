@@ -147,6 +147,8 @@ namespace HeBianGu.General.ModuleManager.Service
         /// <summary> 创建案例 </summary>
         public void CreateCase(CaseModel model)
         {
+            if (model == null) return;
+
             string casePath = Path.Combine(LocalCaseFolder, model.CaseName);
 
             if (!Directory.Exists(casePath))
@@ -178,7 +180,7 @@ namespace HeBianGu.General.ModuleManager.Service
                 string json = File.ReadAllText(filePath[0]);
 
                 CaseModel model = json.SerializeDeJson<CaseModel>();
-        
+
 
                 models.Add(model);
             }
@@ -190,7 +192,7 @@ namespace HeBianGu.General.ModuleManager.Service
         /// <summary> 版本兼容 </summary>
         void VersionConvertSupport(CaseModel model)
         {
-            
+
         }
 
         public void DeleteCase(CaseModel mode)
@@ -210,6 +212,8 @@ namespace HeBianGu.General.ModuleManager.Service
         /// <summary> 加载本例案例数据到内存 </summary>
         void CreateCaseData(CaseModel model)
         {
+
+            if (model == null) return;
             // Todo ：加载列表 
             if (string.IsNullOrEmpty(model.ListJson))
             {
@@ -231,12 +235,10 @@ namespace HeBianGu.General.ModuleManager.Service
             {
                 var collection = model.ListJson.SerializeDeJson<List<MovieFileModel>>();
 
-
                 foreach (var item in collection)
                 {
                     this.VersionConvertSupport(item);
                 }
-
 
                 foreach (var item in _caseItems)
                 {
@@ -248,7 +250,7 @@ namespace HeBianGu.General.ModuleManager.Service
         /// <summary> 版本兼容 </summary>
         void VersionConvertSupport(MovieFileModel item)
         {
-            if(item.LastTime.Contains("Date"))
+            if (item.LastTime.Contains("Date"))
             {
                 item.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             }
@@ -277,40 +279,78 @@ namespace HeBianGu.General.ModuleManager.Service
 
                 string folder = Path.Combine(model.CasePath, orderFoderName, fileNameWithOut);
 
-                if (!Directory.Exists(folder))
-                {
-                    Directory.CreateDirectory(folder);
-                }
 
-                // Todo ：复制文件 
-                //string newPath = Path.Combine(folder, fileName);
+                // Todo ：递归创建文件夹 
+                int index = 0;
 
-                //if (File.Exists(newPath))
-                //{
-                //    File.Delete(newPath);
-                //}
+                Func<string, string> action = null;
+
+                action = l =>
+                      {
+                          if (!Directory.Exists(l))
+                          {
+                              Directory.CreateDirectory(l);
+                              return l;
+                          }
+                          else
+                          {
+                              index++;
+
+                              string k = Path.Combine(model.CasePath, orderFoderName, fileNameWithOut + "（" + index + "）");
+
+                              return action(k);
+
+                          }
+                      };
+
+                string newfolder = action.Invoke(folder);
+
 
                 //获取文件夹下所有名称相同的项
-                var allInfo = DirectoryHelper.GetAllFile(Path.GetDirectoryName(item), l => Path.GetFileNameWithoutExtension(l.FullName) == fileNameWithOut);
+                var allInfo = DirectoryHelper.GetAllFile(Path.GetDirectoryName(item), l => Path.GetFileNameWithoutExtension(l.FullName) == fileNameWithOut && !l.FullName.Contains(orderFoderName));
 
                 foreach (var info in allInfo)
                 {
-                    string infoName = Path.GetFileName(info);
-                    string infoNewPath = Path.Combine(folder, infoName);
-
-                    if (File.Exists(infoNewPath))
-                    {
-                        File.Delete(infoNewPath);
-                    }
+                    string infoNewPath = Path.Combine(newfolder, Path.GetFileName(info));
 
                     File.Move(info, infoNewPath);
                 }
-                //File.Move(item, newPath);
+            }
+
+            this.RefreshLoad(model);
+
+        }
+
+
+
+        /// <summary> 重新加载 </summary>
+        public void RefreshLoad(CaseModel model)
+        {
+            string orderFoderName = "ACollection";
+
+            var collection = DirectoryHelper.GetAllFile(model.CasePath);
+
+            var models = model.ListJson.SerializeDeJson<List<MovieFileModel>>();
+
+
+            // Todo ：增加内存数据 
+            foreach (var item in collection)
+            {
+                if (!this.MatchFile(item)) continue;
+
+                var result = models.Find(l => l.FilePath == item);
+
+                if (result != null) continue;
+
+                MovieFileModel m = new MovieFileModel(item);
+                models.Add(m);
             }
 
 
-            // Todo ：清空数据 
-            model.ListJson = null;
+            // Todo ：删除无效数据 
+            models.RemoveAll(l => !File.Exists(l.FilePath));
+
+            model.ListJson = models.SerializeJson<List<MovieFileModel>>();
 
             this.CreateCase(model);
 

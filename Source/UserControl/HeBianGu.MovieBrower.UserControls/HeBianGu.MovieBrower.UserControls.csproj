@@ -62,6 +62,7 @@
     <Compile Include="EvaluateControl\FivePointUserControl.xaml.cs">
       <DependentUpon>FivePointUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageViewControl\BxImage.cs" />
     <Compile Include="ImageViewControl\ImageItemUserControl.xaml.cs">
       <DependentUpon>ImageItemUserControl.xaml</DependentUpon>
     </Compile>
@@ -111,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MovieGridUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -69,17 +69,17 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
-        private MovieFileViewModel _current;
-        /// <summary> 选中项 </summary>
-        public MovieFileViewModel Current
-        {
-            get { return _current; }
-            set
-            {
-                _current = value;
-                RaisePropertyChanged();
-            }
-        }
+        //private MovieFileViewModel _current;
+        ///// <summary> 选中项 </summary>
+        //public MovieFileViewModel Current
+        //{
+        //    get { return _current; }
+        //    set
+        //    {
+        //        _current = value;
+        //        RaisePropertyChanged();
+        //    }
+        //}
 
         public MovieBroswerViewModelBase()
         {
@@ -136,6 +136,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
         {
             string buttonName = obj as string;
 
+            // Todo ：打开 
             if (buttonName == "Open")
             {
                 if (SelectItem == null) return;
@@ -149,6 +150,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.SelectItem.Count = count;
             }
 
+            // Todo ：收藏 
             else if (buttonName == "Favorite")
             {
                 if (this.SelectItem == null) return;
@@ -161,6 +163,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
             }
 
+            // Todo ：删除 
             else if (buttonName == "Delete")
             {
                 if (this.SelectItem == null) return;
@@ -172,6 +175,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.CommonSource.Remove(this.SelectItem);
             }
 
+            // Todo ：彻底删除 
             else if (buttonName == "DeleteDeep")
             {
                 if (this.SelectItem == null) return;
@@ -193,6 +197,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
             }
 
+            // Todo ：重新加载 
             else if (buttonName == "ReLoad")
             {
                 var noraml = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == FileType.Normal);
@@ -201,6 +206,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.CommonSource.Remove(this.SelectItem);
             }
+
+            // Todo ：图片预览 
             else if (buttonName == "ShowImage")
             {
 
@@ -231,25 +238,9 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
 
                 this.ImagePath = ss;
-
-                //foreach (var item in collection)
-                //{
-
-                //    UserControl uc = new UserControl();
-
-                //    System.Windows.Controls.Image image = new System.Windows.Controls.Image();
-
-                //    image.Source = new BitmapImage(new Uri(item, UriKind.Absolute));
-
-                //    uc.Content = image;
-
-                //    image.Margin = new Thickness(50);
-
-                //    cs.Add(uc);
-                //}
-
-                //this.Controls = cs;
             }
+
+            // Todo ：插入图片 
             else if (buttonName == "InsertImage")
             {
                 if (this.SelectItem == null) return;
@@ -284,6 +275,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 ms = null;
             }
 
+            // Todo ：刷新 
             else if (buttonName == "Refresh")
             {
                 var filters = this.FilterType.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -350,9 +342,12 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
             }
 
+            // Todo ：删除图片 
             else if(buttonName== "DeleteImage")
             {
                 this.ImagePath.Remove(this.SelectImage);
+
+                File.Delete(this.SelectImage);
 
                 ObservableCollection<string> collection = new ObservableCollection<string>();
 
@@ -363,8 +358,30 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.ImagePath = collection;
 
-                //File.Delete(this.SelectImage);
             }
+
+            // Todo ：清空数据 
+            else if (buttonName == "Clear")
+            {
+                this.ImagePath = null;
+
+                this.CommonSource.Clear();
+            }
+            // Todo ：清空数据 
+            else if (buttonName == "SetDefault")
+            {
+                if(this.CommonSource==null|| this.CommonSource.Count==0)
+                {
+                    this.ButtonClickFunc("Clear");
+                    return;
+                }
+
+                this.SelectItem = this.CommonSource[0];
+
+                this.ButtonClickFunc("ShowImage");
+            }
+
+
             // Todo ：全选 
             if (obj is bool)
             {

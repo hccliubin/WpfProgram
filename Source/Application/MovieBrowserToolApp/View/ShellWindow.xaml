@@ -14,20 +14,7 @@
     <Window.Resources>
         <!--创建菜单资源-->
         <ResourceDictionary>
-            <!--<ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.ModuleManager;component/ModuleResource/ModuleResource.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
-            </ResourceDictionary.MergedDictionaries>-->
-
-            <ContextMenu x:Key="CaseContextMenu" Style="{StaticResource DefaultContextMenu}">
-                <MenuItem Header="打开案例" Icon="&#xe62c;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="OpenCase"/>
-                <MenuItem Header="删除案例" Icon="&#xe66b;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="DeleteCase"/>
-                <MenuItem Header="保存案例" Icon="&#xe661;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="SaveCase"/>
-                <MenuItem Header="重命名" Icon="&#xe661;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ReNameCase"/>
-                <MenuItem Header="全部整理" Icon="&#xe661;" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ClearOrder"/>
-
-            </ContextMenu>
-
+            
             <!--文件项模板-->
             <DataTemplate  x:Key="CaseItemTemplate">
                 <Grid>
@@ -129,16 +116,28 @@
             <MenuItem Header="案例管理"  Style="{DynamicResource DefaultMenuItem}" >
                 <MenuItem Header="新增案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
                 <MenuItem Header="打开案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
-                <MenuItem Header="删除案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase"  />
-                <MenuItem Header="设备监控" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+                <MenuItem Header="另存案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
             </MenuItem>
-            <MenuItem Header="设置" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+            <MenuItem Header="编辑" Style="{DynamicResource DefaultMenuItem}">
+                <MenuItem Header="重新加载" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="RefreshLoad" />
+                <MenuItem Header="整理案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="ClearOrder" />
+                <MenuItem Header="重命名" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ReNameCase" />
+                <MenuItem Header="删除案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="DeleteCase" />
+                <MenuItem Header="保存案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="SaveCase" />
+
+            </MenuItem> 
+            <MenuItem Header="设置" Style="{DynamicResource DefaultMenuItem}">
+                <MenuItem Header="文件配置" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+                <MenuItem Header="类型配置" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+            </MenuItem>
             <MenuItem Header="帮助" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
             <MenuItem Header="关于" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
         </Menu>
 
 
-        <ComboBox Grid.Row="1" Height="30" ItemsSource="{Binding CaseSource}" DisplayMemberPath="CaseName" 
+        <Border Background="{StaticResource S_GrayDark}" Grid.Row="1"/>
+
+        <ComboBox Grid.Row="1" Height="30" ItemsSource="{Binding CaseSource}" DisplayMemberPath="CaseName" Width="370"
                   SelectedIndex="0" SelectedItem="{Binding CurrentCase}" base:ControlAttachProperty.Label="选择案例" 
                   Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="请先新增案例..."
                   HorizontalAlignment="Left" />
@@ -150,7 +149,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ListBox  Style="{StaticResource CaseListStyle}"  ItemsSource="{Binding CaseSource}" ContextMenu="{StaticResource CaseContextMenu}"  SelectedItem="{Binding CurrentCase}"/>
+            <!--<ListBox  Style="{StaticResource CaseListStyle}"  ItemsSource="{Binding CaseSource}" ContextMenu="{StaticResource CaseContextMenu}"  SelectedItem="{Binding CurrentCase}"/>-->
 
 
             <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
