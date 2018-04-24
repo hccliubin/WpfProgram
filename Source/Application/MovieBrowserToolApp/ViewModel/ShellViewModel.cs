@@ -18,6 +18,7 @@ using HeBianGu.Base.WpfBase;
 using HeBianGu.General.Logger;
 using HeBianGu.General.ModuleManager.Model;
 using HeBianGu.General.ModuleManager.Service;
+using HeBianGu.General.WpfControlLib;
 using HeBianGu.MovieBrower.UserControls;
 using HeBianGu.MovieBrowser.Modules.MenuItem.View;
 using System;
@@ -95,7 +96,6 @@ namespace MovieBrowserToolApp.ViewModel
         {
             string buttonName = obj as string;
 
-
             // Todo ：增加案例 
             if (buttonName == "AddCase")
             {
@@ -109,7 +109,9 @@ namespace MovieBrowserToolApp.ViewModel
                     model.CasePath = addWindow.ViewModel.CasePath;
                     model.FolderPath = CaseNotifyService.LocalCaseFolder;
                     CaseNotifyService.Instance.CreateCase(model);
-                    this.CaseSource.Add(new CaseViewModel(model));
+                    var c = new CaseViewModel(model);
+                    this.CaseSource.Add(c);
+                    this.CurrentCase = c;
                 }
             }
 
@@ -145,6 +147,10 @@ namespace MovieBrowserToolApp.ViewModel
             // Todo ：删除案例 
             else if (buttonName == "DeleteCase")
             {
+                bool result = MessageWindow.ShowDialog("删除无法恢复,确定要删除？");
+
+                if (!result) return;
+
                 if (CurrentCase == _lastCase) _lastCase = null;
 
                 CaseNotifyService.Instance.DeleteCase(CurrentCase.Model);
@@ -164,13 +170,13 @@ namespace MovieBrowserToolApp.ViewModel
             // Todo ：保存案例 
             else if (buttonName == "SaveCase")
             {
-                if (_caseSource == null) return;
-
-                CaseNotifyService.Instance.OnSaveCase(CurrentCase.Model);
+                this.SaveCase();
             }
 
             else if (buttonName == "ClearOrder")
             {
+                this.SaveCase();
+
                 // Todo ：整理到同级别
                 CaseNotifyService.Instance.ClearOrder(CurrentCase.Model);
 
@@ -180,6 +186,9 @@ namespace MovieBrowserToolApp.ViewModel
             // Todo ：重新加载 
             else if (buttonName == "RefreshLoad")
             {
+
+                this.SaveCase();
+
                 // Todo ：整理到同级别
                 CaseNotifyService.Instance.RefreshLoad(CurrentCase.Model);
 
@@ -204,7 +213,9 @@ namespace MovieBrowserToolApp.ViewModel
             {
                 OpenFileDialog dialog = new OpenFileDialog();
 
-                string format = "文本文件(*{0}) | *{0}| 所有文件(*.*) | *.*";
+                dialog.Title = "请选择案例文件";
+
+                string format = "案例文件(*{0}) | *{0}| 所有文件(*.*) | *.*";
 
                 dialog.Filter = string.Format(format, CaseNotifyService.extend);
 
@@ -214,9 +225,11 @@ namespace MovieBrowserToolApp.ViewModel
 
                 string path = Path.GetDirectoryName(dialog.FileName);
 
+                this.SaveCase();
+
                 var caseModel = CaseNotifyService.Instance.LoadCase(path);
 
-                CaseViewModel model= new CaseViewModel(caseModel);
+                CaseViewModel model = new CaseViewModel(caseModel);
 
                 this.CaseSource.Add(model);
 
@@ -235,8 +248,105 @@ namespace MovieBrowserToolApp.ViewModel
 
                 string path = dialog.SelectedPath;
 
+                this.SaveCase();
+
                 CaseNotifyService.Instance.SaveOutLoad(CurrentCase.Model, path);
             }
+
+            // Todo ：移动路径 
+            else if (buttonName == "MoveFolder")
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+                var result = dialog.ShowDialog();
+
+                if (result != DialogResult.OK) return;
+
+                string path = dialog.SelectedPath;
+
+                if (this.CurrentCase == null) return;
+
+                this.SaveCase();
+
+                CaseNotifyService.Instance.MoveFolderLoad(CurrentCase.Model, path);
+
+                this.RefreshCurrent(this.CurrentCase.Model);
+            }
+
+            // Todo ：合并案例 
+            else if (buttonName == "MergeCase")
+            {
+                var models = this.CaseSource.Select(l => l.Model).ToList();
+
+                models.Remove(this.CurrentCase.Model);
+
+                if (models == null || models.Count == 0) return;
+
+                MergeCaseWindow merge = new MergeCaseWindow(models);
+
+                var result = merge.ShowDialog();
+
+                if (result == null || result.Value == false) return;
+
+                var selection = merge.SelectItems();
+
+                if (selection == null || selection.Count == 0) return;
+
+                Predicate<List<CaseModel>> match = l =>
+                  {
+                      foreach (var item in selection)
+                      {
+                          if (item.CasePath.Contains(this.CurrentCase.CasePath) || this.CurrentCase.CasePath.Contains(item.CasePath))
+                          {
+                              return false;
+                          }
+                      }
+
+                      return true;
+                  };
+
+                if (!match(selection))
+                {
+                    this.Message = "不满足合并要求，合并路径不能有父子关系！";
+                    return;
+                }
+
+                this.SaveCase();
+
+                CaseNotifyService.Instance.MergeCases(CurrentCase.Model, selection);
+
+                this.RefreshCurrent(this.CurrentCase.Model);
+
+            }
+        }
+
+
+
+        /// <summary> 此方法的说明 </summary>
+        public void SaveCase()
+        {
+            if (_caseSource == null) return;
+
+            if (CurrentCase == null) return;
+
+            CaseNotifyService.Instance.OnSaveCase(CurrentCase.Model);
+        }
+
+
+        void RefreshCurrent(CaseModel caseModel)
+        {
+            // Todo ：将上一次为空 
+            this._lastCase = null;
+
+            this.CaseSource.Remove(CurrentCase);
+
+            CaseViewModel model = new CaseViewModel(caseModel);
+
+            this.CaseSource.Add(model);
+
+
+
+            this.CurrentCase = model;
         }
 
         private CaseViewModel _currentCase;

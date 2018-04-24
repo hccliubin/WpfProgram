@@ -12,6 +12,7 @@
              xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:imageviewcontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.ImageViewControl"
+             BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1"
              mc:Ignorable="d" >
     <UserControl.Resources>
         <collections:ArrayList x:Key="OrderItems">
@@ -24,98 +25,133 @@
 
         <!--文件项模板-->
         <DataTemplate  x:Key="MovieItemTemplate">
+            <Viewbox HorizontalAlignment="Left">
+                <Grid HorizontalAlignment="Center">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
 
-            <Grid HorizontalAlignment="Left" Visibility="{Binding IsVisible}">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
 
 
-                <wpfcontrollib:FCheckBox  Grid.Column="0" Grid.RowSpan="4" 
-                                          IsChecked="{Binding IsChecked}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <wpfcontrollib:FCheckBox  Grid.Column="0" Grid.RowSpan="4"  IsChecked="{Binding IsChecked}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-                <Grid  Grid.Column="1" Grid.RowSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Image Width="50"  ToolTip="{Binding FilePath}" Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
-                        <Image.OpacityMask>
-                            <!--设置图片背景色包含转换规则-->
-                            <ImageBrush ImageSource="{Binding ImagePath,Converter={StaticResource iconConverter}}"/>
-                        </Image.OpacityMask>
-                    </Image>
-                </Grid>
+                    <Grid  Grid.Column="1" Grid.RowSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Image Width="50"  ToolTip="{Binding FilePath}" Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
+                            <Image.OpacityMask>
+                                <!--设置图片背景色包含转换规则-->
+                                <ImageBrush ImageSource="{Binding ImagePath,Converter={StaticResource iconConverter}}"/>
+                            </Image.OpacityMask>
+                        </Image>
+                    </Grid>
 
-         
-               
-                <!--文件名称-->
-                <TextBlock  Margin="5,0"  Grid.Column="2" FontSize="15"
+                    <!--文件名称-->
+                    <TextBlock  Margin="5,0"  Grid.Column="2" FontSize="20" 
                              VerticalAlignment="Center" HorizontalAlignment="Left"
                                  ToolTip="{Binding FileName}"  Text="{Binding FileName}" Foreground="Black" FontWeight="Bold"/>
 
-
-                <!--评分-->
-                <TextBlock  Margin="0,0" Grid.Column="2" Grid.Row="4" Background="Transparent">
-                            <Viewbox>
+                    <!--评分-->
+                    <TextBlock  Margin="0,0" Grid.Column="2" Grid.Row="1" Background="Transparent">
+                            <Viewbox Width="300" HorizontalAlignment="Left">
                                 <evaluatecontrol:EvaluateUserControl x:Name="fivePointStarGroup1" HorizontalAlignment="Stretch"   
                                VerticalAlignment="Stretch" SelectBackground="Orange" Radius="30" Background="Transparent"
                                UnSelectBackground="DarkGray" ItemsCount="10" SelectCount="{Binding Score,Mode=TwoWay}">
                                 </evaluatecontrol:EvaluateUserControl>
                             </Viewbox>
-                </TextBlock>
+                    </TextBlock>
 
-                <!--类别-->
-                <wpfcontrollib:MultiComboBox Margin="5,0" Background="Transparent" Width="250"
+                    <!--类别-->
+                    <wpfcontrollib:MultiComboBox Margin="5,0" Background="Transparent" Width="300"
                                              Grid.Row="2" Grid.Column="2" Height="20" IsEditable="True" 
                                              ItemsSource="{x:Static local:LocalConfiger.Types}" 
                                              SelectText="{Binding Type,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                                              HorizontalAlignment="Left" />
 
 
-                <TextBlock Margin="5,0" Grid.Column="2" Grid.Row="1">
+                    <TextBlock Margin="5,0" Grid.Column="2" Grid.Row="4">
+                        
                     <Run Text="总次数："/>
                       <Run Text="{Binding  Count}" Foreground="{StaticResource S_RedNotice}"/>
                       <Run Text="   最新时间："/>
                       <Run Text="{Binding LastTime}"  Foreground="{StaticResource S_RedNotice}"/>
-                </TextBlock>
-                
-                <!--访问时间--><!--
-                <TextBlock Margin="5,0" Grid.Column="2" Grid.Row="1" Text="{Binding LastTime}"  />
+                         <Run Text="   大小："/>
+                      <Run Text="{Binding SizeString}"  Foreground="{StaticResource S_RedNotice}"/>
+                    </TextBlock>
+                    <Grid.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource Story_OpacityRightToLeft}" />
+                        </EventTrigger>
+                    </Grid.Triggers>
 
-                --><!--次数--><!--
-                <TextBlock  Margin="5,0" Grid.Column="2" Grid.Row="1"  Text="{Binding Count}" Width="30" />-->
+                </Grid>
 
 
 
-                <Grid.Triggers>
-                    <EventTrigger RoutedEvent="Loaded">
-                        <BeginStoryboard Storyboard="{StaticResource Story_OpacityLeftToRight}" />
-                    </EventTrigger>
-                </Grid.Triggers>
-            </Grid>
+            </Viewbox>
         </DataTemplate>
+
+        <Style TargetType="ListBoxItem" x:Key="MovieItemStyle">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <Setter Property="BorderBrush" Value="{StaticResource ItemMouseOverBackground}" />
+            <Setter Property="Height" Value="80" />
+            <Setter Property="Visibility" Value="{Binding IsVisible}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid Background="{TemplateBinding Background}" Margin="0,0.5">
+                            <Border x:Name="ItemBackground" IsHitTestVisible="False" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                BorderThickness="{TemplateBinding BorderThickness}"  BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}" />
+                            <ContentPresenter x:Name="contentPresenter" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemSelectedBackground}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemMouseOverBackground}" />
+                                <Setter Property="Foreground" Value="{StaticResource ItemMouseOverForeground}" />
+                            </Trigger>
+                            
+                            <DataTrigger Binding="{Binding IsEnble}" Value="false">
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemsAlternationContentBackground}" />
+                                <Setter TargetName="ItemBackground" Property="BorderBrush" Value="Red" />
+                                <Setter TargetName="ItemBackground" Property="BorderThickness" Value="1" />
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <!--文件集合样式-->
         <Style x:Key="MovieListStyle" TargetType="{x:Type ListBox}">
+
             <Setter Property="ItemTemplate" Value="{StaticResource MovieItemTemplate}"/>
             <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ItemContainerStyle" Value="{StaticResource MovieItemStyle}"/>
             <!--<Setter Property="Background" Value="{DynamicResource centernColorNLight}"/>-->
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
-            <Setter Property="BorderThickness" Value="0,2,0,0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0"/>
             <Setter Property="AllowDrop"   Value="True"/>
             <!--<Setter Property="Background" Value="{DynamicResource centernColorNLight}"/>-->
             <Setter Property="OpacityMask">
@@ -130,7 +166,7 @@
             <Setter Property="VerticalContentAlignment" Value="Stretch"/>
 
             <!--<Setter Property="Template" Value="{StaticResource ListBox_Buzy}"/>-->
-
+        
         </Style>
     </UserControl.Resources>
 
@@ -138,6 +174,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
 
@@ -149,12 +186,10 @@
 
         <!--<Border BorderThickness="1,1,1,1" Grid.RowSpan="2" BorderBrush="{StaticResource S_BlackNotice}"/>-->
 
-        <GridSplitter Grid.Column="1" Grid.Row="1" Width="5" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Column="1" Grid.Row="1" Width="5" Grid.RowSpan="2" HorizontalAlignment="Stretch" />
 
 
         <StackPanel Background="{StaticResource S_Gray}" Orientation="Horizontal" Grid.ColumnSpan="3">
-
-            <!--<wpfcontrollib:FCheckBox Content="全选" Margin="10" FontSize="15"  Command="{Binding RelayCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />-->
 
             <ComboBox Margin="0,10" ItemsSource="{StaticResource OrderItems}" base:ControlAttachProperty.Label="排序规则" SelectedIndex="{Binding OrderByIndex}"  Width="370"
                       Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="没有选择排序" />
@@ -178,7 +213,22 @@
                  MouseDoubleClick="lb_list_MouseDoubleClick">
         </ListBox>
 
-        <imageviewcontrol:ImageViewUserControl x:Name="imageView" Grid.Row="1" Grid.Column="2" ImagePaths="{Binding ImagePath}" SelectValue="{Binding SelectImage,Mode=TwoWay}" >
+        <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1,0,0" Grid.ColumnSpan="5"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Background="{StaticResource S_Gray}" >
+
+            <wpfcontrollib:FCheckBox Content="全选"  FontSize="15"  Command="{Binding RelayCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
+
+            <TextBlock  Margin="200,0" FontSize="13" Style="{StaticResource FIcon}" FontWeight="Black">
+            <Run Text="总计："/>
+            <Run Text="{Binding Count}"/>
+            </TextBlock>
+        </StackPanel>
+
+        <Border  Grid.Row="3"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1,0,0"/>
+
+
+        <imageviewcontrol:ImageViewUserControl x:Name="imageView" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" ImagePaths="{Binding ImagePath}" SelectValue="{Binding SelectImage,Mode=TwoWay}" >
             <imageviewcontrol:ImageViewUserControl.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteImage"/>

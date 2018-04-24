@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HeBianGu.MovieBrowser.Modules.MenuItem.View"
          xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
          xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
-        mc:Ignorable="d" Height="150" Width="500" Style="{StaticResource MessageWindowStyle}"
+        mc:Ignorable="d" Height="150" Width="500" Style="{StaticResource MessageWindowStyle}" Title="新增案例"
                           >
     <Window.Resources>
         <ResourceDictionary>

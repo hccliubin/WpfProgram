@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:MovieBrowserToolApp"
        xmlns:prism="http://www.codeplex.com/prism"                 
     Style="{StaticResource ResourceKey=DefaultWindowStyle}"
-    Height="600" Width="1100">
+    Height="800" Width="1100">
 
     <Window.Resources>
         <!--创建菜单资源-->
@@ -100,6 +100,39 @@
                 <!--<Setter Property="Template" Value="{StaticResource ListBox_Buzy}"/>-->
 
             </Style>
+
+            <!--下拉条目样式-->
+            <Style TargetType="ComboBoxItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="MinHeight" Value="28" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ComboBoxItem">
+                            <Grid Background="{TemplateBinding Background}" Margin="0,0.5" ToolTip="232424">
+                                <Border x:Name="ItemBackground" IsHitTestVisible="False" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                BorderThickness="{TemplateBinding BorderThickness}"  BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}" />
+                                <ContentPresenter x:Name="contentPresenter" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemSelectedBackground}" />
+                                    <Setter Property="Foreground" Value="{StaticResource ItemSelectedForeground}" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemMouseOverBackground}" />
+                                    <Setter Property="Foreground" Value="{StaticResource ItemMouseOverForeground}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
         </ResourceDictionary>
 
     </Window.Resources>
@@ -108,7 +141,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="365*"/>
-            <RowDefinition Height="36*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
 
@@ -117,13 +150,16 @@
                 <MenuItem Header="新增案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
                 <MenuItem Header="打开案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="OpenOutCase" />
                 <MenuItem Header="另存案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="SaveOutCase" />
+                <MenuItem Header="合并案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="MergeCase"/>
+
             </MenuItem>
             <MenuItem Header="编辑" Style="{DynamicResource DefaultMenuItem}">
-                <MenuItem Header="重新加载" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="RefreshLoad" />
-                <MenuItem Header="整理案例" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="ClearOrder" />
-                <MenuItem Header="重命名" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ReNameCase" />
-                <MenuItem Header="删除案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="DeleteCase" />
                 <MenuItem Header="保存案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="SaveCase" />
+                <MenuItem Header="删除案例" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="DeleteCase" />
+                <MenuItem Header="重新加载" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="RefreshLoad" ToolTip="更新查找案例路径下的文件" />
+                <MenuItem Header="文件整理" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="ClearOrder"  ToolTip="整理文件并重新加载" />
+                <MenuItem Header="路径移动" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="MoveFolder"  ToolTip="将案例下的文件移动到指定目录" />
+                <MenuItem Header="重命名" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ReNameCase" />
 
             </MenuItem> 
             <MenuItem Header="设置" Style="{DynamicResource DefaultMenuItem}">
@@ -139,7 +175,7 @@
 
         <ComboBox Grid.Row="1" Height="30" ItemsSource="{Binding CaseSource}" DisplayMemberPath="CaseName" Width="370"
                   SelectedIndex="0" SelectedItem="{Binding CurrentCase}" base:ControlAttachProperty.Label="选择案例" 
-                  Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="请先新增案例..." ToolTip="{Binding FolderPath}"
+                  Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="请先新增案例..." ToolTip="{Binding CurrentCase.FolderPath}"
                   HorizontalAlignment="Left" />
 
         <Grid Grid.Row="2">

@@ -140,9 +140,9 @@ namespace HeBianGu.General.ModuleManager.Service
         }
 
         public const string extend = ".prj";
- 
 
-        /// <summary> 创建案例 </summary>
+
+        /// <summary> 创建写入案例 </summary>
         public void CreateCase(CaseModel model)
         {
             if (model == null) return;
@@ -221,8 +221,8 @@ namespace HeBianGu.General.ModuleManager.Service
         /// <summary> 加载本例案例数据到内存 </summary>
         void CreateCaseData(CaseModel model)
         {
-
             if (model == null) return;
+
             // Todo ：加载列表 
             if (string.IsNullOrEmpty(model.ListJson))
             {
@@ -335,7 +335,6 @@ namespace HeBianGu.General.ModuleManager.Service
         /// <summary> 重新加载 </summary>
         public void RefreshLoad(CaseModel model)
         {
-            string orderFoderName = "ACollection";
 
             var collection = DirectoryHelper.GetAllFile(model.CasePath);
 
@@ -364,7 +363,6 @@ namespace HeBianGu.General.ModuleManager.Service
             this.CreateCase(model);
 
         }
-
 
         public bool MatchFile(string fileFullName)
         {
@@ -412,6 +410,81 @@ namespace HeBianGu.General.ModuleManager.Service
 
             this.SaveCase(caseModel);
 
+        }
+
+        /// <summary> 另存为 </summary>
+        public void MoveFolderLoad(CaseModel model, string path)
+        {
+            if (model == null) return;
+
+            // Todo ：复制文件 
+            var dirs = Directory.GetDirectories(model.CasePath);
+
+            Dictionary<string, string> changeCatche = new Dictionary<string, string>();
+
+            foreach (var item in dirs)
+            {
+                string newFolder = Path.GetFileNameWithoutExtension(item);
+
+                newFolder = Path.Combine(path, newFolder);
+
+                string indexFolder = newFolder.GetIndexFolderName();
+
+                if (newFolder != indexFolder)
+                {
+                    // Todo ：记录要更换的名称 
+                    changeCatche.Add(item, indexFolder);
+                }
+
+                Directory.Move(item, indexFolder);
+            }
+
+            // Todo ：修改内存
+
+            var collection = model.ListJson.SerializeDeJson<List<MovieFileModel>>();
+
+            foreach (var item in collection)
+            {
+                // Todo ：替换更名的 
+                foreach (var c in changeCatche)
+                {
+                    item.FilePath = item.FilePath.Replace(c.Key, c.Value);
+                }
+
+                // Todo ：替换普通的 
+                item.FilePath = item.FilePath.Replace(model.CasePath, path);
+            }
+
+            model.ListJson = collection.SerializeJson<List<MovieFileModel>>();
+
+            model.CasePath = path;
+
+            this.CreateCase(model);
+
+        }
+
+        /// <summary> 从指定案例合并 </summary>
+        public void MergeCases(CaseModel model, List<CaseModel> froms)
+        {
+            List<MovieFileModel> cache = model.ListJson.SerializeDeJson<List<MovieFileModel>>();
+
+            foreach (var item in froms)
+            {
+                // Todo ：复制文件 
+                this.MoveFolderLoad(item, model.CasePath);
+
+                // Todo ：修改内存 
+                var models = item.ListJson.SerializeDeJson<List<MovieFileModel>>();
+
+                cache.AddRange(models);
+            }
+
+            // Todo ：保存本地 
+            string s = cache.SerializeJson<List<MovieFileModel>>();
+
+            model.ListJson = s;
+
+            this.CreateCase(model);
         }
 
     }

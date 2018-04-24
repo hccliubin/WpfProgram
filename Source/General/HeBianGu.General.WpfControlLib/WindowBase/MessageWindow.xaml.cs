@@ -264,5 +264,23 @@ namespace HeBianGu.General.WpfControlLib
         }
 
         #endregion
+
+
+        /// <summary> 确定 </summary>
+        private void sumitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            _result = true;
+            this.BegionStoryClose();
+        }
+
+
+        /// <summary> 取消 </summary>
+        private void cancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            _result = false;
+            this.BegionStoryClose();
+        }
     }
 }

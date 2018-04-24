@@ -31,6 +31,7 @@ namespace HeBianGu.MovieBrower.UserControls.ImageViewControl
 
             this.tpageControl.SelectChanged += l =>
             {
+                if (l < 0) return;
                 this.SelectValue = this.ImagePaths[l- 1];
 
                 //this.SelectValue = this.ImagePaths[l-1];

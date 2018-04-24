@@ -51,6 +51,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MergeCaseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -67,8 +71,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModel\AddCaseViewModel.cs" />
+    <Compile Include="ViewModel\MergeCaseViewModel.cs" />
+    <Compile Include="ViewModel\SelectCaseViewModel.cs" />
     <Compile Include="View\AddCaseWindow.xaml.cs">
       <DependentUpon>AddCaseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MergeCaseWindow.xaml.cs">
+      <DependentUpon>MergeCaseWindow.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

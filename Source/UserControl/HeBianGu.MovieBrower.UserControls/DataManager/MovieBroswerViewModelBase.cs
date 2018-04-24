@@ -141,6 +141,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             {
                 if (SelectItem == null) return;
 
+                if (!File.Exists(SelectItem.FilePath)) return;
+
                 Process.Start(SelectItem.FilePath);
 
                 this.SelectItem.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
@@ -161,6 +163,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.CommonSource.Remove(this.SelectItem);
 
+                favorite.Refresh();
+
             }
 
             // Todo ：删除 
@@ -173,6 +177,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 delete.CommonSource.Add(this.SelectItem);
 
                 this.CommonSource.Remove(this.SelectItem);
+
+                delete.Refresh();
             }
 
             // Todo ：彻底删除 
@@ -186,18 +192,26 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 if (folderName == Path.GetFileNameWithoutExtension(this.SelectItem.FilePath))
                 {
-                    Directory.Delete(folderFullName, true);
+
+                    if(Directory.Exists(folderFullName))
+                    {
+
+                        Directory.Delete(folderFullName, true);
+                    }
                 }
                 else
                 {
-                    File.Delete(this.SelectItem.FilePath);
+                    if(File.Exists(this.SelectItem.FilePath))
+                    {
+                        File.Delete(this.SelectItem.FilePath);
+                    }
                 }
 
                 this.CommonSource.Remove(this.SelectItem);
 
             }
 
-            // Todo ：重新加载 
+            // Todo ：还原 
             else if (buttonName == "ReLoad")
             {
                 var noraml = MovieBrowserDataManager.Instance.ViewModelItem.Find(l => l.Type == FileType.Normal);
@@ -205,6 +219,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 noraml.CommonSource.Add(this.SelectItem);
 
                 this.CommonSource.Remove(this.SelectItem);
+
+                noraml.Refresh();
             }
 
             // Todo ：图片预览 
@@ -367,6 +383,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.CommonSource.Clear();
             }
+
             // Todo ：清空数据 
             else if (buttonName == "SetDefault")
             {
@@ -381,7 +398,6 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.ButtonClickFunc("ShowImage");
             }
 
-
             // Todo ：全选 
             if (obj is bool)
             {
@@ -391,6 +407,9 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 }
             }
+
+            this.Refresh();
+
 
         }
 
@@ -425,6 +444,19 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
+        private string _count;
+        /// <summary> 说明 </summary>
+        public string Count
+        {
+            get { return _count; }
+            set
+            {
+                _count = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
 
         private ObservableCollection<string> _imagePath=new ObservableCollection<string>();
         /// <summary> 说明 </summary>
@@ -448,6 +480,11 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 _selectImage = value;
                 RaisePropertyChanged();
             }
+        }
+
+        public void Refresh()
+        {
+            this.Count = this.CommonSource.Count.ToString();
         }
 
 

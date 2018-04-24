@@ -48,9 +48,12 @@ namespace HeBianGu.MovieBrower.UserControls
 
             if (sysFile is FileInfo)
             {
+                FileInfo file = sysFile as FileInfo;
                 this.FileName = sysFile.Name;
                 this.FilePath = sysFile.FullName;
                 this.IsFile = true;
+                this.Size = file.Length;
+
             }
             else
             {
@@ -76,6 +79,47 @@ namespace HeBianGu.MovieBrower.UserControls
         {
             get { return _filePath; }
             set { _filePath = value; }
+        }
+
+        private bool _isEnble;
+        /// <summary> 文件是否村子 </summary>
+        public bool IsEnble
+        {
+            get
+            {
+                return File.Exists(this.FilePath);
+            }
+        }
+
+        private long _size;
+        /// <summary> 文件大小 </summary>
+        public long Size
+        {
+            get
+            {
+                return _size;
+            }
+            set
+            {
+                _size = value;
+
+                this.SizeString = DirectoryHelper.ConvertBytes(value);
+
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _sizeString;
+        /// <summary> 说明 </summary>
+        public string SizeString
+        {
+            get { return _sizeString; }
+            set
+            {
+                _sizeString = value;
+                RaisePropertyChanged();
+            }
+
         }
 
         private bool _isFile;
@@ -105,7 +149,7 @@ namespace HeBianGu.MovieBrower.UserControls
         }
 
 
-        private double _score=2;
+        private double _score = 2;
         /// <summary> 说明 </summary>
         public double Score
         {
@@ -123,7 +167,9 @@ namespace HeBianGu.MovieBrower.UserControls
         public string Type
         {
             get { return _type; }
-            set { _type = value;
+            set
+            {
+                _type = value;
                 RaisePropertyChanged();
             }
         }
@@ -140,7 +186,7 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
-        private List<string> _typeItems = new List<string>() { "0", "1", "2"};
+        private List<string> _typeItems = new List<string>() { "0", "1", "2" };
         /// <summary> 说明 </summary>
         public List<string> TypeItems
         {
@@ -164,6 +210,12 @@ namespace HeBianGu.MovieBrower.UserControls
         public MovieFileViewModel(MovieFileModel model)
         {
             this.CopyFromObj(model);
+
+            if (!File.Exists(model.FilePath)) return;
+
+            FileInfo file = new FileInfo(model.FilePath);
+
+            this.Size = file.Length;
         }
 
         private bool _isChecked;
@@ -178,17 +230,6 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
-        private int _size;
-        /// <summary> 说明 </summary>
-        public int Size
-        {
-            get { return _size; }
-            set
-            {
-                _size = value;
-                RaisePropertyChanged();
-            }
-        }
 
         private Visibility _isVisible = Visibility.Visible;
         /// <summary> 说明 </summary>

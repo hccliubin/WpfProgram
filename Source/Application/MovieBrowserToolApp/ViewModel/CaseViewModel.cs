@@ -101,8 +101,6 @@ namespace MovieBrowserToolApp.ViewModel
             {
                 _isOpen = value;
                 RaisePropertyChanged();
-
-
             }
         }
 

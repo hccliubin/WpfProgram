@@ -34,3 +34,4 @@ F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.W
 F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.WpfBase.csproj.GenerateResource.Cache
 F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.WpfBase.dll
 F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.WpfBase.pdb
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBase\obj\Debug\HeBianGu.Base.WpfBase.csprojResolveAssemblyReference.cache

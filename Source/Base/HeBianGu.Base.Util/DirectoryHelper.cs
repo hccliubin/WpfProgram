@@ -97,6 +97,7 @@ namespace HeBianGu.Base.Util
         public static string[] GetDirFiles(this string dirFullPath)
         {
             string[] fileList;
+
             if (Directory.Exists(dirFullPath))
             {
                 fileList = Directory.GetFiles(dirFullPath, "*.*", SearchOption.TopDirectoryOnly);
@@ -397,5 +398,69 @@ namespace HeBianGu.Base.Util
 
             return ss;
         }
+
+
+
+        /// <summary> 递归创建文件夹 </summary>
+        public static string GetIndexFolderName(this string folderPath, bool isAutoCreate = false)
+        {
+            // Todo ：递归创建文件夹 
+            int index = 0;
+
+            string folder = Path.GetDirectoryName(folderPath);
+
+            string folderName = Path.GetFileNameWithoutExtension(folderPath);
+
+            Func<string, string> action = null;
+
+            action = l =>
+            {
+                if (!Directory.Exists(l))
+                {
+                    if (isAutoCreate)
+                    {
+                        Directory.CreateDirectory(l);
+                    }
+
+                    return l;
+                }
+                else
+                {
+                    index++;
+
+                    string k = Path.Combine(folder, folderName + "（" + index + "）");
+
+                    return action(k);
+
+                }
+            };
+
+            return action.Invoke(folderPath);
+        }
+
+        /// <summary> Bytes到KB,MB,GB,TB单位智能转换 </summary>
+        public static string ConvertBytes(long len)
+        {
+            string[] sizes = { "Bytes", "KB", "MB", "GB", "TB" };
+            int order = 0;
+            while (len >= 1024 && order + 1 < sizes.Length)
+            {
+                order++;
+                len = len / 1024;
+            }
+            return String.Format("{0:0.##} {1}", len, sizes[order]);
+        }
+
+        /// <summary> 文件大小到KB,MB,GB,TB单位智能转换 </summary>
+        public static string GetSizeString(this string filePath)
+        {
+            if (!File.Exists(filePath)) return "0";
+
+            FileInfo file = new FileInfo(filePath);
+
+            return ConvertBytes(file.Length);
+
+        }
+
     }
 }
