@@ -43,18 +43,4 @@ namespace HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule.ViewModel
         
     }
 
-    partial class MovieBrowerViewModel : INotifyPropertyChanged
-    {
-        #region - MVVM -
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void RaisePropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
-    }
 }
