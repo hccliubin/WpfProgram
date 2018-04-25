@@ -119,11 +119,7 @@ namespace HeBianGu.MovieBrower.UserControls
         {
             get
             {
-                if (_types == null || _types.Count == 0)
-                {
-                    _types = CaseNotifyService.MovieTypes;
-
-                }
+                _types = CaseNotifyService.MovieTypes;
                 return _types;
             }
             set { _types = value; }

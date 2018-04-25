@@ -69,4 +69,5 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.ViewModel
 
         #endregion
     }
+    
 }

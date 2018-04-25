@@ -10,13 +10,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="700">
     <UserControl.Resources>
+        
         <Style TargetType="{x:Type ListBox}">
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
                         <Grid>
-                            <wpfcontrollib:FCheckBox Content="{Binding FileName}" IsChecked="{Binding IsCheck}"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <wpfcontrollib:FCheckBox Content="{Binding FileName}" IsChecked="{Binding IsChecked}"/>
+                            <wpfcontrollib:FButton Content="删除" Style="{StaticResource FButton_Transparency}" Command="{Binding RelayCommand}" CommandParameter="DeleteItem" Grid.Column="1" FIcon="&#xe72c;"/>
                         </Grid>
                     </DataTemplate>
                 </Setter.Value>
@@ -54,12 +60,16 @@
     </UserControl.Resources>
 
     <Grid Grid.Row="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ItemsControl>
+        <ItemsControl >
             <RadioButton x:Name="rb_matchType" Content="文件类型" IsChecked="True">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
@@ -92,9 +102,9 @@
             </RadioButton>
         </ItemsControl>
 
-        <ScrollViewer  x:Name="scrollView" Grid.Column="1" Grid.ColumnSpan="2" ScrollChanged="scrollView_ScrollChanged">
-            <StackPanel  Background="White">
-                <Grid>
+        <ScrollViewer  x:Name="scrollView" Grid.Column="1" ScrollChanged="scrollView_ScrollChanged">
+            <StackPanel  Background="White" >
+                <Grid Margin="0,10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="Auto"/>
@@ -113,12 +123,28 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="文件配置："  x:Name="txt_matchType"/>
-                    <TextBlock Text="请设置要观察的文件后缀类型" Grid.Column="1" HorizontalAlignment="Left"/>
-                    <!--<Border BorderBrush="{StaticResource S_GrayDark}"   Grid.ColumnSpan="2" BorderThickness="0,0,0,1"/>-->
-                    <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding MatchFileCollection}"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <wpfcontrollib:FTextBox  Width="200" HorizontalAlignment="Left" base:ControlAttachProperty.Watermark="请输入名称" Text="{Binding AddMatchString}"
+                         Style="{StaticResource LabelClearButtonTextBox}" base:ControlAttachProperty.Label="名称："></wpfcontrollib:FTextBox>
+                        <wpfcontrollib:FButton Content="添加"  Grid.Column="1" Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="btn_AddMatch"/>
+                    </StackPanel>
+                   
+                    <!--<Border BorderBrush="{StaticResource S_GrayDark}"   Grid.ColumnSpan="2" BorderThickness="0,0,0,1"/>
+                    <Border BorderBrush="{StaticResource S_GrayDark}" Grid.Row="2"  Grid.ColumnSpan="2" BorderThickness="0,0,0,1"/>
+                    <Border BorderBrush="{StaticResource S_GrayDark}" Grid.Row="4"   Grid.ColumnSpan="2" BorderThickness="0,0,0,1"/>
+                    <Border BorderBrush="{StaticResource S_GrayDark}" Grid.Row="6"   Grid.ColumnSpan="2" BorderThickness="0,0,0,1"/>
+                    <Border BorderBrush="{StaticResource S_GrayDark}" Grid.Row="8"   Grid.ColumnSpan="2" BorderThickness="0,0,0,1"/>-->
+                    
+                    <ListBox  Grid.Row="1" Grid.Column="1" ItemsSource="{Binding MatchFileCollection}"/>
 
                     <TextBlock Text="类型配置：" Grid.Row="2" x:Name="txt_fileType"/>
-                    <TextBlock Text="请设置文件的所属类型"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1"  Grid.Row="2">
+                        <wpfcontrollib:FTextBox  Width="200" HorizontalAlignment="Left" base:ControlAttachProperty.Watermark="请输入类型" Text="{Binding AddFileString}"
+                         Style="{StaticResource LabelClearButtonTextBox}" base:ControlAttachProperty.Label="类型："></wpfcontrollib:FTextBox>
+                        <wpfcontrollib:FButton Content="添加"  Grid.Column="1" Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="btn_AddTypes"/>
+                    </StackPanel>
+                    
                     <ListBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding FileTypeCollection}"/>
 
 
@@ -133,6 +159,9 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
+
+
+        <wpfcontrollib:FButton Content="应用" Command="{Binding RelayCommand}" CommandParameter="Btn_Sumit" Grid.Row="1" Grid.ColumnSpan="2"/>
     </Grid>
 
 </UserControl>

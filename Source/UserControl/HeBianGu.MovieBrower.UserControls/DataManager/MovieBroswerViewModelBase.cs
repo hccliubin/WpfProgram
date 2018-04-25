@@ -515,4 +515,6 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
         #endregion
     }
+
+
 }

@@ -23,6 +23,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HeBianGu.MovieBrowser.Modules.MenuItem.ViewModel
 {
@@ -53,5 +54,35 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.ViewModel
             }
         }
 
+        public SettingFileItemViewModel(string name)
+        {
+            this.FileName = name;
+
+            RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
+
+        }
+
+        /// <summary>
+        /// 按钮点击事件
+        /// </summary>
+        /// <param name="obj"></param>
+        private void ButtonClickFunc(object obj)
+        {
+            string buttonName = obj.ToString();
+
+            if (buttonName == "DeleteItem")
+            {
+                if(DeleteAction!=null)
+                {
+                    DeleteAction.Invoke();
+                }
+            }
+        }
+
+
+        public Action DeleteAction { get; set; } 
+
+
+        public RelayCommand RelayCommand { get; set; }
     }
 }

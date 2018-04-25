@@ -7,9 +7,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HeBianGu.MovieBrowser.Modules.MenuItem.View" 
         xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
-    xmlns:controls="clr-namespace:HeBianGu.MovieBrowser.Modules.MenuItem.Controls" Style="{StaticResource MessageWindowStyle}" 
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:controls="clr-namespace:HeBianGu.MovieBrowser.Modules.MenuItem.Controls" 
+        Style="{StaticResource MessageWindowStyle}" 
         mc:Ignorable="d"
-        Title="SettingCaseWindow" Height="500" Width="700">
+        Title="设置页面" Height="500" Width="700">
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type RadioButton}">
@@ -43,14 +45,31 @@
 
         <Border BorderBrush="{StaticResource S_GrayDark}" BorderThickness="0,0,0,1"/>
         <StackPanel Orientation="Horizontal">
-            <RadioButton x:Name="rb_1" Content="基本设置" IsChecked="False"/>
-            <RadioButton x:Name="rb_2"  Content="文件配置" IsChecked="True"/>
-            <RadioButton x:Name="rb_3"  Content="类型配置"/>
+            <RadioButton x:Name="rb_1" Content="基本设置" IsChecked="False">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="BaseSetClick"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </RadioButton>
+            <RadioButton x:Name="rb_2"  Content="案例配置" IsChecked="True">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="CaseSetClick"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </RadioButton>
         </StackPanel>
 
 
-        <controls:FileSettingControl Grid.Row="1"/>
+        <Grid  Grid.Row="1" Visibility="{Binding CaseVisible}">
+            <controls:FileSettingControl />
+        </Grid>
 
+        <Grid  Grid.Row="1"  Visibility="{Binding BaseVisible}">
+
+            <ContentControl Content="343435343" Background="White"/>
+        </Grid>
     </Grid>
 
 

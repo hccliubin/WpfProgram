@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeBianGu.MovieBrowser.Modules.MenuItem.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.View
     /// </summary>
     public partial class SettingCaseWindow
     {
+        SettingCaseViewModel _vm = new SettingCaseViewModel();
+
         public SettingCaseWindow()
         {
             InitializeComponent();
+
+            this.DataContext = _vm;
         }
     }
 }

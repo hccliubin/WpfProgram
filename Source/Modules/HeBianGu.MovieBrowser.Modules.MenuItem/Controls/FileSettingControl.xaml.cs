@@ -54,7 +54,7 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
                 // 计算出目标位置并滚动
                 var targetPosition = item.Item1.TransformToVisual(this.scrollView).Transform(point);
 
-                if(targetPosition.Y-point.Y<5)
+                if(targetPosition.Y-point.Y<50)
                 {
                     item.Item2.IsChecked = true;
                 }
@@ -94,22 +94,56 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
         {
             foreach (var item in CaseNotifyService.MatchTypes)
             {
-                SettingFileItemViewModel model = new SettingFileItemViewModel();
-                model.IsChecked = true;
-                model.FileName = item;
+                SettingFileItemViewModel model = new SettingFileItemViewModel(item);
+
+                model.DeleteAction += () =>
+                  {
+                      this.MatchFileCollection.Remove(model);
+                  };
+
                 this.MatchFileCollection.Add(model);
             }
 
             foreach (var item in CaseNotifyService.MovieTypes)
             {
-                SettingFileItemViewModel model = new SettingFileItemViewModel();
-                model.IsChecked = true;
-                model.FileName = item;
+                SettingFileItemViewModel model = new SettingFileItemViewModel(item);
+
+                model.DeleteAction += () =>
+                {
+                    this.FileTypeCollection.Remove(model);
+                };
                 this.FileTypeCollection.Add(model);
+
             }
 
             RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
         }
+
+        private string _addMatchString;
+        /// <summary> 说明 </summary>
+        public string AddMatchString
+        {
+            get { return _addMatchString; }
+            set
+            {
+                _addMatchString = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _addFileString;
+        /// <summary> 说明 </summary>
+        public string AddFileString
+        {
+            get { return _addFileString; }
+            set
+            {
+                _addFileString = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
 
         /// <summary>
         /// 按钮点击事件
@@ -117,10 +151,68 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
         /// <param name="obj"></param>
         private void ButtonClickFunc(object obj)
         {
-            if (obj is TextBlock)
+            string buttonName = obj.ToString();
+
+            if (buttonName=="Btn_Sumit")
             {
-                TextBlock tb = obj as TextBlock;
+                // Todo ：保存 
+                List<string> matchs = new List<string>();
+
+                foreach (var item in this.MatchFileCollection)
+                {
+                    matchs.Add(item.FileName);
+                }
+
+                List<string> files = new List<string>();
+
+                foreach (var item in this.FileTypeCollection)
+                {
+                    files.Add(item.FileName);
+                }
+
+                CaseNotifyService.MatchTypes = matchs;
+
+                CaseNotifyService.MovieTypes = files;
+
             }
+            else if (buttonName == "btn_AddMatch")
+            {
+                if (string.IsNullOrEmpty(this.AddMatchString)) return;
+
+                SettingFileItemViewModel model = new SettingFileItemViewModel(this.AddMatchString);
+
+                model.DeleteAction += () =>
+                  {
+                      this.MatchFileCollection.Remove(model);
+                  };
+
+                this.MatchFileCollection.Add(model);
+
+            }
+            else if (buttonName == "btn_AddTypes")
+            {
+                if (string.IsNullOrEmpty(this.AddFileString)) return;
+
+
+                SettingFileItemViewModel model = new SettingFileItemViewModel(this.AddFileString);
+
+                model.DeleteAction += () =>
+                {
+                    this.FileTypeCollection.Remove(model);
+                };
+
+                this.FileTypeCollection.Add(model);
+
+            }
+
+            else if (buttonName == "DeleteItem")
+            {
+                if (string.IsNullOrEmpty(this.AddFileString)) return;
+                
+
+            }
+
+
         }
 
         public RelayCommand RelayCommand { get; set; }
@@ -170,7 +262,7 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
 
             // 计算出目标位置并滚动
             var targetPosition = TargetControl.TransformToVisual(ScrollViewer).Transform(point);
-            ScrollViewer.ScrollToVerticalOffset(targetPosition.Y);
+            ScrollViewer.ScrollToVerticalOffset(targetPosition.Y-10);
         }
     }
 }

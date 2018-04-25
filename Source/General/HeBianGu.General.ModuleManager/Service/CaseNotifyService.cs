@@ -89,41 +89,95 @@ namespace HeBianGu.General.ModuleManager.Service
             }
         }
 
+        static List<string> _movieTypes = new List<string>();
         /// <summary> 设置文件类型 </summary>
         public static List<string> MovieTypes
         {
             get
             {
-                string str = Path.Combine(LocalCaseFolder, "DefaultFileType.ini");
-
-                if (!File.Exists(str))
+                if (_movieTypes == null || _movieTypes.Count == 0)
                 {
-                    return null;
+                    string str = Path.Combine(LocalCaseFolder, "DefaultFileType.ini");
+
+                    if (!File.Exists(str))
+                    {
+                        return null;
+                    }
+
+                    string txt = File.ReadAllText(str, Encoding.Default);
+
+                    _movieTypes = txt.Split(',').ToList();
                 }
 
-                string txt = File.ReadAllText(str, Encoding.Default);
 
+                return _movieTypes;
+            }
+            set
+            {
+                string str = Path.Combine(LocalCaseFolder, "DefaultFileType.ini");
 
-                return txt.Split(',').ToList();
+                _movieTypes = value;
+
+                if(value==null)
+                {
+                    File.WriteAllText(str, "");
+                    return;
+                }
+
+                StringBuilder sb = new StringBuilder();
+
+                foreach (var item in _movieTypes)
+                {
+                    sb.Append(item + ",");
+                }
+
+                File.WriteAllText(str,sb.ToString().Trim(','), Encoding.Default);
             }
         }
 
+        static List<string> _matchTypes = new List<string>();
         /// <summary> 过滤文件类型 </summary>
         public static List<string> MatchTypes
         {
             get
             {
+                if(_matchTypes==null|| _matchTypes.Count==0)
+                {
+                    string matchFile = Path.Combine(LocalCaseFolder, "MatchFileType.ini");
+
+                    if (!File.Exists(matchFile)) return null;
+
+                    string media = File.ReadAllText(matchFile, Encoding.Default);
+
+                    var allextend = media.Split(new char[] { '、' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (allextend == null || allextend.Length == 0) return null;
+
+                    _matchTypes = allextend.ToList();
+                }
+
+                return _matchTypes;
+            }
+            set
+            {
                 string matchFile = Path.Combine(LocalCaseFolder, "MatchFileType.ini");
 
-                if (!File.Exists(matchFile)) return null;
+                _matchTypes = value;
 
-                string media = File.ReadAllText(matchFile, Encoding.Default);
+                if (value == null)
+                {
+                    File.WriteAllText(matchFile, "");
+                    return;
+                }
 
-                var allextend = media.Split(new char[] { '、' }, StringSplitOptions.RemoveEmptyEntries);
+                StringBuilder sb = new StringBuilder();
 
-                if (allextend == null || allextend.Length == 0) return null;
+                foreach (var item in _matchTypes)
+                {
+                    sb.Append(item + "、");
+                }
 
-                return allextend.ToList();
+                File.WriteAllText(matchFile, sb.ToString().Trim('、'), Encoding.Default);
             }
         }
 
@@ -305,9 +359,9 @@ namespace HeBianGu.General.ModuleManager.Service
 
 
                 //获取文件夹下所有名称相同的项和所有图片文件
-                var allInfo = DirectoryHelper.GetAllFile(Path.GetDirectoryName(item), l => (Path.GetFileNameWithoutExtension(l.FullName) == fileNameWithOut && !l.FullName.Contains(orderFoderName))|| l.FullName.ToLower().EndsWith(",jpg")|| l.FullName.ToLower().EndsWith(".bt"));
+                var allInfo = DirectoryHelper.GetAllFile(Path.GetDirectoryName(item), l => (Path.GetFileNameWithoutExtension(l.FullName) == fileNameWithOut && !l.FullName.Contains(orderFoderName)) || l.FullName.ToLower().EndsWith(",jpg") || l.FullName.ToLower().EndsWith(".bt"));
 
-               
+
 
                 foreach (var info in allInfo)
                 {

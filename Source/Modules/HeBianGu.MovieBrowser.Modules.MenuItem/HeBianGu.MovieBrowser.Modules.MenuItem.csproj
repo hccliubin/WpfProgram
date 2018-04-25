@@ -88,6 +88,7 @@
     <Compile Include="ViewModel\AddCaseViewModel.cs" />
     <Compile Include="ViewModel\MergeCaseViewModel.cs" />
     <Compile Include="ViewModel\SelectCaseViewModel.cs" />
+    <Compile Include="ViewModel\SettingCaseViewModel.cs" />
     <Compile Include="ViewModel\SettingFileItemViewModel.cs" />
     <Compile Include="View\AddCaseWindow.xaml.cs">
       <DependentUpon>AddCaseWindow.xaml</DependentUpon>
