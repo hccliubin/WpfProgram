@@ -16,6 +16,8 @@
                     <MenuItem Header="还原"  Command="{Binding RelayCommand}" CommandParameter="ReLoad"/>
                     <MenuItem Header="收藏"  Command="{Binding RelayCommand}" CommandParameter="Favorite"/>
                     <MenuItem Header="彻底删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteDeep"/>
+
+                    <MenuItem Header="打开路径"  Command="{Binding RelayCommand}" CommandParameter="OpenFolder"/>
                 </ContextMenu>
             </usercontrols:MovieGridUserControl.ContextMenu>
         </usercontrols:MovieGridUserControl>

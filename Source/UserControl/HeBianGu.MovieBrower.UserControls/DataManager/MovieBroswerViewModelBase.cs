@@ -193,7 +193,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 if (folderName == Path.GetFileNameWithoutExtension(this.SelectItem.FilePath))
                 {
 
-                    if(Directory.Exists(folderFullName))
+                    if (Directory.Exists(folderFullName))
                     {
 
                         Directory.Delete(folderFullName, true);
@@ -201,7 +201,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
                 else
                 {
-                    if(File.Exists(this.SelectItem.FilePath))
+                    if (File.Exists(this.SelectItem.FilePath))
                     {
                         File.Delete(this.SelectItem.FilePath);
                     }
@@ -244,7 +244,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                     return;
                 }
 
-                this.ImagePath=null;
+                this.ImagePath = null;
 
                 ObservableCollection<string> ss = new ObservableCollection<string>();
 
@@ -265,7 +265,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 string imageName = Path.GetFileNameWithoutExtension(this.SelectItem.FilePath);
 
-                string imagePath = Path.Combine(folder, imageName +DateTime.Now.ToString("yyyyMMddhhmmss")+ ".jpg");
+                string imagePath = Path.Combine(folder, imageName + DateTime.Now.ToString("yyyyMMddhhmmss") + ".jpg");
 
                 var image = Clipboard.GetImage();
 
@@ -359,7 +359,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
 
             // Todo ：删除图片 
-            else if(buttonName== "DeleteImage")
+            else if (buttonName == "DeleteImage")
             {
                 this.ImagePath.Remove(this.SelectImage);
 
@@ -387,7 +387,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             // Todo ：清空数据 
             else if (buttonName == "SetDefault")
             {
-                if(this.CommonSource==null|| this.CommonSource.Count==0)
+                if (this.CommonSource == null || this.CommonSource.Count == 0)
                 {
                     this.ButtonClickFunc("Clear");
                     return;
@@ -396,6 +396,17 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.SelectItem = this.CommonSource[0];
 
                 this.ButtonClickFunc("ShowImage");
+            }
+
+            // Todo ：打开路径 
+            else if (buttonName == "OpenFolder")
+            {
+                if (this.SelectItem == null) return;
+
+                if (File.Exists(this.SelectItem.FilePath))
+                {
+                    Process.Start(Path.GetDirectoryName(this.SelectItem.FilePath));
+                }
             }
 
             // Todo ：全选 
@@ -458,7 +469,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
 
 
-        private ObservableCollection<string> _imagePath=new ObservableCollection<string>();
+        private ObservableCollection<string> _imagePath = new ObservableCollection<string>();
         /// <summary> 说明 </summary>
         public ObservableCollection<string> ImagePath
         {

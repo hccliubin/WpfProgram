@@ -163,8 +163,8 @@
 
             </MenuItem> 
             <MenuItem Header="设置" Style="{DynamicResource DefaultMenuItem}">
-                <MenuItem Header="文件配置" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="AddCase" />
-                <MenuItem Header="类型配置" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
+                <MenuItem Header="文件配置" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="FileSet" />
+                <MenuItem Header="类型配置" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="TypeSet" />
             </MenuItem>
             <MenuItem Header="帮助" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
             <MenuItem Header="关于" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />

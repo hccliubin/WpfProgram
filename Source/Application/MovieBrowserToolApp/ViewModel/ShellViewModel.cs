@@ -173,6 +173,7 @@ namespace MovieBrowserToolApp.ViewModel
                 this.SaveCase();
             }
 
+            // Todo 整理文件 
             else if (buttonName == "ClearOrder")
             {
                 this.SaveCase();
@@ -195,6 +196,7 @@ namespace MovieBrowserToolApp.ViewModel
                 this.ButtonClickFunc("OpenCase");
             }
 
+            // Todo ：显示默认 
             else if (buttonName == "ShowDefault")
             {
                 if (this.CaseSource == null || this.CaseSource.Count == 0)
@@ -318,6 +320,24 @@ namespace MovieBrowserToolApp.ViewModel
                 this.RefreshCurrent(this.CurrentCase.Model);
 
             }
+
+            // Todo ：文件设置 
+            else if (buttonName == "FileSet")
+            {
+
+                SettingCaseWindow window = new SettingCaseWindow();
+                window.ShowDialog();
+            }
+            // Todo ：类型设置 
+            else if (buttonName == "TypeSet")
+            {
+                SettingCaseWindow window = new SettingCaseWindow();
+                window.ShowDialog();
+
+            }
+
+
+
         }
 
 
