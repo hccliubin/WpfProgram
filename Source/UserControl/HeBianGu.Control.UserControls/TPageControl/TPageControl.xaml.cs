@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -96,6 +97,41 @@ namespace HeBianGu.Control.UserControls
         }
 
 
+        public bool IsAutoMove
+        {
+            get { return (bool)GetValue(IsAutoMoveProperty); }
+            set { SetValue(IsAutoMoveProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsAutoMove.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsAutoMoveProperty =
+            DependencyProperty.Register("IsAutoMove", typeof(bool), typeof(TPageControl), new PropertyMetadata(false, IsAutoMovePropertyChangedCallback));
+
+        public static void IsAutoMovePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as TPageControl;
+
+            if (control == null) return;
+
+            if (!(bool)e.NewValue)
+            {
+                time.Stop();
+            }
+
+
+            time.Elapsed += (object ss, ElapsedEventArgs ee) =>
+            {
+                lock (_lock)
+                {
+                    control.NextPage();
+                }
+            };
+
+            time.Start();
+        }
+
+        static object _lock = new object();
+        static Timer time = new Timer(2000);
         #endregion
 
 
@@ -578,13 +614,24 @@ namespace HeBianGu.Control.UserControls
 
         public void OnNext()
         {
-            ChangePage(true);
+            this.Dispatcher.Invoke(() =>
+            {
+
+                ChangePage(true);
+
+                if (this.PageSelect == this.pageCount)
+                {
+                    //this.SetPage(1);
+
+                    this.ChangePage(1);
+                }
+            });
+
         }
 
         public void OnLast()
         {
-
-            ChangePage(false);
+            this.Dispatcher.Invoke(() => ChangePage(false));
         }
 
         public bool CanNext
@@ -832,11 +879,11 @@ namespace HeBianGu.Control.UserControls
 
             action();
 
-            //this.Loaded += (object sender, System.Windows.RoutedEventArgs e) =>
-            //{
-            //    action();
+            this.Loaded += (object sender, System.Windows.RoutedEventArgs e) =>
+            {
+                action();
 
-            //};
+            };
         }
 
         public List<UserControl> BindControls
@@ -849,7 +896,7 @@ namespace HeBianGu.Control.UserControls
 
         // Using a DependencyProperty as the backing store for BindControls.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BindControlsProperty =
-            DependencyProperty.Register("BindControls", typeof(List<UserControl>), typeof(TPageControl), new PropertyMetadata(null,PropertyChangedCallback));
+            DependencyProperty.Register("BindControls", typeof(List<UserControl>), typeof(TPageControl), new PropertyMetadata(null, PropertyChangedCallback));
 
         private void imageRight_Click(object sender, RoutedEventArgs e)
         {

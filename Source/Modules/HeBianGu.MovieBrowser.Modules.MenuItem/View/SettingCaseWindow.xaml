@@ -10,8 +10,8 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:controls="clr-namespace:HeBianGu.MovieBrowser.Modules.MenuItem.Controls" 
         Style="{StaticResource MessageWindowStyle}" 
-        mc:Ignorable="d"
-        Title="设置页面" Height="500" Width="700">
+        mc:Ignorable="d" x:Name="window"
+        Title="设置页面" Height="800" Width="700">
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type RadioButton}">
@@ -40,10 +40,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="203*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Border BorderBrush="{StaticResource S_GrayDark}" BorderThickness="0,0,0,1"/>
+        
         <StackPanel Orientation="Horizontal">
             <RadioButton x:Name="rb_1" Content="基本设置" IsChecked="False">
                 <i:Interaction.Triggers>
@@ -62,12 +64,13 @@
         </StackPanel>
 
 
-        <Grid  Grid.Row="1" Visibility="{Binding CaseVisible}">
-            <controls:FileSettingControl />
+        <Grid  Grid.Row="1" Grid.RowSpan="2" Visibility="{Binding CaseVisible}">
+            <controls:FileSettingControl x:Name="uc_fileSetting" ShowItem="{Binding ItemTypeValue,Mode=TwoWay}" />
         </Grid>
 
-        <Grid  Grid.Row="1"  Visibility="{Binding BaseVisible}">
+        <wpfcontrollib:FButton Content="确定"  Grid.Row="2" HorizontalAlignment="Right" Margin="100,0" Command="{Binding RelayCommand}" CommandParameter="{Binding ElementName=window}" />
 
+        <Grid  Grid.Row="1"  Grid.RowSpan="2" Visibility="{Binding BaseVisible}">
             <ContentControl Content="343435343" Background="White"/>
         </Grid>
     </Grid>

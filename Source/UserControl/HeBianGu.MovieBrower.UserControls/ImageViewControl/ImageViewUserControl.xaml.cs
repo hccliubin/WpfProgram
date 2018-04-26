@@ -32,12 +32,16 @@ namespace HeBianGu.MovieBrower.UserControls.ImageViewControl
             this.tpageControl.SelectChanged += l =>
             {
                 if (l < 0) return;
+
+                if (this.ImagePaths == null) return;
+
+                if (this.ImagePaths.Count <= l - 1) return;
+
                 this.SelectValue = this.ImagePaths[l- 1];
 
                 //this.SelectValue = this.ImagePaths[l-1];
             };
         }
-
 
         public ObservableCollection<string> ImagePaths
         {
@@ -98,6 +102,53 @@ namespace HeBianGu.MovieBrower.UserControls.ImageViewControl
         // Using a DependencyProperty as the backing store for SelectValue.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SelectValueProperty =
             DependencyProperty.Register("SelectValue", typeof(string), typeof(ImageViewUserControl), new PropertyMetadata(null));
+
+
+
+
+        public bool IsShowLeftRight
+        {
+            get { return (bool)GetValue(IsShowLeftRightProperty); }
+            set { SetValue(IsShowLeftRightProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsShowLeftRight.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsShowLeftRightProperty =
+            DependencyProperty.Register("IsShowLeftRight", typeof(bool), typeof(ImageViewUserControl), new PropertyMetadata(true, IsShowLeftRightPropertyChangedCallback));
+
+        public static void IsShowLeftRightPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as ImageViewUserControl;
+
+            if (control == null) return;
+
+            if ((bool)e.NewValue) return;
+
+            control.tpageControl.LeftWidth = 0;
+            control.tpageControl.RightWidth = 0;
+        }
+
+
+
+        public bool IsAutoMove
+        {
+            get { return (bool)GetValue(IsAutoMoveProperty); }
+            set { SetValue(IsAutoMoveProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsAutoMove.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsAutoMoveProperty =
+            DependencyProperty.Register("IsAutoMove", typeof(bool), typeof(ImageViewUserControl), new PropertyMetadata(false, IsAutoMovePropertyChangedCallback));
+
+        public static void IsAutoMovePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as ImageViewUserControl;
+
+            if (control == null) return;
+
+            control.tpageControl.IsAutoMove = (bool)e.NewValue;
+        }
+
 
     }
 

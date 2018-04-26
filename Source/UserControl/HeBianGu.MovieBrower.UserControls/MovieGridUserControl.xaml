@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:local="clr-namespace:HeBianGu.MovieBrower.UserControls"
-               xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
+             xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
              xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
              xmlns:i1="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:evaluatecontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.EvaluateControl"
@@ -13,6 +12,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:imageviewcontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.ImageViewControl"
              BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" >
     <UserControl.Resources>
         <collections:ArrayList x:Key="OrderItems">
@@ -22,6 +22,56 @@
             <system:String>类别</system:String>
             <system:String>大小</system:String>
         </collections:ArrayList>
+
+        <Style x:Key="ToolTipStyle" TargetType="ToolTip">
+            <Setter Property ="IsOpen" Value="False">
+            </Setter>
+
+            <Setter Property ="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border x:Name="errorBorder" Background="#CC595959" BorderBrush="#99000000" BorderThickness="1" CornerRadius ="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin ="0" MaxWidth="320">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius ="4" ShadowDepth="0"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width ="Auto"/>
+                                    <ColumnDefinition Width ="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Margin ="16,16,8,16" VerticalAlignment="Top">
+                                    <Path x:Name="path1" Grid.ColumnSpan="1" Data="M9.0789473,12.870737 L10.927632,12.870737 10.927632,14.5 9.0789473,14.5 z M9.0000001,5.9999999 L11,5.9999999 11,7.994543 10.526316,12.308322 9.4802633,12.308322 9.0000001,7.994543 z M9.9647158,1.8074455 C9.5912184,1.7923756 9.2860216,2.1402843 9.2860216,2.1402845 9.2860216,2.1402843 2.5977592,14.8926 2.2227221,15.46075 1.8476844,16.028899 2.5562553,16.218284 2.5562553,16.218284 2.5562553,16.218284 16.2035,16.218284 17.18278,16.218284 18.162063,16.218284 17.870029,15.460751 17.870029,15.460751 17.870029,15.460751 11.056506,2.8352754 10.494117,2.1197443 10.31837,1.8961406 10.134488,1.8142953 9.9647158,1.8074455 z M9.9331295,0.00021409988 C10.317457,0.0076069832 10.762559,0.20740509 11.244278,0.77299643 12.785778,2.5828881 19.97391,16.249695 19.97391,16.249695 19.97391,16.249695 20.318179,17.954408 18.505573,17.985971 16.692966,18.017535 1.5982747,17.985971 1.5982747,17.985971 1.5982747,17.985971 -0.27740097,18.206807 0.03512764,16.028899 0.3476572,13.850991 8.5362361,0.89893103 8.536236,0.8989315 8.5362361,0.89893103 9.0876089,-0.016049385 9.9331295,0.00021409988 z" Height="17" Stretch="Fill" Width="20" Visibility="Visible" Fill ="Red"/>
+                                </Border>
+                                <TextBlock x:Name="textBlock" Text="{TemplateBinding Content }" Margin="0,14,10,14" FontSize="14" Grid.Column ="1" TextWrapping="Wrap" Foreground="Red"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property ="IsOpen" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Duration="0:0:3">
+                                    <DiscreteObjectKeyFrame KeyTime ="0:0:0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Visible</Visibility >
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime ="0:0:3">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Hidden</Visibility >
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
         <!--文件项模板-->
         <DataTemplate  x:Key="MovieItemTemplate">
@@ -52,14 +102,27 @@
                     <wpfcontrollib:FCheckBox  Grid.Column="0" Grid.RowSpan="4"  IsChecked="{Binding IsChecked}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
                     <Grid  Grid.Column="1" Grid.RowSpan="4"  HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <Image Width="50"  ToolTip="{Binding FilePath}" Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
+                        <Image Width="50" Source="{Binding ImagePath,Converter={StaticResource iconConverter}}">
                             <Image.OpacityMask>
                                 <!--设置图片背景色包含转换规则-->
                                 <ImageBrush ImageSource="{Binding ImagePath,Converter={StaticResource iconConverter}}"/>
                             </Image.OpacityMask>
+                            <Image.ToolTip>
+                                <Grid>
+                                        <imageviewcontrol:ImageViewUserControl x:Name="imageView" IsShowLeftRight="False" IsAutoMove="True" Width="600" Height="300" 
+                                                                           Grid.Row="1" Grid.Column="2" Grid.RowSpan="3"  
+                                                                          ImagePaths="{Binding ImageCollection}" />
+
+                                    <Grid.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                           
+                                        </EventTrigger>
+                                    </Grid.Triggers>
+                                    </Grid>
+                            </Image.ToolTip>
+
                         </Image>
                     </Grid>
-
                     <!--文件名称-->
                     <TextBlock  Margin="5,0"  Grid.Column="2" FontSize="20" 
                              VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -92,16 +155,13 @@
                          <Run Text="   大小："/>
                       <Run Text="{Binding SizeString}"  Foreground="{StaticResource S_RedNotice}"/>
                     </TextBlock>
+                    
                     <Grid.Triggers>
                         <EventTrigger RoutedEvent="Loaded">
                             <BeginStoryboard Storyboard="{StaticResource Story_OpacityRightToLeft}" />
                         </EventTrigger>
                     </Grid.Triggers>
-
                 </Grid>
-
-
-
             </Viewbox>
         </DataTemplate>
 
@@ -113,6 +173,7 @@
             <Setter Property="BorderBrush" Value="{StaticResource ItemMouseOverBackground}" />
             <Setter Property="Height" Value="80" />
             <Setter Property="Visibility" Value="{Binding IsVisible}"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
@@ -216,13 +277,14 @@
         <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1,0,0" Grid.ColumnSpan="5"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Background="{StaticResource S_Gray}" >
-
-            <wpfcontrollib:FCheckBox Content="全选"  FontSize="15"  Command="{Binding RelayCommand}" CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
-
+            <wpfcontrollib:FCheckBox Content="全选"  FontSize="15"  Command="{Binding RelayCommand}" 
+                                     CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
+            
             <TextBlock  Margin="200,0" FontSize="13" Style="{StaticResource FIcon}" FontWeight="Black">
             <Run Text="总计："/>
             <Run Text="{Binding Count}"/>
             </TextBlock>
+
         </StackPanel>
 
         <Border  Grid.Row="3"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1,0,0"/>
@@ -232,7 +294,6 @@
             <imageviewcontrol:ImageViewUserControl.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteImage"/>
-
                 </ContextMenu>
             </imageviewcontrol:ImageViewUserControl.ContextMenu>
         </imageviewcontrol:ImageViewUserControl>

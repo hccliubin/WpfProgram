@@ -80,10 +80,10 @@ namespace HeBianGu.MovieBrower.UserControls
             // Todo ：加载数据 
             foreach (var item in ViewModelItem)
             {
-
                 if(obj==null)
                 {
                     item.DoCommandWith("Clear");
+
                     continue;
                 }
 
@@ -103,12 +103,6 @@ namespace HeBianGu.MovieBrower.UserControls
                 item.DoCommandWith("SetDefault");
             }
         }
-
-
-
-
-
-
     }
 
     public static class LocalConfiger

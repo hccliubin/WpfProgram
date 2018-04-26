@@ -2,7 +2,9 @@
 using HeBianGu.MovieBrowser.Modules.MenuItem.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,5 +43,50 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.View
             this.DialogResult = true;
             this.Close();
         }
+    }
+
+
+    /// <summary> 说明 </summary>
+    public partial class AddCaseViewModel
+    {
+        private string _caseName;
+        /// <summary> 说明 </summary>
+        public string CaseName
+        {
+            get { return _caseName; }
+            set
+            {
+                _caseName = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string _casePath;
+        /// <summary> 说明 </summary>
+        public string CasePath
+        {
+            get { return _casePath; }
+            set
+            {
+                _casePath = value;
+                RaisePropertyChanged();
+            }
+        }
+
+    }
+
+    partial class AddCaseViewModel : INotifyPropertyChanged
+    {
+        #region - MVVM -
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }

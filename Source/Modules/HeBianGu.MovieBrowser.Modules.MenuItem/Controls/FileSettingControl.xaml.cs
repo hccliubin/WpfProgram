@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,18 +38,18 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
             collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_matchType, this.rb_matchType));
             collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_fileType, this.rb_fileType));
             collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_fileType1, this.rb_filetyp1));
-            collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_fileType2, this.rb_filetype2));
         }
+        
 
         List<Tuple<TextBlock, RadioButton>> collection = new List<Tuple<TextBlock, RadioButton>>();
 
         private void scrollView_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
-
             foreach (var item in collection)
             {
                 // 获取要定位之前 ScrollViewer 目前的滚动位置
                 var currentScrollPosition = this.scrollView.VerticalOffset;
+
                 var point = new Point(0, currentScrollPosition);
 
                 // 计算出目标位置并滚动
@@ -60,7 +61,46 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
                 }
             }
         }
+
+        public ItemType ShowItem
+        {
+            get { return (ItemType)GetValue(ShowItemProperty); }
+            set { SetValue(ShowItemProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowItem.  This enables animation, styling, binding, etc...
+        private static readonly DependencyProperty ShowItemProperty =
+            DependencyProperty.Register("ShowItem", typeof(ItemType), typeof(FileSettingControl), new PropertyMetadata(ItemType.MatchFile, PropertyChangedCallback));
+
+
+        static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            FileSettingControl control = d as FileSettingControl;
+
+            ItemType type = (ItemType)e.NewValue;
+
+            switch (type)
+            {
+                case ItemType.FileType:
+                    control.rb_fileType.IsChecked = true;
+                    control.act_fileType.OnInvoke(null);
+                    break;
+                case ItemType.MatchFile:
+                    control.rb_matchType.IsChecked = true;
+                    control.act_matchType.OnInvoke(null);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
+    
+    public enum ItemType
+    {
+        MatchFile=0,FileType
+    }
+
+
 
 
     /// <summary> 说明 </summary>
@@ -120,7 +160,7 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
         }
 
         private string _addMatchString;
-        /// <summary> 说明 </summary>
+        /// <summary> 添加子项 </summary>
         public string AddMatchString
         {
             get { return _addMatchString; }
@@ -132,7 +172,7 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
         }
 
         private string _addFileString;
-        /// <summary> 说明 </summary>
+        /// <summary> 添加子项 </summary>
         public string AddFileString
         {
             get { return _addFileString; }
@@ -143,6 +183,29 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
             }
         }
 
+        private bool _isMatchChecked=true;
+        /// <summary> 说明 </summary>
+        public bool IsMatchChecked
+        {
+            get { return _isMatchChecked; }
+            set
+            {
+                _isMatchChecked = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private bool _isFileChecked;
+        /// <summary> 说明 </summary>
+        public bool IsFileChecked
+        {
+            get { return _isFileChecked; }
+            set
+            {
+                _isFileChecked = value;
+                RaisePropertyChanged();
+            }
+        }
 
 
         /// <summary>
@@ -192,7 +255,6 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
             else if (buttonName == "btn_AddTypes")
             {
                 if (string.IsNullOrEmpty(this.AddFileString)) return;
-
 
                 SettingFileItemViewModel model = new SettingFileItemViewModel(this.AddFileString);
 
@@ -263,6 +325,11 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
             // 计算出目标位置并滚动
             var targetPosition = TargetControl.TransformToVisual(ScrollViewer).Transform(point);
             ScrollViewer.ScrollToVerticalOffset(targetPosition.Y-10);
+        }
+
+        public void OnInvoke(object obj)
+        {
+            this.Invoke(obj);
         }
     }
 }

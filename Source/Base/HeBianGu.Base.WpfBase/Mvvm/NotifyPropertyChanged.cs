@@ -26,7 +26,7 @@ namespace HeBianGu.Base.WpfBase
 {
 
     /// <summary> Mvvm绑定模型基类 </summary>
-    public partial class NotifyPropertyChanged : INotifyPropertyChanged
+    public abstract class NotifyPropertyChanged : INotifyPropertyChanged
     {
         #region - MVVM -
 

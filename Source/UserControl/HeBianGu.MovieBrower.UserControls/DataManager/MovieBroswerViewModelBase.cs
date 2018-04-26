@@ -69,24 +69,11 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
-        //private MovieFileViewModel _current;
-        ///// <summary> 选中项 </summary>
-        //public MovieFileViewModel Current
-        //{
-        //    get { return _current; }
-        //    set
-        //    {
-        //        _current = value;
-        //        RaisePropertyChanged();
-        //    }
-        //}
-
         public MovieBroswerViewModelBase()
         {
             RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
 
             ClipBoardRegisterService.Instance.ClipBoardChanged += Instance_ClipBoardChanged;
-
 
         }
 
@@ -97,7 +84,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
             if (bit != null)
             {
-                if (this.SelectItem != null)
+                if (this.SelectItem != null && this.IsActived)
                 {
                     this.ButtonClickFunc("InsertImage");
 
@@ -128,10 +115,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
-        /// <summary>
-        /// 按钮点击事件
-        /// </summary>
-        /// <param name="obj"></param>
+        /// <summary> 按钮点击事件 </summary>
         private void ButtonClickFunc(object obj)
         {
             string buttonName = obj as string;
@@ -498,6 +482,13 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             this.Count = this.CommonSource.Count.ToString();
         }
 
+        private bool _isActived;
+        /// <summary> 是否激活 </summary>
+        public bool IsActived
+        {
+            get { return _isActived; }
+            set { _isActived = value; }
+        }
 
     }
 

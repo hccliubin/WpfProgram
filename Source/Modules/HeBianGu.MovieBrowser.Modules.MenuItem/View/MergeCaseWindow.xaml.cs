@@ -2,7 +2,10 @@
 using HeBianGu.MovieBrowser.Modules.MenuItem.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -46,5 +49,39 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.View
         {
             return this._vm.Collection.ToList().FindAll(l => l.IsChecked).Select(l => l.Model).ToList();
         }
+    }
+
+    /// <summary> 说明 </summary>
+    public partial class MergeCaseViewModel
+    {
+
+
+        private ObservableCollection<SelectCaseViewModel> _collection = new ObservableCollection<SelectCaseViewModel>();
+        /// <summary> 说明 </summary>
+        public ObservableCollection<SelectCaseViewModel> Collection
+        {
+            get { return _collection; }
+            set
+            {
+                _collection = value;
+                RaisePropertyChanged();
+            }
+        }
+
+    }
+
+    partial class MergeCaseViewModel : INotifyPropertyChanged
+    {
+        #region - MVVM -
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }

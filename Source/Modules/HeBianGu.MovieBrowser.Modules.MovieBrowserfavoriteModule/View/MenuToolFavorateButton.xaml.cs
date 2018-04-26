@@ -1,4 +1,5 @@
 ﻿using HeBianGu.General.ModuleManager.ModuleManager;
+using HeBianGu.MovieBrower.UserControls;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;

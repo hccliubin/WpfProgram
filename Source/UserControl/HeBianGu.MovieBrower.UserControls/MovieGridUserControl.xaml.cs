@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeBianGu.MovieBrower.UserControls.ImageViewControl;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,8 @@ namespace HeBianGu.MovieBrower.UserControls
 
         void fivePointStarGroup1_SelectCountChangeEvent(object sender, RoutedEventArgs e)
         {
-            //InitialData();
+          
+           
         }
 
 
@@ -99,5 +101,7 @@ namespace HeBianGu.MovieBrower.UserControls
         {
             this.RaiseLeftClilkEvent();
         }
+        
     }
+
 }

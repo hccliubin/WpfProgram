@@ -15,11 +15,14 @@
 */
 #endregion
 using HeBianGu.Base.Util;
+using HeBianGu.Base.WpfBase;
 using HeBianGu.General.ModuleManager;
 using HeBianGu.General.ModuleManager.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -36,7 +39,7 @@ namespace HeBianGu.MovieBrower.UserControls
 
         public MovieFileViewModel()
         {
-
+            RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
         }
 
         public MovieFileViewModel(System.IO.FileSystemInfo sysFile)
@@ -63,6 +66,50 @@ namespace HeBianGu.MovieBrower.UserControls
             }
 
             this.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+
+            RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
+        }
+
+        public MovieFileViewModel(MovieFileModel model)
+        {
+            this.CopyFromObj(model);
+
+            if (!File.Exists(model.FilePath)) return;
+
+            FileInfo file = new FileInfo(model.FilePath);
+
+            this.Size = file.Length;
+
+            RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
+            
+        }
+
+        void InitImage()
+        {
+            var folder = Path.GetDirectoryName(this.FilePath);
+
+            var collection = DirectoryHelper.GetAllFile(folder, l => l.Extension.EndsWith("jpg"));
+
+            collection.Reverse();
+
+            List<string> cs = new List<string>();
+
+            if (collection == null || collection.Count == 0)
+            {
+                this.ImageCollection = new ObservableCollection<string>();
+                return;
+            }
+
+            this.ImageCollection = null;
+
+            ObservableCollection<string> ss = new ObservableCollection<string>();
+
+            foreach (var item in collection)
+            {
+                ss.Add(item);
+            }
+
+            this.ImageCollection = ss;
         }
 
         private string _fileName;
@@ -186,38 +233,6 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
-        private List<string> _typeItems = new List<string>() { "0", "1", "2" };
-        /// <summary> 说明 </summary>
-        public List<string> TypeItems
-        {
-            get { return _typeItems; }
-            set
-            {
-                _typeItems = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public MovieFileModel ToModel()
-        {
-            MovieFileModel model = new MovieFileModel();
-
-            model.CopyFromObj(this);
-
-            return model;
-        }
-
-        public MovieFileViewModel(MovieFileModel model)
-        {
-            this.CopyFromObj(model);
-
-            if (!File.Exists(model.FilePath)) return;
-
-            FileInfo file = new FileInfo(model.FilePath);
-
-            this.Size = file.Length;
-        }
-
         private bool _isChecked;
         /// <summary> 说明 </summary>
         public bool IsChecked
@@ -243,7 +258,118 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
+        public RelayCommand RelayCommand { get; set; }
 
+        private void ButtonClickFunc(object obj)
+        {
+            string buttonName = obj as string;
+
+            switch (buttonName)
+            {
+                case "MouseEnter":
+                    {
+                        Debug.WriteLine("MouseEnter");
+                    }
+                    break;
+                case "Case2":
+                    {
+
+                    }
+                    break;
+                case "Case3":
+                    {
+
+                    }
+                    break;
+                case "Case4":
+                    {
+
+                    }
+                    break;
+                case "Case5":
+                    {
+
+                    }
+                    break;
+                case "Case6":
+                    {
+
+                    }
+                    break;
+                case "Case7":
+                    {
+
+                    }
+                    break;
+                case "Case8":
+                    {
+
+                    }
+                    break;
+                case "Case9":
+                    {
+
+                    }
+                    break;
+                case "Case10":
+                    {
+
+                    }
+                    break;
+                case "Case11":
+                    {
+
+                    }
+                    break;
+                case "Case12":
+                    {
+
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private ObservableCollection<string> _imageCollection = new ObservableCollection<string>();
+        /// <summary> 说明 </summary>
+        public ObservableCollection<string> ImageCollection
+        {
+            get
+            {
+                var folder = Path.GetDirectoryName(this.FilePath);
+
+                var collection = DirectoryHelper.GetAllFile(folder, l => l.Extension.EndsWith("jpg"));
+
+                collection.Reverse();
+
+                List<string> cs = new List<string>();
+
+                if (collection == null || collection.Count == 0)
+                {
+                    this._imageCollection = new ObservableCollection<string>();
+                    return null;
+                }
+
+                this._imageCollection = null;
+
+                ObservableCollection<string> ss = new ObservableCollection<string>();
+
+                foreach (var item in collection)
+                {
+                    ss.Add(item);
+                }
+                _imageCollection = ss;
+
+                return _imageCollection;
+            }
+            set
+            {
+                _imageCollection = value;
+
+                RaisePropertyChanged();
+            }
+        }
     }
 
     partial class MovieFileViewModel : INotifyPropertyChanged
@@ -260,4 +386,5 @@ namespace HeBianGu.MovieBrower.UserControls
 
         #endregion
     }
+    
 }

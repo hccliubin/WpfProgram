@@ -9,6 +9,5 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <reports:TPageControl x:Name="tpageControl" Grid.Column="2" Grid.Row="1"/>
-
     </Grid>
 </UserControl>

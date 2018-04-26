@@ -53,7 +53,7 @@ namespace HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule.View
 
         private void CommonContent_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            this._viewModel.IsActived = true;
         }
     }
 }

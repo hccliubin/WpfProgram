@@ -20,6 +20,7 @@ using HeBianGu.General.ModuleManager.Model;
 using HeBianGu.General.ModuleManager.Service;
 using HeBianGu.General.WpfControlLib;
 using HeBianGu.MovieBrower.UserControls;
+using HeBianGu.MovieBrowser.Modules.MenuItem.Controls;
 using HeBianGu.MovieBrowser.Modules.MenuItem.View;
 using System;
 using System.Collections.Generic;
@@ -131,7 +132,7 @@ namespace MovieBrowserToolApp.ViewModel
 
                 }
 
-                if (_lastCase != null && _lastCase != CurrentCase)
+                if (_lastCase != null)
                 {
                     // Todo ：保存上一次案例 
                     CaseNotifyService.Instance.OnSaveCase(_lastCase.Model);
@@ -325,14 +326,18 @@ namespace MovieBrowserToolApp.ViewModel
             else if (buttonName == "FileSet")
             {
 
-                SettingCaseWindow window = new SettingCaseWindow();
+                SettingCaseWindow window = new SettingCaseWindow(ItemType.MatchFile);
                 window.ShowDialog();
+
+                this.ButtonClickFunc("OpenCase");
             }
             // Todo ：类型设置 
             else if (buttonName == "TypeSet")
             {
-                SettingCaseWindow window = new SettingCaseWindow();
+                SettingCaseWindow window = new SettingCaseWindow(ItemType.FileType);
                 window.ShowDialog();
+
+                this.ButtonClickFunc("OpenCase");
 
             }
 
