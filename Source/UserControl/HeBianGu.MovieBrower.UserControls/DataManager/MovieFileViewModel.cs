@@ -18,6 +18,8 @@ using HeBianGu.Base.Util;
 using HeBianGu.Base.WpfBase;
 using HeBianGu.General.ModuleManager;
 using HeBianGu.General.ModuleManager.Model;
+using HeBianGu.MovieBrower.UserControls.DataManager;
+using HeBianGu.MovieBrower.UserControls.ImageToolTip;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,6 +31,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace HeBianGu.MovieBrower.UserControls
 {
@@ -36,12 +39,6 @@ namespace HeBianGu.MovieBrower.UserControls
     [Serializable]
     public partial class MovieFileViewModel
     {
-
-        public MovieFileViewModel()
-        {
-            RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
-        }
-
         public MovieFileViewModel(System.IO.FileSystemInfo sysFile)
         {
             if (SysTemConfiger.ExceptShowFile.Exists(l => l == sysFile.Extension))
@@ -82,34 +79,6 @@ namespace HeBianGu.MovieBrower.UserControls
 
             RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
             
-        }
-
-        void InitImage()
-        {
-            var folder = Path.GetDirectoryName(this.FilePath);
-
-            var collection = DirectoryHelper.GetAllFile(folder, l => l.Extension.EndsWith("jpg"));
-
-            collection.Reverse();
-
-            List<string> cs = new List<string>();
-
-            if (collection == null || collection.Count == 0)
-            {
-                this.ImageCollection = new ObservableCollection<string>();
-                return;
-            }
-
-            this.ImageCollection = null;
-
-            ObservableCollection<string> ss = new ObservableCollection<string>();
-
-            foreach (var item in collection)
-            {
-                ss.Add(item);
-            }
-
-            this.ImageCollection = ss;
         }
 
         private string _fileName;
@@ -195,7 +164,6 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
-
         private double _score = 2;
         /// <summary> 说明 </summary>
         public double Score
@@ -208,7 +176,6 @@ namespace HeBianGu.MovieBrower.UserControls
             }
         }
 
-
         private string _type;
         /// <summary> 说明 </summary>
         public string Type
@@ -217,6 +184,7 @@ namespace HeBianGu.MovieBrower.UserControls
             set
             {
                 _type = value;
+
                 RaisePropertyChanged();
             }
         }
@@ -269,11 +237,16 @@ namespace HeBianGu.MovieBrower.UserControls
                 case "MouseEnter":
                     {
                         Debug.WriteLine("MouseEnter");
+
+                        if (this.ImageCollection == null || this.ImageCollection.Count == 0) return;
+
+                        ImageToolTipWindow.ShowWindow(this.ImageCollection);
                     }
                     break;
-                case "Case2":
+                case "MouseLeave":
                     {
-
+                        Debug.WriteLine("MouseLeave");
+                        ImageToolTipWindow.HideWindow();
                     }
                     break;
                 case "Case3":
@@ -370,6 +343,7 @@ namespace HeBianGu.MovieBrower.UserControls
                 RaisePropertyChanged();
             }
         }
+
     }
 
     partial class MovieFileViewModel : INotifyPropertyChanged

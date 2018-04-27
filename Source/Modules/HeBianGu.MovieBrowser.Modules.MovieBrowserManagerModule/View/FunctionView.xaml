@@ -12,7 +12,7 @@
              mc:Ignorable="d" >
 
     <Grid>
-        <usercontrols:MovieGridUserControl x:Name="mgu_list" DataSource="{Binding CommonSource}">
+        <usercontrols:MovieGridUserControl DataSource="{Binding CommonSource}">
             <usercontrols:MovieGridUserControl.ContextMenu>
                 <ContextMenu  StaysOpen="true">
                     <MenuItem Header="打开" Command="{Binding RelayCommand}" CommandParameter="Open"/>

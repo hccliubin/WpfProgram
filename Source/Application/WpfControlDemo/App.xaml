@@ -23,7 +23,6 @@
             <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListView}"></Style>
             <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DefaultDataGrid}"></Style>
 
-
             <!--设置全局样式-->
             <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBar}"></Style>
             <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewer}"></Style>

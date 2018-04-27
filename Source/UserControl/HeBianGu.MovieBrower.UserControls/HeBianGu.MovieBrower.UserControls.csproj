@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Product\Dll\System.Windows.Interactivity.dll</HintPath>
@@ -56,11 +57,15 @@
     <Compile Include="DataManager\MovieBroswerViewModelBase.cs" />
     <Compile Include="DataManager\MovieBrowserDataManager.cs" />
     <Compile Include="DataManager\MovieFileViewModel.cs" />
+    <Compile Include="DataManager\MovieTypeCheckViewModel.cs" />
     <Compile Include="EvaluateControl\EvaluateUserControl.xaml.cs">
       <DependentUpon>EvaluateUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="EvaluateControl\FivePointUserControl.xaml.cs">
       <DependentUpon>FivePointUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageToolTip\ImageToolTipWindow.xaml.cs">
+      <DependentUpon>ImageToolTipWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageViewControl\BxImage.cs" />
     <Compile Include="ImageViewControl\ImageItemUserControl.xaml.cs">
@@ -85,6 +90,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TypeCheckControl\TypeCheckUserControl.xaml.cs">
+      <DependentUpon>TypeCheckUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TypeCheckControl\TypeFilterUserControl.xaml.cs">
+      <DependentUpon>TypeFilterUserControl.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -103,6 +114,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ImageToolTip\ImageToolTipWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImageViewControl\ImageItemUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +133,14 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TypeCheckControl\TypeCheckUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TypeCheckControl\TypeFilterUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -146,5 +169,6 @@
       <Name>HeBianGu.Control.UserControls</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

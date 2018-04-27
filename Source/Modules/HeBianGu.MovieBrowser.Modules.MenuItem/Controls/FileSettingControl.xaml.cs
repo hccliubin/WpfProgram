@@ -38,6 +38,7 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
             collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_matchType, this.rb_matchType));
             collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_fileType, this.rb_fileType));
             collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_fileType1, this.rb_filetyp1));
+            collection.Add(new Tuple<TextBlock, RadioButton>(this.txt_fileType2, this.rb_filetype2));
         }
         
 
@@ -57,7 +58,9 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
 
                 if(targetPosition.Y-point.Y<50)
                 {
+                    ScrollToControlAction.flag = true;
                     item.Item2.IsChecked = true;
+                    ScrollToControlAction.flag = false;
                 }
             }
         }
@@ -311,8 +314,12 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
             set { SetValue(TargetControlProperty, value); }
         }
 
+        public static bool flag;
+
         protected override void Invoke(object parameter)
         {
+            if (flag) return;
+
             if (TargetControl == null || ScrollViewer == null)
             {
                 throw new ArgumentNullException($"{ScrollViewer} or {TargetControl} cannot be null");

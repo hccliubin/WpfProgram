@@ -37,16 +37,6 @@ namespace HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule.View
             this.DataContext = _viewModel;
 
             this.Loaded += CommonContent_Loaded;
-
-            this.mgu_list.LeftClilk += (object sender, RoutedEventArgs e) =>
-            {
-                _viewModel.DoCommandWith("ShowImage");
-            };
-
-            this.mgu_list.DoubleClilk += (object sender, RoutedEventArgs e) =>
-            {
-                _viewModel.DoCommandWith("Open");
-            };
             
         }
 

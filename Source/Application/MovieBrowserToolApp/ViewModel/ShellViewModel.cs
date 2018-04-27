@@ -56,7 +56,6 @@ namespace MovieBrowserToolApp.ViewModel
               };
         }
 
-
         /// <summary> 此方法的说明 </summary>
         public void LoadData()
         {
@@ -86,13 +85,7 @@ namespace MovieBrowserToolApp.ViewModel
             }
         }
 
-
-
-
-        /// <summary>
-        /// 按钮点击事件
-        /// </summary>
-        /// <param name="obj"></param>
+        /// <summary> 按钮点击事件 </summary>
         private void ButtonClickFunc(object obj)
         {
             string buttonName = obj as string;
@@ -345,8 +338,6 @@ namespace MovieBrowserToolApp.ViewModel
 
         }
 
-
-
         /// <summary> 此方法的说明 </summary>
         public void SaveCase()
         {
@@ -356,7 +347,6 @@ namespace MovieBrowserToolApp.ViewModel
 
             CaseNotifyService.Instance.OnSaveCase(CurrentCase.Model);
         }
-
 
         void RefreshCurrent(CaseModel caseModel)
         {

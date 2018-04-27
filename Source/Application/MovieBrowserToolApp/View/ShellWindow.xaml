@@ -245,7 +245,7 @@
 
             </Grid>
         </Grid>
-        <windowbase:FButton Grid.Row="3" Style="{StaticResource FButton_Transparency}" FIcon="&#xe6b5;" Content="{Binding Message}" HorizontalAlignment="Left"/>
+        <windowbase:FButton Grid.Row="3" Style="{StaticResource FButton_Transparency}" FIcon="&#xe6b5;" Content="{Binding Message}" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
 
     </Grid>
 </windowbase:WindowBase>

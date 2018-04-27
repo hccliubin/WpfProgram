@@ -134,6 +134,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 int count = this.SelectItem.Count + 1;
 
                 this.SelectItem.Count = count;
+
+                Log4Servcie.Instance.Info("打开文件："+this.SelectItem.FilePath );
             }
 
             // Todo ：收藏 
@@ -149,6 +151,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 favorite.Refresh();
 
+                Log4Servcie.Instance.Info("收藏文件：" + this.SelectItem.FilePath);
+
             }
 
             // Todo ：删除 
@@ -163,6 +167,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.CommonSource.Remove(this.SelectItem);
 
                 delete.Refresh();
+
+                Log4Servcie.Instance.Info("删除文件：" + this.SelectItem.FilePath);
             }
 
             // Todo ：彻底删除 
@@ -193,6 +199,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.CommonSource.Remove(this.SelectItem);
 
+                Log4Servcie.Instance.Info("彻底删除：" + this.SelectItem.FilePath);
             }
 
             // Todo ：还原 
@@ -205,6 +212,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.CommonSource.Remove(this.SelectItem);
 
                 noraml.Refresh();
+
+                Log4Servcie.Instance.Info("重新加载：" + this.SelectItem.FilePath);
             }
 
             // Todo ：图片预览 
@@ -238,6 +247,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
 
                 this.ImagePath = ss;
+
+                Log4Servcie.Instance.Info("图片预览：" + this.SelectItem.FilePath);
             }
 
             // Todo ：插入图片 
@@ -250,6 +261,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 string imageName = Path.GetFileNameWithoutExtension(this.SelectItem.FilePath);
 
                 string imagePath = Path.Combine(folder, imageName + DateTime.Now.ToString("yyyyMMddhhmmss") + ".jpg");
+
+                if (!Directory.Exists(this.SelectItem.FilePath)) return;
 
                 var image = Clipboard.GetImage();
 
@@ -273,6 +286,9 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 fs.Flush();
                 fs.Dispose();
                 ms = null;
+
+                Log4Servcie.Instance.Info("插入图片：" + image);
+
             }
 
             // Todo ：刷新 
@@ -287,6 +303,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                     items = this.CommonSource.OrderBy(l => l.FileName).ToList();
 
                 }
+
                 else if (this.OrderByIndex == 1)
                 {
                     items = this.CommonSource.OrderByDescending(l => l.LastTime).ToList();
@@ -340,6 +357,9 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 {
                     item.IsVisible = Visibility.Visible;
                 }
+
+
+                Log4Servcie.Instance.Info("刷新完成");
             }
 
             // Todo ：删除图片 
@@ -358,6 +378,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.ImagePath = collection;
 
+                Log4Servcie.Instance.Info("删除图片成功：" + this.SelectImage);
+
             }
 
             // Todo ：清空数据 
@@ -366,6 +388,9 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.ImagePath = null;
 
                 this.CommonSource.Clear();
+
+
+                Log4Servcie.Instance.Info("清空数据成功：" + this.SelectImage);
             }
 
             // Todo ：清空数据 
@@ -380,6 +405,9 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.SelectItem = this.CommonSource[0];
 
                 this.ButtonClickFunc("ShowImage");
+
+
+                Log4Servcie.Instance.Info("设置默认项成功：" + this.SelectItem.FilePath);
             }
 
             // Todo ：打开路径 
@@ -391,6 +419,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 {
                     Process.Start(Path.GetDirectoryName(this.SelectItem.FilePath));
                 }
+
+                Log4Servcie.Instance.Info("打开文件路径成功：" + this.SelectItem.FilePath);
             }
 
             // Todo ：全选 
@@ -414,7 +444,6 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             this.RelayCommand.Execute(obj);
         }
 
-
         private int _orderByIndex = 2;
         /// <summary> 说明 </summary>
         public int OrderByIndex
@@ -428,7 +457,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
         }
 
         private string _filterType = string.Empty;
-        /// <summary> 说明 </summary>
+        /// <summary> 筛选的类型 </summary>
         public string FilterType
         {
             get { return _filterType; }
@@ -450,8 +479,6 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 RaisePropertyChanged();
             }
         }
-
-
 
         private ObservableCollection<string> _imagePath = new ObservableCollection<string>();
         /// <summary> 说明 </summary>

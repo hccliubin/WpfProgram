@@ -39,16 +39,6 @@ namespace HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule.View
 
             this.Loaded += CommonContent_Loaded;
 
-            this.mgu_list.LeftClilk += (object sender, RoutedEventArgs e) =>
-            {
-                _viewModel.DoCommandWith("ShowImage");
-            };
-
-            this.mgu_list.DoubleClilk += (object sender, RoutedEventArgs e) =>
-            {
-                _viewModel.DoCommandWith("Open");
-            };
-
         }
 
 

@@ -13,6 +13,7 @@
              xmlns:imageviewcontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.ImageViewControl"
              BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:typecheckcontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.TypeCheckControl"
              mc:Ignorable="d" >
     <UserControl.Resources>
         <collections:ArrayList x:Key="OrderItems">
@@ -22,56 +23,6 @@
             <system:String>类别</system:String>
             <system:String>大小</system:String>
         </collections:ArrayList>
-
-        <Style x:Key="ToolTipStyle" TargetType="ToolTip">
-            <Setter Property ="IsOpen" Value="False">
-            </Setter>
-
-            <Setter Property ="ContentTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <Border x:Name="errorBorder" Background="#CC595959" BorderBrush="#99000000" BorderThickness="1" CornerRadius ="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin ="0" MaxWidth="320">
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius ="4" ShadowDepth="0"/>
-                            </Border.Effect>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width ="Auto"/>
-                                    <ColumnDefinition Width ="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Border Margin ="16,16,8,16" VerticalAlignment="Top">
-                                    <Path x:Name="path1" Grid.ColumnSpan="1" Data="M9.0789473,12.870737 L10.927632,12.870737 10.927632,14.5 9.0789473,14.5 z M9.0000001,5.9999999 L11,5.9999999 11,7.994543 10.526316,12.308322 9.4802633,12.308322 9.0000001,7.994543 z M9.9647158,1.8074455 C9.5912184,1.7923756 9.2860216,2.1402843 9.2860216,2.1402845 9.2860216,2.1402843 2.5977592,14.8926 2.2227221,15.46075 1.8476844,16.028899 2.5562553,16.218284 2.5562553,16.218284 2.5562553,16.218284 16.2035,16.218284 17.18278,16.218284 18.162063,16.218284 17.870029,15.460751 17.870029,15.460751 17.870029,15.460751 11.056506,2.8352754 10.494117,2.1197443 10.31837,1.8961406 10.134488,1.8142953 9.9647158,1.8074455 z M9.9331295,0.00021409988 C10.317457,0.0076069832 10.762559,0.20740509 11.244278,0.77299643 12.785778,2.5828881 19.97391,16.249695 19.97391,16.249695 19.97391,16.249695 20.318179,17.954408 18.505573,17.985971 16.692966,18.017535 1.5982747,17.985971 1.5982747,17.985971 1.5982747,17.985971 -0.27740097,18.206807 0.03512764,16.028899 0.3476572,13.850991 8.5362361,0.89893103 8.536236,0.8989315 8.5362361,0.89893103 9.0876089,-0.016049385 9.9331295,0.00021409988 z" Height="17" Stretch="Fill" Width="20" Visibility="Visible" Fill ="Red"/>
-                                </Border>
-                                <TextBlock x:Name="textBlock" Text="{TemplateBinding Content }" Margin="0,14,10,14" FontSize="14" Grid.Column ="1" TextWrapping="Wrap" Foreground="Red"/>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-
-            <Style.Triggers>
-                <Trigger Property ="IsOpen" Value="True">
-                    <Trigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Duration="0:0:3">
-                                    <DiscreteObjectKeyFrame KeyTime ="0:0:0">
-                                        <DiscreteObjectKeyFrame.Value>
-                                            <Visibility>Visible</Visibility >
-                                        </DiscreteObjectKeyFrame.Value>
-                                    </DiscreteObjectKeyFrame>
-                                    <DiscreteObjectKeyFrame KeyTime ="0:0:3">
-                                        <DiscreteObjectKeyFrame.Value>
-                                            <Visibility>Hidden</Visibility >
-                                        </DiscreteObjectKeyFrame.Value>
-                                    </DiscreteObjectKeyFrame>
-                                </ObjectAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.EnterActions>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
 
         <!--文件项模板-->
         <DataTemplate  x:Key="MovieItemTemplate">
@@ -107,7 +58,7 @@
                                 <!--设置图片背景色包含转换规则-->
                                 <ImageBrush ImageSource="{Binding ImagePath,Converter={StaticResource iconConverter}}"/>
                             </Image.OpacityMask>
-                            <Image.ToolTip>
+                            <!--<Image.ToolTip>
                                 <Grid>
                                         <imageviewcontrol:ImageViewUserControl x:Name="imageView" IsShowLeftRight="False" IsAutoMove="True" Width="600" Height="300" 
                                                                            Grid.Row="1" Grid.Column="2" Grid.RowSpan="3"  
@@ -119,7 +70,17 @@
                                         </EventTrigger>
                                     </Grid.Triggers>
                                     </Grid>
-                            </Image.ToolTip>
+                            </Image.ToolTip>-->
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseEnter">
+                                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="MouseEnter"/>
+                                </i:EventTrigger>
+
+                                <i:EventTrigger EventName="MouseLeave">
+                                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="MouseLeave"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
 
                         </Image>
                     </Grid>
@@ -155,12 +116,18 @@
                          <Run Text="   大小："/>
                       <Run Text="{Binding SizeString}"  Foreground="{StaticResource S_RedNotice}"/>
                     </TextBlock>
-                    
+
                     <Grid.Triggers>
                         <EventTrigger RoutedEvent="Loaded">
                             <BeginStoryboard Storyboard="{StaticResource Story_OpacityRightToLeft}" />
                         </EventTrigger>
                     </Grid.Triggers>
+
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseEnter">
+                            <i:InvokeCommandAction Command="{Binding RelayCommand,RelativeSource={RelativeSource Mode=FindAncestor}}" CommandParameter="MouseEnter"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
                 </Grid>
             </Viewbox>
         </DataTemplate>
@@ -192,7 +159,7 @@
                                 <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemMouseOverBackground}" />
                                 <Setter Property="Foreground" Value="{StaticResource ItemMouseOverForeground}" />
                             </Trigger>
-                            
+
                             <DataTrigger Binding="{Binding IsEnble}" Value="false">
                                 <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemsAlternationContentBackground}" />
                                 <Setter TargetName="ItemBackground" Property="BorderBrush" Value="Red" />
@@ -206,15 +173,12 @@
 
         <!--文件集合样式-->
         <Style x:Key="MovieListStyle" TargetType="{x:Type ListBox}">
-
             <Setter Property="ItemTemplate" Value="{StaticResource MovieItemTemplate}"/>
             <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
             <Setter Property="ItemContainerStyle" Value="{StaticResource MovieItemStyle}"/>
-            <!--<Setter Property="Background" Value="{DynamicResource centernColorNLight}"/>-->
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
             <Setter Property="BorderThickness" Value="0,0,0,0"/>
             <Setter Property="AllowDrop"   Value="True"/>
-            <!--<Setter Property="Background" Value="{DynamicResource centernColorNLight}"/>-->
             <Setter Property="OpacityMask">
                 <Setter.Value>
                     <RadialGradientBrush>
@@ -225,15 +189,16 @@
             </Setter>
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-
-            <!--<Setter Property="Template" Value="{StaticResource ListBox_Buzy}"/>-->
-        
         </Style>
+
+
+
     </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -243,43 +208,66 @@
             <ColumnDefinition Width="370"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
         <!--<Border BorderThickness="1,1,1,1" Grid.RowSpan="2" BorderBrush="{StaticResource S_BlackNotice}"/>-->
 
-        <GridSplitter Grid.Column="1" Grid.Row="1" Width="5" Grid.RowSpan="2" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Column="1" Grid.Row="2" Width="5" Grid.RowSpan="2" HorizontalAlignment="Stretch" />
 
 
-        <StackPanel Background="{StaticResource S_Gray}" Orientation="Horizontal" Grid.ColumnSpan="3">
+        <StackPanel Background="{StaticResource S_Gray}" Orientation="Horizontal" Grid.ColumnSpan="9">
 
             <ComboBox Margin="0,10" ItemsSource="{StaticResource OrderItems}" base:ControlAttachProperty.Label="排序规则" SelectedIndex="{Binding OrderByIndex}"  Width="370"
                       Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="没有选择排序" />
 
-            <wpfcontrollib:MultiComboBox Margin="5,0" Background="White" Grid.Row="1" 
+            <!--<wpfcontrollib:MultiComboBox Margin="5,0" Background="White" Grid.Row="1" 
                                          base:ControlAttachProperty.Label="过滤规则:" Grid.Column="3"  IsEditable="True" 
                                          ItemsSource="{x:Static local:LocalConfiger.Types}" 
                                          SelectText="{Binding FilterType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                         Style="{StaticResource LabelClearButtonMultiComboBox}"/>
+                                         Style="{StaticResource LabelClearButtonMultiComboBox}"/>-->
 
-            <wpfcontrollib:FButton Margin="10" Content="刷新"  Command="{Binding RelayCommand}" CommandParameter="Refresh"/>
+            <!--<wpfcontrollib:FButton Margin="10" Content="刷新"  Command="{Binding RelayCommand}" CommandParameter="Refresh"/>-->
         </StackPanel>
 
 
-        <ListBox Name="lb_list" Grid.Row="1"
+        <ListBox Name="lb_list" Grid.Row="2"
             Style="{StaticResource MovieListStyle}"
                  ItemsSource="{Binding CommonSource}"
                  SelectedItem="{Binding SelectItem}"  FontSize="12" 
-                 base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}"
-                 SelectionChanged="lb_list_SelectionChanged"
-                 MouseDoubleClick="lb_list_MouseDoubleClick">
+                 base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}" >
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="ShowImage"/>
+                </i:EventTrigger>
+
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Open"/>
+                </i:EventTrigger>
+
+            </i:Interaction.Triggers>
+
         </ListBox>
 
-        <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1,0,0" Grid.ColumnSpan="5"/>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Background="{StaticResource S_Gray}" >
+        <typecheckcontrol:TypeFilterUserControl Background="{StaticResource S_Gray}"  Grid.Row="1" Grid.ColumnSpan="9" DataSource="{x:Static local:LocalConfiger.Types}" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="CheckChanged">
+                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="FilterCheckChanged"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </typecheckcontrol:TypeFilterUserControl>
+
+        <Border  Grid.Row="0"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,1,1,1" Grid.ColumnSpan="6"/>
+        <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,1,1,1" Grid.ColumnSpan="6"/>
+
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Background="{StaticResource S_Gray}" >
             <wpfcontrollib:FCheckBox Content="全选"  FontSize="15"  Command="{Binding RelayCommand}" 
                                      CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
-            
+
             <TextBlock  Margin="200,0" FontSize="13" Style="{StaticResource FIcon}" FontWeight="Black">
             <Run Text="总计："/>
             <Run Text="{Binding Count}"/>
@@ -287,15 +275,18 @@
 
         </StackPanel>
 
-        <Border  Grid.Row="3"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1,0,0"/>
+        <Border  Grid.Row="3"  BorderBrush="{StaticResource S_Blue}" BorderThickness="0,1,0,0" />
 
-
-        <imageviewcontrol:ImageViewUserControl x:Name="imageView" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" ImagePaths="{Binding ImagePath}" SelectValue="{Binding SelectImage,Mode=TwoWay}" >
+        <imageviewcontrol:ImageViewUserControl x:Name="imageView" Grid.Row="2" IsAutoMove="True" Grid.Column="2" Grid.RowSpan="3" ImagePaths="{Binding ImagePath}" SelectValue="{Binding SelectImage,Mode=TwoWay}" >
             <imageviewcontrol:ImageViewUserControl.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteImage"/>
                 </ContextMenu>
             </imageviewcontrol:ImageViewUserControl.ContextMenu>
         </imageviewcontrol:ImageViewUserControl>
+
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="4"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0"/>
+
+        <typecheckcontrol:TypeCheckUserControl Background="{StaticResource S_Gray}"   Margin="1"  Grid.Row="2" Grid.Column="3" Grid.RowSpan="4"  DataSource="{x:Static local:LocalConfiger.Types}" SelectText="{Binding SelectItem.Type,Mode=TwoWay}"/>
     </Grid>
 </UserControl>
