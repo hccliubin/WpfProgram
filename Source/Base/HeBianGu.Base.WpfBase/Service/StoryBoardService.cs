@@ -27,9 +27,7 @@ namespace HeBianGu.Base.WpfBase
     public class StoryBoardService
     {
 
-        /// <summary>
-        /// 喷泉效果
-        /// </summary>
+        /// <summary>  喷泉效果  </summary>
         /// <param name="cav">画布</param>
         /// <param name="uclist">展示集合</param>
         /// <param name="pL">喷出点左</param>

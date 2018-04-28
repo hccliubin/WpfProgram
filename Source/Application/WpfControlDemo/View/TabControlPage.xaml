@@ -20,13 +20,11 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Grid.RenderTransform>
-
-
+                
                 <wpfcontrollib:AnimatedTabControl
-                    x:Name="tb_all"
-                       VerticalAlignment="Stretch"
-                 ItemContainerStyle="{StaticResource ShellTabItemStyle}" Background="Red"
-                AutomationProperties.AutomationId="PositionSummaryTab" >
+                    x:Name="tb_all" VerticalAlignment="Stretch"  ItemContainerStyle="{StaticResource ShellTabItemStyle}" 
+                    Background="Red"
+                     AutomationProperties.AutomationId="PositionSummaryTab" >
                     <Button Content="2222222222222222"/>
                     <Button Content="1111111111111111111111111"/>
                     <Button Content="333333333333333"/>

@@ -103,6 +103,17 @@ namespace HeBianGu.MovieBrower.UserControls
                 item.DoCommandWith("SetDefault");
             }
         }
+
+        /// <summary> 设置激活 </summary>
+        public void SetActived(MovieBroswerViewModelBase vm)
+        {
+            foreach (var item in ViewModelItem)
+            {
+                item.IsActived = false;
+            }
+            vm.IsActived = true;
+
+        }
     }
 
     public static class LocalConfiger

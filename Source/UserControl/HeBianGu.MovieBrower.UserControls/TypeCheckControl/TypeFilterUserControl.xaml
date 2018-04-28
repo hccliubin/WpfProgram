@@ -27,7 +27,29 @@
                             <Grid x:Name="grid" VerticalAlignment="Center">
                                 <Border  x:Name="ItemBackground"  BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Height="{TemplateBinding Height}" HorizontalAlignment="Stretch"
                                        Background="{TemplateBinding Background}" Width="{TemplateBinding Width}">
-                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+
+                                    <ContentPresenter x:Name="contentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                                      Margin="{TemplateBinding Padding}" 
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                        <ContentPresenter.ContentTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <TextBlock x:Name="txt" Text="{Binding}"  Opacity="0.4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                                    <!--<TextBlock Style="{StaticResource FIcon}" Text="&#xe625;"  Margin="0,0,-5,-5" VerticalAlignment="Bottom" HorizontalAlignment="Right" />-->
+                                                </Grid>
+                                              
+                                                <DataTemplate.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=IsSelected}" Value="true">
+                                                        <Setter Property="FontWeight" Value="Black"  TargetName="txt" />
+                                                        <!--<Setter Property="FontSize" Value="15"  TargetName="txt" />-->
+                                                        <Setter Property="Opacity" Value="1"  TargetName="txt" />
+                                                        <Setter Property="TextDecorations" Value="Underline" TargetName="txt" />
+                                                    </DataTrigger>
+                                                </DataTemplate.Triggers>
+                                            </DataTemplate>
+                                        </ContentPresenter.ContentTemplate>
+                                    </ContentPresenter>
+                                    <!--</TextBlock>-->
                                 </Border>
                             </Grid>
 
@@ -41,12 +63,10 @@
 
                             <Trigger Property="IsSelected" Value="true">
                                 <Setter Property="Foreground" Value="{StaticResource S_Blue}" />
-                                <!--<Setter Property="Background" Value="{StaticResource S_Blue}" />-->
                             </Trigger>
 
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource PressedForeground }" />
-
                                 <Setter Property="Foreground" Value="{StaticResource ItemMouseOverForeground}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -81,7 +101,7 @@
     <Grid>
         <ListBox x:Name="lb_list" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                  Style="{StaticResource TypeListStyle}" 
-                 SelectionMode="Multiple" FontSize="13" FontWeight="Black"
+                 SelectionMode="Multiple" FontSize="13"
                  base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}" >
             <ListBox.Template>
                 <ControlTemplate TargetType="{x:Type ListBox}">

@@ -147,11 +147,13 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 favorite.CommonSource.Add(this.SelectItem);
 
+                Log4Servcie.Instance.Info("收藏文件：" + this.SelectItem.FilePath);
+
                 this.CommonSource.Remove(this.SelectItem);
 
-                favorite.Refresh();
+                favorite.RefreshCount();
 
-                Log4Servcie.Instance.Info("收藏文件：" + this.SelectItem.FilePath);
+           
 
             }
 
@@ -164,11 +166,13 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 delete.CommonSource.Add(this.SelectItem);
 
+                Log4Servcie.Instance.Info("删除文件：" + this.SelectItem.FilePath);
+
                 this.CommonSource.Remove(this.SelectItem);
 
-                delete.Refresh();
+                delete.RefreshCount();
 
-                Log4Servcie.Instance.Info("删除文件：" + this.SelectItem.FilePath);
+              
             }
 
             // Todo ：彻底删除 
@@ -211,7 +215,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 this.CommonSource.Remove(this.SelectItem);
 
-                noraml.Refresh();
+                noraml.RefreshCount();
 
                 Log4Servcie.Instance.Info("重新加载：" + this.SelectItem.FilePath);
             }
@@ -262,7 +266,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
 
                 string imagePath = Path.Combine(folder, imageName + DateTime.Now.ToString("yyyyMMddhhmmss") + ".jpg");
 
-                if (!Directory.Exists(this.SelectItem.FilePath)) return;
+                if (!Directory.Exists(Path.GetDirectoryName(this.SelectItem.FilePath))) return;
 
                 var image = Clipboard.GetImage();
 
@@ -286,6 +290,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 fs.Flush();
                 fs.Dispose();
                 ms = null;
+
+                this.SelectItem.RefreshImage();
 
                 Log4Servcie.Instance.Info("插入图片：" + image);
 
@@ -358,6 +364,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                     item.IsVisible = Visibility.Visible;
                 }
 
+                this.RefreshCount();
 
                 Log4Servcie.Instance.Info("刷新完成");
             }
@@ -396,6 +403,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             // Todo ：清空数据 
             else if (buttonName == "SetDefault")
             {
+                this.RefreshFilter();
+
                 if (this.CommonSource == null || this.CommonSource.Count == 0)
                 {
                     this.ButtonClickFunc("Clear");
@@ -405,6 +414,8 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 this.SelectItem = this.CommonSource[0];
 
                 this.ButtonClickFunc("ShowImage");
+
+               
 
 
                 Log4Servcie.Instance.Info("设置默认项成功：" + this.SelectItem.FilePath);
@@ -433,7 +444,7 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
                 }
             }
 
-            this.Refresh();
+            this.RefreshCount();
 
 
         }
@@ -480,6 +491,19 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
+        private string _visibleCount;
+        /// <summary> 说明 </summary>
+        public string VisibleCount
+        {
+            get { return _visibleCount; }
+            set
+            {
+                _visibleCount = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
         private ObservableCollection<string> _imagePath = new ObservableCollection<string>();
         /// <summary> 说明 </summary>
         public ObservableCollection<string> ImagePath
@@ -504,10 +528,19 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             }
         }
 
-        public void Refresh()
+        public void RefreshCount()
         {
             this.Count = this.CommonSource.Count.ToString();
+
+            this.VisibleCount = this.CommonSource.ToList().FindAll(l=>l.IsVisible==Visibility.Visible).Count.ToString();
         }
+
+        /// <summary> 此方法的说明 </summary>
+        public void RefreshFilter()
+        {
+            this.Types = CaseNotifyService.MovieTypes;
+        }
+
 
         private bool _isActived;
         /// <summary> 是否激活 </summary>
@@ -517,6 +550,19 @@ namespace HeBianGu.MovieBrower.UserControls.DataManager
             set { _isActived = value; }
         }
 
+        private List<string> _types;
+        /// <summary> 类型配置 </summary>
+        public List<string> Types
+        {
+            get { return _types; }
+            set
+            {
+                _types = value;
+                RaisePropertyChanged();
+            }
+        }
+
+     
     }
 
     partial class MovieBroswerViewModelBase : INotifyPropertyChanged

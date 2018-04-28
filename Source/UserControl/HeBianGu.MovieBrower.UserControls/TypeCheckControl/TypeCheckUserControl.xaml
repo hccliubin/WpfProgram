@@ -89,6 +89,14 @@
         <ListBox x:Name="lb_list" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                  Style="{StaticResource TypeListStyle}" 
                  SelectionMode="Multiple" FontSize="12" 
-                 base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}"></ListBox>
+                 base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}">
+            <ListBox.Template>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <WrapPanel Orientation="Vertical" IsItemsHost="True" ScrollViewer.CanContentScroll="True"/>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ListBox.Template>
+        </ListBox>
     </Grid>
 </UserControl>

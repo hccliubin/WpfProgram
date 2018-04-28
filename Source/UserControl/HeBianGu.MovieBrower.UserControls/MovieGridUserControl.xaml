@@ -122,12 +122,69 @@
                             <BeginStoryboard Storyboard="{StaticResource Story_OpacityRightToLeft}" />
                         </EventTrigger>
                     </Grid.Triggers>
+                </Grid>
+            </Viewbox>
+        </DataTemplate>
 
-                    <!--<i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseEnter">
-                            <i:InvokeCommandAction Command="{Binding RelayCommand,RelativeSource={RelativeSource Mode=FindAncestor}}" CommandParameter="MouseEnter"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
+        <!--文件项模板-->
+        <DataTemplate  x:Key="MovieImageItemTemplate">
+            <Viewbox HorizontalAlignment="Left">
+                <Grid HorizontalAlignment="Center">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="200" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+
+                    <!--文件名称-->
+                    <TextBlock   Grid.Row="0"  Margin="5,0"
+                                 VerticalAlignment="Center" HorizontalAlignment="Left"
+                                 ToolTip="{Binding FileName}"  
+                                 Text="{Binding FileName}" 
+                                 Foreground="Black" FontWeight="Bold"/>
+
+                    <Grid  Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <imageviewcontrol:BxImage Source="{Binding ImageCollection[0]}"  HorizontalAlignment="Center">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseEnter">
+                                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="MouseEnter"/>
+                                </i:EventTrigger>
+
+                                <i:EventTrigger EventName="MouseLeave">
+                                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="MouseLeave"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+
+                        </imageviewcontrol:BxImage>
+                    </Grid>
+
+                    <!--评分-->
+                    <TextBlock  Margin="0,0" Grid.Row="2" Background="Transparent">
+                            <Viewbox HorizontalAlignment="Left">
+                                <evaluatecontrol:EvaluateUserControl x:Name="fivePointStarGroup1" HorizontalAlignment="Stretch"   
+                               VerticalAlignment="Stretch" SelectBackground="Orange" Radius="30" Background="Transparent"
+                               UnSelectBackground="DarkGray" ItemsCount="10" SelectCount="{Binding Score,Mode=TwoWay}">
+                                </evaluatecontrol:EvaluateUserControl>
+                            </Viewbox>
+                    </TextBlock>
+                    <Grid.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource Story_OpacityRightToLeft}" />
+                        </EventTrigger>
+                    </Grid.Triggers>
                 </Grid>
             </Viewbox>
         </DataTemplate>
@@ -171,6 +228,39 @@
             </Setter>
         </Style>
 
+        <Style TargetType="ListBoxItem" x:Key="MovieIImagetemStyle">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <Setter Property="BorderBrush" Value="{StaticResource ItemMouseOverBackground}" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="Visibility" Value="{Binding IsVisible}"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid Background="{TemplateBinding Background}" Margin="0,0.5">
+                            <Border x:Name="ItemBackground" IsHitTestVisible="False" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                BorderThickness="{TemplateBinding BorderThickness}"  BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}" />
+                            <ContentPresenter x:Name="contentPresenter" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource S_Blue}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource S_Blue}" />
+                                <Setter TargetName="ItemBackground" Property="Opacity" Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!--文件集合样式-->
         <Style x:Key="MovieListStyle" TargetType="{x:Type ListBox}">
             <Setter Property="ItemTemplate" Value="{StaticResource MovieItemTemplate}"/>
@@ -191,7 +281,74 @@
             <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         </Style>
 
+        <!--文件集合样式-->
+        <Style x:Key="MovieImageListStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="ItemTemplate" Value="{StaticResource MovieImageItemTemplate}"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ItemContainerStyle" Value="{StaticResource MovieIImagetemStyle}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+            <Setter Property="AllowDrop"   Value="True"/>
+            <Setter Property="Background" Value="{StaticResource S_Gray}"/>
+            <Setter Property="OpacityMask">
+                <Setter.Value>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.861"/>
+                    </RadialGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        </Style>
 
+        <DiffuseMaterial x:Key="CubeSideMaterial" Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="White"/>
+
+        <LinearGradientBrush x:Key="BlackBackground" EndPoint="1,1" StartPoint="0.25,0.25">
+            <GradientStop Color="#fff" />
+        </LinearGradientBrush>
+
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="@微软雅黑"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+        </Style>
+
+        <Style x:Key="CloseRadialButton" TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="MinHeight" Value="13" />
+            <Setter Property="MinWidth" Value="13" />
+            <Setter Property="Opacity" Value=".75"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="borderBtn" Width="18" Height="18" StrokeThickness="2" Fill="#FFE52B2B" Stroke="White"></Ellipse>
+
+                            <!--按钮内容-->
+                            <Grid>
+                                <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5">
+                                    <Line StrokeThickness="2" Stroke="White" X1="0" Y1="0" X2="8" Y2="8"></Line>
+                                    <Line StrokeThickness="2" Stroke="White" X1="0" Y1="8" X2="8" Y2="0"></Line>
+                                </Canvas>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver"  Value="True">
+                                <Setter Property="Opacity" Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </UserControl.Resources>
 
@@ -208,18 +365,34 @@
             <ColumnDefinition Width="370"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <!--<Border BorderThickness="1,1,1,1" Grid.RowSpan="2" BorderBrush="{StaticResource S_BlackNotice}"/>-->
 
         <GridSplitter Grid.Column="1" Grid.Row="2" Width="5" Grid.RowSpan="2" HorizontalAlignment="Stretch" />
 
+        <GridSplitter Grid.Column="3" Grid.Row="2" Width="5" Grid.RowSpan="2"   HorizontalAlignment="Stretch" />
 
+
+        <TextBlock Style="{StaticResource FIcon}" IsHitTestVisible="False"  Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Text="l"/>
+
+        <TextBlock Style="{StaticResource FIcon}" IsHitTestVisible="False" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Text="l"/>
+
+
+        <!--排序规则-->
         <StackPanel Background="{StaticResource S_Gray}" Orientation="Horizontal" Grid.ColumnSpan="9">
 
             <ComboBox Margin="0,10" ItemsSource="{StaticResource OrderItems}" base:ControlAttachProperty.Label="排序规则" SelectedIndex="{Binding OrderByIndex}"  Width="370"
-                      Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="没有选择排序" />
+                      Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="没有选择排序">
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Refresh"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
 
             <!--<wpfcontrollib:MultiComboBox Margin="5,0" Background="White" Grid.Row="1" 
                                          base:ControlAttachProperty.Label="过滤规则:" Grid.Column="3"  IsEditable="True" 
@@ -230,46 +403,85 @@
             <!--<wpfcontrollib:FButton Margin="10" Content="刷新"  Command="{Binding RelayCommand}" CommandParameter="Refresh"/>-->
         </StackPanel>
 
-
-        <ListBox Name="lb_list" Grid.Row="2"
-            Style="{StaticResource MovieListStyle}"
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <!--文件列表-->
+            <ListBox Width="370" Name="lb_list" Grid.Row="2" Visibility="{Binding ElementName=cb_showImageList,Path=IsChecked,Converter={StaticResource VisibilityConverter}}"
+                 Style="{StaticResource MovieImageListStyle}"
                  ItemsSource="{Binding CommonSource}"
                  SelectedItem="{Binding SelectItem}"  FontSize="12" 
                  base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}" >
 
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="ShowImage"/>
-                </i:EventTrigger>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="ShowImage"/>
+                    </i:EventTrigger>
 
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Open"/>
-                </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Open"/>
+                    </i:EventTrigger>
 
-            </i:Interaction.Triggers>
+                </i:Interaction.Triggers>
 
-        </ListBox>
+            </ListBox>
+
+            <ListBox Name="lb_list1" Grid.Row="2" Visibility="{Binding ElementName=cb_showDetailList,Path=IsChecked,Converter={StaticResource VisibilityConverter}}"
+
+                 Style="{StaticResource MovieListStyle}"
+                 ItemsSource="{Binding CommonSource}"
+                 SelectedItem="{Binding SelectItem}"  FontSize="12" 
+                 base:ControlAttachProperty.IsBuzy="{Binding IsBusyFlag}" >
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="ShowImage"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Open"/>
+                    </i:EventTrigger>
+
+                </i:Interaction.Triggers>
+
+            </ListBox>
 
 
-        <typecheckcontrol:TypeFilterUserControl Background="{StaticResource S_Gray}"  Grid.Row="1" Grid.ColumnSpan="9" DataSource="{x:Static local:LocalConfiger.Types}" >
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="CheckChanged">
-                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="FilterCheckChanged"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </typecheckcontrol:TypeFilterUserControl>
+        </StackPanel>
+        <!--过滤规则-->
+        <WrapPanel Height="Auto" Background="{StaticResource S_Gray}" Orientation="Horizontal"  Grid.Row="1" Grid.ColumnSpan="9" >
 
-        <Border  Grid.Row="0"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,1,1,1" Grid.ColumnSpan="6"/>
-        <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,1,1,1" Grid.ColumnSpan="6"/>
+            <!--<TextBlock Text=" 过滤规则" TextAlignment="Center" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Background="{StaticResource S_Blue}" Foreground="{StaticResource S_WhiteCommon}"/>-->
+
+            <typecheckcontrol:TypeFilterUserControl  DataSource="{Binding Types}" SelectText="{Binding FilterType,Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="CheckChanged">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Refresh"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </typecheckcontrol:TypeFilterUserControl>
 
 
+        </WrapPanel>
 
+        <Border  Grid.Row="0"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0" Grid.ColumnSpan="6"/>
+        <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,1,1,1" Grid.ColumnSpan="7"/>
+
+        <!--全选-->
         <StackPanel Orientation="Horizontal" Grid.Row="4" Background="{StaticResource S_Gray}" >
             <wpfcontrollib:FCheckBox Content="全选"  FontSize="15"  Command="{Binding RelayCommand}" 
                                      CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
 
-            <TextBlock  Margin="200,0" FontSize="13" Style="{StaticResource FIcon}" FontWeight="Black">
-            <Run Text="总计："/>
+
+            <wpfcontrollib:FCheckBox x:Name="cb_showDetailList" Content="详情视图" Margin="10,0,0,0" FontSize="15" IsChecked="True"  Command="{Binding RelayCommand}" 
+                                     CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
+
+            <wpfcontrollib:FCheckBox x:Name="cb_showImageList" Content="图片视图" Margin="10,0,0,0" FontSize="15"   Command="{Binding RelayCommand}" 
+                                     CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
+
+            <TextBlock  Margin="10,0" FontSize="13" Style="{StaticResource FIcon}" FontWeight="Black">
+            <Run Text="可见："/>
+            <Run Text="{Binding VisibleCount}"/>
+            <Run Text="    总计："/>
             <Run Text="{Binding Count}"/>
             </TextBlock>
 
@@ -277,16 +489,47 @@
 
         <Border  Grid.Row="3"  BorderBrush="{StaticResource S_Blue}" BorderThickness="0,1,0,0" />
 
-        <imageviewcontrol:ImageViewUserControl x:Name="imageView" Grid.Row="2" IsAutoMove="True" Grid.Column="2" Grid.RowSpan="3" ImagePaths="{Binding ImagePath}" SelectValue="{Binding SelectImage,Mode=TwoWay}" >
-            <imageviewcontrol:ImageViewUserControl.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteImage"/>
-                </ContextMenu>
-            </imageviewcontrol:ImageViewUserControl.ContextMenu>
-        </imageviewcontrol:ImageViewUserControl>
+        <!--预览视图-->
+        <wpfcontrollib:AnimatedTabControl Grid.Row="2"  Grid.Column="2" Grid.RowSpan="3" Background="{StaticResource S_WhiteCommon}" 
+                                          Foreground="{StaticResource S_Blue}" 
+                                          ItemContainerStyle="{StaticResource ShellTabItemStyle}"
+                                           AutomationProperties.AutomationId="PositionSummaryTab" >
+
+            <TabItem  Header="预览图片">
+                <imageviewcontrol:ImageViewUserControl x:Name="imageView" Grid.Row="2" IsAutoMove="True" Grid.Column="2" Grid.RowSpan="3" ImagePaths="{Binding ImagePath}" SelectValue="{Binding SelectImage,Mode=TwoWay}" >
+                    <imageviewcontrol:ImageViewUserControl.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="删除"  Command="{Binding RelayCommand}" CommandParameter="DeleteImage"/>
+                        </ContextMenu>
+                    </imageviewcontrol:ImageViewUserControl.ContextMenu>
+                </imageviewcontrol:ImageViewUserControl>
+            </TabItem>
+
+            <TabItem Header="文本文件">
+                <TextBlock Background="Red" Text="33333333333"/>
+            </TabItem>
+
+            <TabItem Header="文件夹">
+                <TextBlock Background="Yellow" Text="33333333333"/>
+            </TabItem>
+
+        </wpfcontrollib:AnimatedTabControl>
 
         <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="4"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0"/>
 
-        <typecheckcontrol:TypeCheckUserControl Background="{StaticResource S_Gray}"   Margin="1"  Grid.Row="2" Grid.Column="3" Grid.RowSpan="4"  DataSource="{x:Static local:LocalConfiger.Types}" SelectText="{Binding SelectItem.Type,Mode=TwoWay}"/>
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="0"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0"/>
+
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="2"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0"/>
+
+        <typecheckcontrol:TypeCheckUserControl x:Name="tc_check" Background="{StaticResource S_Gray}"   
+                                               Margin="1"  
+                                               Grid.Row="2" 
+                                               Grid.Column="4" 
+                                               Grid.RowSpan="4"  
+                                               DataSource="{Binding Types}" 
+                                               SelectText="{Binding SelectItem.Type,Mode=TwoWay}"/>
+
+
+
     </Grid>
 </UserControl>

@@ -9,12 +9,12 @@
         xmlns:local="clr-namespace:MovieBrowserToolApp"
        xmlns:prism="http://www.codeplex.com/prism"                 
     Style="{StaticResource ResourceKey=DefaultWindowStyle}"
-    Height="800" Width="1100">
+    Height="800" Width="1200">
 
     <Window.Resources>
         <!--创建菜单资源-->
         <ResourceDictionary>
-            
+
             <!--文件项模板-->
             <DataTemplate  x:Key="CaseItemTemplate">
                 <Grid>
@@ -26,11 +26,6 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-
-
-
-
-
 
                     <TextBlock VerticalAlignment="Center" Margin="5" FontStyle="Italic"/>
 
@@ -132,7 +127,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            
+
         </ResourceDictionary>
 
     </Window.Resources>
@@ -161,10 +156,14 @@
                 <MenuItem Header="路径移动" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="MoveFolder"  ToolTip="将案例下的文件移动到指定目录" />
                 <MenuItem Header="重命名" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="ReNameCase" />
 
-            </MenuItem> 
+            </MenuItem>
             <MenuItem Header="设置" Style="{DynamicResource DefaultMenuItem}">
                 <MenuItem Header="文件配置" Style="{DynamicResource DefaultMenuItem}" Command="{Binding RelayCommand}" CommandParameter="FileSet" />
                 <MenuItem Header="类型配置" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="TypeSet" />
+            </MenuItem>
+            <MenuItem Header="视图" Style="{DynamicResource DefaultMenuItem}">
+                <windowbase:FCheckBox Content="显示图片列表" x:Name="cb_showImageList"  IsChecked="True"/>
+                <windowbase:FCheckBox Content="显示详情列表" IsChecked="{Binding ElementName=cb_showImageList,Path=!IsChecked,Mode=TwoWay}"  />
             </MenuItem>
             <MenuItem Header="帮助" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
             <MenuItem Header="关于" Style="{DynamicResource DefaultMenuItem}"  Command="{Binding RelayCommand}" CommandParameter="AddCase" />
@@ -192,7 +191,6 @@
 
             <Grid Grid.Column="2" >
                 <Grid.RowDefinitions>
-                    <!--<RowDefinition Height="37*"/>-->
                     <RowDefinition Height="570*"/>
                 </Grid.RowDefinitions>
 
@@ -205,7 +203,6 @@
                     </Grid.ColumnDefinitions>
 
                     <Border Background="{StaticResource S_Gray}" Grid.Row="1" Grid.Column="1"/>
-
 
                     <ItemsControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="MainNavigationRegion">
                         <ItemsControl.RenderTransform>
@@ -234,7 +231,6 @@
                             </ControlTemplate>
                         </ItemsControl.Template>
                     </ItemsControl>
-                    <!--</Grid>-->
 
                     <!--右侧内容-->
                     <ContentControl prism:RegionManager.RegionName="MainContentRegion" 
@@ -245,6 +241,7 @@
 
             </Grid>
         </Grid>
+
         <windowbase:FButton Grid.Row="3" Style="{StaticResource FButton_Transparency}" FIcon="&#xe6b5;" Content="{Binding Message}" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
 
     </Grid>

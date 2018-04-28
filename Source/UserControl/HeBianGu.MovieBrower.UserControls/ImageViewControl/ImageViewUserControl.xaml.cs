@@ -37,6 +37,8 @@ namespace HeBianGu.MovieBrower.UserControls.ImageViewControl
 
                 if (this.ImagePaths.Count <= l - 1) return;
 
+                if (l - 1 < 0) return;
+
                 this.SelectValue = this.ImagePaths[l- 1];
 
                 //this.SelectValue = this.ImagePaths[l-1];

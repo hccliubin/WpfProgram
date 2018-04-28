@@ -65,6 +65,8 @@ namespace HeBianGu.MovieBrower.UserControls
             this.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
             RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
+
+            this.RefreshImage();
         }
 
         public MovieFileViewModel(MovieFileModel model)
@@ -78,7 +80,9 @@ namespace HeBianGu.MovieBrower.UserControls
             this.Size = file.Length;
 
             RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
-            
+
+            this.RefreshImage();
+
         }
 
         private string _fileName;
@@ -249,7 +253,7 @@ namespace HeBianGu.MovieBrower.UserControls
                         ImageToolTipWindow.HideWindow();
                     }
                     break;
-                case "Case3":
+                case "Refresh":
                     {
 
                     }
@@ -310,30 +314,6 @@ namespace HeBianGu.MovieBrower.UserControls
         {
             get
             {
-                var folder = Path.GetDirectoryName(this.FilePath);
-
-                var collection = DirectoryHelper.GetAllFile(folder, l => l.Extension.EndsWith("jpg"));
-
-                collection.Reverse();
-
-                List<string> cs = new List<string>();
-
-                if (collection == null || collection.Count == 0)
-                {
-                    this._imageCollection = new ObservableCollection<string>();
-                    return null;
-                }
-
-                this._imageCollection = null;
-
-                ObservableCollection<string> ss = new ObservableCollection<string>();
-
-                foreach (var item in collection)
-                {
-                    ss.Add(item);
-                }
-                _imageCollection = ss;
-
                 return _imageCollection;
             }
             set
@@ -343,6 +323,27 @@ namespace HeBianGu.MovieBrower.UserControls
                 RaisePropertyChanged();
             }
         }
+
+
+        /// <summary> 刷新图片 </summary>
+        public void RefreshImage()
+        {
+            ObservableCollection<string> cache = new ObservableCollection<string>();
+
+            var folder = Path.GetDirectoryName(this.FilePath);
+
+            var collection = DirectoryHelper.GetAllFile(folder, l => l.Extension.EndsWith("jpg"));
+
+            collection.Reverse();
+
+            foreach (var item in collection)
+            {
+                cache.Add(item);
+            }
+
+            this.ImageCollection = cache;
+        }
+
 
     }
 
@@ -360,5 +361,5 @@ namespace HeBianGu.MovieBrower.UserControls
 
         #endregion
     }
-    
+
 }

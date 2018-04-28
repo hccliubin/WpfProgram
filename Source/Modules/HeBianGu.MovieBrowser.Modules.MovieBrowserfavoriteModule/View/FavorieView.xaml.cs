@@ -44,7 +44,7 @@ namespace HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule.View
 
         private void CommonContent_Loaded(object sender, RoutedEventArgs e)
         {
-            this._viewModel.IsActived = true;
+            MovieBrowserDataManager.Instance.SetActived(this._viewModel);
         }
     }
 }

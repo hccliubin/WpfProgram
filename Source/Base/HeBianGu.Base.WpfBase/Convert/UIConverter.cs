@@ -35,7 +35,7 @@ namespace HeBianGu.Base.WpfBase
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             //将bool值转换为什么呢？自己在这里定义
-            return (bool)value ? Visibility.Visible : Visibility.Hidden;
+            return (bool)value ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -44,7 +44,6 @@ namespace HeBianGu.Base.WpfBase
             return (Visibility)value == Visibility.Visible;
         }
     }
-
 
     /// <summary> 空文本不可用 </summary>
     [ValueConversion(typeof(Visibility), typeof(string))]
