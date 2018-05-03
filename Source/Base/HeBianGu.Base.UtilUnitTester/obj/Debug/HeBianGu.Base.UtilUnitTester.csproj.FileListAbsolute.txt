@@ -15,3 +15,5 @@ F:\WpfProgram\Source\Base\HeBianGu.Base.UtilUnitTester\bin\Debug\Microsoft.Visua
 F:\WpfProgram\Source\Base\HeBianGu.Base.UtilUnitTester\obj\Debug\HeBianGu.Base.UtilUnitTester.csprojResolveAssemblyReference.cache
 F:\WpfProgram\Source\Base\HeBianGu.Base.UtilUnitTester\obj\Debug\HeBianGu.Base.UtilUnitTester.dll
 F:\WpfProgram\Source\Base\HeBianGu.Base.UtilUnitTester\obj\Debug\HeBianGu.Base.UtilUnitTester.pdb
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.UtilUnitTester\obj\Debug\HeBianGu.Base.UtilUnitTester.dll
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.UtilUnitTester\obj\Debug\HeBianGu.Base.UtilUnitTester.pdb

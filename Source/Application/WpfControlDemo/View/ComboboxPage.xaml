@@ -57,7 +57,8 @@
                 </StackPanel>
 
                 <StackPanel Height="300" Orientation="Vertical">
-                    <controls:MultiComboBox x:Name="mcom"  Width="320" Margin="3" IsEditable="False" ItemsSource="{StaticResource items}"/>
+                    
+                    <!--<controls:MultiComboBox x:Name="mcom"  Width="320" Margin="3" IsEditable="False" ItemsSource="{StaticResource items}"/>-->
                     
                     <controls:FButton ></controls:FButton>
                     <controls:MultiComboBox Width="420" Margin="3" IsEditable="True" ItemsSource="{StaticResource items}" 

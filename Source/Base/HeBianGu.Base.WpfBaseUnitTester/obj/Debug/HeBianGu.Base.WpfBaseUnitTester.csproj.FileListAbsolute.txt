@@ -16,3 +16,5 @@ F:\WpfProgram\Source\Base\HeBianGu.Base.WpfBaseUnitTester\obj\Debug\HeBianGu.Bas
 F:\WpfProgram\Source\Base\HeBianGu.Base.WpfBaseUnitTester\bin\Debug\HeBianGu.Base.WpfBase.dll
 F:\WpfProgram\Source\Base\HeBianGu.Base.WpfBaseUnitTester\bin\Debug\HeBianGu.Base.WpfBase.pdb
 F:\WpfProgram\Source\Base\HeBianGu.Base.WpfBaseUnitTester\bin\Debug\HeBianGu.Base.WpfBase.xml
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBaseUnitTester\obj\Debug\HeBianGu.Base.WpfBaseUnitTester.dll
+F:\GitHub\WpfProgram\Source\Base\HeBianGu.Base.WpfBaseUnitTester\obj\Debug\HeBianGu.Base.WpfBaseUnitTester.pdb

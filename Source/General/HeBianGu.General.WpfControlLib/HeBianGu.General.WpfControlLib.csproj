@@ -67,6 +67,9 @@
     <Compile Include="Controls\AnimatedTabControl.xaml.cs">
       <DependentUpon>AnimatedTabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BindRichTextBox.xaml.cs">
+      <DependentUpon>BindRichTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BulletCheckBox.xaml.cs">
       <DependentUpon>BulletCheckBox.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\AnimatedTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BindRichTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -42,14 +42,14 @@
 
                         </Trigger>
 
-                        <EventTrigger RoutedEvent="Loaded">
+                        <!--<EventTrigger RoutedEvent="Loaded">
                             <BeginStoryboard >
                                 <Storyboard >
                                     <DoubleAnimation RepeatBehavior="Forever" Storyboard.TargetName="TransFIcon" 
                                             Storyboard.TargetProperty="Angle" To="360" Duration="0:0:2.5"/>
                                 </Storyboard>
                             </BeginStoryboard>
-                        </EventTrigger>
+                        </EventTrigger>-->
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

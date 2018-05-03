@@ -22,8 +22,8 @@
                 </Grid.RenderTransform>
                 
                 <wpfcontrollib:AnimatedTabControl
-                    x:Name="tb_all" VerticalAlignment="Stretch"  ItemContainerStyle="{StaticResource ShellTabItemStyle}" 
-                    Background="Red"
+                    x:Name="tb_all" VerticalAlignment="Stretch" Background="Green"  
+                    ItemContainerStyle="{StaticResource ShellTabItemStyle}" 
                      AutomationProperties.AutomationId="PositionSummaryTab" >
                     <Button Content="2222222222222222"/>
                     <Button Content="1111111111111111111111111"/>
