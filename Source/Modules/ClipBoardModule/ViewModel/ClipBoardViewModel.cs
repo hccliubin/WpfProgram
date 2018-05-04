@@ -15,7 +15,6 @@
 */
 #endregion
 using ClipBoardModule.Provider;
-using ClipBoardModule.Service;
 using HeBianGu.Base.Util;
 using HeBianGu.Base.WpfBase;
 using HeBianGu.General.ModuleManager.Model;

@@ -121,4 +121,7 @@
   <data name="SegmentTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SegmentTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
   </data>
+  <data name="tomomi_drive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tomomi drive.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -7,9 +7,8 @@
          Style="{StaticResource ResourceKey=DefaultWindowStyle}"
         xmlns:local="clr-namespace:CodeSegmentMonitorApp"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-                          xmlns:view="clr-namespace:CodeSegmentMonitorApp.View"
                           xmlns:controls="clr-namespace:HeBianGu.General.WpfControlLib.Controls;assembly=HeBianGu.General.WpfControlLib"
-                          mc:Ignorable="d" 
+                          mc:Ignorable="d"
         Title="代码段管理工具" Height="700" Width="1000">
     <Window.Resources>
         <Style TargetType="{x:Type wpfcontrollib:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}">
@@ -71,7 +70,7 @@
         </Style>
 
     </Window.Resources>
-    <Grid>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="5"/>
@@ -95,7 +94,7 @@
             </i:Interaction.Triggers>
         </wpfcontrollib:FTextBox>
 
-        <ListBox x:Name="listBox" Grid.Row="1" ItemsSource="{Binding Collection}" SelectedItem="{Binding Selection,Mode=TwoWay}"/>
+        <ListBox x:Name="listBox" Grid.Row="1" ItemsSource="{Binding Collection,Mode=TwoWay}" SelectedItem="{Binding Selection,Mode=TwoWay}"/>
 
 
 

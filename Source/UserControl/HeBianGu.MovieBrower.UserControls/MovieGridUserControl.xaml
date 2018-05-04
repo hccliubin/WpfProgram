@@ -404,6 +404,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">
+            
             <!--文件列表-->
             <ListBox Width="370" Name="lb_list" Grid.Row="2" Visibility="{Binding ElementName=cb_showImageList,Path=IsChecked,Converter={StaticResource VisibilityConverter}}"
                  Style="{StaticResource MovieImageListStyle}"
@@ -487,6 +488,7 @@
 
         </StackPanel>
 
+        
         <Border  Grid.Row="3"  BorderBrush="{StaticResource S_Blue}" BorderThickness="0,1,0,0" />
 
         <!--预览视图-->

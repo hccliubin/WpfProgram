@@ -125,7 +125,7 @@ namespace CodeSegmentMonitorApp.ViewModel
 
                         //this.Collection = newCollection;
 
-                        this.Collection = new ObservableCollection<SegmentItemViewModel>(this.Collection.OrderBy(item => item.Author));
+                        //this.Collection = new ObservableCollection<SegmentItemViewModel>(this.Collection.OrderBy(item => item.Author));
                     }
                     break;
                 case "Loaded":

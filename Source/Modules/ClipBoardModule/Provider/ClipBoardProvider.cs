@@ -49,7 +49,9 @@ namespace ClipBoardModule.Provider
         {
             ClipBoardViewModel c = new ClipBoardViewModel();
 
-            string s = File.ReadAllText(ConfigerPath);
+            string s = File.ReadAllText(ConfigerPath).Trim('\0');
+
+            if (string.IsNullOrEmpty(s)) return c;
 
             ObservableCollection<ClipBoradBindModel> b = s.SerializeDeJson<ObservableCollection<ClipBoradBindModel>>();
 

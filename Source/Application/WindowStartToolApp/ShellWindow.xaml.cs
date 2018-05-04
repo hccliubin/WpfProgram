@@ -22,7 +22,6 @@ using HeBianGu.General.WpfControlLib;
 using System.Windows.Threading;
 using System.Windows.Interop;
 using System.Runtime.InteropServices;
-using ClipBoardModule.Service;
 
 namespace WindowStartToolApp
 {
@@ -140,11 +139,11 @@ namespace WindowStartToolApp
             ShortCutEntitys tt = new ShortCutEntitys();
 
             KeyEntity t1 = new KeyEntity();
-            t1.Key = Keys.Tab;
+            t1.Key = Keys.E;
             tt.Add(t1);
 
             KeyEntity t2 = new KeyEntity();
-            t2.Key = Keys.Tab;
+            t2.Key = Keys.D;
             tt.Add(t2);
 
             Action actiont = () =>
@@ -154,6 +153,18 @@ namespace WindowStartToolApp
             };
 
             ShortCutHookService.Instance.RegisterCommand(tt, actiont);
+
+            ShortCutEntitys ed = new ShortCutEntitys();
+
+            KeyEntity e = new KeyEntity();
+            e.Key = Keys.E;
+            ed.Add(e);
+
+            KeyEntity dd = new KeyEntity();
+            dd.Key = Keys.D;
+            ed.Add(dd);
+
+            ShortCutHookService.Instance.RegisterCommand(ed, actiont);
         }
 
         NotifyIcon notifyIcon;

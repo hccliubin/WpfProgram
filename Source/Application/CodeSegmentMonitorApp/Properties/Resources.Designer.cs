@@ -73,15 +73,23 @@ namespace CodeSegmentMonitorApp.Properties {
         ///				&lt;SnippetType&gt;{4}&lt;/SnippetType&gt;
         ///			&lt;/SnippetTypes&gt;
         ///		&lt;/Header&gt;
-        ///        &lt;Snippet&gt;
-        ///			{5}
-        ///		&lt;/Snippet&gt;
+        ///{5}
         ///	&lt;/CodeSnippet&gt;
         ///&lt;/CodeSnippets&gt; 的本地化字符串。
         /// </summary>
         internal static string SegmentTemplate {
             get {
                 return ResourceManager.GetString("SegmentTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon tomomi_drive {
+            get {
+                object obj = ResourceManager.GetObject("tomomi_drive", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

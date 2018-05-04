@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControlDemo", "..\Source
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSegmentMonitorApp", "..\Source\Application\CodeSegmentMonitorApp\CodeSegmentMonitorApp.csproj", "{0A13EDEB-44B8-44DB-BBD6-2072C6DCF21D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SetUp", "SetUp", "{F9A5B91C-5603-4DED-8AF5-0D08AC7CD91F}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CodeSegmentMonitorAppSetUp", "..\SetUp\CodeSegmentMonitorAppSetUp\CodeSegmentMonitorAppSetUp.vdproj", "{69DADB5B-B35B-408F-8AAA-6EB5ED8EB612}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,8 @@ Global
 		{0A13EDEB-44B8-44DB-BBD6-2072C6DCF21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A13EDEB-44B8-44DB-BBD6-2072C6DCF21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A13EDEB-44B8-44DB-BBD6-2072C6DCF21D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69DADB5B-B35B-408F-8AAA-6EB5ED8EB612}.Debug|Any CPU.ActiveCfg = Debug
+		{69DADB5B-B35B-408F-8AAA-6EB5ED8EB612}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,5 +105,6 @@ Global
 		{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5} = {C3E49EF3-33DB-4DEC-A21A-1EF352C1627B}
 		{533BD2CA-CF75-431A-80EF-92B6612E781F} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
 		{0A13EDEB-44B8-44DB-BBD6-2072C6DCF21D} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
+		{69DADB5B-B35B-408F-8AAA-6EB5ED8EB612} = {F9A5B91C-5603-4DED-8AF5-0D08AC7CD91F}
 	EndGlobalSection
 EndGlobal

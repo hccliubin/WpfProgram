@@ -7,7 +7,7 @@
     <ProjectGuid>{0A13EDEB-44B8-44DB-BBD6-2072C6DCF21D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CodeSegmentMonitorApp</RootNamespace>
-    <AssemblyName>CodeSegmentMonitorApp</AssemblyName>
+    <AssemblyName>代码段管理工具</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -36,9 +36,13 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\tomomi drive.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\WpfProgram\Product\Dll\System.Windows.Interactivity.dll</HintPath>
@@ -69,9 +73,6 @@
     <Compile Include="Provider\SegmentProvider.cs" />
     <Compile Include="ViewModel\SegmentViewModel.cs" />
     <Compile Include="ViewModel\SegmentItemViewModel.cs" />
-    <Compile Include="View\BindRichTextBoxUserControl.xaml.cs">
-      <DependentUpon>BindRichTextBoxUserControl.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,10 +85,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\BindRichTextBoxUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -122,14 +119,26 @@
       <Project>{435feb82-599f-48e3-8891-755acf8e4117}</Project>
       <Name>HeBianGu.Base.WpfBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\General\HeBianGu.General.Logger\HeBianGu.General.Logger.csproj">
+      <Project>{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}</Project>
+      <Name>HeBianGu.General.Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\General\HeBianGu.General.WpfControlLib\HeBianGu.General.WpfControlLib.csproj">
       <Project>{b49dc15f-b43c-4306-adf4-8fa6f5df7f84}</Project>
       <Name>HeBianGu.General.WpfControlLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SegmentTemplate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tomomi drive.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tomomi drive.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
