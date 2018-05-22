@@ -305,7 +305,7 @@ namespace HeBianGu.General.ModuleManager.Service
         {
             if (item.LastTime.Contains("Date"))
             {
-                item.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                item.LastTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             }
         }
 

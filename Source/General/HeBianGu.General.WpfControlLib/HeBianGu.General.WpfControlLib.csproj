@@ -97,6 +97,9 @@
     <Compile Include="Controls\RingBox.xaml.cs">
       <DependentUpon>RingBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SpaceSpliterUserControl.xaml.cs">
+      <DependentUpon>SpaceSpliterUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\WaitingBox.xaml.cs">
       <DependentUpon>WaitingBox.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
     <Page Include="Controls\RingBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SpaceSpliterUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\WaitingBox.xaml">
       <SubType>Designer</SubType>

@@ -29,6 +29,7 @@ namespace CodeSegmentMonitorApp
             InitializeComponent();
 
             this.DataContext = _vm;
+
         }
 
         //private void SendMessageRichTextBox_TextChanged(object sender, TextChangedEventArgs e)

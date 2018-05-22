@@ -42,7 +42,9 @@
                 <wpfcontrollib:FButton FIcon="&#xe600;" Content="PathDemo" Tag="View/PathDemo.xaml"/>
                 <wpfcontrollib:FButton FIcon="&#xe600;" Content="DocumentDemo" Tag="View/DocumentPage.xaml"/>
                 <wpfcontrollib:FButton FIcon="&#xe600;" Content="TPageControlDemo" Tag="View/TPageControlPage.xaml"/>
+                <wpfcontrollib:FButton FIcon="&#xe600;" Content="OtherControlDemo" Tag="View/OtherControlPage.xaml"/>
 
+                
             </StackPanel>
         </ScrollViewer>
         <Frame Content="Frame" Grid.Column="1" Name="frame"/>

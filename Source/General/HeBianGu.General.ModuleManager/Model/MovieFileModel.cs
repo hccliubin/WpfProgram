@@ -50,7 +50,7 @@ namespace HeBianGu.General.ModuleManager.Model
                 this.IsFile = false;
             }
 
-            this.LastTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            this.LastTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
         private string _fileName;

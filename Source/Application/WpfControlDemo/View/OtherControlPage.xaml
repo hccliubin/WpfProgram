@@ -1,0 +1,29 @@
+﻿<Page x:Class="WpfControlDemo.View.OtherControlPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfControlDemo.View"
+      xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="OtherControlPage">
+
+    <Grid>
+        <StackPanel>
+            <!--<wpfcontrollib:SpaceSpliterUserControl Height="10" Margin="10" LeftPercent="{Binding ElementName=txt_left,Path=Text,Mode=TwoWay}" RightPercent="{Binding ElementName=txt_right,Path=Text,Mode=TwoWay}"/>-->
+
+
+            <wpfcontrollib:SpaceSpliterUserControl Height="10" Margin="10" LeftPercent="0.3" RightPercent="0.7"/>
+
+            <TextBlock>
+                <Run Text="左侧值："/>
+                 <Run x:Name="txt_left" Text="0.4"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="右侧值："/>
+                 <Run x:Name="txt_right" Text="0.8"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

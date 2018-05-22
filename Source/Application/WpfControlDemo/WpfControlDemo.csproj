@@ -83,6 +83,9 @@
     <Compile Include="View\ListViewPage.xaml.cs">
       <DependentUpon>ListViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\OtherControlPage.xaml.cs">
+      <DependentUpon>OtherControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PathDemo.xaml.cs">
       <DependentUpon>PathDemo.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ListViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OtherControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

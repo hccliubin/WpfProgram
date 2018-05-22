@@ -176,7 +176,7 @@ namespace WindowStartToolApp
             this.notifyIcon.ShowBalloonTip(2000);
             this.notifyIcon.Text = "光速启动";
             
-            this.notifyIcon.Icon = WindowStartToolApp.Properties.Resources.Feather;
+            this.notifyIcon.Icon = WindowStartToolApp.Properties.Resources.iBook;
             this.notifyIcon.Visible = true;
 
             this.notifyIcon.MouseDoubleClick += (object sender, System.Windows.Forms.MouseEventArgs e) =>

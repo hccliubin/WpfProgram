@@ -96,7 +96,7 @@ namespace HeBianGu.General.ModuleManager.Model
         /// <summary> 复制的时间 </summary>
         public string CreateTime
         {
-            get { return _createTime.ToString("yyyy-MM-dd hh:mm:ss"); }
+            get { return _createTime.ToString("yyyy-MM-dd HH:mm:ss"); }
         }
 
         public ClipBoardType Type
