@@ -38,10 +38,10 @@ namespace HeBianGu.General.WpfControlLib
         // Using a DependencyProperty as the backing store for LeftPercent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty LeftPercentProperty =
             DependencyProperty.Register("LeftPercent", typeof(double), typeof(SpaceSpliterUserControl), new PropertyMetadata(0.0, (l, e) =>
-             {
-                 var control = l as SpaceSpliterUserControl;
-                 control.SetPosition();
-             }));
+            {
+                var control = l as SpaceSpliterUserControl;
+                control.SetPosition();
+            }));
 
 
 
@@ -54,10 +54,10 @@ namespace HeBianGu.General.WpfControlLib
         // Using a DependencyProperty as the backing store for RightPercent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightPercentProperty =
             DependencyProperty.Register("RightPercent", typeof(double), typeof(SpaceSpliterUserControl), new PropertyMetadata(1.0, (l, e) =>
-              {
-                  var control = l as SpaceSpliterUserControl;
-                  control.SetPosition();
-              }));
+            {
+                var control = l as SpaceSpliterUserControl;
+                control.SetPosition();
+            }));
 
 
 
@@ -92,7 +92,6 @@ namespace HeBianGu.General.WpfControlLib
         }
 
         private void DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
-
         {
             thumb1.Background = Brushes.LightBlue;
         }
@@ -110,7 +109,9 @@ namespace HeBianGu.General.WpfControlLib
             thumb1.Width -= e.HorizontalChange;
 
             this.RefreshData();
-    
+
+
+
         }
 
         private void Thumb_DragDelta_1(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
@@ -131,7 +132,7 @@ namespace HeBianGu.General.WpfControlLib
             e.Handled = true;
 
             this.RefreshData();
-            
+
         }
 
 
@@ -149,8 +150,6 @@ namespace HeBianGu.General.WpfControlLib
                 this.RightPercent = (Canvas.GetLeft(thumb1) + this.thumb1.Width) / parent.ActualWidth;
 
                 Debug.WriteLine("左：" + this.LeftPercent + "   右：" + this.RightPercent);
-
-                this.RaiseValueChangedEvent();
 
                 _flag = true;
             }
@@ -175,25 +174,5 @@ namespace HeBianGu.General.WpfControlLib
             }
 
         }
-
-
-        public event EventHandler ValueChanged
-        {
-            add { AddHandler(ValueChangedEvent, value); }
-            remove { RemoveHandler(ValueChangedEvent, value); }
-        }
-
-        public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent(
-        "ValueChanged", RoutingStrategy.Bubble, typeof(EventHandler), typeof(SpaceSpliterUserControl));
-
-
-        /// <summary> 触发 </summary>
-        public void RaiseValueChangedEvent()
-        {
-            RoutedEventArgs routedEventArgs = new RoutedEventArgs(SpaceSpliterUserControl.ValueChangedEvent);
-            //UIElement.RaiseEvent(RoutedEventArgs routedEeventArgs)方法
-            this.RaiseEvent(routedEventArgs);//触发路由事件方法
-        }
-
     }
 }
