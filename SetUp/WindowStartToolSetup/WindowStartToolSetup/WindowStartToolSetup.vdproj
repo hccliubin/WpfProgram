@@ -807,7 +807,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DB634DF5C54D4A419F0EE1234B92B6A5"
+        "MsmKey" = "8:_D7970663B1DD44C09BAE17E694534346"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -989,12 +989,6 @@
         {
         "MsmKey" = "8:_F763F985DA05B5065815FD559AC00E46"
         "OwnerKey" = "8:_003A6369444643AAA8B5BA0E9C196A2E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_166DF84BF486DB088183CC9DCB8D1B44"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1453,6 +1447,12 @@
         "OwnerKey" = "8:_BB82C03D3AEE6053AE38DE8D855A5766"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_166DF84BF486DB088183CC9DCB8D1B44"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -1471,6 +1471,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -1487,6 +1503,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -3644,10 +3676,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DB634DF5C54D4A419F0EE1234B92B6A5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7970663B1DD44C09BAE17E694534346"
             {
-            "SourcePath" = "8:F:\\图标集合\\xp\\xpicon3\\WorldOfAqua2\\TiBook.ico"
-            "TargetName" = "8:TiBook.ico"
+            "SourcePath" = "8:..\\..\\..\\Product\\Dll\\iBook.ico"
+            "TargetName" = "8:iBook.ico"
             "Tag" = "8:"
             "Folder" = "8:_42B785C8D28B42F1BB9C05671076B3C1"
             "Condition" = "8:"
@@ -4005,6 +4037,17 @@
                 {
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_F8D80FD5D6B8475AB693FD4F5AF86242"
+            {
+            "Name" = "8:#1928"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:StartupFolder"
+                "Folders"
+                {
+                }
+            }
         }
         "LaunchCondition"
         {
@@ -4022,7 +4065,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WindowStartTool"
         "ProductCode" = "8:{76DE4DDC-3710-4CF6-B51F-BFEE4C80C3CF}"
-        "PackageCode" = "8:{AAC992F8-C467-48DD-9A60-C4DA9E3DE2A4}"
+        "PackageCode" = "8:{96FD0D02-8AA1-4EDB-9620-9E74F26AEC54}"
         "UpgradeCode" = "8:{28E34697-73F5-406F-9E44-0A0AC0B99BAB}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -4039,7 +4082,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_DB634DF5C54D4A419F0EE1234B92B6A5"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -4142,7 +4185,35 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9D9F9F8D16E04CACB0C577ED4AE206F2"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1E2DACD465EF4494B8C924830C1CF118"
+            {
+            "Name" = "8:Window快捷工具卸载"
+            "Arguments" = "8:/x {76DE4DDC-3710-4CF6-B51F-BFEE4C80C3CF}"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_B369FB13BB244AF28B16AC2CF1C131BE"
+            "Folder" = "8:_010BD1506F524F57A899C83C1A60C746"
+            "WorkingFolder" = "8:_42B785C8D28B42F1BB9C05671076B3C1"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_58186B1071324646818AEFE7DCF19FF1"
+            {
+            "Name" = "8:Window快捷工具"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_003A6369444643AAA8B5BA0E9C196A2E"
+            "Folder" = "8:_F8D80FD5D6B8475AB693FD4F5AF86242"
+            "WorkingFolder" = "8:_42B785C8D28B42F1BB9C05671076B3C1"
+            "Icon" = "8:_D7970663B1DD44C09BAE17E694534346"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_78774717D8D84D8D9D15DEA67765A513"
             {
             "Name" = "8:Window快捷工具"
             "Arguments" = "8:"
@@ -4153,24 +4224,10 @@
             "Target" = "8:_003A6369444643AAA8B5BA0E9C196A2E"
             "Folder" = "8:_010BD1506F524F57A899C83C1A60C746"
             "WorkingFolder" = "8:_42B785C8D28B42F1BB9C05671076B3C1"
-            "Icon" = "8:"
+            "Icon" = "8:_D7970663B1DD44C09BAE17E694534346"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E3C8AFD021D94380A349D53E84E9AEFD"
-            {
-            "Name" = "8:卸载Window快捷工具.exe"
-            "Arguments" = "8:/x {76DE4DDC-3710-4CF6-B51F-BFEE4C80C3CF}"
-            "Description" = "8:卸载程序"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_B369FB13BB244AF28B16AC2CF1C131BE"
-            "Folder" = "8:_010BD1506F524F57A899C83C1A60C746"
-            "WorkingFolder" = "8:_42B785C8D28B42F1BB9C05671076B3C1"
-            "Icon" = "8:_DB634DF5C54D4A419F0EE1234B92B6A5"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E76FAE0CC954404C9BBCD33A96793AC2"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CD05416FD98D4D6182EEBFD210805229"
             {
             "Name" = "8:Window快捷工具"
             "Arguments" = "8:"
@@ -4181,7 +4238,7 @@
             "Target" = "8:_003A6369444643AAA8B5BA0E9C196A2E"
             "Folder" = "8:_BBF2D4C01BC44F3B84F374660AB42D17"
             "WorkingFolder" = "8:_42B785C8D28B42F1BB9C05671076B3C1"
-            "Icon" = "8:_DB634DF5C54D4A419F0EE1234B92B6A5"
+            "Icon" = "8:_D7970663B1DD44C09BAE17E694534346"
             "Feature" = "8:"
             }
         }
