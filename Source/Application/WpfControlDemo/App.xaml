@@ -8,8 +8,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
-                <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>-->
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
+
+                <ResourceDictionary Source="/Provider/TreeDictionary.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
 
             <!--默认样式-->

@@ -215,7 +215,7 @@
     <Resource Include="TiBook.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\iBook.ico" />
+    <Resource Include="Resources\iBook.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

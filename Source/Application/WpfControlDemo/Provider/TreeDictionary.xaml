@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfControlDemo.Provider">
+    <XmlDataProvider x:Key="xdp" XPath="FileSystem/Folder">
+        <x:XData>
+            <FileSystem xmlns="">
+                <Folder Name="基础控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe620;">
+                    <Folder Name="按钮控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="勾选控件" Value="../View/CheckBoxPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="下拉控件" Value="../View/ComboboxPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="表格控件(DataGrid)" Value="../View/DataPagePage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="日期控件" Value="../View/DatePickerDemo.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="表格控件(ListView)" Value="../View/ListViewPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="分页控件" Value="../View/TabControlPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="进度控件" Value="../View/WaitingPage.xaml"  FIcon="&#xe60f;"/>
+                </Folder>
+                <Folder Name="自定义控件" Value="../View/DocumentPage.xaml"  FIcon="&#xe620;">
+                    <Folder Name="文本控件" Value="../View/DocumentPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="高亮控件" Value="../View/HightTextBlockPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="其他控件" Value="../View/OtherControlPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="雷达控件" Value="../View/RadarChartPagexaml.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="切页控件" Value="../View/TPageControlPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="电池控件" Value="../View/UserControlDemo.xaml" FIcon="&#xe615;"/>
+                </Folder>
+                <Folder Name="三维效果"  Value="../View/TabControlPage.xaml" FIcon="&#xe620;">
+                    <Folder Name="分页控件" Value="../View/TabControlPage.xaml" FIcon="&#xe633;"/>
+                    <Folder Name="三维示例" Value="../View/Viewport3DPage.xaml" FIcon="&#xe633;"/>
+                </Folder>
+                <Folder Name="路径效果" Value="../View/PathDemo.xaml" FIcon="&#xe620;">
+                    <Folder Name="路径示例" Value="../View/PathDemo.xaml" FIcon="&#xe601;"/>
+                </Folder>
+
+                <Folder Name="动画效果" Value="../View/StoryBoardPage.xaml" FIcon="&#xe620;">
+                    <Folder Name="动画示例" Value="../View/StoryBoardPage.xaml" FIcon="&#xe674;"/>
+                </Folder>
+
+                <Folder Name="XML" Value="../View/StoryBoardPage.xaml" FIcon="&#xe620;">
+                    <Folder Name="XML显示控件" Value="../View/XmlDataProviderPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="XML编辑控件" Value="../View/ObjectDataPrividerPage.xaml" FIcon="&#xe615;"/>
+                </Folder>
+
+                <Folder Name="Data" Value="../View/StoryBoardPage.xaml" FIcon="&#xe620;">
+                    <Folder Name="Data控件" Value="../View/DataBindingPage.xaml" FIcon="&#xe615;"/>
+                </Folder>
+            </FileSystem>
+        </x:XData>
+    </XmlDataProvider>
+</ResourceDictionary>

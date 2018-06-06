@@ -68,6 +68,9 @@
     <Compile Include="View\ComboboxPage.xaml.cs">
       <DependentUpon>ComboboxPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DataBindingPage.xaml.cs">
+      <DependentUpon>DataBindingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DataPagePage.xaml.cs">
       <DependentUpon>DataPagePage.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,9 @@
     </Compile>
     <Compile Include="View\ListViewPage.xaml.cs">
       <DependentUpon>ListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ObjectDataPrividerPage.xaml.cs">
+      <DependentUpon>ObjectDataPrividerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OtherControlPage.xaml.cs">
       <DependentUpon>OtherControlPage.xaml</DependentUpon>
@@ -113,6 +119,9 @@
     <Compile Include="View\WaitingPage.xaml.cs">
       <DependentUpon>WaitingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\XmlDataProviderPage.xaml.cs">
+      <DependentUpon>XmlDataProviderPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +134,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Provider\TreeDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ComboboxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataBindingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ListViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ObjectDataPrividerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -194,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WaitingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\XmlDataProviderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

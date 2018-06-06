@@ -62,7 +62,7 @@ namespace WpfControlDemo.View
 
             path = System.IO.Path.GetDirectoryName(path);
 
-            path = System.IO.Path.Combine(path, "Lib", fileName);
+            path = System.IO.Path.Combine(path, "Dll", fileName);
 
             if (!File.Exists(path))
             {

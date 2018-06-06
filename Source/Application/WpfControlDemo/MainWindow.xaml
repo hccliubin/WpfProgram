@@ -9,21 +9,12 @@
         Style="{StaticResource ResourceKey=DefaultWindowStyle}" x:Name="main"
         Title="MainWindow" Height="760" Width="1079">
 
-    <Window.Resources>
-        <Style TargetType="{x:Type wpfcontrollib:FButton}">
-            <Setter Property="Width" Value="Auto"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Template" Value="{StaticResource FButton_Template}"/>
-            <!--<Setter Property="Background" Value="Yellow"/>-->
-            <Setter Property="Command" Value="{Binding OpenCommand,ElementName=main}"/>
-        </Style>
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="263*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer>
+        <!--<ScrollViewer>
             <StackPanel Background="White">
                 <wpfcontrollib:FButton FIcon="&#xe600;" Content="ButtonDemo" Tag="View/ButtonPage.xaml"/>
                 <wpfcontrollib:FButton FIcon="&#xe600;" Content="TextBoxDemo" Tag="View/TextBoxPage.xaml"/>
@@ -46,7 +37,29 @@
 
                 
             </StackPanel>
-        </ScrollViewer>
-        <Frame Content="Frame" Grid.Column="1" Name="frame"/>
+        </ScrollViewer>-->
+        <!--<Frame Content="Frame" Grid.Column="1" Name="frame"/>-->
+
+        <TreeView  ItemsSource="{Binding Source={StaticResource xdp}}" Grid.Row="0" Grid.Column="0" x:Name="TreeRoot" Background="#E5EBF3">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
+                    <StackPanel  Height="25" Orientation="Horizontal">
+                        <TextBlock Text="{Binding XPath=@FIcon}" FontSize="15" Style="{StaticResource FIcon}" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="a" Text="{Binding XPath=@Name}"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True" />
+                
+                </Style>
+            </TreeView.ItemContainerStyle>
+            
+        </TreeView>
+        
+        <Frame x:Name="PageContext" Grid.Column="1"  Background="#F3F3F3" BorderBrush="#888" BorderThickness="1" NavigationUIVisibility="Visible"  
+               Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}"/>
     </Grid>
 </wpfcontrollib:WindowBase>
