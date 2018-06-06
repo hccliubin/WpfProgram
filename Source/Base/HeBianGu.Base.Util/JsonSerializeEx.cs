@@ -53,6 +53,8 @@ namespace HeBianGu.Base.Util
         /// <returns></returns>
         public static T SerializeDeJson<T>(this string target)
         {
+            if (string.IsNullOrEmpty(target)) return default(T);
+
             using (MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(target)))
             {
                 DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
