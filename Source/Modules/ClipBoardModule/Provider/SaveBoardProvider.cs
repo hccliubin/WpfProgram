@@ -41,6 +41,14 @@ namespace ClipBoardModule.Provider
 
                 _configerPath = System.IO.Path.Combine(filePath, "saveboard.txt");
 
+                Directory.CreateDirectory(filePath);
+
+                if (!File.Exists(_configerPath))
+                {
+                    File.Create(_configerPath);
+                }
+
+
                 return _configerPath;
             }
         }

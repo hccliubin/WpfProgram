@@ -40,6 +40,13 @@ namespace CommonDocumentModule
 
                 _configerPath = System.IO.Path.Combine(filePath, "myDoc.configer");
 
+                Directory.CreateDirectory(filePath);
+
+                if (!File.Exists(_configerPath))
+                {
+                    File.Create(_configerPath);
+                }
+
                 return _configerPath;
             }
         }

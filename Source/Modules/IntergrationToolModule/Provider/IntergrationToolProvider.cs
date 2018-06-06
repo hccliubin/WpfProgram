@@ -40,6 +40,14 @@ namespace IntergrationToolModule.Provider
 
                 _configerPath = System.IO.Path.Combine(filePath, "Extend");
 
+
+                Directory.CreateDirectory(filePath);
+
+                if (!File.Exists(_configerPath))
+                {
+                    File.Create(_configerPath);
+                }
+
                 return _configerPath;
             }
         }

@@ -39,7 +39,12 @@ namespace CasePrototypeModule.Provider
             {
                 string filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), SysTemConfiger.ConfigerFolder);
 
+
+                Directory.CreateDirectory(filePath);
+
                 _configerPath = System.IO.Path.Combine(filePath, "Solutions");
+
+                Directory.CreateDirectory(_configerPath);
 
                 return _configerPath;
             }

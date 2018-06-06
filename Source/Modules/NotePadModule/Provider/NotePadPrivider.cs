@@ -40,6 +40,13 @@ namespace NotePadModule
 
                 _configerPath = System.IO.Path.Combine(filePath, "notepad.dat");
 
+                Directory.CreateDirectory(filePath);
+
+                if (!File.Exists(_configerPath))
+                {
+                    File.Create(_configerPath);
+                }
+
                 return _configerPath;
             }
         }

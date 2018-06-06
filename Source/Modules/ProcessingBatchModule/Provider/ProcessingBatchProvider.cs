@@ -39,6 +39,16 @@ namespace ProcessingBatchModule.Provider
 
                 _configerPath = System.IO.Path.Combine(filePath, "MulBat");
 
+
+                Directory.CreateDirectory(filePath);
+
+                Directory.CreateDirectory(_configerPath);
+
+                if (!File.Exists(_configerPath))
+                {
+                    File.Create(_configerPath);
+                }
+
                 return _configerPath;
             }
         }
