@@ -44,7 +44,7 @@ namespace CommonDocumentModule
 
                 if (!File.Exists(_configerPath))
                 {
-                    File.Create(_configerPath);
+                    File.WriteAllText(_configerPath, string.Empty);
                 }
 
                 return _configerPath;

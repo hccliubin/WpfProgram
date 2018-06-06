@@ -45,7 +45,7 @@ namespace ClipBoardModule.Provider
 
                 if (!File.Exists(_configerPath))
                 {
-                    File.Create(_configerPath);
+                    File.WriteAllText(_configerPath, string.Empty);
                 }
 
 
