@@ -38,6 +38,14 @@ namespace WindowStartToolApp
             this.RegisterNotify();
 
             this.Loaded += ShellWindow_Loaded;
+
+            this.Closing +=(s, e) =>
+                                {
+                                    this.notifyIcon.Visible = false;
+                                    this.notifyIcon.Dispose();
+                                };
+
+
         }
 
         private void ShellWindow_Loaded(object sender, RoutedEventArgs e)

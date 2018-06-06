@@ -42,11 +42,7 @@ namespace IntergrationToolModule.Provider
 
 
                 Directory.CreateDirectory(filePath);
-
-                if (!File.Exists(_configerPath))
-                {
-                    File.Create(_configerPath);
-                }
+                Directory.CreateDirectory(_configerPath);
 
                 return _configerPath;
             }

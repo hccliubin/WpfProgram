@@ -44,11 +44,6 @@ namespace ProcessingBatchModule.Provider
 
                 Directory.CreateDirectory(_configerPath);
 
-                if (!File.Exists(_configerPath))
-                {
-                    File.Create(_configerPath);
-                }
-
                 return _configerPath;
             }
         }
