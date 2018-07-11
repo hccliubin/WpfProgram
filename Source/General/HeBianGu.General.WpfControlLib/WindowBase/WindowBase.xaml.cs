@@ -72,8 +72,22 @@ namespace HeBianGu.General.WpfControlLib
 
         public Brush CaptionBackground
         {
-            get { return (Brush)GetValue(CaptionBackgroundProperty); }
+            get {  return (Brush)GetValue(CaptionBackgroundProperty); }
             set { SetValue(CaptionBackgroundProperty, value); }
+        }
+
+        #endregion
+
+
+        #region CaptionBackground 窗体背景透明度
+
+        public static readonly DependencyProperty OpacityBackgroundProperty = DependencyProperty.Register(
+            "OpacityBackground", typeof(double), typeof(WindowBase), new PropertyMetadata(1.0));
+
+        public double OpacityBackground
+        {
+            get { return (double)GetValue(OpacityBackgroundProperty); }
+            set { SetValue(OpacityBackgroundProperty, value); }
         }
 
         #endregion

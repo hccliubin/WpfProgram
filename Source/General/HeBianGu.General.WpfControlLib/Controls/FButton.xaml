@@ -39,7 +39,7 @@
                            HorizontalAlignment="Center" />
                 </StackPanel>
 
-                <local:WaitingBox  Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={StaticResource VisibilityConverter}}" 
+                <local:WaitingBox   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={StaticResource VisibilityConverter}}" 
                                    Foreground="{StaticResource S_Blue}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
                
             </Grid>
@@ -50,12 +50,33 @@
         <ControlTemplate.Triggers>
             <!--设置鼠标进入时的背景、前景样式-->
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
+                <!--<Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=MouseOverBackground}" TargetName="border" />
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=MouseOverForeground}" TargetName="icon"/>
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
-                                Path=MouseOverForeground}" TargetName="txt"/>
+                                Path=MouseOverForeground}" TargetName="txt"/>-->
+
+                <!--<Setter Property="Opacity" Value="0.6" TargetName="border"/>-->
+
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="0.5" Duration="0:0:0.2" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+
+
+
             </Trigger>
             <!--Ficon的动画触发器-->
             <MultiTrigger>
@@ -78,6 +99,7 @@
                     </BeginStoryboard>
                 </MultiTrigger.ExitActions>
             </MultiTrigger>
+
             <!--鼠标按下时的前景、背景样式-->
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
@@ -86,6 +108,10 @@
                                 Path=PressedForeground}" TargetName="icon"/>
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=PressedForeground}" TargetName="txt"/>
+
+                <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Height,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>
+                <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Width,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>
+
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 

@@ -90,7 +90,7 @@ namespace ClipBoardModule.ViewModel
         /// <summary> 此方法的说明 </summary>
         public void DoubleClickMethod(object obj)
         {
-            this.RunMethod("Open");
+            this.RunMethod("Copy");
         }
 
         public ICommand DoubleClickCommond { get; set; }

@@ -96,7 +96,7 @@ namespace ClipBoardModule.ViewModel
         /// <summary> 此方法的说明 </summary>
         public void DoubleClickMethod(object obj)
         {
-            this.RunMethod("Open");
+            this.RunMethod("Copy");
         }
 
         public ICommand DoubleClickCommond { get; set; }
@@ -121,7 +121,7 @@ namespace ClipBoardModule.ViewModel
                 }
                 else if (_current.Type == ClipBoardType.Text)
                 {
-                    System.Windows.Clipboard.SetText(_current.Detial);
+                    System.Windows.Clipboard.SetDataObject(_current.Detial);
                 }
                 else
                 {
@@ -174,54 +174,73 @@ namespace ClipBoardModule.ViewModel
         /// <summary> 剪贴板内容改变 </summary>
         internal void OnClipboardChanged()
         {
-            // HTodo  ：复制的文件路径 
-            string text = System.Windows.Clipboard.GetText().Trim();
-
-            if (!string.IsNullOrEmpty(text))
+            if (Clipboard.ContainsText())
             {
-                if (this.CommonSource.Count > 0)
+                string text = string.Empty;
+
+                try
                 {
-                    ClipBoradBindModel last = this.CommonSource.First();
-
-                    if (last.Detial != text)
-                    {
-                        ClipBoradBindModel f = new ClipBoradBindModel(text, ClipBoardType.Text);
-                        this.CommonSource.Insert(0, f);
-                    }
+                    // HTodo  ：复制的文件路径 
+                    text = System.Windows.Clipboard.GetText();
                 }
-                else
+                catch
                 {
-                    ClipBoradBindModel f = new ClipBoradBindModel(text, ClipBoardType.Text);
-                    this.CommonSource.Insert(0, f);
+
                 }
-            }
+               
 
-
-            // HTodo  ：复制的文件 
-            System.Collections.Specialized.StringCollection list = System.Windows.Clipboard.GetFileDropList();
-
-            foreach (var item in list)
-            {
-                if (Directory.Exists(item) || File.Exists(item))
+                if (!string.IsNullOrEmpty(text))
                 {
                     if (this.CommonSource.Count > 0)
                     {
                         ClipBoradBindModel last = this.CommonSource.First();
 
-                        if (last.Detial != item)
+                        if (last.Detial != text)
                         {
-                            ClipBoradBindModel f = new ClipBoradBindModel(item, ClipBoardType.FileSystem);
+                            ClipBoradBindModel f = new ClipBoradBindModel(text, ClipBoardType.Text);
                             this.CommonSource.Insert(0, f);
                         }
                     }
                     else
                     {
-                        ClipBoradBindModel f = new ClipBoradBindModel(item, ClipBoardType.FileSystem);
+                        ClipBoradBindModel f = new ClipBoradBindModel(text, ClipBoardType.Text);
                         this.CommonSource.Insert(0, f);
                     }
-
-
                 }
+
+
+            }
+
+            // HTodo  ：复制的文件 
+            if (Clipboard.ContainsFileDropList())
+            {
+                System.Collections.Specialized.StringCollection list = System.Windows.Clipboard.GetFileDropList();
+
+                foreach (var item in list)
+                {
+                    if (Directory.Exists(item) || File.Exists(item))
+                    {
+                        if (this.CommonSource.Count > 0)
+                        {
+                            ClipBoradBindModel last = this.CommonSource.First();
+
+                            if (last.Detial != item)
+                            {
+                                ClipBoradBindModel f = new ClipBoradBindModel(item, ClipBoardType.FileSystem);
+                                this.CommonSource.Insert(0, f);
+                            }
+                        }
+                        else
+                        {
+                            ClipBoradBindModel f = new ClipBoradBindModel(item, ClipBoardType.FileSystem);
+                            this.CommonSource.Insert(0, f);
+                        }
+
+
+                    }
+                }
+
+
             }
 
             //// HTodo  ：复制的图片 
@@ -253,8 +272,19 @@ namespace ClipBoardModule.ViewModel
         /// <summary> 自动打开文件 </summary>
         internal void OnClipboardTextFile()
         {
-            // HTodo  ：复制的文件路径 
-            string text = System.Windows.Clipboard.GetText();
+            if (!Clipboard.ContainsText()) return;
+
+            string text = string.Empty;
+            try
+            {
+                // HTodo  ：复制的文件路径 
+                text = System.Windows.Clipboard.GetText();
+            }
+            catch
+            {
+
+            }
+            
 
             if (string.IsNullOrEmpty(text)) return;
 
@@ -275,17 +305,28 @@ namespace ClipBoardModule.ViewModel
         /// <summary> 自动打开URL </summary>
         internal void OnClipboardTextUrl()
         {
-            // HTodo  ：复制的文件路径 
-            string text = System.Windows.Clipboard.GetText();
+            if (!Clipboard.ContainsText()) return;
 
-            if (string.IsNullOrEmpty(text)) return;
-
-            string temp = text.Trim();
-
-
-            if (temp.IsURL())
+            try
             {
-                Process.Start(temp);
+
+                // HTodo  ：复制的文件路径 
+                string text = System.Windows.Clipboard.GetText();
+
+                if (string.IsNullOrEmpty(text)) return;
+
+                string temp = text.Trim();
+
+
+                if (temp.IsURL())
+                {
+                    Process.Start(temp);
+                }
+
+            }
+            catch
+            {
+
             }
         }
 

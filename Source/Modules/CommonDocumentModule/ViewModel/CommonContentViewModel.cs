@@ -228,7 +228,9 @@ namespace CommonDocumentModule.ViewModel
             string filePath = open.FileName;
 
             FileBindModel m = new FileBindModel(filePath);
+
             if (string.IsNullOrEmpty(m.FilePath)) return;
+
             this.CommonSource.Add(m);
 
             this.RefreshUI();

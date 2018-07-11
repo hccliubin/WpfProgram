@@ -52,6 +52,16 @@ namespace HeBianGu.Base.WpfBase
             get { return new TrueToFalseConverter(); }
         }
 
+        public static PressedSizeConverter PressedSizeConverter
+        {
+            get { return new PressedSizeConverter(); }
+        }
+
+        public static MouseOverSizeConverter MouseOverSizeConverter
+        {
+            get { return new MouseOverSizeConverter(); }
+        }
+
         //public static SelectTextConverter SelectTextConverter
         //{
         //    get { return Singleton<SelectTextConverter>.GetInstance(); }

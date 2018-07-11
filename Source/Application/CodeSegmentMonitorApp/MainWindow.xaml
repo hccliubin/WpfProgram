@@ -11,6 +11,16 @@
                           mc:Ignorable="d"
         Title="代码段管理工具" Height="700" Width="1000">
     <Window.Resources>
+
+        <Style x:Key="CodeSnippetParagraph">
+            <Setter Property="TextBlock.FontFamily" Value="Courier New" />
+            <Setter Property="TextBlock.FontSize" Value="16" />
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+            <Setter Property="TextBlock.Margin" Value="10" />
+            <Setter Property="TextBlock.Background" Value="#eeeeee" />
+            <Setter Property="TextBlock.TextAlignment" Value="Left" />
+        </Style>
+        
         <Style TargetType="{x:Type wpfcontrollib:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}">
             <Setter Property="Margin" Value="10,0"/>
         </Style>
@@ -134,6 +144,8 @@
 
             <Grid Grid.Column="0">
                 <controls:BindRichTextBox BindText="{Binding ElementName=listBox,Path=SelectedItem.Snippet,Mode=TwoWay}"/>
+
+                <!--<TextBox Style="{StaticResource CodeSnippetParagraph}" Text="{Binding ElementName=listBox,Path=SelectedItem.Snippet,Mode=TwoWay}" xml:space="preserve"/>-->
             </Grid>
 
         </Grid>
@@ -146,6 +158,7 @@
                 <wpfcontrollib:FButton Content="另存为.." Command="{Binding RelayCommand}" CommandParameter="SaveOther"/>
             </StackPanel>
         </Grid>
+
 
     </Grid>
 

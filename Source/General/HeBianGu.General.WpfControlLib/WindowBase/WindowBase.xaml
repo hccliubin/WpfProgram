@@ -88,7 +88,7 @@
                         <Border x:Name="Bg" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
                             Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Effect="{StaticResource WindowDropShadow}"
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
-                        <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
+                        <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" Opacity="0.5"
                             Background="{StaticResource WindowInnerBackground}" 
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
 
@@ -231,6 +231,7 @@
     <!--默认WindowBase的样式-->
     <Style x:Key="DefaultWindowStyle" TargetType="{x:Type local:WindowBase}">
         <Setter Property="Background" Value="{StaticResource S_Gray}"/>
+        <Setter Property="OpacityBackground" Value="0.5"/>
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
@@ -266,14 +267,16 @@
                         <!--背景-->
                         <Border x:Name="Bg" 
                                 CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
-                            Background="{TemplateBinding Background}" 
+                                Background="{TemplateBinding Background}" 
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 Effect="{StaticResource WindowDropShadow}"
-                            BorderThickness="{TemplateBinding BorderThickness}" 
+                                 BorderThickness="{TemplateBinding BorderThickness}" 
+                                Opacity="{TemplateBinding OpacityBackground}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
                             Background="{StaticResource WindowInnerBackground}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
+                                  Opacity="{TemplateBinding OpacityBackground}"
                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Grid Margin="1">
                             <Grid.RowDefinitions>
@@ -281,7 +284,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <!--Caption标题部分-->
-                            <Border Margin="0" Grid.Row="0" Background="{TemplateBinding CaptionBackground}">
+                            <Border Margin="0" Grid.Row="0" Background="{TemplateBinding CaptionBackground}"   Opacity="{TemplateBinding OpacityBackground}">
                                 <Grid Margin="2,1,2,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>

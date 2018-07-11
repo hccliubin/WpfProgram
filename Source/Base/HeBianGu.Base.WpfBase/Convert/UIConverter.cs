@@ -205,4 +205,35 @@ namespace HeBianGu.Base.WpfBase
         }
     }
 
+    /// <summary> 按下 </summary>
+
+    [ValueConversion(typeof(double), typeof(double))]
+    public class PressedSizeConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return double.Parse(value.ToString()) - 5;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return double.Parse(value.ToString()) + 5;
+        }
+    }
+    /// <summary> 鼠标在上面 </summary>
+
+    [ValueConversion(typeof(double), typeof(double))]
+    public class MouseOverSizeConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return double.Parse(value.ToString()) + 5;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return double.Parse(value.ToString()) - 5;
+        }
+    }
+
 }
