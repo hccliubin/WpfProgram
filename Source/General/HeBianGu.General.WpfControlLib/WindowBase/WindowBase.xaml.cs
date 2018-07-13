@@ -77,20 +77,7 @@ namespace HeBianGu.General.WpfControlLib
         }
 
         #endregion
-
-
-        #region CaptionBackground 窗体背景透明度
-
-        public static readonly DependencyProperty OpacityBackgroundProperty = DependencyProperty.Register(
-            "OpacityBackground", typeof(double), typeof(WindowBase), new PropertyMetadata(1.0));
-
-        public double OpacityBackground
-        {
-            get { return (double)GetValue(OpacityBackgroundProperty); }
-            set { SetValue(OpacityBackgroundProperty, value); }
-        }
-
-        #endregion
+        
 
         #region CaptionForeground 标题栏前景景色
 

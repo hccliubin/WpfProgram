@@ -50,19 +50,17 @@
         <ControlTemplate.Triggers>
             <!--设置鼠标进入时的背景、前景样式-->
             <Trigger Property="IsMouseOver" Value="True">
-                <!--<Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
+                <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=MouseOverBackground}" TargetName="border" />
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=MouseOverForeground}" TargetName="icon"/>
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
-                                Path=MouseOverForeground}" TargetName="txt"/>-->
-
-                <!--<Setter Property="Opacity" Value="0.6" TargetName="border"/>-->
+                                Path=MouseOverForeground}" TargetName="txt"/>
 
                 <Trigger.EnterActions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="0.5" Duration="0:0:0.2" />
+                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="0.5" Duration="0:0:0.4" />
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.EnterActions>
@@ -70,7 +68,7 @@
                 <Trigger.ExitActions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
+                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.4" />
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.ExitActions>
@@ -158,10 +156,10 @@
     <Style x:Key="DefaultFButtonStyle" TargetType="{x:Type local:FButton}">
         <Setter Property="Background" Value="{StaticResource S_Blue}" />
         <Setter Property="Foreground" Value="{StaticResource S_WhiteCommon}" />
-        <Setter Property="MouseOverBackground" Value="{StaticResource S_WhiteCommon}" />
-        <Setter Property="MouseOverForeground" Value="{StaticResource S_Blue}" />
+        <Setter Property="MouseOverBackground" Value="{StaticResource S_Blue}" />
+        <Setter Property="MouseOverForeground" Value="{StaticResource S_OrangeNotice}" />
         <Setter Property="PressedBackground" Value="{StaticResource S_GrayDark}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_WhiteCommon}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_Blue}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="30" />

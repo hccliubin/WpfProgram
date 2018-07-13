@@ -88,7 +88,7 @@
                         <Border x:Name="Bg" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
                             Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Effect="{StaticResource WindowDropShadow}"
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
-                        <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" Opacity="0.5"
+                        <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}"
                             Background="{StaticResource WindowInnerBackground}" 
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
 
@@ -230,8 +230,7 @@
 
     <!--默认WindowBase的样式-->
     <Style x:Key="DefaultWindowStyle" TargetType="{x:Type local:WindowBase}">
-        <Setter Property="Background" Value="{StaticResource S_Gray}"/>
-        <Setter Property="OpacityBackground" Value="0.5"/>
+        <Setter Property="Background" Value="{StaticResource S_OpacityGray}"/>
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
@@ -244,7 +243,7 @@
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{StaticResource S_Gray}" />
+        <Setter Property="CaptionBackground" Value="{StaticResource S_OpacityGray}" />
         <Setter Property="CaptionForeground" Value="{StaticResource S_BlackNotice}" />
         <Setter Property="FIcon" Value="&#xe605;"/>
         <Setter Property="MaxboxEnable" Value="True"/>
@@ -271,12 +270,10 @@
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 Effect="{StaticResource WindowDropShadow}"
                                  BorderThickness="{TemplateBinding BorderThickness}" 
-                                Opacity="{TemplateBinding OpacityBackground}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
-                            Background="{StaticResource WindowInnerBackground}" 
-                            BorderThickness="{TemplateBinding BorderThickness}" 
-                                  Opacity="{TemplateBinding OpacityBackground}"
+                                  Background="{StaticResource WindowInnerBackground}" 
+                                  BorderThickness="{TemplateBinding BorderThickness}" 
                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Grid Margin="1">
                             <Grid.RowDefinitions>
@@ -284,12 +281,14 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <!--Caption标题部分-->
-                            <Border Margin="0" Grid.Row="0" Background="{TemplateBinding CaptionBackground}"   Opacity="{TemplateBinding OpacityBackground}">
+                            <Border Margin="0" Grid.Row="0" Background="{TemplateBinding CaptionBackground}">
                                 <Grid Margin="2,1,2,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
+
+                                    <Border Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                                     <!--Header部分-->
                                     <StackPanel x:Name="PART_Header" Height="{TemplateBinding CaptionHeight}" Margin="5,1,5,1" Orientation="Horizontal" VerticalAlignment="Center">
                                         <TextBlock Style="{StaticResource FIcon}" Foreground="{TemplateBinding CaptionForeground}" FontSize="{TemplateBinding FIconSize}" FontWeight="Bold" Text="{TemplateBinding FIcon}"/>
@@ -346,7 +345,7 @@
 
     <!--默认WindowBase的样式-->
     <Style x:Key="MessageWindowStyle" TargetType="{x:Type local:WindowBase}">
-        <Setter Property="Background" Value="{StaticResource S_Gray}"/>
+        <Setter Property="Background" Value="{StaticResource S_OpacityGray}"/>
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
@@ -359,7 +358,7 @@
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{StaticResource S_Blue}" />
+        <Setter Property="CaptionBackground" Value="{StaticResource S_OpacityBlue}" />
         <Setter Property="CaptionForeground" Value="{StaticResource  S_WhiteCommon}" />
         <Setter Property="FIcon" Value="&#xe605;"/>
         <Setter Property="MaxboxEnable" Value="True"/>
@@ -412,13 +411,13 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <!--Header部分-->
-                                    <StackPanel x:Name="PART_Header" Height="{TemplateBinding CaptionHeight}" Margin="5,1,5,1" Orientation="Horizontal" VerticalAlignment="Center">
-                                        <TextBlock Style="{StaticResource FIcon}" Foreground="{TemplateBinding CaptionForeground}" FontSize="{TemplateBinding FIconSize}" FontWeight="Bold" Text="{TemplateBinding FIcon}"/>
-                                        <TextBlock VerticalAlignment="Center" Margin="5" FontSize="{StaticResource HeaderFontSize}" Foreground="{TemplateBinding CaptionForeground}" Text="{TemplateBinding Title}"/>
+                                    <StackPanel  x:Name="PART_Header" Height="{TemplateBinding CaptionHeight}" Margin="5,1,5,1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <TextBlock   Style="{StaticResource FIcon}" Foreground="{TemplateBinding CaptionForeground}" FontSize="{TemplateBinding FIconSize}" FontWeight="Bold" Text="{TemplateBinding FIcon}"/>
+                                        <TextBlock   VerticalAlignment="Center" Margin="5" FontSize="{StaticResource HeaderFontSize}" Foreground="{TemplateBinding CaptionForeground}" Text="{TemplateBinding Title}"/>
                                     </StackPanel>
                                     <!--窗体功能按钮：最小、最大、关闭-->
-                                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" Margin="1" HorizontalAlignment="Right" Height="{TemplateBinding CaptionHeight}">
-                                        <local:FButton x:Name="btnClose"  Width="35" VerticalAlignment="Center" Margin="1" CornerRadius="0" Padding="1 2 1 2"
+                                    <StackPanel   Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" Margin="1" HorizontalAlignment="Right" Height="{TemplateBinding CaptionHeight}">
+                                        <local:FButton   x:Name="btnClose"  Width="35" VerticalAlignment="Center" Margin="1" CornerRadius="0" Padding="1 2 1 2"
                                                MouseOverBackground="Red" MouseOverForeground="White" PressedBackground="#AA0D0D" PressedForeground="White"
                                                AllowsAnimation="True" Style="{StaticResource FButton_Transparency}"  FIcon="&#xe72c;" FIconSize="14"
                                                shell:WindowChrome.IsHitTestVisibleInChrome="True" FIconMargin="0" Foreground="{TemplateBinding CaptionForeground}"
