@@ -37,6 +37,7 @@
     </LinearGradientBrush>
 
     <sys:Double x:Key="HeaderFontSize">14</sys:Double>
+    
     <!--<LinearGradientBrush x:Key="CaptionBackground" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#571457" Offset="0"/>
         <GradientStop Color="#6A196A" Offset="1"/>
@@ -226,8 +227,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-
+    
     <!--默认WindowBase的样式-->
     <Style x:Key="DefaultWindowStyle" TargetType="{x:Type local:WindowBase}">
         <Setter Property="Background" Value="{StaticResource S_OpacityGray}"/>
@@ -443,6 +443,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--设置窗体默认样式-->
+    <Style TargetType="{x:Type local:WindowBase}" BasedOn="{StaticResource DefaultWindowStyle}"></Style>
 
 
 </ResourceDictionary>

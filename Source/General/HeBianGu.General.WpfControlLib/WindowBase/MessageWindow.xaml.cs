@@ -24,6 +24,8 @@ namespace HeBianGu.General.WpfControlLib
         private MessageWindow()
         {
             InitializeComponent();
+
+           this.Style= this.FindResource("MessageWindowStyle") as Style;
         }
 
         #region - 动态加载按钮 -

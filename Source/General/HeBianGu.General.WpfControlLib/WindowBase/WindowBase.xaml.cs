@@ -77,7 +77,6 @@ namespace HeBianGu.General.WpfControlLib
         }
 
         #endregion
-        
 
         #region CaptionForeground 标题栏前景景色
 

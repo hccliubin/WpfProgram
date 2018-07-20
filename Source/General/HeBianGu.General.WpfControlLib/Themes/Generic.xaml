@@ -13,6 +13,8 @@
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/PagingDataGrid.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/AnimatedTabControl.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/MultiComboBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/CustomControl/BaseUserControl.xaml"/>
         
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/Scroll.xaml"/>

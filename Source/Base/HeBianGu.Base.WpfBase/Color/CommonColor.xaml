@@ -50,6 +50,8 @@
 
     <!--滚动条颜色-->
     <SolidColorBrush x:Key="ScrollBarForeround" Color="#877F7F"></SolidColorBrush>
+    
+    
     <SolidColorBrush x:Key="ScrollBarBackground" Color="#3E3E42"></SolidColorBrush>
 
     <SolidColorBrush x:Key="TextForeground" Color="White"></SolidColorBrush>

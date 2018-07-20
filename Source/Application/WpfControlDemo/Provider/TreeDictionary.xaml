@@ -42,6 +42,10 @@
                 <Folder Name="Data" Value="../View/StoryBoardPage.xaml" FIcon="&#xe620;">
                     <Folder Name="Data控件" Value="../View/DataBindingPage.xaml" FIcon="&#xe615;"/>
                 </Folder>
+
+                <Folder Name="继承控件" Value="../View/BaseUserControlPage.xaml" FIcon="&#xe620;">
+                    <Folder Name="Data控件" Value="../View/BaseUserControlPage.xaml" FIcon="&#xe615;"/>
+                </Folder>
             </FileSystem>
         </x:XData>
     </XmlDataProvider>

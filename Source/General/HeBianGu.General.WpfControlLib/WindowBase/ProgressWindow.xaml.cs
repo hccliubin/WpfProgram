@@ -22,6 +22,8 @@ namespace HeBianGu.General.WpfControlLib
         public ProgressWindow()
         {
             InitializeComponent();
+
+            this.Style = this.FindResource("MessageWindowStyle") as Style;
         }
 
         /// <summary> 显示窗口 </summary>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HeBianGu.General.WpfControlLib"
         xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib"
-        mc:Ignorable="d" Style="{StaticResource ResourceKey=MessageWindowStyle}" 
+        mc:Ignorable="d"
         Title="ProgressWindow" Height="135"  Width="709" >
     <Window.Resources>
         <ResourceDictionary>
