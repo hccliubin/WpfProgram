@@ -5,7 +5,9 @@
                    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>
+        <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>-->
+
+    
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 

@@ -5,7 +5,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>
+        <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>-->
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/DataGrid.xaml"/>
     </ResourceDictionary.MergedDictionaries>

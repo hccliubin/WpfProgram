@@ -113,6 +113,9 @@
     <Compile Include="View\TextBoxPage.xaml.cs">
       <DependentUpon>TextBoxPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ThemeUserControlPage.xaml.cs">
+      <DependentUpon>ThemeUserControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TPageControlPage.xaml.cs">
       <DependentUpon>TPageControlPage.xaml</DependentUpon>
     </Compile>
@@ -213,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TextBoxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemeUserControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

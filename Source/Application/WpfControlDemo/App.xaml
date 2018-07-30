@@ -7,7 +7,12 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
+
+                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/DefaultResource.xaml"/>
+                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/Theme/LightThemeResource.xaml"/>
+
+
+                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
 

@@ -44,7 +44,10 @@
                 </Folder>
 
                 <Folder Name="继承控件" Value="../View/BaseUserControlPage.xaml" FIcon="&#xe620;">
-                    <Folder Name="Data控件" Value="../View/BaseUserControlPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="渐隐藏/显示控件" Value="../View/BaseUserControlPage.xaml" FIcon="&#xe615;"/>
+                </Folder>
+                <Folder Name="主题配置" Value="../View/ThemeUserControlPage.xaml" FIcon="&#xe620;">
+                    <Folder Name="主题配置" Value="../View/ThemeUserControlPage.xaml" FIcon="&#xe615;"/>
                 </Folder>
             </FileSystem>
         </x:XData>

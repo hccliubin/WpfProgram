@@ -3,11 +3,6 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:HeBianGu.Base.WpfBase">
 
-    <!--主色：主题颜色，功能按钮颜色-->
-    <LinearGradientBrush x:Key="G_BlueCommon" EndPoint="0.5,1" StartPoint="0.5,0">
-        <GradientStop Color="#57D5DF"  Offset="1" />
-        <GradientStop Color="#37BFF0"/>
-    </LinearGradientBrush>
 
     <!--选中按钮的前景色-->
     <SolidColorBrush x:Key="S_Gray" Color="#EEEEEE"></SolidColorBrush>

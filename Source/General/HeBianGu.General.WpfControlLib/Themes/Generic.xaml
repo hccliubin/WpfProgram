@@ -3,7 +3,10 @@
                     xmlns:local="clr-namespace:HeBianGu.General.WpfControlLib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>
+        <!--<ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/DefaultResource.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/Theme/LightThemeResource.xaml"/>-->
+        
+        <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>-->
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FTextBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FCheckBox.xaml"/>

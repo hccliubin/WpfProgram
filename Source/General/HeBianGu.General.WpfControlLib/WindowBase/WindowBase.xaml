@@ -12,7 +12,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--Window窗体-->
-    <SolidColorBrush x:Key="WindowBackground" Color="#093B5D"></SolidColorBrush>
+    <!--<SolidColorBrush x:Key="WindowBackground" Color="#093B5D"></SolidColorBrush>-->
     <SolidColorBrush x:Key="WindowInnerBackground" Color="Transparent"></SolidColorBrush>
     <!--<ImageBrush x:Key="WindowInnerBackground" Stretch="Fill"  
                 ImageSource="pack://application:,,,/XLY.Framework.WPFTest;component/Images/back/b2.jpg"  Opacity="1"

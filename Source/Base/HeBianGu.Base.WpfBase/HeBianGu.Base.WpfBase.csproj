@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Attach\ControlAttachEvent.cs" />
     <Compile Include="Attach\ControlAttachProperty.cs" />
+    <Compile Include="Color\ThemeService.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Convert\DataConverter.cs" />
     <Compile Include="Convert\UIConverter.cs" />
@@ -94,19 +95,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Color\Colors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Color\CommonColor.xaml">
+    <Page Include="Color\DefaultResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Color\ConvertResource.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Color\KeyBindingResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,6 +108,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Color\StoryBoardResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Color\Theme\DarkThemeResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Color\Theme\LightThemeResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
