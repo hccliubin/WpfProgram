@@ -40,7 +40,7 @@
                 </StackPanel>
 
                 <local:WaitingBox   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={StaticResource VisibilityConverter}}" 
-                                   Foreground="{StaticResource S_Blue}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
+                                   Foreground="{StaticResource S_AccentBrush}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
                
             </Grid>
         </Border>
@@ -141,11 +141,11 @@
 
             <Trigger Property="IsChecked" Value="true">
 
-                <Setter Property="Background" Value="{StaticResource S_Blue}" TargetName="border" />
+                <Setter Property="Background" Value="{StaticResource S_AccentBrush}" TargetName="border" />
 
-                <Setter Property="Foreground" Value="{StaticResource S_WhiteCommon}" TargetName="icon"/>
+                <Setter Property="Foreground" Value="{StaticResource S_WhiteNotice}" TargetName="icon"/>
 
-                <Setter Property="Foreground" Value="{StaticResource S_WhiteCommon}" TargetName="txt"/>
+                <Setter Property="Foreground" Value="{StaticResource S_WhiteNotice}" TargetName="txt"/>
 
                 <!--<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content,Converter={x:Static local:XConverter.SelectTextConverter}}" TargetName="txt"/>-->
             </Trigger>
@@ -154,12 +154,12 @@
 
 
     <Style x:Key="DefaultFButtonStyle" TargetType="{x:Type local:FButton}">
-        <Setter Property="Background" Value="{StaticResource S_Blue}" />
-        <Setter Property="Foreground" Value="{StaticResource S_WhiteCommon}" />
-        <Setter Property="MouseOverBackground" Value="{StaticResource S_Blue}" />
+        <Setter Property="Background" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="MouseOverBackground" Value="{StaticResource S_AccentBrush}" />
         <Setter Property="MouseOverForeground" Value="{StaticResource S_OrangeNotice}" />
-        <Setter Property="PressedBackground" Value="{StaticResource S_GrayDark}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_Blue}" />
+        <Setter Property="PressedBackground" Value="{StaticResource S_GrayLightNotice}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_AccentBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="30" />
@@ -180,9 +180,9 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="MouseOverBackground" Value="Transparent" />
         <Setter Property="PressedBackground" Value="Transparent" />
-        <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}" />
-        <Setter Property="MouseOverForeground" Value="{StaticResource S_Blue}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_GrayDark}" />
+        <Setter Property="Foreground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="MouseOverForeground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_GrayLightNotice}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Height" Value="Auto" />
         <Setter Property="Width" Value="Auto" />
@@ -203,8 +203,8 @@
         <Setter Property="MouseOverBackground" Value="Transparent" />
         <Setter Property="PressedBackground" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}" />
-        <Setter Property="MouseOverForeground" Value="{StaticResource S_Blue}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_GrayDark}" />
+        <Setter Property="MouseOverForeground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_GrayLightNotice}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Height" Value="Auto" />
         <Setter Property="Width" Value="Auto" />

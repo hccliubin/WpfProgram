@@ -8,7 +8,7 @@
         </ResourceDictionary.MergedDictionaries>
     
     <Style TargetType="{x:Type local:WaitingBox}">
-        <Setter Property="Foreground" Value="{StaticResource S_GrayDark}"/>
+        <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}"/>
         <Setter Property="Width" Value="Auto"></Setter>
         <Setter Property="Height" Value="Auto"></Setter>
         <Setter Property="Template">
@@ -35,21 +35,7 @@
                         <!--非激活状态-->
                         <Trigger Property="IsBusy" Value="false">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="FIcon"/>
-                            
-                            <!--<Trigger.EnterActions>-->
-                                <!--<BeginStoryboard Storyboard="{StaticResource Story_UnLoadOpacityVisble}"/>-->
-                            <!--</Trigger.EnterActions>-->
-
                         </Trigger>
-
-                        <!--<EventTrigger RoutedEvent="Loaded">
-                            <BeginStoryboard >
-                                <Storyboard >
-                                    <DoubleAnimation RepeatBehavior="Forever" Storyboard.TargetName="TransFIcon" 
-                                            Storyboard.TargetProperty="Angle" To="360" Duration="0:0:2.5"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>-->
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

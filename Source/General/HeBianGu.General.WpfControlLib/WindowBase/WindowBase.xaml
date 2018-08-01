@@ -6,21 +6,10 @@
                     xmlns:local="clr-namespace:HeBianGu.General.WpfControlLib">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml" />
-        <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>-->
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
+        <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>-->
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-
-    <!--Window窗体-->
-    <!--<SolidColorBrush x:Key="WindowBackground" Color="#093B5D"></SolidColorBrush>-->
-    <SolidColorBrush x:Key="WindowInnerBackground" Color="Transparent"></SolidColorBrush>
-    <!--<ImageBrush x:Key="WindowInnerBackground" Stretch="Fill"  
-                ImageSource="pack://application:,,,/XLY.Framework.WPFTest;component/Images/back/b2.jpg"  Opacity="1"
-                Viewport="0,0,1,1" ViewportUnits="Absolute" TileMode="Tile" AlignmentX="Left" AlignmentY="Top"/>-->
-
-    <SolidColorBrush x:Key="WindowBorderBrush" Color="#BFBFBF"></SolidColorBrush>
-    <DropShadowEffect x:Key="WindowDropShadow" Color="#BFBFBF" BlurRadius="8" ShadowDepth="0" Direction="0" Opacity="0.7" />
-    <SolidColorBrush x:Key="CaptionForeground" Color="White"></SolidColorBrush>
 
     <!--加载渐显-->
     <LinearGradientBrush x:Key="WindowOpMack" StartPoint="0.5,1" EndPoint="0.5,0">
@@ -36,38 +25,30 @@
         <GradientStop Color="#FF000000" Offset="1"/>
     </LinearGradientBrush>
 
-    <sys:Double x:Key="HeaderFontSize">14</sys:Double>
-    
-    <!--<LinearGradientBrush x:Key="CaptionBackground" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#571457" Offset="0"/>
-        <GradientStop Color="#6A196A" Offset="1"/>
-    </LinearGradientBrush>-->
-
     <Storyboard x:Key="Story_MessageUnLoad">
         <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
             <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
             <SplineDoubleKeyFrame KeyTime="00:00:00.5" Value="-304.47500610351562"/>
         </DoubleAnimationUsingKeyFrames>
-
     </Storyboard>
 
     <!--WindowBase基本样式，可以自定义头部-->
     <Style x:Key="BaseWindowStyle" TargetType="{x:Type local:WindowBase}">
-        <Setter Property="Background" Value="{StaticResource S_Gray}"/>
-        <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}"/>
+        <Setter Property="Background" Value="{DynamicResource S_GrayLight}"/>
+        <Setter Property="Foreground" Value="{DynamicResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
         <Setter Property="Width" Value="480"/>
         <Setter Property="Height" Value="320"/>
-        <Setter Property="BorderBrush" Value="{StaticResource WindowBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource S_AccentBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FIconSize" Value="20"/>
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{StaticResource S_Gray}" />
-        <Setter Property="CaptionForeground" Value="{StaticResource S_BlackNotice}" />
+        <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
+        <Setter Property="CaptionForeground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe62e;"/>
         <Setter Property="MaxboxEnable" Value="True"/>
         <Setter Property="MinboxEnable" Value="True"/>
@@ -90,7 +71,7 @@
                             Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Effect="{StaticResource WindowDropShadow}"
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}"
-                            Background="{StaticResource WindowInnerBackground}" 
+                            Background="{DynamicResource S_AccentBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
 
                         <!--内容区域-->
@@ -159,13 +140,13 @@
 
     <!--非透明的主窗体样式，主要目的是支持Winform控件的显示，用于主窗体-->
     <Style x:Key="NoTransparencyWindowStyle" TargetType="{x:Type local:WindowBase}">
-        <Setter Property="Background" Value="{StaticResource S_Gray}"/>
+        <Setter Property="Background" Value="{StaticResource S_GrayLight}"/>
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
         <Setter Property="Width" Value="480"/>
         <Setter Property="Height" Value="320"/>
-        <Setter Property="BorderBrush" Value="{StaticResource WindowBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource S_AccentBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FIconSize" Value="20"/>
@@ -173,8 +154,8 @@
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="WindowState" Value="Maximized"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{StaticResource S_Gray}" />
-        <Setter Property="CaptionForeground" Value="{StaticResource S_BlackNotice}" />
+        <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
+        <Setter Property="CaptionForeground" Value="{StaticResource S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe62e;"/>
         <Setter Property="MaxboxEnable" Value="False"/>
         <Setter Property="MinboxEnable" Value="True"/>
@@ -189,7 +170,7 @@
                             Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
-                            Background="{StaticResource WindowInnerBackground}" 
+                            Background="{DynamicResource S_AccentBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <!--内容区域-->
                         <AdornerDecorator>
@@ -230,21 +211,21 @@
     
     <!--默认WindowBase的样式-->
     <Style x:Key="DefaultWindowStyle" TargetType="{x:Type local:WindowBase}">
-        <Setter Property="Background" Value="{StaticResource S_OpacityGray}"/>
-        <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}"/>
+        <Setter Property="Background" Value="{DynamicResource S_OpacityGray}"/>
+        <Setter Property="Foreground" Value="{DynamicResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
         <Setter Property="Width" Value="480"/>
         <Setter Property="Height" Value="320"/>
-        <Setter Property="BorderBrush" Value="{StaticResource S_GrayDark}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource S_AccentBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FIconSize" Value="20"/>
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{StaticResource S_OpacityGray}" />
-        <Setter Property="CaptionForeground" Value="{StaticResource S_BlackNotice}" />
+        <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
+        <Setter Property="CaptionForeground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe605;"/>
         <Setter Property="MaxboxEnable" Value="True"/>
         <Setter Property="MinboxEnable" Value="True"/>
@@ -269,10 +250,10 @@
                                 Background="{TemplateBinding Background}" 
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 Effect="{StaticResource WindowDropShadow}"
-                                 BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
-                                  Background="{StaticResource WindowInnerBackground}" 
+                                  Background="{TemplateBinding Background}" 
                                   BorderThickness="{TemplateBinding BorderThickness}" 
                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Grid Margin="1">
@@ -296,6 +277,12 @@
                                     </StackPanel>
                                     <!--窗体功能按钮：最小、最大、关闭-->
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" Margin="1" HorizontalAlignment="Right" Height="{TemplateBinding CaptionHeight}">
+
+                                        <ToggleButton x:Name="btnTheme" Width="26" VerticalAlignment="Center" Margin="1" 
+                                               Visibility="{Binding Path=SetboxEnable,RelativeSource={RelativeSource TemplatedParent},Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}"
+                                              Style="{StaticResource FIconToggleButton}" base:ControlAttachProperty.FIcon="&#xe644;"
+                                               shell:WindowChrome.IsHitTestVisibleInChrome="True" Foreground="{TemplateBinding CaptionForeground}"/>
+
                                         <local:FButton x:Name="btnMin"  Width="26" VerticalAlignment="Center" Margin="1" 
                                                Visibility="{Binding Path=MinboxEnable,RelativeSource={RelativeSource TemplatedParent},Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}"
                                                Style="{StaticResource FButton_Transparency}"  FIcon="&#xe61d;" FIconSize="14"
@@ -320,8 +307,15 @@
                             <AdornerDecorator Grid.Row="1" Margin="3,0,3,3">
                                 <ContentPresenter Content="{TemplateBinding Content}" />
                             </AdornerDecorator>
-                        </Grid>
 
+                            <Popup x:Name="Pop" PopupAnimation="Slide" IsOpen="{Binding ElementName=btnTheme,Path=IsChecked}"  PlacementTarget="{Binding ElementName=btnTheme}" Placement="Top" AllowsTransparency="True" StaysOpen="False" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                                <Border Background="{DynamicResource S_OpacityGray}" CornerRadius="5" BorderBrush="{DynamicResource S_AccentBrush}" BorderThickness="1">
+                                    <StackPanel Margin="10">
+                                        <local:ThemeSetControl/>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+                        </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="WindowState" Value="Maximized">
@@ -351,15 +345,15 @@
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
         <Setter Property="Width" Value="480"/>
         <Setter Property="Height" Value="320"/>
-        <Setter Property="BorderBrush" Value="{StaticResource S_Blue}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource S_AccentBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FIconSize" Value="20"/>
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{StaticResource S_OpacityBlue}" />
-        <Setter Property="CaptionForeground" Value="{StaticResource  S_WhiteCommon}" />
+        <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
+        <Setter Property="CaptionForeground" Value="{DynamicResource  S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe605;"/>
         <Setter Property="MaxboxEnable" Value="True"/>
         <Setter Property="MinboxEnable" Value="True"/>
@@ -389,13 +383,13 @@
                         <!--背景-->
                         <Border x:Name="Bg" 
                                 CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
-                            Background="{TemplateBinding Background}" 
+                                Background="{TemplateBinding Background}" 
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 Effect="{StaticResource WindowDropShadow}"
-                            BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
-                            Background="{StaticResource WindowInnerBackground}" 
+                            Background="{TemplateBinding Background}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
                         <Grid Margin="1">

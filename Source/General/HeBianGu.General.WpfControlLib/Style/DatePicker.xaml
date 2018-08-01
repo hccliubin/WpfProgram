@@ -10,42 +10,18 @@
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml" />
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+    
 
-    <!--复选框-->
-    <SolidColorBrush x:Key="FocusBackground" Color="#FFFFFF"></SolidColorBrush>
-    <SolidColorBrush x:Key="FocusBorderBrush" Color="#007ACC"></SolidColorBrush>
-    <!--<SolidColorBrush x:Key="TextForeground" Color="#433F3E"></SolidColorBrush>
-    <SolidColorBrush x:Key="TextBackground" Color="#FFFFFF"></SolidColorBrush>-->
-    <!--<SolidColorBrush x:Key="TextSelectionBrush" Color="#007ACC"></SolidColorBrush>-->
-    <SolidColorBrush x:Key="ControlBorderBrush" Color="#EEEEEE"></SolidColorBrush>
-    <SolidColorBrush x:Key="MouseOverBorderBrush" Color="#BFBFBF"></SolidColorBrush>
-    <!--<SolidColorBrush x:Key="MouseOverForeground" Color="#007ACC"></SolidColorBrush>-->
-    <!--<SolidColorBrush x:Key="PressedForeground" Color="#BFBFBF"></SolidColorBrush>-->
-
-    <SolidColorBrush x:Key="ItemSelectedForeground" Color="#FFFFFF"></SolidColorBrush>
-    <SolidColorBrush x:Key="ItemSelectedBackground" Color="#BFBFBF"></SolidColorBrush>
-    <SolidColorBrush x:Key="ItemMouseOverBackground" Color="#007ACC"></SolidColorBrush>
-    <SolidColorBrush x:Key="ItemMouseOverForeground" Color="#FFFFFF"></SolidColorBrush>
-
-    <!--列头文本背景色--><!--
-    <SolidColorBrush x:Key="TextLabelBackground" Color="#BFBFBF"></SolidColorBrush>-->
-    <!--Popup,ComboBox-->
-    <SolidColorBrush x:Key="PopupBackground" Color="#EEEEEE"></SolidColorBrush>
-
-    <sys:Double x:Key="DisableOpacity">0.5</sys:Double>
-    <sys:Double x:Key="ReadonlyOpacity">0.88</sys:Double>
-    <sys:Double x:Key="WatermarkOpacity">0.4</sys:Double>
-    <sys:String x:Key="DateFormat">yyyy年MM月dd日</sys:String>
-    <sys:String x:Key="DateTimeFormat">yyyy-MM-dd HH:mm:ss</sys:String>
 
 
     <Style x:Key="DefaultDatePicker" TargetType="{x:Type DatePicker}">
-        <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}" />
-        <Setter Property="Background" Value="{StaticResource S_WhiteCommon}" />
+        <Setter Property="Foreground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="Background" Value="{StaticResource S_WhiteNotice}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{StaticResource ControlBorderBrush}" />
-        <Setter Property="base:ControlAttachProperty.FocusBorderBrush" Value="{StaticResource FocusBorderBrush}" />
-        <Setter Property="base:ControlAttachProperty.MouseOverBorderBrush" Value="{StaticResource MouseOverBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource S_GrayLightNotice}" />
+        <Setter Property="base:ControlAttachProperty.FocusBorderBrush" Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="base:ControlAttachProperty.MouseOverBorderBrush" Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="base:ControlAttachProperty.FocusBackground" Value="{DynamicResource S_AccentBrush}" />
         <Setter Property="base:ControlAttachProperty.FIconSize" Value="18" />
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
         <Setter Property="FontSize" Value="{StaticResource FontSize}" />
@@ -81,9 +57,14 @@
                                 <ContentControl VerticalAlignment="Center" VerticalContentAlignment="Center" Template="{TemplateBinding base:ControlAttachProperty.AttachContent}"/>
                             </Border>
                             <!--下拉按钮-->
-                            <ToggleButton x:Name="PART_DropDownToggle" IsTabStop="False" Style="{StaticResource FIconToggleButton}" 
-                                         IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,1,2,1"
-                                         Grid.Column="3"  base:ControlAttachProperty.FIconSize="{TemplateBinding base:ControlAttachProperty.FIconSize}"
+                            <ToggleButton x:Name="PART_DropDownToggle" 
+                                          IsTabStop="False" 
+                                          Style="{StaticResource FIconToggleButton}" 
+                                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                                          Margin="2,1,2,1"
+                                          Grid.Column="3"  
+                                          base:ControlAttachProperty.FIconSize="{TemplateBinding base:ControlAttachProperty.FIconSize}"
+                                          Foreground="{TemplateBinding  base:ControlAttachProperty.FocusBackground}"
                                           Background="{TemplateBinding base:ControlAttachProperty.FocusBackground}"/>
                             <!--水印-->
                             <Border Grid.Column="1">
@@ -132,10 +113,14 @@
         <Setter Property="base:ControlAttachProperty.AttachContent">
             <Setter.Value>
                 <ControlTemplate>
-                    <local:FButton FIcon="&#xe72c;" Style="{StaticResource FButton_Transparency}" IsTabStop="False" FIconMargin="0"
-                                   base:ControlAttachProperty.IsClearTextButtonBehaviorEnabled="True" Command="base:ControlAttachProperty.ClearTextCommand" 
+                    <local:FButton FIcon="&#xe72c;" Style="{StaticResource FButton_Transparency}" 
+                                   IsTabStop="False" FIconMargin="0"
+                                   base:ControlAttachProperty.IsClearTextButtonBehaviorEnabled="True" 
+                                   Command="base:ControlAttachProperty.ClearTextCommand" 
                                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type DatePicker}}}"
-                               Margin="1,3,0,4" FIconSize="14" Foreground="{StaticResource TextForeground}" Cursor="Arrow"/>
+                               Margin="1,3,0,4" FIconSize="14" 
+                                   Foreground="{DynamicResource S_AccentBrush}" 
+                                   Cursor="Arrow"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -147,8 +132,10 @@
         <Setter Property="base:ControlAttachProperty.LabelTemplate" >
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Border Width="60" Background="{StaticResource S_Blue}">
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2" Foreground="{StaticResource S_WhiteCommon}" Text="{TemplateBinding Content}"></TextBlock>
+                    <Border Width="60">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2" 
+                                   Foreground="{DynamicResource S_AccentBrush}" 
+                                   Text="{TemplateBinding Content}"></TextBlock>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -161,8 +148,8 @@
         <Setter Property="base:ControlAttachProperty.LabelTemplate" >
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Border Width="60" Background="{StaticResource S_Blue}">
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2" Foreground="{StaticResource S_WhiteCommon}" Text="{TemplateBinding Content}"></TextBlock>
+                    <Border Width="60" Background="{DynamicResource S_AccentBrush}">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2" Foreground="{DynamicResource S_WhiteNotice}" Text="{TemplateBinding Content}"></TextBlock>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -170,10 +157,13 @@
         <Setter Property="base:ControlAttachProperty.AttachContent">
             <Setter.Value>
                 <ControlTemplate>
-                    <local:FButton FIcon="&#xe72c;" Style="{StaticResource FButton_Transparency}" IsTabStop="False" FIconMargin="0"
-                               base:ControlAttachProperty.IsClearTextButtonBehaviorEnabled="True" Command="base:ControlAttachProperty.ClearTextCommand" 
+                    <local:FButton FIcon="&#xe72c;" 
+                                   Style="{StaticResource FButton_Transparency}" 
+                                   IsTabStop="False" FIconMargin="0"
+                               base:ControlAttachProperty.IsClearTextButtonBehaviorEnabled="True" 
+                                   Command="base:ControlAttachProperty.ClearTextCommand" 
                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type DatePicker}}}"
-                               Margin="0,3,0,4" FIconSize="14" Foreground="{StaticResource TextForeground}" Cursor="Arrow"/>
+                               Margin="0,3,0,4" FIconSize="14" Foreground="{DynamicResource S_AccentBrush}" Cursor="Arrow"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

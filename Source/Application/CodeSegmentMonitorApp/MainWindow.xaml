@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:CodeSegmentMonitorApp"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                           xmlns:controls="clr-namespace:HeBianGu.General.WpfControlLib.Controls;assembly=HeBianGu.General.WpfControlLib"
-                          mc:Ignorable="d"
+                          mc:Ignorable="d" 
         Title="代码段管理工具" Height="700" Width="1000">
     <Window.Resources>
 
@@ -21,9 +21,7 @@
             <Setter Property="TextBlock.TextAlignment" Value="Left" />
         </Style>
         
-        <Style TargetType="{x:Type wpfcontrollib:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}">
-            <Setter Property="Margin" Value="10,0"/>
-        </Style>
+    
 
         <Style TargetType="{x:Type TextBlock}" x:Key="textblock_nomarl">
             <Setter Property="FontSize" Value="14"/>
@@ -31,8 +29,8 @@
             <Setter Property="Width" Value="200"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
-        
-        <Style TargetType="{x:Type TextBox}">
+
+        <Style TargetType="{x:Type TextBox}" >
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="Width" Value="200"/>
@@ -45,8 +43,9 @@
         <!--设置默认样式-->
         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource textblock_nomarl}"/>
 
-        <Style TargetType="{x:Type ListBoxItem}">
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="CodeListBoxItem">
             <Setter Property="Height" Value="30"/>
+            <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate  TargetType="ListBoxItem">
@@ -55,7 +54,7 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"/>
 
-                            <wpfcontrollib:FButton x:Name="btn_image" FIcon="&#xe600;" Style="{StaticResource FButton_Transparency}" Width="Auto" HorizontalAlignment="Left" />
+                            <wpfcontrollib:FButton x:Name="btn_image" FIcon="&#xe600;" Foreground="{TemplateBinding Foreground}" Style="{StaticResource FButton_Transparency}" Width="Auto" HorizontalAlignment="Left" />
 
                             <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" Margin="30,0"/>
 
@@ -63,11 +62,11 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemSelectedBackground}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_AccentBrush}" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemMouseOverBackground}" />
-                                <Setter Property="Foreground" Value="{StaticResource ItemMouseOverForeground}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_AccentBrush_MouseOver}" />
+                                <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" />
                             </Trigger>
 
                             <DataTrigger Binding="{Binding Author}" Value="Microsoft Corporation">
@@ -104,7 +103,7 @@
             </i:Interaction.Triggers>
         </wpfcontrollib:FTextBox>
 
-        <ListBox x:Name="listBox" Grid.Row="1" ItemsSource="{Binding Collection,Mode=TwoWay}" SelectedItem="{Binding Selection,Mode=TwoWay}"/>
+        <ListBox x:Name="listBox" Grid.Row="1" Background="{DynamicResource S_GrayLightOpacity}" ItemsSource="{Binding Collection,Mode=TwoWay}" SelectedItem="{Binding Selection,Mode=TwoWay}" ItemContainerStyle="{StaticResource CodeListBoxItem}"/>
 
 
 
@@ -143,7 +142,7 @@
             </Grid>
 
             <Grid Grid.Column="0">
-                <controls:BindRichTextBox BindText="{Binding ElementName=listBox,Path=SelectedItem.Snippet,Mode=TwoWay}"/>
+                <controls:BindRichTextBox Background="{DynamicResource S_GrayLightOpacity}" BindText="{Binding ElementName=listBox,Path=SelectedItem.Snippet,Mode=TwoWay}"/>
 
                 <!--<TextBox Style="{StaticResource CodeSnippetParagraph}" Text="{Binding ElementName=listBox,Path=SelectedItem.Snippet,Mode=TwoWay}" xml:space="preserve"/>-->
             </Grid>
@@ -153,9 +152,9 @@
         <Grid Grid.Row="2" Grid.ColumnSpan="3">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <wpfcontrollib:FButton Content="添加.." Margin="0,0,500,0" Command="{Binding RelayCommand}" CommandParameter="Add"/>
-                <wpfcontrollib:FButton Content="移除.." Command="{Binding RelayCommand}" CommandParameter="Remove"/>
-                <wpfcontrollib:FButton Content="保存.." Command="{Binding RelayCommand}" CommandParameter="Save"/>
-                <wpfcontrollib:FButton Content="另存为.." Command="{Binding RelayCommand}" CommandParameter="SaveOther"/>
+                <wpfcontrollib:FButton Content="移除.."  Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="Remove"/>
+                <wpfcontrollib:FButton Content="保存.."  Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="Save"/>
+                <wpfcontrollib:FButton Content="另存为.."  Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="SaveOther"/>
             </StackPanel>
         </Grid>
 

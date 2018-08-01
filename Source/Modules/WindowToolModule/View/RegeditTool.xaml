@@ -12,6 +12,6 @@
     </UserControl.Resources>
 
     <Grid>
-        <c:FButton x:Name="btn_bar" FIcon="&#xe660;" ToolTip="注册表" Style="{StaticResource FButton_Transparency}" Click="btn_bar_Click"  />
+        <c:FButton x:Name="btn_bar" FIcon="&#xe660;" ToolTip="注册表" Style="{StaticResource FButton_Transparency}" Foreground="{DynamicResource S_WhiteNotice}" Click="btn_bar_Click"  />
     </Grid>
 </UserControl>

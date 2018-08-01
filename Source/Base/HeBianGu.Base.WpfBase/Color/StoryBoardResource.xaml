@@ -4,7 +4,6 @@
 
     <!--窗体加载的动画 应用所有  <EventTrigger RoutedEvent="Window.Loaded"> -->
     <Storyboard x:Key="Story_Load">
-        <!--<ColorAnimation To="#FF000000" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Color"/>-->
         <DoubleAnimation From="1" To="0" Duration="0:0:1.5" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[1].Offset"/>
         <DoubleAnimation From="1" To="0" Duration="0:0:1" BeginTime="0:0:0.5" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Offset"/>
         <ColorAnimation To="#FF000000" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Color"/>
@@ -14,14 +13,12 @@
         <ColorAnimation To="#FF000000" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[0].Color"/>
         <DoubleAnimation From="1" To="0" Duration="0:0:1" BeginTime="0:0:1.5" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[1].Offset"/>
         <DoubleAnimation From="1" To="0" Duration="0:0:0.5" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Offset"/>
-
         <ColorAnimation To="#FF000000" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[0].Color"/>
     </Storyboard>
 
 
     <!--消息弹窗加载 由下到上 +震动-->
     <Storyboard x:Key="Story_MessageLoad">
-
         <ColorAnimation To="#FF000000" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Color"/>
         <DoubleAnimation From="1" To="0" Duration="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[1].Offset"/>
         <DoubleAnimation From="1" To="0" Duration="0" BeginTime="0" Storyboard.TargetProperty="OpacityMask.(GradientBrush.GradientStops)[2].Offset"/>
@@ -30,7 +27,6 @@
         <DoubleAnimation From="-100" To="0" Duration="0:0:0.5" BeginTime="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
             <DoubleAnimation.EasingFunction>
                 <ElasticEase EasingMode="EaseOut" Oscillations="3" Springiness="10"></ElasticEase>
-                <!--<BounceEase EasingMode="EaseOut" Bounces="10"></BounceEase>-->
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
     </Storyboard>
@@ -145,7 +141,6 @@
 
         <PointAnimationUsingKeyFrames BeginTime="00:00:00"  Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
             <SplinePointKeyFrame KeyTime="00:00:00" Value="0.1,0"/>
-            <!--<SplinePointKeyFrame KeyTime="00:00:00.5000000" Value="0.5,0"/>-->
             <SplinePointKeyFrame KeyTime="00:00:03" Value="0.5,0"/>
         </PointAnimationUsingKeyFrames>
         <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">

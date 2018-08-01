@@ -13,17 +13,18 @@
     <SolidColorBrush x:Key="TextForeground" Color="White"></SolidColorBrush>
 
     <Style TargetType="ProgressBar" x:Key="BaseProgressBar">
-        <Setter Property="Background" Value="{StaticResource S_WhiteCommon}" />
+        <Setter Property="Background" Value="{StaticResource S_WhiteNotice}" />
         <Setter Property="Maximum" Value="100" />
         <Setter Property="Value" Value="0" />
         <Setter Property="Height" Value="10" />
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="Foreground" Value="{StaticResource S_Blue}" />
+        <Setter Property="Foreground" Value="{StaticResource S_AccentBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="BorderBrush" Value="{StaticResource S_Blue}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource S_AccentBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="base:ControlAttachProperty.CornerRadius" Value="0" />
     </Style>
+    
     <!--ProgressBar Style-->
     <Style TargetType="ProgressBar" x:Key="SimpleProgressBar" BasedOn="{StaticResource BaseProgressBar}">
         <Setter Property="base:ControlAttachProperty.CornerRadius" Value="0" />
@@ -62,13 +63,13 @@
 
     <!--注意：该样式的ProgressBar的最大值为1，且DataContext必须设置为IAsynNotify,BorderThickness控制环的大小-->
     <Style x:Key="LoopProcessBar" TargetType="{x:Type ProgressBar}">
-        <Setter Property="Background" Value="{StaticResource S_WhiteCommon}"/>
+        <Setter Property="Background" Value="{StaticResource S_WhiteNotice}"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Width" Value="300"/>
         <Setter Property="Height" Value="300"/>
         <Setter Property="BorderThickness" Value="60"/>
-        <Setter Property="Foreground" Value="{StaticResource S_Blue}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource S_Blue}"/>
+        <Setter Property="Foreground" Value="{StaticResource S_AccentBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource S_AccentBrush}"/>
         <Setter Property="Maximum" Value="1"/>
         <Setter Property="Minimum" Value="0"/>
         <Setter Property="Value" Value="0"/>
@@ -94,6 +95,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 
 </ResourceDictionary>

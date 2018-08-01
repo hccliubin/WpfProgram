@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel>
 
-            <Grid x:Name="ContentGrid" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+            <Grid x:Name="ContentGrid" Grid.Row="1" Height="300" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -20,15 +20,20 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Grid.RenderTransform>
-                
-                <wpfcontrollib:AnimatedTabControl
-                    x:Name="tb_all" VerticalAlignment="Stretch" Background="Green"  
-                    ItemContainerStyle="{StaticResource ShellTabItemStyle}" 
-                     AutomationProperties.AutomationId="PositionSummaryTab" >
-                    <Button Content="2222222222222222"/>
-                    <Button Content="1111111111111111111111111"/>
-                    <Button Content="333333333333333"/>
-                    <Button Content="44444444444444"/>
+
+                <wpfcontrollib:AnimatedTabControl VerticalAlignment="Stretch" 
+                    ItemContainerStyle="{StaticResource ShellTabItemStyle}"  >
+                    <TabItem Header="设备配置">
+                        <Button Content="第一页"  Background="Yellow"/>
+                    </TabItem>
+
+                    <TabItem Header="基本设置">
+                        <Button Content="第二页" Background="Blue"/>
+                    </TabItem>
+
+                    <TabItem Header="操作设置">
+                        <Button Content="第三页" Background="Green"/>
+                    </TabItem>
                 </wpfcontrollib:AnimatedTabControl>
             </Grid>
         </StackPanel>

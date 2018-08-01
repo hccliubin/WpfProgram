@@ -11,7 +11,7 @@
              xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:imageviewcontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.ImageViewControl"
-             BorderBrush="{StaticResource  S_Blue}" BorderThickness="0,1"
+             BorderBrush="{DynamicResource  S_AccentBrush}" BorderThickness="0,1"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:typecheckcontrol="clr-namespace:HeBianGu.MovieBrower.UserControls.TypeCheckControl"
              mc:Ignorable="d" >
@@ -110,11 +110,11 @@
                     <TextBlock Margin="5,0" Grid.Column="2" Grid.Row="4">
                         
                     <Run Text="总次数："/>
-                      <Run Text="{Binding  Count}" Foreground="{StaticResource S_RedNotice}"/>
+                      <Run Text="{Binding  Count}" Foreground="{DynamicResource S_RedNotice}"/>
                       <Run Text="   最新时间："/>
-                      <Run Text="{Binding LastTime}"  Foreground="{StaticResource S_RedNotice}"/>
+                      <Run Text="{Binding LastTime}"  Foreground="{DynamicResource S_RedNotice}"/>
                          <Run Text="   大小："/>
-                      <Run Text="{Binding SizeString}"  Foreground="{StaticResource S_RedNotice}"/>
+                      <Run Text="{Binding SizeString}"  Foreground="{DynamicResource S_RedNotice}"/>
                     </TextBlock>
 
                     <Grid.Triggers>
@@ -194,7 +194,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
             <Setter Property="BorderThickness" Value="0,0,0,1" />
-            <Setter Property="BorderBrush" Value="{StaticResource ItemMouseOverBackground}" />
+            <Setter Property="BorderBrush" Value="{StaticResource S_AccentBrush}" />
             <Setter Property="Height" Value="80" />
             <Setter Property="Visibility" Value="{Binding IsVisible}"/>
             <Setter Property="IsHitTestVisible" Value="True"/>
@@ -210,15 +210,15 @@
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemSelectedBackground}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_AccentBrush}" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemMouseOverBackground}" />
-                                <Setter Property="Foreground" Value="{StaticResource ItemMouseOverForeground}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_AccentBrush_MouseOver}" />
+                                <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" />
                             </Trigger>
 
                             <DataTrigger Binding="{Binding IsEnble}" Value="false">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource ItemsAlternationContentBackground}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_WhiteNotice}" />
                                 <Setter TargetName="ItemBackground" Property="BorderBrush" Value="Red" />
                                 <Setter TargetName="ItemBackground" Property="BorderThickness" Value="1" />
                             </DataTrigger>
@@ -233,7 +233,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
             <Setter Property="BorderThickness" Value="0,0,0,1" />
-            <Setter Property="BorderBrush" Value="{StaticResource ItemMouseOverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource S_AccentBrush}" />
             <Setter Property="Height" Value="200" />
             <Setter Property="Visibility" Value="{Binding IsVisible}"/>
             <Setter Property="IsHitTestVisible" Value="True"/>
@@ -249,10 +249,10 @@
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource S_Blue}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_AccentBrush}" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource S_Blue}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_AccentBrush}" />
                                 <Setter TargetName="ItemBackground" Property="Opacity" Value="0.5" />
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -289,7 +289,7 @@
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
             <Setter Property="BorderThickness" Value="0,0,0,0"/>
             <Setter Property="AllowDrop"   Value="True"/>
-            <Setter Property="Background" Value="{StaticResource S_Gray}"/>
+            <Setter Property="Background" Value="{StaticResource S_GrayLight}"/>
             <Setter Property="OpacityMask">
                 <Setter.Value>
                     <RadialGradientBrush>
@@ -382,7 +382,7 @@
 
 
         <!--排序规则-->
-        <StackPanel Background="{StaticResource S_Gray}" Orientation="Horizontal" Grid.ColumnSpan="9">
+        <StackPanel Background="{StaticResource S_GrayLight}" Orientation="Horizontal" Grid.ColumnSpan="9">
 
             <ComboBox Margin="0,10" ItemsSource="{StaticResource OrderItems}" base:ControlAttachProperty.Label="排序规则" SelectedIndex="{Binding OrderByIndex}"  Width="370"
                       Style="{StaticResource LabelComboBox}"  base:ControlAttachProperty.Watermark="没有选择排序">
@@ -448,10 +448,10 @@
 
         </StackPanel>
         <!--过滤规则-->
-        <WrapPanel Height="Auto" Background="{StaticResource S_Gray}" Orientation="Horizontal"  Grid.Row="1" Grid.ColumnSpan="9" >
+        <WrapPanel Height="Auto" Background="{StaticResource S_GrayLight}" Orientation="Horizontal"  Grid.Row="1" Grid.ColumnSpan="9" >
 
             <!--<TextBlock Text=" 过滤规则" TextAlignment="Center" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"
-                       Background="{StaticResource S_Blue}" Foreground="{StaticResource S_WhiteCommon}"/>-->
+                       Background="{StaticResource S_AccentBrush}" Foreground="{StaticResource S_WhiteCommon}"/>-->
 
             <typecheckcontrol:TypeFilterUserControl  DataSource="{Binding Types}" SelectText="{Binding FilterType,Mode=TwoWay}">
                 <i:Interaction.Triggers>
@@ -464,11 +464,11 @@
 
         </WrapPanel>
 
-        <Border  Grid.Row="0"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0" Grid.ColumnSpan="6"/>
-        <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,1,1,1" Grid.ColumnSpan="7"/>
+        <Border  Grid.Row="0"  BorderBrush="{StaticResource  S_AccentBrush}" BorderThickness="1,0,1,0" Grid.ColumnSpan="6"/>
+        <Border  Grid.Row="1"  BorderBrush="{StaticResource  S_AccentBrush}" BorderThickness="1,1,1,1" Grid.ColumnSpan="7"/>
 
         <!--全选-->
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Background="{StaticResource S_Gray}" >
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Background="{StaticResource S_GrayLight}" >
             <wpfcontrollib:FCheckBox Content="全选"  FontSize="15"  Command="{Binding RelayCommand}" 
                                      CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=IsChecked}" />
 
@@ -489,11 +489,11 @@
         </StackPanel>
 
         
-        <Border  Grid.Row="3"  BorderBrush="{StaticResource S_Blue}" BorderThickness="0,1,0,0" />
+        <Border  Grid.Row="3"  BorderBrush="{DynamicResource S_AccentBrush}" BorderThickness="0,1,0,0" />
 
         <!--预览视图-->
-        <wpfcontrollib:AnimatedTabControl Grid.Row="2"  Grid.Column="2" Grid.RowSpan="3" Background="{StaticResource S_WhiteCommon}" 
-                                          Foreground="{StaticResource S_Blue}" 
+        <wpfcontrollib:AnimatedTabControl Grid.Row="2"  Grid.Column="2" Grid.RowSpan="3" Background="{StaticResource S_WhiteNotice}" 
+                                          Foreground="{DynamicResource S_AccentBrush}" 
                                           ItemContainerStyle="{StaticResource ShellTabItemStyle}"
                                            AutomationProperties.AutomationId="PositionSummaryTab" >
 
@@ -517,13 +517,13 @@
 
         </wpfcontrollib:AnimatedTabControl>
 
-        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="4"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0"/>
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="4"  BorderBrush="{DynamicResource  S_AccentBrush}" BorderThickness="1,0,1,0"/>
 
-        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="0"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0"/>
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="0"  BorderBrush="{DynamicResource  S_AccentBrush}" BorderThickness="1,0,1,0"/>
 
-        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="2"  BorderBrush="{StaticResource  S_Blue}" BorderThickness="1,0,1,0"/>
+        <Border Grid.Row="2" Grid.RowSpan="2" Grid.Column="2"  BorderBrush="{DynamicResource  S_AccentBrush}" BorderThickness="1,0,1,0"/>
 
-        <typecheckcontrol:TypeCheckUserControl x:Name="tc_check" Background="{StaticResource S_Gray}"   
+        <typecheckcontrol:TypeCheckUserControl x:Name="tc_check" Background="{DynamicResource S_GrayLight}"   
                                                Margin="1"  
                                                Grid.Row="2" 
                                                Grid.Column="4" 

@@ -49,7 +49,7 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="true">
-                                <Setter Property="Foreground" Value="{StaticResource S_Blue}" TargetName="btn"/>
+                                <Setter Property="Foreground" Value="{StaticResource S_AccentBrush}" TargetName="btn"/>
                                 <Setter Property="Background" Value="White" TargetName="border"/>
                             </Trigger>
                         </ControlTemplate.Triggers>

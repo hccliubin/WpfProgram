@@ -5,32 +5,32 @@
     <ResourceDictionary.MergedDictionaries>
         <!--<ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/DefaultResource.xaml"/>
         <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/Theme/LightThemeResource.xaml"/>-->
-        
-        <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>-->
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FTextBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FCheckBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/BulletCheckBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/WaitingBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/RingBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/PagingDataGrid.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/AnimatedTabControl.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/MultiComboBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/CustomControl/BaseUserControl.xaml"/>
-        
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/Scroll.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/CenterScroll.xaml"/> 
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/Menu.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/ListBoxStyle.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/ProgressBar.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/ComboBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/DatePicker.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/ListView.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/DataGrid.xaml"/>
-
        
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FTextBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FCheckBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/BulletCheckBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/WaitingBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/RingBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/PagingDataGrid.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/AnimatedTabControl.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MultiComboBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/CustomControl/BaseUserControl.xaml"/>
+        
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/Scroll.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/Menu.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/ListBoxStyle.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/ProgressBar.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/ComboBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/DatePicker.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/ListView.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/DataGrid.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/CenterScroll.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/UserControlTheme.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/PageTheme.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/GridTheme.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
     </ResourceDictionary.MergedDictionaries>

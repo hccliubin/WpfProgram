@@ -211,6 +211,10 @@ namespace WindowStartToolApp
             ClipBoardRegisterService.Instance.Register(this);
         }
 
+        private void FButton_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Pop.IsOpen = !this.Pop.IsOpen;
+        }
     }
 
 }

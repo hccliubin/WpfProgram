@@ -7,13 +7,13 @@
       mc:Ignorable="d" 
       xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
       xmlns:controls="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
-      Title="WaitingPage" Background="{StaticResource S_Gray}" >
+      Title="WaitingPage" Background="{StaticResource S_GrayLight}" >
 
     <Grid>
         <ScrollViewer>
             <StackPanel>
                 <controls:FCheckBox VerticalAlignment="Center" x:Name="cbActive" Margin="5" IsChecked="True">IsActive</controls:FCheckBox>
-                <controls:RingBox Width="80" Height="80"  Foreground="Red" Margin="5"  IsActive="{Binding IsChecked ,ElementName=cbActive}" />
+                <controls:RingBox Width="80" Height="80" Margin="5"  IsActive="{Binding IsChecked ,ElementName=cbActive}" />
                 <controls:FCheckBox VerticalAlignment="Center" x:Name="cbActive2" IsChecked="True" Margin="5">IsActive</controls:FCheckBox>
                 <controls:WaitingBox Width="80" Height="80" Foreground="White" Background="Red"  Margin="5"  IsBusy="{Binding IsChecked ,ElementName=cbActive2}" />
                 <controls:WaitingBox Width="30" Height="30" Foreground="White" Background="Red"  Margin="5"  IsBusy="{Binding IsChecked ,ElementName=cbActive2}" />

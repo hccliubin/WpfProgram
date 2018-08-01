@@ -23,27 +23,6 @@ namespace WpfControlDemo.View
         public TabControlPage()
         {
             InitializeComponent();
-
-            this.Loaded += TabControlPage_Loaded;
-        }
-
-        private void TabControlPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            //Button btn = new Button();
-
-            //btn.Content = "444444455555555555555555555555555";
-
-            this.tb_all.Items.Clear();
-
-            Frame f = new Frame();
-            f.Content = new ButtonPage();
-
-            this.tb_all.Items.Add(f);
-
-            Frame f1 = new Frame();
-            f1.Content = new TextBoxPage();
-
-            this.tb_all.Items.Add(f1);
         }
     }
 }

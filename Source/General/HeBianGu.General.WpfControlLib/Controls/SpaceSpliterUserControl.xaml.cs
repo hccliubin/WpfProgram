@@ -88,12 +88,12 @@ namespace HeBianGu.General.WpfControlLib
 
         private void DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
         {
-            thumb1.Background = Brushes.Green;
+            //thumb1.Background = Brushes.Green;
         }
 
         private void DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
         {
-            thumb1.Background = Brushes.LightBlue;
+            //thumb1.Background = Brushes.LightBlue;
         }
 
         private void Thumb_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)

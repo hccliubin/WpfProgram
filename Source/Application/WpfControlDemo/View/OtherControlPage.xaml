@@ -10,6 +10,7 @@
 
     <Grid>
         <StackPanel>
+            
         <wpfcontrollib:SpaceSpliterUserControl  LeftPercent="{Binding Left,Mode=TwoWay}" RightPercent="{Binding Right,Mode=TwoWay}"/>
 
             <TextBlock>

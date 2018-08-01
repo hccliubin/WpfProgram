@@ -18,7 +18,7 @@
             <RowDefinition Height="33*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="{StaticResource S_WhiteCommon}" Opacity="0.5" />
+        <Border Grid.Row="0" Background="{StaticResource S_WhiteNotice}" Opacity="0.5" />
         <!--抬头-->
         <windowbase:FButton FIcon="&#xe600;" Background="Transparent" Foreground="{StaticResource S_BlackNotice}" Grid.Row="0" FIconSize="60" Content="河边骨" FontSize="20" Height="Auto"  AllowsAnimation="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" Width="Auto" HorizontalAlignment="Left"/>
 
@@ -72,7 +72,7 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
-        <Border Background="{StaticResource S_WhiteCommon}" Opacity="0.5" Grid.Row="2">
+        <Border Background="{StaticResource S_WhiteNotice}" Opacity="0.5" Grid.Row="2">
         </Border>
 
         <Grid Grid.Row="2">
@@ -81,7 +81,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Background="{StaticResource S_Gray}" Opacity="0.5" Grid.Row="1">
+            <Border Background="{StaticResource S_GrayLight}" Opacity="0.5" Grid.Row="1">
             </Border>
 
             <ItemsControl Grid.Row="1" prism:RegionManager.RegionName="MainNavigationRegion">
@@ -128,10 +128,26 @@
                     AutomationProperties.AutomationId="PositionSummaryTab" />-->
         </Grid>
 
+        <Popup x:Name="Pop" PopupAnimation="Slide"  PlacementTarget="{Binding ElementName=BtnPop}" Placement="Top" AllowsTransparency="True" StaysOpen="False" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Border Background="{DynamicResource S_GrayLight}" CornerRadius="5" BorderBrush="{DynamicResource S_AccentBrush}" BorderThickness="1">
+                <StackPanel Margin="10">
+                    <windowbase:ThemeSetControl/>
+                </StackPanel>
+            </Border>
+        </Popup>
         <!--菜单-->
-        <windowbase:FButton FIcon="&#xe60d;" Style="{StaticResource FButton_Transparency}" Grid.Row="3" FIconSize="25" AllowsAnimation="False" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="0,2,0,1" Width="45" />
-
-
+        <windowbase:FButton FIcon="&#xe60d;" 
+                            Style="{StaticResource FButton_Transparency}" 
+                            Grid.Row="3" 
+                            FIconSize="25" 
+                            AllowsAnimation="False" 
+                            HorizontalContentAlignment="Left" 
+                            HorizontalAlignment="Left" 
+                            Margin="0,2,0,1" 
+                            Width="45"
+                            x:Name="BtnPop"
+                            Click="FButton_Click"
+                            />
 
     </Grid>
 </windowbase:WindowBase>

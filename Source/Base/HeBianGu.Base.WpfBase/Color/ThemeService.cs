@@ -70,7 +70,7 @@ namespace HeBianGu.Base.WpfBase.Color
         private ResourceDictionary GetThemeDictionary()
         {
             return (from dict in Application.Current.Resources.MergedDictionaries
-                    where dict.Contains("WindowBackground")
+                    where dict.Contains("S_AccentBrush")
                     select dict).FirstOrDefault();
         }
 

@@ -12,6 +12,6 @@
     </UserControl.Resources>
 
     <Grid>
-        <c:FButton x:Name="btn_bar" FIcon="&#xe619;" ToolTip="网络测速" Style="{StaticResource FButton_Transparency}" Click="btn_bar_Click"  />
+        <c:FButton x:Name="btn_bar" FIcon="&#xe619;" ToolTip="网络测速" Style="{StaticResource FButton_Transparency}" Foreground="{DynamicResource S_WhiteNotice}" Click="btn_bar_Click"  />
     </Grid>
 </UserControl>

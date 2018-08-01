@@ -16,14 +16,14 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
             <Setter Property="BorderThickness" Value="1,1,1,1" />
-            <Setter Property="BorderBrush" Value="{StaticResource S_Gray}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource S_GrayLight}" />
             <Setter Property="Height" Value="30" />
             <Setter Property="Visibility" Value="{Binding IsVisible}"/>
             <Setter Property="IsHitTestVisible" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
-                        <Grid Background="{StaticResource S_Gray}">
+                        <Grid Background="{DynamicResource S_GrayLight}">
                             <Grid x:Name="grid" VerticalAlignment="Center">
                                 <Border  x:Name="ItemBackground"  BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Height="{TemplateBinding Height}" HorizontalAlignment="Stretch"
                                        Background="{TemplateBinding Background}" Width="{TemplateBinding Width}">
@@ -35,7 +35,7 @@
                                             <DataTemplate>
                                                 <Grid>
                                                     <TextBlock x:Name="txt" Text="{Binding}"  Opacity="0.4" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                                    <!--<TextBlock Style="{StaticResource FIcon}" Text="&#xe625;"  Margin="0,0,-5,-5" VerticalAlignment="Bottom" HorizontalAlignment="Right" />-->
+                                                    <!--<TextBlock Style="{DynamicResource FIcon}" Text="&#xe625;"  Margin="0,0,-5,-5" VerticalAlignment="Bottom" HorizontalAlignment="Right" />-->
                                                 </Grid>
                                               
                                                 <DataTemplate.Triggers>
@@ -62,12 +62,12 @@
                             </DataTrigger>
 
                             <Trigger Property="IsSelected" Value="true">
-                                <Setter Property="Foreground" Value="{StaticResource S_Blue}" />
+                                <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}" />
                             </Trigger>
 
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="ItemBackground" Property="Background" Value="{StaticResource PressedForeground }" />
-                                <Setter Property="Foreground" Value="{StaticResource ItemMouseOverForeground}" />
+                                <Setter TargetName="ItemBackground" Property="Background" Value="{DynamicResource S_AccentBrush }" />
+                                <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -77,7 +77,7 @@
 
         <!--类型样式-->
         <Style x:Key="TypeListStyle" TargetType="{x:Type ListBox}">
-            <!--<Setter Property="ItemTemplate" Value="{StaticResource TypeItemTemplate}"/>-->
+            <!--<Setter Property="ItemTemplate" Value="{DynamicResource TypeItemTemplate}"/>-->
             <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
             <Setter Property="ItemContainerStyle" Value="{StaticResource TypeItemStyle}"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>

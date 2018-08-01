@@ -170,7 +170,7 @@
         </Menu>
 
 
-        <Border Background="{StaticResource S_GrayDark}" Grid.Row="1"/>
+        <Border Background="{StaticResource S_GrayNotice}" Grid.Row="1"/>
 
         <ComboBox Grid.Row="1" Height="30" ItemsSource="{Binding CaseSource}" DisplayMemberPath="CaseName" Width="370"
                   SelectedIndex="0" SelectedItem="{Binding CurrentCase}" base:ControlAttachProperty.Label="选择案例" 
@@ -194,7 +194,7 @@
                     <RowDefinition Height="570*"/>
                 </Grid.RowDefinitions>
 
-                <Border Background="{StaticResource S_WhiteCommon}" Grid.Row="2"/>
+                <Border Background="{StaticResource S_WhiteNotice}" Grid.Row="2"/>
 
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -202,7 +202,7 @@
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Background="{StaticResource S_Gray}" Grid.Row="1" Grid.Column="1"/>
+                    <Border Background="{StaticResource S_GrayLight}" Grid.Row="1" Grid.Column="1"/>
 
                     <ItemsControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="MainNavigationRegion">
                         <ItemsControl.RenderTransform>

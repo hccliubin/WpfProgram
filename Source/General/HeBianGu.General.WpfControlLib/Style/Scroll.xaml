@@ -9,17 +9,17 @@
     </ResourceDictionary.MergedDictionaries>
 
     <sys:Double x:Key="ScrollBarSize">12</sys:Double>
-    <!--ScrollBar-->
+    <!--ScrollBar--><!--
     <SolidColorBrush x:Key="ScrollBarForeround" Color="#BFBFBF"></SolidColorBrush>
     <SolidColorBrush x:Key="ScrollBarBackground" Color="#BFBFBF"></SolidColorBrush>
 
     <SolidColorBrush x:Key="MouseOverForeground" Color="#007ACC"></SolidColorBrush>
-    <SolidColorBrush x:Key="PressedForeground" Color="#007ACC"></SolidColorBrush>
+    <SolidColorBrush x:Key="PressedForeground" Color="#007ACC"></SolidColorBrush>-->
 
     <!--滚动两边按钮样式-->
     <Style x:Key="ScrollBarButton" TargetType="{x:Type RepeatButton}">
         <Setter Property="Background" Value="Transparent"></Setter>
-        <Setter Property="Foreground" Value="{StaticResource ScrollBarForeround}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush_MouseOver}"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         <Setter Property="Width" Value="auto"></Setter>
@@ -31,10 +31,10 @@
                                Style="{StaticResource FIcon}" />
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource MouseOverForeground}" TargetName="FIcon"/>
+                            <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}" TargetName="FIcon"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource PressedForeground}" TargetName="FIcon"/>
+                            <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush_MouseOver}" TargetName="FIcon"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Opacity" Value="0.5" TargetName="FIcon"/>
@@ -60,7 +60,11 @@
     <!--滚动条滑块样式-->
     <ControlTemplate x:Key="ThumbTemplate" TargetType="Thumb">
         <Grid>
-            <Border  x:Name="Bg" CornerRadius="4" Margin="2" SnapsToDevicePixels="True" Background="{StaticResource ScrollBarForeround}">
+            <Border  x:Name="Bg" 
+                     CornerRadius="4" 
+                     Margin="2" 
+                     SnapsToDevicePixels="True" 
+                     Background="{DynamicResource S_AccentBrush_MouseOver}">
                 <!--<Border.Background>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                         <GradientStop Color="#C7C0C0" Offset="0.15"/>
@@ -72,12 +76,16 @@
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource MouseOverForeground}" TargetName="Bg"></Setter>
-            </Trigger>
+
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.5" TargetName="Bg"></Setter>
+                <Setter Property="Background" Value="{DynamicResource S_GrayLightNotice}" TargetName="Bg"></Setter>
             </Trigger>
+            
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource S_AccentBrush}" TargetName="Bg"></Setter>
+            </Trigger>
+          
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -92,11 +100,13 @@
             <!--外部背景,好像不用更好看-->
             <!--<Border x:Name="Bg" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="0"  Opacity="0" Background="#858585"/>-->
             <!--内部背景-->
-            <Border x:Name="BgInner" Grid.Column="1" Margin="0" SnapsToDevicePixels="True" Opacity="0.3"  CornerRadius="6" Background="{StaticResource ScrollBarBackground}"/>
+            <Border x:Name="BgInner" Grid.Column="1" Margin="0" SnapsToDevicePixels="True" Opacity="0.3"  CornerRadius="6" Background="{DynamicResource S_GrayLightNotice}"/>
             <!--左按钮-->
 
             <Border Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <RepeatButton  base:ControlAttachProperty.FIcon="&#xe65e;"  Style="{StaticResource ScrollBarButton}" x:Name="HorizontalSmallDecrease"
+                <RepeatButton  base:ControlAttachProperty.FIcon="&#xe65e;"  
+                               Style="{StaticResource ScrollBarButton}" 
+                               x:Name="HorizontalSmallDecrease"
                                  IsTabStop="False" Interval="50" Margin="0,1,0,0" Command="ScrollBar.LineLeftCommand"/>
             </Border>
             <!--中间滑动区域-->
@@ -104,7 +114,8 @@
                 <!--左滑块-->
                 <Track.DecreaseRepeatButton>
                     <RepeatButton x:Name="HorizontalLargeDecrease" Command="ScrollBar.PageLeftCommand"
-                                      IsTabStop="False" Interval="50" Style="{DynamicResource ScrollBarTrackButton}" />
+                                      IsTabStop="False" Interval="50" 
+                                  Style="{DynamicResource ScrollBarTrackButton}" />
                 </Track.DecreaseRepeatButton>
                 <!--中间滑块 Margin="1" VerticalAlignment="Center" VerticalContentAlignment="Center" -->
                 <Track.Thumb>
@@ -112,14 +123,21 @@
                 </Track.Thumb>
                 <!--右滑块-->
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton x:Name="HorizontalLargeIncrease" Command="ScrollBar.PageRightCommand"
-                                      IsTabStop="False"  Interval="50" Style="{DynamicResource ScrollBarTrackButton}" />
+                    <RepeatButton x:Name="HorizontalLargeIncrease" 
+                                  Command="ScrollBar.PageRightCommand"
+                                  IsTabStop="False"  
+                                  Interval="50"
+                                  Style="{DynamicResource ScrollBarTrackButton}" />
                 </Track.IncreaseRepeatButton>
             </Track>
             <!--右按钮-->
             <Border Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <RepeatButton base:ControlAttachProperty.FIcon="&#xe605;"  Style="{StaticResource ScrollBarButton}"
-                                 IsTabStop="False" Interval="50" Margin="0,1,0,0" Command="ScrollBar.LineRightCommand"/>
+                <RepeatButton base:ControlAttachProperty.FIcon="&#xe605;"  
+                              Style="{StaticResource ScrollBarButton}"
+                              IsTabStop="False" 
+                              Interval="50" 
+                              Margin="0,1,0,0" 
+                              Command="ScrollBar.LineRightCommand"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
@@ -140,18 +158,25 @@
             <!--外部背景,好像不用更好看-->
             <!--<Border x:Name="Bg" Grid.Row="0" Grid.RowSpan="3" CornerRadius="0" Opacity="0" Background="#858585"/>-->
             <!--内部背景-->
-            <Border x:Name="BgInner" Grid.Row="1" Margin="0" CornerRadius="6" SnapsToDevicePixels ="True" Opacity="0.3"  Background="{StaticResource ScrollBarBackground}"/>
+            <Border x:Name="BgInner" Grid.Row="1" Margin="0" CornerRadius="6" SnapsToDevicePixels ="True" Opacity="0.3"  Background="{DynamicResource S_GrayLightNotice}"/>
             <!--上按钮-->
             <Border Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="VerticalSmallDecrease">
-                <RepeatButton base:ControlAttachProperty.FIcon="&#xe685;"  Style="{StaticResource ScrollBarButton}"
-                                 IsTabStop="False" Interval="50" Margin="0" Command="ScrollBar.LineUpCommand"/>
+                <RepeatButton base:ControlAttachProperty.FIcon="&#xe685;"  
+                              Style="{StaticResource ScrollBarButton}"
+                              IsTabStop="False" 
+                              Interval="50"
+                              Margin="0" 
+                              Command="ScrollBar.LineUpCommand"/>
             </Border>
             <!--中间滑动区域-->
             <Track x:Name="PART_Track" IsDirectionReversed="true" Grid.Row="1">
                 <!--上滑块-->
                 <Track.DecreaseRepeatButton>
-                    <RepeatButton x:Name="HorizontalLargeDecrease" Command="ScrollBar.PageUpCommand" 
-                                      IsTabStop="False" Interval="50" Style="{DynamicResource ScrollBarTrackButton}" />
+                    <RepeatButton x:Name="HorizontalLargeDecrease" 
+                                  Command="ScrollBar.PageUpCommand" 
+                                  IsTabStop="False" 
+                                  Interval="50" 
+                                  Style="{DynamicResource ScrollBarTrackButton}" />
                 </Track.DecreaseRepeatButton>
                 <!--中间滑块-->
                 <Track.Thumb>
@@ -159,14 +184,20 @@
                 </Track.Thumb>
                 <!--下滑块-->
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton x:Name="HorizontalLargeIncrease" Command="ScrollBar.PageDownCommand"
-                                      IsTabStop="False" Interval="50" Style="{DynamicResource ScrollBarTrackButton}" />
+                    <RepeatButton x:Name="HorizontalLargeIncrease" 
+                                  Command="ScrollBar.PageDownCommand"
+                                  IsTabStop="False" Interval="50" 
+                                  Style="{DynamicResource ScrollBarTrackButton}" />
                 </Track.IncreaseRepeatButton>
             </Track>
             <!--下按钮-->
             <Border Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="VerticalSmallIncrease">
-                <RepeatButton base:ControlAttachProperty.FIcon="&#xe686;"  Style="{StaticResource ScrollBarButton}"
-                                 IsTabStop="False" Interval="50" Margin="0" Command="ScrollBar.LineDownCommand"/>
+                <RepeatButton base:ControlAttachProperty.FIcon="&#xe686;"  
+                              Style="{StaticResource ScrollBarButton}"
+                              IsTabStop="False" 
+                              Interval="50" 
+                              Margin="0" 
+                              Command="ScrollBar.LineDownCommand"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>

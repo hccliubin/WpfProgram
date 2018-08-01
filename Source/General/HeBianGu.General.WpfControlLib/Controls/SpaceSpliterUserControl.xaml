@@ -7,11 +7,20 @@
              mc:Ignorable="d" d:DesignHeight="10"
              d:DesignWidth="500">
     <Grid>
-        <Border  CornerRadius="10"  Background="{StaticResource S_Gray}"/>
+        <!--整体背景-->
+        <Border  CornerRadius="10"  Background="{DynamicResource S_GrayNotice}"/>
 
         <Canvas Height="10">
-
-            <Thumb Name="thumb1" Background="Red" Height="10" Width="100" DragDelta="DragDelta" DragStarted="DragStarted" DragCompleted="DragCompleted" Canvas.Left="30"  Canvas.Top="0" >
+            <Thumb Name="thumb1" 
+                   Background="{DynamicResource S_AccentBrush_MouseOver}" 
+                   Height="10" 
+                   Width="100" 
+                   DragDelta="DragDelta" 
+                   DragStarted="DragStarted" 
+                   DragCompleted="DragCompleted" 
+                   Canvas.Left="30"  
+                   Canvas.Top="0" >
+                
                 <Thumb.Template>
                     <ControlTemplate TargetType="Thumb">
                         <Grid>
@@ -21,29 +30,68 @@
                                 <ColumnDefinition Width="5"/>
                             </Grid.ColumnDefinitions>
 
-                            <Border Background="{TemplateBinding Background}" Grid.ColumnSpan="3"/>
+                            <Border x:Name="border" Background="{TemplateBinding Background}" Grid.ColumnSpan="3"/>
 
-                            <Thumb Name="th_left" Background="White" Grid.Column="0" Margin="-5,0,0,0" ToolTip="{Binding Left}"  DragDelta="Thumb_DragDelta">
+                            <!--左侧按钮-->
+                            <Thumb Name="th_left" 
+                                   Background="{DynamicResource S_WhiteNotice}" 
+                                   Grid.Column="0" 
+                                   Margin="-5,0,0,0" 
+                                   ToolTip="{Binding Left}"  
+                                   DragDelta="Thumb_DragDelta">
                                 <Thumb.Template>
                                     <ControlTemplate TargetType="Thumb">
                                         <Grid>
-                                            <Line Height="20" Width="5" HorizontalAlignment="Center" Fill="Black" Stroke="Black" StrokeThickness="3"></Line>
-                                            <Ellipse  StrokeThickness="3" Stroke="{TemplateBinding Background}" Fill="{TemplateBinding Background}"/>
+                                            <Line Height="20" 
+                                                  Width="5" 
+                                                  HorizontalAlignment="Center" 
+                                                  Fill="Black" Stroke="{DynamicResource S_BlackNotice}" 
+                                                  StrokeThickness="3"></Line>
+                                            <Ellipse  x:Name="circle" StrokeThickness="3" 
+                                                      Stroke="{TemplateBinding Background}"
+                                                      Fill="{TemplateBinding Background}"/>
+
                                             <TextBlock Text="" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Stroke" Value="{StaticResource S_AccentBrush_MouseOver}" TargetName="circle"/>
+                                                <Setter Property="Fill" Value="{StaticResource S_AccentBrush_MouseOver}" TargetName="circle"/>
+
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Thumb.Template>
                             </Thumb>
 
-                            <Thumb Name="th_right" Background="White" Grid.Column="2"  Margin="0,0,-5,0" ToolTip="{Binding Right}"  DragDelta="Thumb_DragDelta_1"  >
+                            <Thumb Name="th_right" 
+                                   Background="{DynamicResource S_WhiteNotice}" 
+                                   Grid.Column="2"  
+                                   Margin="0,0,-5,0" 
+                                   ToolTip="{Binding Right}" 
+                                   DragDelta="Thumb_DragDelta_1"  >
                                 <Thumb.Template>
                                     <ControlTemplate TargetType="Thumb">
                                         <Grid>
-                                            <Line Height="20" Canvas.Left="60" Fill="Black" Stroke="Black" StrokeThickness="3"></Line>
-                                            <Ellipse  StrokeThickness="3" Stroke="{TemplateBinding Background}" Fill="{TemplateBinding Background}"/>
+                                            <Line Height="20" Canvas.Left="60" 
+                                                  Fill="{DynamicResource S_BlackNotice}"  
+                                                  Stroke="{DynamicResource S_BlackNotice}"  
+                                                  StrokeThickness="3"></Line>
+                                            <Ellipse  x:Name="circle" StrokeThickness="3" 
+                                                      Stroke="{TemplateBinding Background}" 
+                                                      Fill="{TemplateBinding Background}"/>
+
                                             <TextBlock Text="" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
 
                                         </Grid>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Stroke" Value="{StaticResource S_AccentBrush_MouseOver}" TargetName="circle"/>
+                                                <Setter Property="Fill" Value="{StaticResource S_AccentBrush_MouseOver}" TargetName="circle"/>
+
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Thumb.Template>
                             </Thumb>
@@ -51,7 +99,7 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="{StaticResource S_Blue}"/>
+                                <Setter Property="Background" Value="{StaticResource S_AccentBrush}" TargetName="border"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

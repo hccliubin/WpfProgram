@@ -130,6 +130,19 @@ namespace HeBianGu.General.WpfControlLib
 
         #endregion
 
+        #region MinboxEnable 是否显示设置按钮
+
+        public static readonly DependencyProperty SetboxEnableProperty = DependencyProperty.Register(
+            " SetboxEnable", typeof(bool), typeof(WindowBase), new PropertyMetadata(true));
+
+        public bool SetboxEnable
+        {
+            get { return (bool)GetValue(SetboxEnableProperty); }
+            set { SetValue(SetboxEnableProperty, value); }
+        }
+
+        #endregion
+
         /****************** commands ******************/
         public ICommand CloseWindowCommand { get; protected set; }
         public ICommand MaximizeWindowCommand { get; protected set; }

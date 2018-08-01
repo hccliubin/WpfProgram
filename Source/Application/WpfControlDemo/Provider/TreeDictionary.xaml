@@ -6,6 +6,7 @@
             <FileSystem xmlns="">
                 <Folder Name="基础控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe620;">
                     <Folder Name="按钮控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="文本控件" Value="../View/TextBoxPage.xaml" FIcon="&#xe615;"/>
                     <Folder Name="勾选控件" Value="../View/CheckBoxPage.xaml"  FIcon="&#xe60f;"/>
                     <Folder Name="下拉控件" Value="../View/ComboboxPage.xaml"  FIcon="&#xe60f;"/>
                     <Folder Name="表格控件(DataGrid)" Value="../View/DataPagePage.xaml"  FIcon="&#xe60f;"/>
@@ -15,7 +16,7 @@
                     <Folder Name="进度控件" Value="../View/WaitingPage.xaml"  FIcon="&#xe60f;"/>
                 </Folder>
                 <Folder Name="自定义控件" Value="../View/DocumentPage.xaml"  FIcon="&#xe620;">
-                    <Folder Name="文本控件" Value="../View/DocumentPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="文档控件" Value="../View/DocumentPage.xaml" FIcon="&#xe615;"/>
                     <Folder Name="高亮控件" Value="../View/HightTextBlockPage.xaml" FIcon="&#xe615;"/>
                     <Folder Name="其他控件" Value="../View/OtherControlPage.xaml" FIcon="&#xe615;"/>
                     <Folder Name="雷达控件" Value="../View/RadarChartPagexaml.xaml" FIcon="&#xe615;"/>

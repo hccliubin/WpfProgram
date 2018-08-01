@@ -16,19 +16,19 @@
 
     <!--模块按钮样式-->
     <Style x:Key="ModuleFButtonStyle" TargetType="{x:Type c:FButton}">
-        <!--<Setter Property="Background" Value="{StaticResource S_Blue}" />
-        <Setter Property="Foreground" Value="{StaticResource S_WhiteCommon}" />
-        <Setter Property="MouseOverBackground" Value="{StaticResource S_BlueCommon}" />
-        <Setter Property="MouseOverForeground" Value="{StaticResource S_WhiteCommon}" />
-        <Setter Property="PressedBackground" Value="{StaticResource S_GrayDark}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_WhiteCommon}" />-->
+        <!--<Setter Property="Background" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="MouseOverBackground" Value="{StaticResource S_AccentBrushCommon}" />
+        <Setter Property="MouseOverForeground" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="PressedBackground" Value="{StaticResource S_GrayNotice}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_WhiteNotice}" />-->
 
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="MouseOverBackground" Value="Transparent" />
         <Setter Property="PressedBackground" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}" />
-        <Setter Property="MouseOverForeground" Value="{StaticResource S_Blue}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_GrayDark}" />
+        <Setter Property="MouseOverForeground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_GrayNotice}" />
 
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Width" Value="40" />
