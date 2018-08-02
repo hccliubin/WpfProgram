@@ -3,11 +3,11 @@
                     xmlns:local="clr-namespace:HeBianGu.General.WpfControlLib">
 
 
-    <!--渐显示的自定义控件-->
-    <Style x:Key="DefaultContentControl" TargetType="{x:Type ContentControl}">
+    <!--渐显示的自定义控件--><!--
+    <Style x:Key="DefaultContentControl" TargetType="{x:Type TabControl}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ContentControl}">
+                <ControlTemplate TargetType="{x:Type Control}">
                     <Grid>
                         <Border x:Name="Bg" 
                                 Background="{TemplateBinding Background}" 
@@ -15,9 +15,9 @@
                                  BorderThickness="{TemplateBinding BorderThickness}" 
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
 
-                        <!--内容区域-->
+                        --><!--内容区域--><!--
                         <AdornerDecorator>
-                            <ContentPresenter Margin="1" Content="{TemplateBinding Content}" />
+                            <ContentPresenter Margin="1"  Content="{TemplateBinding Content}" />
                         </AdornerDecorator>
 
                     </Grid>
@@ -38,7 +38,7 @@
     </Style>
 
 
-    <!--设置全局自定义控件渐显示-->
-    <Style TargetType="{x:Type ContentControl}" BasedOn="{StaticResource DefaultContentControl}"></Style>
+    --><!--设置全局自定义控件渐显示--><!--
+    <Style TargetType="{x:Type ContentControl}" BasedOn="{StaticResource DefaultContentControl}"></Style>-->
 
 </ResourceDictionary>

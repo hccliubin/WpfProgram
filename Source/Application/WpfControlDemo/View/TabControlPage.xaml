@@ -8,6 +8,17 @@
       mc:Ignorable="d"
       Title="TabControlPage">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid>
         <StackPanel>
 
@@ -35,6 +46,36 @@
                         <Button Content="第三页" Background="Green"/>
                     </TabItem>
                 </wpfcontrollib:AnimatedTabControl>
+            </Grid>
+
+            <Grid>
+                <wpfcontrollib:MetroTabControl x:Name="tab" IconMode="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <wpfcontrollib:MetroTabItem Header="第一頁" Icon="&#xe616;">
+                            <Grid Background="Red">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="160" Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        </wpfcontrollib:MetroTabItem>
+                    <wpfcontrollib:MetroTabItem Header="第二頁" Icon="&#xe616;">
+                            <Grid Background="Yellow">
+                            </Grid>
+                        </wpfcontrollib:MetroTabItem>
+                    <wpfcontrollib:MetroTabItem Header="第三頁" Icon="&#xe616;">
+                            <Grid Background="Green">
+                            </Grid>
+                        </wpfcontrollib:MetroTabItem>
+                    <wpfcontrollib:MetroTabItem Header="第四頁" Icon="&#xe616;">
+                            <Grid Background="Blue">
+                            </Grid>
+                        </wpfcontrollib:MetroTabItem>
+                    <wpfcontrollib:MetroTabItem Header="第五頁" Icon="&#xe616;" Height="40" VerticalAlignment="Top">
+                        <Grid>
+
+                        </Grid>
+                    </wpfcontrollib:MetroTabItem>
+                </wpfcontrollib:MetroTabControl>
             </Grid>
         </StackPanel>
         <!--ItemContainerStyle="{StaticResource ShellTabItemStyle}"SelectedIndex="0"-->

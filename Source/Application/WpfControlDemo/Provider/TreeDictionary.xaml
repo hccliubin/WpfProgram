@@ -14,6 +14,7 @@
                     <Folder Name="表格控件(ListView)" Value="../View/ListViewPage.xaml"  FIcon="&#xe60f;"/>
                     <Folder Name="分页控件" Value="../View/TabControlPage.xaml"  FIcon="&#xe60f;"/>
                     <Folder Name="进度控件" Value="../View/WaitingPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="导航控件" Value="../View/ExpanderPage.xaml"  FIcon="&#xe60f;"/>
                 </Folder>
                 <Folder Name="自定义控件" Value="../View/DocumentPage.xaml"  FIcon="&#xe620;">
                     <Folder Name="文档控件" Value="../View/DocumentPage.xaml" FIcon="&#xe615;"/>

@@ -14,6 +14,11 @@
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/RingBox.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/PagingDataGrid.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/AnimatedTabControl.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroTabItem.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroTabControl.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FExpander.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroTextBox.xaml"/>
+
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MultiComboBox.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/CustomControl/BaseUserControl.xaml"/>

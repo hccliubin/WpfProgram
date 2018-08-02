@@ -158,8 +158,8 @@
 
     <!--DefaultListView-->
     <Style x:Key="DefaultListView" TargetType="{x:Type ListView}">
-        <Setter Property="BorderBrush" Value="{StaticResource S_AccentBrush}" />
-        <Setter Property="Background" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="BorderThickness" Value="1" />
         <!--False会关闭虚拟化-->
         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />

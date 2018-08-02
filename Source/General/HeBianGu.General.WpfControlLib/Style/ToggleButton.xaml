@@ -7,10 +7,6 @@
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--<SolidColorBrush x:Key="TextForeground" Color="#433F3E"></SolidColorBrush>-->
-    <!--<SolidColorBrush x:Key="MouseOverForeground" Color="#007ACC"></SolidColorBrush>-->
-    <!--<SolidColorBrush x:Key="PressedForeground" Color="#BFBFBF"></SolidColorBrush>-->
-    
     <Style TargetType="{x:Type ToggleButton}" x:Key="DefaultToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />

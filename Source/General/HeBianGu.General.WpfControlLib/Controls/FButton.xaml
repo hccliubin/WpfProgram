@@ -72,10 +72,8 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.ExitActions>
-
-
-
             </Trigger>
+            
             <!--Ficon的动画触发器-->
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -141,11 +139,11 @@
 
             <Trigger Property="IsChecked" Value="true">
 
-                <Setter Property="Background" Value="{StaticResource S_AccentBrush}" TargetName="border" />
+                <Setter Property="Background" Value="{DynamicResource S_AccentBrush}" TargetName="border" />
 
-                <Setter Property="Foreground" Value="{StaticResource S_WhiteNotice}" TargetName="icon"/>
+                <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" TargetName="icon"/>
 
-                <Setter Property="Foreground" Value="{StaticResource S_WhiteNotice}" TargetName="txt"/>
+                <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" TargetName="txt"/>
 
                 <!--<Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content,Converter={x:Static local:XConverter.SelectTextConverter}}" TargetName="txt"/>-->
             </Trigger>
@@ -154,8 +152,8 @@
 
 
     <Style x:Key="DefaultFButtonStyle" TargetType="{x:Type local:FButton}">
-        <Setter Property="Background" Value="{StaticResource S_AccentBrush}" />
-        <Setter Property="Foreground" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="Background" Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="MouseOverBackground" Value="{StaticResource S_AccentBrush}" />
         <Setter Property="MouseOverForeground" Value="{StaticResource S_OrangeNotice}" />
         <Setter Property="PressedBackground" Value="{StaticResource S_GrayLightNotice}" />

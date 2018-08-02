@@ -9,73 +9,91 @@
       mc:Ignorable="d" 
       Title="TextBoxPage" Background="{StaticResource S_GrayLight}">
 
+    
     <Grid>
         <ScrollViewer>
-        <StackPanel>
-            <controls:FTextBox Width="150" Height="30" Margin="3" 
+
+            <StackPanel>
+                <TextBlock Text="FTextBox"/>
+                <StackPanel>
+                    <controls:FTextBox Width="150" Height="30" Margin="3" 
                  base:ControlAttachProperty.Watermark="我是水印" 
                  base:ControlAttachProperty.CornerRadius="2"/>
 
-            <controls:FTextBox Width="140" Text="333333333333333" Height="40" Margin="3" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
+                    <controls:FTextBox Width="140" Text="333333333333333" Height="40" Margin="3" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
 
-            <controls:FTextBox Width="150" Height="30" Margin="3" IsReadOnly="True" base:ControlAttachProperty.CornerRadius="15" SnapsToDevicePixels="True" >我是只读的</controls:FTextBox>
+                    <controls:FTextBox Width="150" Height="30" Margin="3" IsReadOnly="True" base:ControlAttachProperty.CornerRadius="15" SnapsToDevicePixels="True" >我是只读的</controls:FTextBox>
 
-            <controls:FTextBox Width="150" Height="30" Margin="3" IsEnabled="False">IsEnabled="False"</controls:FTextBox>
+                    <controls:FTextBox Width="150" Height="30" Margin="3" IsEnabled="False">IsEnabled="False"</controls:FTextBox>
 
-            <controls:FTextBox Width="150" Height="30" Margin="3" base:ControlAttachProperty.Watermark="我是水印" Style="{StaticResource ClearButtonTextBox}"  IsEnabled="True"></controls:FTextBox>
+                    <controls:FTextBox Width="150" Height="30" Margin="3" base:ControlAttachProperty.Watermark="我是水印" Style="{StaticResource ClearButtonTextBox}"  IsEnabled="True"></controls:FTextBox>
 
-            <controls:FTextBox Width="150" Height="30" Margin="3" Style="{StaticResource ClearButtonTextBox}" IsEnabled="False">IsEnabled="False"</controls:FTextBox>
+                    <controls:FTextBox Width="150" Height="30" Margin="3" Style="{StaticResource ClearButtonTextBox}" IsEnabled="False">IsEnabled="False"</controls:FTextBox>
 
-            <controls:FTextBox Width="150" Height="30" Margin="3" Style="{StaticResource ClearButtonTextBox}" IsReadOnly="True">IsReadOnly="True"</controls:FTextBox>
+                    <controls:FTextBox Width="150" Height="30" Margin="3" Style="{StaticResource ClearButtonTextBox}" IsReadOnly="True">IsReadOnly="True"</controls:FTextBox>
 
-            <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入姓名" 
+                    <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入姓名" 
                          Style="{StaticResource LabelTextBox}" base:ControlAttachProperty.Label="姓名："></controls:FTextBox>
-            <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入爱好" 
+                    <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入爱好" 
                          Style="{StaticResource LabelClearButtonTextBox}" base:ControlAttachProperty.Label="爱好："></controls:FTextBox>
-            <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入爱好" IsReadOnly="True"
+                    <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入爱好" IsReadOnly="True"
                          Style="{StaticResource LabelClearButtonTextBox}" base:ControlAttachProperty.Label="爱好：">IsReadOnly="True"</controls:FTextBox>
-            <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入爱好" IsEnabled="False"
+                    <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="请输入爱好" IsEnabled="False"
                          Style="{StaticResource LabelClearButtonTextBox}" base:ControlAttachProperty.Label="爱好：">IsEnabled="False"</controls:FTextBox>
 
 
-            <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="查询关键词" IsEnabled="True">
-                <base:ControlAttachProperty.AttachContent>
-                    <ControlTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <controls:FButton FIcon="&#xe607;"  Style="{StaticResource FButton_Transparency}"  IsTabStop="False" FIconMargin="0"
+                    <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="查询关键词" IsEnabled="True">
+                        <base:ControlAttachProperty.AttachContent>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <controls:FButton FIcon="&#xe607;"  Style="{StaticResource FButton_Transparency}"  IsTabStop="False" FIconMargin="0"
                                             FIconSize="18" Margin="1,1,2,3"  Cursor="Arrow"/>
-                            <controls:FButton FIcon="&#xe674;"  Style="{StaticResource FButton_Transparency}" IsTabStop="False" FIconMargin="0"
+                                    <controls:FButton FIcon="&#xe674;"  Style="{StaticResource FButton_Transparency}" IsTabStop="False" FIconMargin="0"
                                             FIconSize="22"  Cursor="Arrow"/>
-                        </StackPanel>
-                    </ControlTemplate>
-                </base:ControlAttachProperty.AttachContent>
-            </controls:FTextBox>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </base:ControlAttachProperty.AttachContent>
+                    </controls:FTextBox>
 
-            <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="查询关键词" IsEnabled="False" Text="123">
-                <base:ControlAttachProperty.AttachContent>
-                    <ControlTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <controls:FButton FIcon="&#xe607;"  Style="{StaticResource FButton_Transparency}" IsTabStop="False" FIconMargin="0"
+                    <controls:FTextBox Width="200" Height="30" Margin="3" base:ControlAttachProperty.Watermark="查询关键词" IsEnabled="False" Text="123">
+                        <base:ControlAttachProperty.AttachContent>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <controls:FButton FIcon="&#xe607;"  Style="{StaticResource FButton_Transparency}" IsTabStop="False" FIconMargin="0"
                                             FIconSize="18" Margin="1,1,2,3"  Cursor="Arrow"/>
-                            <controls:FButton FIcon="&#xe674;"  Style="{StaticResource FButton_Transparency}" IsTabStop="False"  FIconMargin="0"
+                                    <controls:FButton FIcon="&#xe674;"  Style="{StaticResource FButton_Transparency}" IsTabStop="False"  FIconMargin="0"
                                             FIconSize="22"  Cursor="Arrow"/>
-                        </StackPanel>
-                    </ControlTemplate>
-                </base:ControlAttachProperty.AttachContent>
-            </controls:FTextBox>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </base:ControlAttachProperty.AttachContent>
+                    </controls:FTextBox>
 
 
-            <controls:FTextBox Width="400" Height="30" Margin="3" Style="{StaticResource LabelOpenFileTextBox}"></controls:FTextBox>
-            <controls:FTextBox Width="400" Height="30" Margin="3" Style="{StaticResource LabelOpenFolderTextBox}"></controls:FTextBox>
-            <controls:FTextBox Width="400" Height="30" Margin="3" Style="{StaticResource LabelSaveFileTextBox}"></controls:FTextBox>
+                    <controls:FTextBox Width="400" Height="30" Margin="3" Style="{StaticResource LabelOpenFileTextBox}"></controls:FTextBox>
+                    <controls:FTextBox Width="400" Height="30" Margin="3" Style="{StaticResource LabelOpenFolderTextBox}"></controls:FTextBox>
+                    <controls:FTextBox Width="400" Height="30" Margin="3" Style="{StaticResource LabelSaveFileTextBox}"></controls:FTextBox>
 
 
-            <PasswordBox base:ControlAttachProperty.Watermark="请输入姓名" Margin="3"  />
-            <PasswordBox Style="{StaticResource ClearButtonPasswordBox}" Margin="3" />
-            <PasswordBox Style="{StaticResource LabelPasswordBox}" base:ControlAttachProperty.Label="密码：" Margin="3" />
-            <PasswordBox Style="{StaticResource LabelClearButtonPasswordBox}" base:ControlAttachProperty.Label="密码：" Margin="3"/>
-            <PasswordBox IsEnabled="False" Password="111" Margin="3"/>
-        </StackPanel>
+                    <PasswordBox base:ControlAttachProperty.Watermark="请输入姓名" Margin="3"  />
+                    <PasswordBox Style="{StaticResource ClearButtonPasswordBox}" Margin="3" />
+                    <PasswordBox Style="{StaticResource LabelPasswordBox}" base:ControlAttachProperty.Label="密码：" Margin="3" />
+                    <PasswordBox Style="{StaticResource LabelClearButtonPasswordBox}" base:ControlAttachProperty.Label="密码：" Margin="3"/>
+                    <PasswordBox IsEnabled="False" Password="111" Margin="3"/>
+                </StackPanel>
+
+                <TextBlock Text="MetroTextBox"/>
+                <StackPanel>
+                    <controls:MetroTextBox x:Name="password" InputHint="PassWord Input Box!" IsPassWordBox="True" ButtonTitle="确定" PopupHint="请输入密码" />
+                    <controls:MetroTextBox InputHint="InputHint..." PopupHint="This is TextBox!" Margin="0,10,0,0" />
+                    <controls:MetroTextBox Margin="0,10,0,0" />
+                    <controls:MetroTextBox Title="Default Title" InputHint="InputHint..." PopupHint="This is TextBox!" Margin="0,10,0,0" />
+                    <controls:MetroTextBox x:Name="check" Title="Default Title" InputHint="InputHint..." ButtonTitle="Button" PopupHint="Length is more than 10!" Margin="0,10,0,0"  IconFont="&#xe633;"/>
+                    <controls:MetroTextBox x:Name="check1" Text="0123456789" Title="Default Title" InputHint="InputHint..." ButtonTitle="Button" PopupHint="Length is more than 10!" Margin="0,10,0,0" IconFont="&#xe633;"  />
+                    <controls:MetroTextBox Title="Default Title" InputHint="InputHint..." Text="This is Content!" ButtonTitle="Button" PopupHint="这是一个多行编辑框!" Margin="0,10,0,0"  MultipleLine="True" IconFont="&#xe633;" />
+                    <controls:MetroTextBox Title="Default Title" InputHint="InputHint..." ButtonTitle="Button" PopupHint="Length is more than 10!" Margin="0,10,0,0"  IsEnabled="False" />
+                    <controls:MetroTextBox Title="Default Title" InputHint="InputHint..." Text="已经输入内容且禁用" ButtonTitle="Button" PopupHint="Length is more than 10!" Margin="0,10,0,0"  IsEnabled="False" />
+                </StackPanel>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

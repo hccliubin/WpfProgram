@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -85,6 +86,9 @@
     </Compile>
     <Compile Include="View\DocumentPage.xaml.cs">
       <DependentUpon>DocumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExpanderPage.xaml.cs">
+      <DependentUpon>ExpanderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HightTextBlockPage.xaml.cs">
       <DependentUpon>HightTextBlockPage.xaml</DependentUpon>
@@ -180,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DocumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ExpanderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +300,23 @@
       <Name>HeBianGu.Control.UserControls</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\editIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconMove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\tabIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\titleMuenIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

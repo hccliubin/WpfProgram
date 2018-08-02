@@ -155,7 +155,7 @@
         <Setter Property="WindowState" Value="Maximized"/>
         <!--标题栏背景色-->
         <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
-        <Setter Property="CaptionForeground" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="CaptionForeground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe62e;"/>
         <Setter Property="MaxboxEnable" Value="False"/>
         <Setter Property="MinboxEnable" Value="True"/>

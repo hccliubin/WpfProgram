@@ -67,6 +67,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commond\ControlCommand.cs" />
+    <Compile Include="Controls\FExpander.xaml.cs">
+      <DependentUpon>FExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MetroTextBox.xaml.cs">
+      <DependentUpon>MetroTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MetroTabItem.xaml.cs">
+      <DependentUpon>MetroTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MetroTabControl.xaml.cs">
+      <DependentUpon>MetroTabControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AnimatedTabControl.xaml.cs">
       <DependentUpon>AnimatedTabControl.xaml</DependentUpon>
     </Compile>
@@ -160,6 +172,22 @@
     <Folder Include="Template\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\FExpander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MetroTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MetroTabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MetroTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\AnimatedTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

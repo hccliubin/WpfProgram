@@ -62,6 +62,11 @@ namespace HeBianGu.Base.WpfBase
             get { return new MouseOverSizeConverter(); }
         }
 
+        public static VisibilityEmptyConverter VisibilityEmptyConverter
+        {
+            get { return new VisibilityEmptyConverter(); }
+        }
+
         //public static SelectTextConverter SelectTextConverter
         //{
         //    get { return Singleton<SelectTextConverter>.GetInstance(); }
