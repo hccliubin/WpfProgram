@@ -19,64 +19,80 @@
         </ResourceDictionary>
     </Page.Resources>
     <Grid>
-        <StackPanel>
-            <Grid>
-                <wpfcontrollib:FExpander Header="可以折叠并展开" IsExpanded="True" IconFont="&#xe664;">
+        <wpfcontrollib:AnimatedTabControl >
+            <TabItem Header="导航样式一">
+                <ScrollViewer>
                     <StackPanel>
-                        <wpfcontrollib:FExpander Header="子内容长标题测试" Hint="1 / 100" />
-                        <wpfcontrollib:FExpander  Header="Button" />
-                        <wpfcontrollib:FExpander  Header="Button" />
-                        <wpfcontrollib:FExpander Header="Button" />
-                    </StackPanel>
-                </wpfcontrollib:FExpander>
-            </Grid>
-            <Grid>
-                <wpfcontrollib:FExpander Header="可以折叠没展开" IsExpanded="false" IconFont="&#xe664;" >
-                    <StackPanel>
-                        <wpfcontrollib:FExpander Header="子内容长标题测试"  Hint="1 / 100" />
-                        <wpfcontrollib:FExpander  Header="Button" />
-                        <wpfcontrollib:FExpander  Header="Button" />
-                        <wpfcontrollib:FExpander Header="Button" />
-                    </StackPanel>
-                </wpfcontrollib:FExpander>
-            </Grid>
+                        <Grid>
+                            <wpfcontrollib:FExpander Header="可以折叠并展开" IsExpanded="True" IconFont="&#xe664;">
+                                <StackPanel>
+                                    <wpfcontrollib:FExpander Header="子内容长标题测试" Hint="1 / 100" />
+                                    <wpfcontrollib:FExpander  Header="Button" />
+                                    <wpfcontrollib:FExpander  Header="Button" />
+                                    <wpfcontrollib:FExpander Header="Button" />
+                                </StackPanel>
+                            </wpfcontrollib:FExpander>
+                        </Grid>
+                        <Grid>
+                            <wpfcontrollib:FExpander Header="可以折叠没展开" IsExpanded="false" IconFont="&#xe664;" >
+                                <StackPanel>
+                                    <wpfcontrollib:FExpander Header="子内容长标题测试"  Hint="1 / 100" />
+                                    <wpfcontrollib:FExpander  Header="Button" />
+                                    <wpfcontrollib:FExpander  Header="Button" />
+                                    <wpfcontrollib:FExpander Header="Button" />
+                                </StackPanel>
+                            </wpfcontrollib:FExpander>
+                        </Grid>
 
-            <Grid>
-                <wpfcontrollib:FExpander Header="不可以折叠" CanHide="false" IconFont="&#xe664;">
-                    <StackPanel>
-                        <wpfcontrollib:FExpander Header="子内容长标题测试" Hint="1 / 100" />
-                        <wpfcontrollib:FExpander  Header="Button" />
-                        <wpfcontrollib:FExpander  Header="Button" />
-                        <wpfcontrollib:FExpander Header="Button" />
-                    </StackPanel>
-                </wpfcontrollib:FExpander>
-            </Grid>
+                        <Grid>
+                            <wpfcontrollib:FExpander Header="不可以折叠" CanHide="false" IconFont="&#xe664;">
+                                <StackPanel>
+                                    <wpfcontrollib:FExpander Header="子内容长标题测试" Hint="1 / 100" />
+                                    <wpfcontrollib:FExpander  Header="Button" />
+                                    <wpfcontrollib:FExpander  Header="Button" />
+                                    <wpfcontrollib:FExpander Header="Button" />
+                                </StackPanel>
+                            </wpfcontrollib:FExpander>
+                        </Grid>
 
-            <Grid>
-                <wpfcontrollib:FExpander Header="多个导航嵌套" IsExpanded="false" IconFont="&#xe664;">
-                    <StackPanel>
-                        <wpfcontrollib:FExpander Header="子内容长标题测试" IconFont="&#xe664;" Hint="1 / 100" />
-                        <wpfcontrollib:FExpander  Header="子内容" IconFont="&#xe664;" Hint="1 / 2">
-                            <StackPanel>
-                                <wpfcontrollib:FExpander  Header="Button"/>
-                            </StackPanel>
-                        </wpfcontrollib:FExpander>
-                        <wpfcontrollib:FExpander  Header="Button" />
-                        <wpfcontrollib:FExpander Header="Button" />
-                    </StackPanel>
-                </wpfcontrollib:FExpander>
-            </Grid>
+                        <Grid>
+                            <wpfcontrollib:FExpander Header="多个导航嵌套" IsExpanded="false" IconFont="&#xe664;">
+                                <StackPanel>
+                                    <wpfcontrollib:FExpander Header="子内容长标题测试" IconFont="&#xe664;" Hint="1 / 100" />
+                                    <wpfcontrollib:FExpander  Header="子内容" IconFont="&#xe664;" Hint="1 / 2">
+                                        <StackPanel>
+                                            <wpfcontrollib:FExpander  Header="Button"/>
+                                        </StackPanel>
+                                    </wpfcontrollib:FExpander>
+                                    <wpfcontrollib:FExpander  Header="Button" />
+                                    <wpfcontrollib:FExpander Header="Button" />
+                                </StackPanel>
+                            </wpfcontrollib:FExpander>
+                        </Grid>
 
-            <Grid>
-                <wpfcontrollib:FExpander Header="嵌套其他控件" IsExpanded="True" IconFont="&#xe664;">
-                    <StackPanel>
-                        <wpfcontrollib:FButton Content="FBtutton" Style="{StaticResource FButton_LinkButton}"/>
-                        <wpfcontrollib:FCheckBox Content="FCheckBox"/>
-                        <RadioButton Content="RadioButton"/>
-                        <TextBlock Text="RadioButton"/>
+                        <Grid>
+                            <wpfcontrollib:FExpander Header="嵌套其他控件" IsExpanded="True" IconFont="&#xe664;">
+                                <StackPanel>
+                                    <wpfcontrollib:FButton Content="FBtutton" Style="{StaticResource FButton_LinkButton}"/>
+                                    <wpfcontrollib:FCheckBox Content="FCheckBox"/>
+                                    <RadioButton Content="RadioButton"/>
+                                    <TextBlock Text="RadioButton"/>
+                                </StackPanel>
+                            </wpfcontrollib:FExpander>
+                        </Grid>
                     </StackPanel>
-                </wpfcontrollib:FExpander>
-            </Grid>
-        </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="导航样式二">
+                <ScrollViewer>
+                    <StackPanel>
+
+
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </wpfcontrollib:AnimatedTabControl >
+        
+     
     </Grid>
 </Page>

@@ -18,6 +18,9 @@
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroTabControl.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FExpander.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroTextBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/SwitchToggleButton.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroProgressBar.xaml"/>
+
 
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MultiComboBox.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
@@ -36,7 +39,8 @@
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/UserControlTheme.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/PageTheme.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/GridTheme.xaml"/>
-
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/GroupBoxTheme.xaml"/>
+        
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 

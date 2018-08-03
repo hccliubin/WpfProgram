@@ -7,7 +7,7 @@
         <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/Theme/LightThemeResource.xaml"/>-->
 
         <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/CommonColor.xaml"/>-->
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/Size.xaml"/>
+        <!--<ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/Size.xaml"/>-->
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/StoryBoardResource.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Color/ConvertResource.xaml"/>
     </ResourceDictionary.MergedDictionaries>

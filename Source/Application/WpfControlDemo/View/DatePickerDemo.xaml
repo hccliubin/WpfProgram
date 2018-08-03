@@ -10,24 +10,36 @@
       mc:Ignorable="d"  Background="{StaticResource S_GrayLight}"
       Title="DatePickerDemo">
     <Grid>
-        <ScrollViewer>
-        <StackPanel>
-            <DatePicker Margin="3"/>
-            <DatePicker Margin="3" SelectedDate="{x:Static system:DateTime.Today}"/>
-            <DatePicker Margin="3" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Today}"/>
 
-            <DatePicker Margin="3" Style="{StaticResource LabelClearButtonDatePicker}" base:ControlAttachProperty.Label="出生日期"/>
-            <DatePicker Margin="3" Style="{StaticResource LabelDatePicker}" base:ControlAttachProperty.Label="死亡日期" SelectedDate="{x:Static system:DateTime.Today}"/>
-            <DatePicker Margin="3" Style="{StaticResource LabelDatePicker}" base:ControlAttachProperty.Label="非法日期" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Today}"/>
+        <controls:AnimatedTabControl >
+            <TabItem Header="选择日期">
+                <ScrollViewer>
+                    <StackPanel>
+                        <DatePicker Margin="3"/>
+                        <DatePicker Margin="3" SelectedDate="{x:Static system:DateTime.Today}"/>
+                        <DatePicker Margin="3" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Today}"/>
 
-            <DatePicker Margin="3" Style="{StaticResource ClearButtonDatePicker}"/>
-            <DatePicker Margin="3" SelectedDate="{x:Static system:DateTime.Today}"/>
-            <DatePicker Margin="3" Style="{StaticResource ClearButtonDatePicker}" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Today}"/>
+                        <DatePicker Margin="3" Style="{StaticResource LabelClearButtonDatePicker}" base:ControlAttachProperty.Label="出生日期"/>
+                        <DatePicker Margin="3" Style="{StaticResource LabelDatePicker}" base:ControlAttachProperty.Label="死亡日期" SelectedDate="{x:Static system:DateTime.Today}"/>
+                        <DatePicker Margin="3" Style="{StaticResource LabelDatePicker}" base:ControlAttachProperty.Label="非法日期" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Today}"/>
+
+                        <DatePicker Margin="3" Style="{StaticResource ClearButtonDatePicker}"/>
+                        <DatePicker Margin="3" SelectedDate="{x:Static system:DateTime.Today}"/>
+                        <DatePicker Margin="3" Style="{StaticResource ClearButtonDatePicker}" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Today}"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="日历面板">
+                <ScrollViewer>
+                    <StackPanel>
 
 
-            <Calendar Margin="3" Style="{StaticResource DefaultCalendar}"></Calendar>
-            <Calendar Margin="3" Style="{StaticResource DefaultCalendar}" IsEnabled="False"></Calendar>
-        </StackPanel>
-        </ScrollViewer>
+                        <Calendar Margin="3" Style="{StaticResource DefaultCalendar}"></Calendar>
+                        <Calendar Margin="3" Style="{StaticResource DefaultCalendar}" IsEnabled="False"></Calendar>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </controls:AnimatedTabControl >
     </Grid>
 </Page>

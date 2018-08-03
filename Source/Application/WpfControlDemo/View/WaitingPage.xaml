@@ -10,47 +10,75 @@
       Title="WaitingPage" Background="{StaticResource S_GrayLight}" >
 
     <Grid>
-        <ScrollViewer>
-            <StackPanel>
-                <controls:FCheckBox VerticalAlignment="Center" x:Name="cbActive" Margin="5" IsChecked="True">IsActive</controls:FCheckBox>
-                <controls:RingBox Width="80" Height="80" Margin="5"  IsActive="{Binding IsChecked ,ElementName=cbActive}" />
-                <controls:FCheckBox VerticalAlignment="Center" x:Name="cbActive2" IsChecked="True" Margin="5">IsActive</controls:FCheckBox>
-                <controls:WaitingBox Width="80" Height="80" Foreground="White" Background="Red"  Margin="5"  IsBusy="{Binding IsChecked ,ElementName=cbActive2}" />
-                <controls:WaitingBox Width="30" Height="30" Foreground="White" Background="Red"  Margin="5"  IsBusy="{Binding IsChecked ,ElementName=cbActive2}" />
+        <controls:AnimatedTabControl >
+            <TabItem Header="等待控件">
+                <ScrollViewer>
+                    <StackPanel>
 
-                <controls:ProgressBarControl  CanvasSize="100" EllipseCount="15" EllipseSize="10" StepAngle="10" TimeSpan="50"></controls:ProgressBarControl>
+                        <controls:FCheckBox VerticalAlignment="Center" x:Name="cbActive" Margin="5" IsChecked="True">IsActive</controls:FCheckBox>
+                        <controls:RingBox Width="80" Height="80" Margin="5"  IsActive="{Binding IsChecked ,ElementName=cbActive}" />
+                        <controls:FCheckBox VerticalAlignment="Center" x:Name="cbActive2" IsChecked="True" Margin="5">IsActive</controls:FCheckBox>
+                        <controls:WaitingBox Width="80" Height="80" Foreground="White" Background="Red"  Margin="5"  IsBusy="{Binding IsChecked ,ElementName=cbActive2}" />
+                        <controls:WaitingBox Width="30" Height="30" Foreground="White" Background="Red"  Margin="5"  IsBusy="{Binding IsChecked ,ElementName=cbActive2}" />
 
+                        <controls:ProgressBarControl  CanvasSize="100" EllipseCount="15" EllipseSize="10" StepAngle="10" TimeSpan="50"></controls:ProgressBarControl>
 
-                <ProgressBar Margin="5" Orientation="Vertical" Width="12" Height="auto" Value="{Binding Percent,Mode=OneWay}" 
+                        <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Style="{StaticResource SimpleProgressBar}" x:Name="pro4"></ProgressBar>
+                        <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Height="15" x:Name="pro5" Background="LightSteelBlue" Foreground="OrangeRed" Style="{StaticResource SimpleProgressBar}"></ProgressBar>
+                        <TextBlock x:Name="proValue"  Text="{Binding Percent,Mode=OneWay,StringFormat={}{0:p1}}" HorizontalAlignment="Center"></TextBlock>
+                        <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Height="20" Style="{StaticResource BaseProgressBar}" IsIndeterminate="True"></ProgressBar>
+  
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="圆形控件">
+                <ScrollViewer>
+                    <StackPanel>
+
+                        <ProgressBar Margin="5" Orientation="Vertical" Width="12" Height="auto" Value="{Binding Percent,Mode=OneWay}" 
                                  Style="{StaticResource SimpleProgressBar}" x:Name="pro6"></ProgressBar>
-                <ProgressBar Style="{StaticResource LoopProcessBar}" Value="{Binding Percent,Mode=OneWay}"  x:Name="pro1" ></ProgressBar>
+                        <ProgressBar Style="{StaticResource LoopProcessBar}" Value="{Binding Percent,Mode=OneWay}"  x:Name="pro1" ></ProgressBar>
 
-                <Grid Width="200" Height="200">
-                    <ProgressBar Style="{StaticResource LoopProcessBar}" Value="{Binding Percent,Mode=OneWay}" 
+                        <Grid Width="200" Height="200">
+                            <ProgressBar Style="{StaticResource LoopProcessBar}" Value="{Binding Percent,Mode=OneWay}" 
                                      x:Name="pro2" Margin="0" Width="200" Height="200" BorderThickness="20" 
                                      BorderBrush="#EF436F"/>
-                    <TextBlock FontSize="30" Text="{Binding Value,Mode=OneWay,ElementName=pro2,StringFormat={}{0:p1}}" 
+                            <TextBlock FontSize="30" Text="{Binding Value,Mode=OneWay,ElementName=pro2,StringFormat={}{0:p1}}" 
                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Grid>
+                        </Grid>
 
-                <ProgressBar Style="{StaticResource LoopProcessBar}" x:Name="pro3" Value="{Binding Percent,Mode=OneWay}" 
+                        <ProgressBar Style="{StaticResource LoopProcessBar}" x:Name="pro3" Value="{Binding Percent,Mode=OneWay}" 
                                  Width="100" Height="100" BorderThickness="10" BorderBrush="#EFBF0E"></ProgressBar>
 
-                <controls:FButton x:Name="btn_success" Content="成功" Margin="3" Click="btn_success_Click" />
-                <controls:FButton x:Name="btn_faled" Content="失败" Margin="3" Click="btn_faled_Click"/>
-                <controls:FButton x:Name="btn_repeat" Content="重置" Margin="3" Click="btn_repeat_Click"/>
-                <controls:FButton x:Name="btn_showwindow" Content="弹窗" Margin="3" Click="btn_showwindow_Click"/>
+                        <controls:FButton x:Name="btn_success" Content="成功" Margin="3" Click="btn_success_Click" />
+                        <controls:FButton x:Name="btn_faled" Content="失败" Margin="3" Click="btn_faled_Click"/>
+                        <controls:FButton x:Name="btn_repeat" Content="重置" Margin="3" Click="btn_repeat_Click"/>
+                        <controls:FButton x:Name="btn_showwindow" Content="弹窗" Margin="3" Click="btn_showwindow_Click"/>
 
 
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
 
-                <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Style="{StaticResource SimpleProgressBar}" x:Name="pro4"></ProgressBar>
-                <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Height="15" x:Name="pro5" Background="LightSteelBlue" Foreground="OrangeRed" Style="{StaticResource SimpleProgressBar}"></ProgressBar>
-                <TextBlock x:Name="proValue"  Text="{Binding Percent,Mode=OneWay,StringFormat={}{0:p1}}" HorizontalAlignment="Center"></TextBlock>
-                <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Height="20" Style="{StaticResource BaseProgressBar}" IsIndeterminate="True"></ProgressBar>
-
-
-            </StackPanel>
-        </ScrollViewer>
+            <TabItem Header="MetroProgressBar">
+                <ScrollViewer>
+                    <StackPanel>
+                        <GroupBox Header="进度条">
+                            <Grid>
+                                <StackPanel Background="#00000000">
+                                    <controls:MetroProgressBar Margin="5" Value="15" ProgressBarHeight="30" CornerRadius="0" ProgressBarState="None" IsEnabled="False" />
+                                    <controls:MetroProgressBar x:Name="pb1" Title="MetroProgressBar 调整" Margin="5" Value="20" ProgressBarHeight="20" CornerRadius="0" ProgressBarState="None" TextHorizontalAlignment="Center" />
+                                    <controls:MetroProgressBar x:Name="pb2" Title="MetroProgressBar 正常" Margin="5" Value="0" TextHorizontalAlignment="Right" Maximum="50" />
+                                    <controls:MetroProgressBar Title="MetroProgressBar 错误" Margin="5" Value="40" ProgressBarState="Error" />
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </controls:AnimatedTabControl>
+     
 
     </Grid>
 </Page>

@@ -20,64 +20,77 @@
     </Page.Resources>
 
     <Grid>
-        <StackPanel>
 
-            <Grid x:Name="ContentGrid" Grid.Row="1" Height="300" RenderTransformOrigin="0.5,0.5">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
+        <wpfcontrollib:MetroTabControl IconMode="True">
+            <wpfcontrollib:MetroTabItem Header="第一种分页样式" Icon="&#xe921;">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid x:Name="ContentGrid" Grid.Row="1" Height="300" RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
 
-                <wpfcontrollib:AnimatedTabControl VerticalAlignment="Stretch" 
-                    ItemContainerStyle="{StaticResource ShellTabItemStyle}"  >
-                    <TabItem Header="设备配置">
-                        <Button Content="第一页"  Background="Yellow"/>
-                    </TabItem>
+                            <wpfcontrollib:AnimatedTabControl >
+                                <TabItem Header="设备配置">
+                                    <TextBlock Text="第一页"  Background="Yellow" TextAlignment="Center" />
+                                </TabItem>
 
-                    <TabItem Header="基本设置">
-                        <Button Content="第二页" Background="Blue"/>
-                    </TabItem>
+                                <TabItem Header="基本设置">
+                                    <Button Content="第二页" Background="Blue"/>
+                                </TabItem>
 
-                    <TabItem Header="操作设置">
-                        <Button Content="第三页" Background="Green"/>
-                    </TabItem>
-                </wpfcontrollib:AnimatedTabControl>
-            </Grid>
-
-            <Grid>
-                <wpfcontrollib:MetroTabControl x:Name="tab" IconMode="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <wpfcontrollib:MetroTabItem Header="第一頁" Icon="&#xe616;">
-                            <Grid Background="Red">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition MinWidth="160" Width="Auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
+                                <TabItem Header="操作设置">
+                                    <Button Content="第三页" Background="Green"/>
+                                </TabItem>
+                            </wpfcontrollib:AnimatedTabControl>
                         </Grid>
-                        </wpfcontrollib:MetroTabItem>
-                    <wpfcontrollib:MetroTabItem Header="第二頁" Icon="&#xe616;">
-                            <Grid Background="Yellow">
-                            </Grid>
-                        </wpfcontrollib:MetroTabItem>
-                    <wpfcontrollib:MetroTabItem Header="第三頁" Icon="&#xe616;">
-                            <Grid Background="Green">
-                            </Grid>
-                        </wpfcontrollib:MetroTabItem>
-                    <wpfcontrollib:MetroTabItem Header="第四頁" Icon="&#xe616;">
-                            <Grid Background="Blue">
-                            </Grid>
-                        </wpfcontrollib:MetroTabItem>
-                    <wpfcontrollib:MetroTabItem Header="第五頁" Icon="&#xe616;" Height="40" VerticalAlignment="Top">
+                       
+                    </StackPanel>
+                </ScrollViewer>
+            </wpfcontrollib:MetroTabItem>
+            <wpfcontrollib:MetroTabItem Header="第二种分页样式" Icon="&#xe921;">
+                <ScrollViewer>
+                    <StackPanel>
                         <Grid>
+                            <wpfcontrollib:MetroTabControl x:Name="tab" IconMode="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                <wpfcontrollib:MetroTabItem Header="第一頁" Icon="&#xe616;">
+                                    <Grid Background="Red">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition MinWidth="160" Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                </wpfcontrollib:MetroTabItem>
+                                <wpfcontrollib:MetroTabItem Header="第二頁" Icon="&#xe616;">
+                                    <Grid Background="Yellow">
+                                    </Grid>
+                                </wpfcontrollib:MetroTabItem>
+                                <wpfcontrollib:MetroTabItem Header="第三頁" Icon="&#xe616;">
+                                    <Grid Background="Green">
+                                    </Grid>
+                                </wpfcontrollib:MetroTabItem>
+                                <wpfcontrollib:MetroTabItem Header="第四頁" Icon="&#xe616;">
+                                    <Grid Background="Blue">
+                                    </Grid>
+                                </wpfcontrollib:MetroTabItem>
+                                <wpfcontrollib:MetroTabItem Header="第五頁" Icon="&#xe616;" Height="40" VerticalAlignment="Top">
+                                    <Grid>
 
+                                    </Grid>
+                                </wpfcontrollib:MetroTabItem>
+                            </wpfcontrollib:MetroTabControl>
                         </Grid>
-                    </wpfcontrollib:MetroTabItem>
-                </wpfcontrollib:MetroTabControl>
-            </Grid>
-        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </wpfcontrollib:MetroTabItem>
+        </wpfcontrollib:MetroTabControl >
+        
+    
         <!--ItemContainerStyle="{StaticResource ShellTabItemStyle}"SelectedIndex="0"-->
         <!--Background="{StaticResource headerBarBG}"-->
     </Grid>

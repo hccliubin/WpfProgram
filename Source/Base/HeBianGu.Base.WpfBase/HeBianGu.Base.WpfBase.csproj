@@ -103,10 +103,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Color\Size.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Color\StoryBoardResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

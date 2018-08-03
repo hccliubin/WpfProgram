@@ -70,6 +70,12 @@
     <Compile Include="Controls\FExpander.xaml.cs">
       <DependentUpon>FExpander.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MetroProgressBar.xaml.cs">
+      <DependentUpon>MetroProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SwitchToggleButton.xaml.cs">
+      <DependentUpon>SwitchToggleButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MetroTextBox.xaml.cs">
       <DependentUpon>MetroTextBox.xaml</DependentUpon>
     </Compile>
@@ -173,6 +179,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\FExpander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MetroProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SwitchToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -288,6 +302,10 @@
     <Page Include="Style\FIcon.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Style\GroupBoxTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\GridTheme.xaml">
       <SubType>Designer</SubType>

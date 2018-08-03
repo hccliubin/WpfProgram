@@ -11,8 +11,9 @@
     
     <!--主深灰色色调-->
     <SolidColorBrush x:Key="S_GrayNotice" Color="#BFBFBF"></SolidColorBrush>
-    <SolidColorBrush x:Key="S_GrayNoticeOpacity" Color="#BFBFBF"  Opacity="0.5"></SolidColorBrush>
-    
+    <SolidColorBrush x:Key="S_GrayNoticeOpacity" Color="#BFBFBF"  Opacity="0.5"/>
+
+
     <!--背景透明窗体色调-->
     <SolidColorBrush x:Key="S_OpacityGray" Opacity="0.2" Color="{DynamicResource AccentColor}"/>
 

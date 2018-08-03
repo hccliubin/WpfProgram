@@ -19,20 +19,6 @@ namespace HeBianGu.General.WpfControlLib
 {
     public class MetroTextBox : TextBox
     {
-        //public static readonly DependencyProperty TitleProperty = ElementBase.Property<MetroTextBox, string>(nameof(TitleProperty), "");
-        //public static readonly DependencyProperty TitleMinWidthProperty = ElementBase.Property<MetroTextBox, double>(nameof(TitleMinWidthProperty));
-        //public static readonly DependencyProperty TitleForegroundProperty = ElementBase.Property<MetroTextBox, Brush>(nameof(TitleForegroundProperty));
-        //public static readonly DependencyProperty MouseMoveBackgroundProperty = ElementBase.Property<MetroTextBox, Brush>(nameof(MouseMoveBackgroundProperty));
-        //public static readonly DependencyProperty InputHintProperty = ElementBase.Property<MetroTextBox, string>(nameof(InputHintProperty), "");
-        //public static readonly DependencyProperty PopupHintProperty = ElementBase.Property<MetroTextBox, string>(nameof(PopupHintProperty), "");
-        //public static readonly DependencyProperty ButtonTitleProperty = ElementBase.Property<MetroTextBox, string>(nameof(ButtonTitleProperty), "");
-        //public static readonly DependencyProperty IconProperty = ElementBase.Property<MetroTextBox, ImageSource>(nameof(IconProperty), null);
-        //public static readonly DependencyProperty StateProperty = ElementBase.Property<MetroTextBox, string>(nameof(StateProperty), "");
-        //public static readonly DependencyProperty MultipleLineProperty = ElementBase.Property<MetroTextBox, bool>(nameof(MultipleLineProperty), false);
-        //public static readonly DependencyProperty IsPassWordBoxProperty = ElementBase.Property<MetroTextBox, bool>(nameof(IsPassWordBoxProperty), false);
-        //public static readonly DependencyProperty CornerRadiusProperty = ElementBase.Property<MetroTextBox, CornerRadius>(nameof(CornerRadiusProperty));
-
-
         public CornerRadius CornerRadius
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }

@@ -23,59 +23,62 @@
         </collections:ArrayList>
     </Page.Resources>
     <Grid>
-        <ScrollViewer>
 
-            <StackPanel>
-                <StackPanel>
-                    <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Watermark="我收水3333333333333333333333印" />
-                    <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Watermark="我收水3333333333333333333333印" />
-                    <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" SelectedIndex="3" />
+        <controls:AnimatedTabControl >
+            <TabItem Header="下拉选择菜单">
+                <ScrollViewer>
+                    <StackPanel>
+                        <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Watermark="我收水3333333333333333333333印" />
+                        <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Watermark="我收水3333333333333333333333印" />
+                        <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" SelectedIndex="3" />
 
 
-                    <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       Style="{DynamicResource LabelComboBox}"  base:ControlAttachProperty.Watermark="水印" />
-                    <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       Style="{DynamicResource LabelComboBox}" base:ControlAttachProperty.Watermark="我收水3333333333333333333333印" />
-                    <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       Style="{DynamicResource LabelComboBox}" SelectedIndex="3" />
 
 
-                    <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       Style="{StaticResource LabelClearButtonComboBox}"  base:ControlAttachProperty.Watermark="水印" />
-                    <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       Style="{StaticResource LabelClearButtonComboBox}" base:ControlAttachProperty.Watermark="我收水3333333333333333333333印" />
-                    <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       Style="{StaticResource LabelClearButtonComboBox}" SelectedIndex="3" />
 
-                    <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别"
+                        <ComboBox Margin="5" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别"
                       Style="{StaticResource ClearButtonComboBox}"  base:ControlAttachProperty.Watermark="水印" />
-                    <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" IsEditable="True" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       IsReadOnly="True" SelectedIndex="2"
                       Style="{StaticResource ClearButtonComboBox}" base:ControlAttachProperty.Watermark="IsReadOnly3333333333333333333333印" />
-                    <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
+                        <ComboBox Margin="5" IsEnabled="False" ItemsSource="{StaticResource items}" base:ControlAttachProperty.Label="选择性别" 
                       Style="{StaticResource ClearButtonComboBox}" SelectedIndex="3" />
-                </StackPanel>
-
-                <StackPanel Height="300" Orientation="Vertical">
-                    
-                    <!--<controls:MultiComboBox x:Name="mcom"  Width="320" Margin="3" IsEditable="False" ItemsSource="{StaticResource items}"/>-->
-                    
-                    <controls:FButton ></controls:FButton>
-                    <controls:MultiComboBox Width="420" Margin="3" IsEditable="True" ItemsSource="{StaticResource items}" 
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="下拉勾选菜单">
+                <ScrollViewer>
+                    <StackPanel>
+                        <StackPanel Height="300" Orientation="Vertical">
+                            <controls:MultiComboBox Width="420" Margin="3" IsEditable="True" ItemsSource="{StaticResource items}" 
                    base:ControlAttachProperty.Label="分类:" base:ControlAttachProperty.Watermark="...哈哈" Style="{StaticResource ClearButtonMultiComboBox}"/>
-                    <controls:MultiComboBox Width="420" Margin="3" IsEditable="True" ItemsSource="{StaticResource items}"
+                            <controls:MultiComboBox Width="420" Margin="3" IsEditable="True" ItemsSource="{StaticResource items}"
                    base:ControlAttachProperty.Label="分类:" base:ControlAttachProperty.Watermark="...哈哈" Style="{StaticResource LabelMultiComboBox}"/>
-                    <controls:MultiComboBox Width="420" Margin="3" IsEditable="False" ItemsSource="{StaticResource items}"
+                            <controls:MultiComboBox Width="420" Margin="3" IsEditable="False" ItemsSource="{StaticResource items}"
                    base:ControlAttachProperty.Label="分类:" base:ControlAttachProperty.Watermark="...哈哈" Style="{StaticResource LabelClearButtonMultiComboBox}"/>
 
-                    <controls:MultiComboBox Width="420" Margin="3" IsEditable="True" ItemsSource="{StaticResource items}" IsReadOnly="True" SelectedIndex="3"
+                            <controls:MultiComboBox Width="420" Margin="3" IsEditable="True" ItemsSource="{StaticResource items}" IsReadOnly="True" SelectedIndex="3"
                    base:ControlAttachProperty.Label="分类:" base:ControlAttachProperty.Watermark="...哈哈" Style="{StaticResource LabelClearButtonMultiComboBox}"/>
 
-                    <controls:MultiComboBox Width="420" Margin="3" IsEditable="False" ItemsSource="{StaticResource items}" IsEnabled="False"
+                            <controls:MultiComboBox Width="420" Margin="3" IsEditable="False" ItemsSource="{StaticResource items}" IsEnabled="False"
                    base:ControlAttachProperty.Label="分类:" base:ControlAttachProperty.Watermark="...哈哈" Style="{StaticResource LabelClearButtonMultiComboBox}"/>
-                </StackPanel>
+                        </StackPanel>
 
-            </StackPanel>
-        </ScrollViewer>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </controls:AnimatedTabControl >
     </Grid>
 </Page>

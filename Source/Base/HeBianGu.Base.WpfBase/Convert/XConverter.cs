@@ -67,6 +67,14 @@ namespace HeBianGu.Base.WpfBase
             get { return new VisibilityEmptyConverter(); }
         }
 
+        public static CornerRadiusToDouble CornerRadiusToDouble
+        {
+            get { return new CornerRadiusToDouble(); }
+        }
+
+
+
+        
         //public static SelectTextConverter SelectTextConverter
         //{
         //    get { return Singleton<SelectTextConverter>.GetInstance(); }
