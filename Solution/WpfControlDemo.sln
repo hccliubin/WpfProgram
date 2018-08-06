@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowStartToolApp", "..\So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowToolModule", "..\Source\Modules\WindowToolModule\WindowToolModule.csproj", "{C3F4121E-F4A3-4965-A354-32E29A818032}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAutoGenerationTool", "..\Source\Application\CodeAutoGenerationTool\CodeAutoGenerationTool.csproj", "{B8218CB1-C782-489A-863F-A2F27A0EE380}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{C3F4121E-F4A3-4965-A354-32E29A818032}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3F4121E-F4A3-4965-A354-32E29A818032}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3F4121E-F4A3-4965-A354-32E29A818032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8218CB1-C782-489A-863F-A2F27A0EE380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8218CB1-C782-489A-863F-A2F27A0EE380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8218CB1-C782-489A-863F-A2F27A0EE380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8218CB1-C782-489A-863F-A2F27A0EE380}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,5 +125,6 @@ Global
 		{0A13EDEB-44B8-44DB-BBD6-2072C6DCF21D} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
 		{4AF49361-1128-4356-BF68-A5F4AF6C8228} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
 		{DD86601F-8681-46A6-BC35-693B3767314A} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
+		{B8218CB1-C782-489A-863F-A2F27A0EE380} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
 	EndGlobalSection
 EndGlobal

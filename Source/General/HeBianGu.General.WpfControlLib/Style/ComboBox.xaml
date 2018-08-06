@@ -48,7 +48,7 @@
 
 
     <Style TargetType="{x:Type ComboBox}" x:Key="DefaultComboBox">
-        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Height" Value="30" />
         <Setter Property="MinWidth" Value="200" />
         <Setter Property="Foreground" Value="{DynamicResource  S_BlackNotice}" />
         <Setter Property="Background" Value="{DynamicResource  S_WhiteNotice}" />
@@ -217,6 +217,7 @@
 
     <!--ComboBox包含附加属性Label的样式 LabelComboBox -->
     <Style TargetType="{x:Type ComboBox}" x:Key="LabelComboBox" BasedOn="{StaticResource DefaultComboBox}">
+        
         <Setter Property="Width" Value="260"></Setter>
         <Setter Property="base:ControlAttachProperty.LabelTemplate" >
             <Setter.Value>

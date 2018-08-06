@@ -7,8 +7,8 @@
          Style="{StaticResource ResourceKey=DefaultWindowStyle}"
         xmlns:local="clr-namespace:CodeSegmentMonitorApp"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-                          xmlns:controls="clr-namespace:HeBianGu.General.WpfControlLib.Controls;assembly=HeBianGu.General.WpfControlLib"
-                          mc:Ignorable="d" 
+        xmlns:controls="clr-namespace:HeBianGu.General.WpfControlLib.Controls;assembly=HeBianGu.General.WpfControlLib"
+        mc:Ignorable="d" 
         Title="代码段管理工具" Height="700" Width="1000">
     <Window.Resources>
 

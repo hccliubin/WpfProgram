@@ -1,0 +1,15 @@
+﻿<wpfcontrollib:WindowBase x:Class="CodeAutoGenerationTool.MainWindow"
+        xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeAutoGenerationTool"
+                          xmlns:view="clr-namespace:CodeAutoGenerationTool.View"
+                          mc:Ignorable="d"
+        Style="{StaticResource ResourceKey=DefaultWindowStyle}"
+        Title="MainWindow" Height="800" Width="1000">
+    <Grid>
+        <view:Control_CodeAutoGeneration Background="{DynamicResource S_GrayLightOpacity}"/>
+    </Grid>
+</wpfcontrollib:WindowBase>

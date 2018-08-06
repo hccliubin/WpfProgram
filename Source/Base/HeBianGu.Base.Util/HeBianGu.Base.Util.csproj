@@ -53,7 +53,9 @@
     <Compile Include="ObjectExtend.cs" />
     <Compile Include="ConvertExtention.cs" />
     <Compile Include="KeyHelper.cs" />
+    <Compile Include="ReflectExtend.cs" />
     <Compile Include="RegexExtend.cs" />
+    <Compile Include="TypeHelper.cs" />
     <Compile Include="WinAPIServer.cs" />
     <Compile Include="DirectoryHelper.cs" />
     <Compile Include="EnumHelper.cs" />
