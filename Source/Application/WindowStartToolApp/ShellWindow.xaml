@@ -6,7 +6,7 @@
        xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WindowStartToolApp"
-       xmlns:prism="http://www.codeplex.com/prism"                    
+       xmlns:prism="http://www.codeplex.com/prism"               
     Style="{StaticResource ResourceKey=DefaultWindowStyle}" Topmost="True"
     Height="800" Width="350"
     mc:Ignorable="d" >

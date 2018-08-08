@@ -49,33 +49,17 @@ namespace CodeAutoGenerationTool.ViewModel
         }
 
 
-
-        private ObservableCollection<TupleExtend<bool, Type>> _classCollection = new ObservableCollection<TupleExtend<bool, Type>>();
+        private ObservableCollection<TypeNodeClass> _collection = new ObservableCollection<TypeNodeClass>();
         /// <summary> 说明  </summary>
-        public ObservableCollection<TupleExtend<bool, Type>> ClassCollection
+        public ObservableCollection<TypeNodeClass> Collection
         {
-            get { return _classCollection; }
+            get { return _collection; }
             set
             {
-                _classCollection = value;
-                RaisePropertyChanged("ClassCollection");
+                _collection = value;
+                RaisePropertyChanged("Collection");
             }
         }
-
-
-
-        private ObservableCollection<TupleExtend<bool, PropertyInfo>> _propertycollection = new ObservableCollection<TupleExtend<bool, PropertyInfo>>();
-        /// <summary> 说明  </summary>
-        public ObservableCollection<TupleExtend<bool, PropertyInfo>> PropertyCollection
-        {
-            get { return _propertycollection; }
-            set
-            {
-                _propertycollection = value;
-                RaisePropertyChanged("PropertyCollection");
-            }
-        }
-
 
 
         public void RelayMethod(object obj)
@@ -91,15 +75,8 @@ namespace CodeAutoGenerationTool.ViewModel
                 this.RefreshValue();
             }
             //  Do：取消
-            else if (command == "ClassSelectionChanged")
-            {
-
-                this.RefreshProperty();
-            }
-            //  Do：取消
             else if (command == "Generation")
             {
-
                 this.Generation();
             }
             else if (command == "Init")
@@ -141,90 +118,223 @@ namespace CodeAutoGenerationTool.ViewModel
                 RaisePropertyChanged("ITemplateCommandCollection");
             }
         }
-
-
-
-        public void Generation()
+        
+        void Generation()
         {
-            var s = System.Convert.ToString(18, 2).PadLeft(6, '0');
+            Stopwatch watch = new Stopwatch();
 
+            watch.Start();
+
+            //  Do：查找类
+            var collection = this.Collection.ToList().FindAll(l => l.IsChecked);
 
             StringBuilder sb = new StringBuilder();
 
+            var selectionPropertis = this.GetAllCheckProperties().ToList();
 
-            Func<string, string, string> fun = (l, k) =>
+            foreach (var item in collection)
             {
+                string result = this.TypeToTemplate((item.Value as Type),selectionPropertis);
 
-                string ss = @"    string _" + l.ToLower() + @";
-            /// <summary> " + k + @" </summary>
-            public string " + l + @"
-            {
-                get
-                {
-                    return _" + l.ToLower() + @";
-                }
-                set
-                {
-                    _" + l.ToLower() + @" = value;
-
-                    RaisePropertyChanged();
-                }
-            }";
-
-                return ss;
-            };
-
-            XmlTools.Load(PdbPath);
-
-
-            var v = XmlTools.GetNodes("member");
-
-            foreach (var item in v)
-            {
-                Debug.WriteLine(item);
+                sb.AppendLine(result);
             }
 
-            string format = "P:{0}.{1}";
 
-            var ps = this.PropertyCollection.ToList().FindAll(l => l.Item1);
+            watch.Stop();
 
-            foreach (var item in ps)
+
+            Debug.WriteLine("更新数据用时："+watch.Elapsed.TotalSeconds);
+
+            watch.Restart();
+            this.WriteText(sb.ToString());
+
+            watch.Stop();
+
+            Debug.WriteLine("显示记事本用时：" + watch.Elapsed.TotalSeconds);
+
+        }
+
+        string TypeToTemplate(Type type,List<PropertyInfo> selectionPropertis)
+        {
+            StringBuilder sb = new StringBuilder();
+
+           
+
+            var proprotis = type.GetProperties().ToList();
+
+            //  Message：包含的子类里面属性全部加载
+            var exsits = proprotis.FindAll(l => selectionPropertis.Exists(k => k == l));
+
+            List<string> define = new List<string>();
+
+            sb.AppendLine("class " + this.ToViewModel(type.Name));
+
+            sb.AppendLine("{");
+
+            foreach (var e in exsits)
             {
+                if (e.PropertyType.IsPrimitive || e.PropertyType == typeof(string))
+                {
+                    //  Do：基础类型直接生成
+                    string result = this.PropertyToTemplate(e, e.Name, e.PropertyType.Name);
 
-                string pn = item.Item2.Name;
+                    sb.AppendLine(result);
 
-                if (item.Item2.ReflectedType.IsEnumerableType()) continue;
+                }
+                else if (e.PropertyType.IsEnumerableType())
+                {
+                    //  Do：集合类型生成集合
+                }
+                else
+                {
+                    //  Do：自定义类型递归生成
+                    string result = this.PropertyToTemplate(e, e.Name, this.ToViewModel(e.Name));
 
-                string d = "说明";
+                    sb.AppendLine(result);
 
-                string pName = string.Format(format, item.Item2.DeclaringType.FullName, pn);
+                    define.Add(this.TypeToTemplate(e.PropertyType, selectionPropertis));
+                }
+            }
 
-                var f = XmlTools.FindNode("member", l => l.Attributes.Find(k => k.Name == "name" && k.InnerText == pName) != null);
+            sb.AppendLine("}");
 
-                if (f != null)
-                    d = f.InnerText.Replace("\r\n", "").Trim();
+            foreach (var item in define)
+            {
+                sb.AppendLine(item);
+            }
 
-                Debug.WriteLine(fun.Invoke(pn.Substring(0, 1).ToUpper() + pn.Substring(1), d));
+            return sb.ToString();
 
-                sb.AppendLine(fun.Invoke(pn.Substring(0, 1).ToUpper() + pn.Substring(1), d));
+
+        }
+
+        /// <summary> 获取所有勾选属性 </summary>
+        List<PropertyInfo> GetAllCheckProperties()
+        {
+            List<PropertyInfo> results = new List<PropertyInfo>();
+
+           var collection=  this.Collection.ToList().FindAll(l=>l.IsChecked);
+
+ 
+            foreach (var item in collection)
+            {
+                Action<TypeNodeClass> ergodic = null;
+
+                ergodic = l =>
+                  {
+                      if (l.Children != null && l.Children.Count > 0)
+                      {
+                          foreach (var c in l.Children)
+                          {
+                              if (c.IsChecked)
+                              {
+                                  results.Add(c.Value as PropertyInfo);
+
+                                  ergodic(c);
+                              }
+
+                             
+                          }
+                      }
+                  };
+
+                ergodic(item);
+            }
+
+            return results;
+        }
+        string ToViewModel(string value)
+        {
+            return value.Substring(0, 1).ToUpper() + value.Substring(1) + "_ViewModel";
+        }
+
+        void OnlyChildGeneration()
+        {
+            //StringBuilder sb = new StringBuilder();
+
+            //var ps = this.Collection.ToList().FindAll(l => l.Item1);
+
+            //foreach (var item in ps)
+            //{
+            //    string pn = this.PropertyToTemplate(item.Item2, item.Item2.Name, item.Item2.Name);
+
+            //    sb.AppendLine(pn);
+            //}
+
+            //this.WriteText(sb.ToString());
+
+        }
+
+        void WriteText(params string[] text)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var item in text)
+            {
+                sb.AppendLine(item);
             }
 
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "GenerationText.txt");
 
+            this.Result = sb.ToString();
 
+            //File.WriteAllText(path, sb.ToString());
 
-            File.WriteAllText(path, sb.ToString());
+            //Process.Start(path);
+        }
 
-            Process.Start(path);
+        /// <summary> 属性生成模板 </summary>
+        string PropertyToTemplate(PropertyInfo property, string propertyName, string propertyTypeName)
+        {
+            var s = System.Convert.ToString(18, 2).PadLeft(6, '0');
 
+            StringBuilder sb = new StringBuilder();
+
+            Func<string, string, string> fun = (l, k) =>
+            {
+                //  Message：应用模板
+                return this.SelectITemplateCommand.Template(l, k, propertyTypeName);
+            };
+
+            string d = "说明";
+
+            if (File.Exists(this.PdbPath))
+            {
+                if (XmlTools.filePathStr != this.PdbPath)
+                {
+                    XmlTools.Load(PdbPath);
+                }
+
+                var v = XmlTools.GetNodes("member");
+
+                //foreach (var item in v)
+                //{
+                //    Debug.WriteLine(item);
+                //}
+
+                string format = "P:{0}.{1}";
+
+                string pName = string.Format(format, property.DeclaringType.FullName, propertyName);
+
+                var f = XmlTools.FindNode("member", l => l.Attributes.Find(k => k.Name == "name" && k.InnerText == pName) != null);
+
+                if (f != null) d = f.InnerText.Replace("\r\n", "").Trim();
+            }
+
+            if (property.ReflectedType.IsEnumerableType()) return null;
+
+            Debug.WriteLine(fun.Invoke(propertyName.Substring(0, 1).ToUpper() + propertyName.Substring(1), d));
+
+            sb.AppendLine(fun.Invoke(propertyName.Substring(0, 1).ToUpper() + propertyName.Substring(1), d));
+
+            return sb.ToString();
         }
 
         void RefreshValue()
         {
             if (this.DllPath == null) return;
 
-            this.ClassCollection.Clear();
-            this.PropertyCollection.Clear();
+            this.Collection.Clear();
 
             //  Message：刷新pdb路径
             string pdb = Path.Combine(Path.GetDirectoryName(this.DllPath), Path.GetFileNameWithoutExtension(this.DllPath) + ".XML");
@@ -240,45 +350,24 @@ namespace CodeAutoGenerationTool.ViewModel
 
             //  Message：获取所有类型
 
-            var ass = Assembly.LoadFile(this.DllPath);
+            var ass = Assembly.LoadFrom(this.DllPath);
 
-            this.ClassCollection.Clear();
+            var types = ass.GetTypes();
 
-            foreach (var item in ass.GetTypes())
+            foreach (var item in ass.GetTypes().OrderBy(l=>l.Name))
             {
-                TupleExtend<bool, Type> t = new TupleExtend<bool, Type>();
-                t.Item1 = false;
-                t.Item2 = item;
-                this.ClassCollection.Add(t);
+
+                if (item.MemberType == MemberTypes.NestedType) continue;
+
+                TypeNodeClass t = new TypeNodeClass();
+
+                t.Value = item;
+
+                this.Collection.Add(t);
             }
 
         }
 
-        void RefreshProperty()
-        {
-            var selection = this.ClassCollection.ToList().FindAll(l => l.Item1);
-
-            this.PropertyCollection.Clear();
-
-            foreach (var item in selection)
-            {
-
-                ObservableCollection<PropertyInfo> collection = new ObservableCollection<PropertyInfo>();
-
-                
-
-                foreach (var c in item.Item2.GetProperties())
-                {
-                    TupleExtend<bool, PropertyInfo> t = new TupleExtend<bool, PropertyInfo>();
-
-                    t.Item1 = true;
-                    t.Item2 = c;
-
-                    this.PropertyCollection.Add(t);
-                }
-
-            }
-        }
 
 
         private string _templateText;
@@ -290,6 +379,20 @@ namespace CodeAutoGenerationTool.ViewModel
             {
                 _templateText = value;
                 RaisePropertyChanged("TemplateText");
+            }
+        }
+
+
+
+        private string _result;
+        /// <summary> 说明  </summary>
+        public string Result
+        {
+            get { return _result; }
+            set
+            {
+                _result = value;
+                RaisePropertyChanged("Result");
             }
         }
 

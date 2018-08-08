@@ -47,11 +47,12 @@
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
+        <Setter Property="CaptionBackground" Value="{DynamicResource S_WindowOpacityAccent}" />
         <Setter Property="CaptionForeground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe62e;"/>
         <Setter Property="MaxboxEnable" Value="True"/>
         <Setter Property="MinboxEnable" Value="True"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
         <!--建议内边框=3：ResizeBorderThickness = new Thickness(3);-->
         <Setter Property="Padding" Value="3"/>
         <Setter Property="base:ControlAttachProperty.CornerRadius" Value="0"/>
@@ -65,12 +66,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WindowBase}">
-                    <Grid Margin="6">
+                    <Grid Margin="2">
                         <!--背景，边框-->
-                        <Border x:Name="Bg" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
-                            Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Effect="{StaticResource WindowDropShadow}"
-                            BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
-                        <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}"
+                        <Border x:Name="Bg" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" Effect="{StaticResource WindowDropShadow}"
+                            Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        </Border>
+                        <Border  x:Name="BgInner" CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}" 
                             Background="{DynamicResource S_AccentBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  />
 
@@ -211,7 +213,7 @@
     
     <!--默认WindowBase的样式-->
     <Style x:Key="DefaultWindowStyle" TargetType="{x:Type local:WindowBase}">
-        <Setter Property="Background" Value="{DynamicResource S_OpacityGray}"/>
+        <Setter Property="Background" Value="{DynamicResource S_WindowOpacityAccent}"/>
         <Setter Property="Foreground" Value="{DynamicResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
@@ -224,7 +226,7 @@
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
+        <Setter Property="CaptionBackground" Value="{DynamicResource S_WindowOpacityAccent}" />
         <Setter Property="CaptionForeground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe605;"/>
         <Setter Property="MaxboxEnable" Value="True"/>
@@ -339,7 +341,7 @@
 
     <!--默认WindowBase的样式-->
     <Style x:Key="MessageWindowStyle" TargetType="{x:Type local:WindowBase}">
-        <Setter Property="Background" Value="{StaticResource S_OpacityGray}"/>
+        <Setter Property="Background" Value="{StaticResource S_WindowOpacityAccent}"/>
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
@@ -352,7 +354,7 @@
         <Setter Property="CaptionHeight" Value="26"/>
         <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
         <!--标题栏背景色-->
-        <Setter Property="CaptionBackground" Value="{DynamicResource S_OpacityGray}" />
+        <Setter Property="CaptionBackground" Value="{DynamicResource S_WindowOpacityAccent}" />
         <Setter Property="CaptionForeground" Value="{DynamicResource  S_WhiteNotice}" />
         <Setter Property="FIcon" Value="&#xe605;"/>
         <Setter Property="MaxboxEnable" Value="True"/>

@@ -11,7 +11,7 @@ namespace HeBianGu.Base.Util
     {
         public static XmlDocument xmlDoc;
 
-        static string filePathStr;
+        public static string filePathStr;
         public static void Load(string filePath)
         {
             xmlDoc = new XmlDocument();

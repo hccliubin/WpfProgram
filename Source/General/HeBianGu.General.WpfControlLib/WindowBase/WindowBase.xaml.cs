@@ -1,10 +1,15 @@
 ﻿using HeBianGu.Base.WpfBase;
 using System;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
+using static HeBianGu.General.WpfControlLib.BlurWindowExtensions;
 
 namespace HeBianGu.General.WpfControlLib
 {
@@ -72,7 +77,7 @@ namespace HeBianGu.General.WpfControlLib
 
         public Brush CaptionBackground
         {
-            get {  return (Brush)GetValue(CaptionBackgroundProperty); }
+            get { return (Brush)GetValue(CaptionBackgroundProperty); }
             set { SetValue(CaptionBackgroundProperty, value); }
         }
 
@@ -181,7 +186,15 @@ namespace HeBianGu.General.WpfControlLib
             this.BindCommand(CloseWindowCommand, this.CloseCommand_Execute);
             this.BindCommand(MaximizeWindowCommand, this.MaxCommand_Execute);
             this.BindCommand(MinimizeWindowCommand, this.MinCommand_Execute);
-         
+
+            this.Loaded += WindowBase_Loaded;
+
+
+        }
+
+        private void WindowBase_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.EnableBlur();
         }
 
         private void CloseCommand_Execute(object sender, ExecutedRoutedEventArgs e)
@@ -190,7 +203,7 @@ namespace HeBianGu.General.WpfControlLib
         }
 
         /// <summary> 用于重写关闭到那个花 </summary>
-        public  virtual void BegionStoryClose()
+        public virtual void BegionStoryClose()
         {
             CloseStoryService.Instance.DownToUpOpsClose(this);
         }
@@ -211,6 +224,123 @@ namespace HeBianGu.General.WpfControlLib
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
+        }
+
+
+    }
+
+    internal static class BlurWindowExtensions
+    {
+        internal static class NativeMethods
+        {
+            [DllImport("user32.dll")]
+            internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttribData data);
+
+
+            [StructLayout(LayoutKind.Sequential)]
+            internal struct WindowCompositionAttribData
+            {
+                public WindowCompositionAttribute Attribute;
+                public IntPtr Data;
+                public int SizeOfData;
+            }
+
+
+            [StructLayout(LayoutKind.Sequential)]
+            internal struct AccentPolicy
+            {
+                public AccentState AccentState;
+                public AccentFlags AccentFlags;
+                public int GradientColor;
+                public int AnimationId;
+            }
+
+
+            [Flags]
+            internal enum AccentFlags
+            {
+                // ... 
+                DrawLeftBorder = 0x20,
+                DrawTopBorder = 0x40,
+                DrawRightBorder = 0x80,
+                DrawBottomBorder = 0x100,
+                DrawAllBorders = (DrawLeftBorder | DrawTopBorder | DrawRightBorder | DrawBottomBorder),
+                DrawNoBorder = 0
+                // ... 
+            }
+
+
+            internal enum WindowCompositionAttribute
+            {
+                // ... 
+                WCA_ACCENT_POLICY = 19
+                // ... 
+            }
+
+
+            internal enum AccentState
+            {
+                ACCENT_DISABLED = 0,
+                ACCENT_ENABLE_GRADIENT = 1,
+                ACCENT_ENABLE_TRANSPARENTGRADIENT = 2,
+                ACCENT_ENABLE_BLURBEHIND = 3,
+                ACCENT_INVALID_STATE = 4
+            }
+        }
+
+
+        public static void EnableBlur(this Window window)
+        {
+            if (SystemParameters.HighContrast)
+            {
+                return; // Blur is not useful in high contrast mode 
+            }
+
+            SetAccentPolicy(window, NativeMethods.AccentState.ACCENT_ENABLE_BLURBEHIND);
+        }
+
+
+        public static void DisableBlur(this Window window)
+        {
+            SetAccentPolicy(window, NativeMethods.AccentState.ACCENT_DISABLED);
+        }
+
+
+        private static void SetAccentPolicy(Window window, NativeMethods.AccentState accentState)
+        {
+            var windowHelper = new WindowInteropHelper(window);
+
+
+            var accent = new NativeMethods.AccentPolicy
+            {
+                AccentState = accentState,
+                AccentFlags = GetAccentFlagsForTaskbarPosition()
+            };
+
+
+            var accentStructSize = Marshal.SizeOf(accent);
+
+
+            var accentPtr = Marshal.AllocHGlobal(accentStructSize);
+            Marshal.StructureToPtr(accent, accentPtr, false);
+
+
+            var data = new NativeMethods.WindowCompositionAttribData
+            {
+                Attribute = NativeMethods.WindowCompositionAttribute.WCA_ACCENT_POLICY,
+                SizeOfData = accentStructSize,
+                Data = accentPtr
+            };
+
+            NativeMethods.SetWindowCompositionAttribute(windowHelper.Handle, ref data);
+
+            Marshal.FreeHGlobal(accentPtr);
+        }
+
+
+        private static NativeMethods.AccentFlags GetAccentFlagsForTaskbarPosition()
+        {
+            return NativeMethods.AccentFlags.DrawNoBorder;
         }
     }
 }

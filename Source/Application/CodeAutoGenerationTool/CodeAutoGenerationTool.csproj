@@ -65,15 +65,24 @@
     <Compile Include="1 - Provider\CopyPropertyToViewModelCommand.cs" />
     <Compile Include="1 - Provider\ITemplateCommand.cs" />
     <Compile Include="3 - Domain\CodeAutoGenerationDomain.cs" />
+    <Compile Include="4 - ViewModel\CodeModelMapperGeneration.cs" />
     <Compile Include="4 - ViewModel\TupleExtend.cs" />
     <Compile Include="4 - ViewModel\CodeAutoGenNotifyClass.cs" />
+    <Compile Include="4 - ViewModel\TypeNodeClass.cs" />
     <Compile Include="5 - View\Control_CodeAutoGeneration.xaml.cs">
       <DependentUpon>Control_CodeAutoGeneration.xaml</DependentUpon>
     </Compile>
+    <Page Include="5 - View\Control_CodeModelMapperGeneration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="5 - View\Control_CodeModelMapperGeneration.xaml.cs">
+      <DependentUpon>Control_CodeModelMapperGeneration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

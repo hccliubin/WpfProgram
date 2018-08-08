@@ -73,8 +73,14 @@ namespace HeBianGu.Base.WpfBase
         }
 
 
+        public static ComboBoxAutoSelectionConverter ComboBoxAutoSelectionConverter
+        {
+            get { return new ComboBoxAutoSelectionConverter(); }
+        }
+
 
         
+
         //public static SelectTextConverter SelectTextConverter
         //{
         //    get { return Singleton<SelectTextConverter>.GetInstance(); }

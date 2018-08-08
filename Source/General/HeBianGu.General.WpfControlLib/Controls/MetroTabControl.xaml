@@ -18,7 +18,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:MetroTabControl}">
-                    <Grid Background="#00000000" KeyboardNavigation.TabNavigation="Local">
+                    <Grid Background="{TemplateBinding Background}" KeyboardNavigation.TabNavigation="Local">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="column1" Width="Auto"/>
                             <ColumnDefinition x:Name="column2"/>
@@ -144,7 +144,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             
-                            <Rectangle Fill="#000000" Grid.RowSpan="2" Opacity="0.06"/>
+                            <Rectangle Fill="{TemplateBinding Background}" Grid.RowSpan="2" Opacity="0.06"/>
 
                             <Button Background="Transparent"  BorderThickness="0"  Command="local:MetroTabControl.IconModeClickCommand"/>
 
@@ -176,7 +176,7 @@
                                 </Canvas>
                             </ScrollViewer>
                         </Grid>
-                        <Border x:Name="contentPanel" Background="#f3f3f3" Grid.Column="1" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                        <Border x:Name="contentPanel" Background="{TemplateBinding Background}" Grid.Column="1" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
                             <ContentPresenter x:Name="content" ContentSource="SelectedContent"/>
                         </Border>
                     </Grid>

@@ -10,8 +10,8 @@ namespace CodeAutoGenerationTool.Provider
     interface ITemplateCommand
     {
 
-        string Name { get;}
+        string Name { get; }
 
-        string Template(string l,string k);
+        string Template(string l, string k, string type = "string");
     }
 }

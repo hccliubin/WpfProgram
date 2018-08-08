@@ -10,10 +10,6 @@ using System.Threading.Tasks;
 
 namespace CodeAutoGenerationTool.ViewModel
 {
-
-
-
-
     partial class TupleExtend<T, R>
     {
 
@@ -40,6 +36,15 @@ namespace CodeAutoGenerationTool.ViewModel
                 _item2 = value;
                 RaisePropertyChanged("Item2");
             }
+        }
+
+
+
+        private string _valueType;
+        /// <summary> 说明  </summary>
+        public string ValueType
+        {
+            get { return _item2.GetType().FullName; }
         }
 
 
@@ -83,6 +88,8 @@ namespace CodeAutoGenerationTool.ViewModel
 
         #endregion
     }
+
+
 
 
 }

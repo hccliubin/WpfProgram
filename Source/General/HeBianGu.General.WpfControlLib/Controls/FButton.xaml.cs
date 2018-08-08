@@ -56,7 +56,7 @@ namespace HeBianGu.General.WpfControlLib
         }
 
         public static readonly DependencyProperty FIconProperty =
-            DependencyProperty.Register("FIcon", typeof(string), typeof(FButton), new PropertyMetadata("\ue604"));
+            DependencyProperty.Register("FIcon", typeof(string), typeof(FButton), new PropertyMetadata("\xe607"));
         /// <summary> 按钮字体图标编码 </summary>
         public string FIcon
         {

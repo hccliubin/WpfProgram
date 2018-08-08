@@ -5,18 +5,27 @@
     <DropShadowEffect x:Key="WindowDropShadow" Color="{DynamicResource AccentColor}" 
                       BlurRadius="8" ShadowDepth="0" Direction="0" Opacity="0.7" />
 
+
+
+    <!--<DropShadowEffect x:Key="WindowDropShadow" BlurRadius="16"
+                          Color="#FFFFFF"
+                          Direction="0"
+                          ShadowDepth="1"
+                          RenderingBias="Quality"/>-->
+
+    <SolidColorBrush x:Key="S_WindowOpacityAccent" Opacity="0.15" Color="{DynamicResource AccentColor}"/>
+
     <!--主浅灰色色调-->
     <SolidColorBrush x:Key="S_GrayLight" Color="#EEEEEE"/>
     <SolidColorBrush x:Key="S_GrayLightOpacity" Color="#EEEEEE" Opacity="0.5"/>
-    
+
     <!--主深灰色色调-->
     <SolidColorBrush x:Key="S_GrayNotice" Color="#BFBFBF"></SolidColorBrush>
     <SolidColorBrush x:Key="S_GrayNoticeOpacity" Color="#BFBFBF"  Opacity="0.5"/>
 
 
     <!--背景透明窗体色调-->
-    <SolidColorBrush x:Key="S_OpacityGray" Opacity="0.2" Color="{DynamicResource AccentColor}"/>
-
+    <SolidColorBrush x:Key="S_OpacityGray" Opacity="0.5" Color="{DynamicResource AccentColor}"/>
     <!--白色背景前景色调-->
     <SolidColorBrush x:Key="S_WhiteNotice" Color="#FFFFFF"/>
 

@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CodeAutoGenerationTool.View"
+              xmlns:vm="clr-namespace:CodeAutoGenerationTool.ViewModel"
+             
              xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
              xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
              mc:Ignorable="d" 
@@ -46,160 +48,93 @@
             </Setter>
         </Style>
     </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <GroupBox Header="设置路径" Grid.Row="0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
 
-                <wpfcontrollib:FTextBox Width="800" Height="30" Margin="3" 
+        <wpfcontrollib:FTextBox Width="800" Height="30" Margin="3" 
                                 base:ControlAttachProperty.Label="DLL路径" 
                                 Style="{StaticResource LabelOpenFileTextBox}"  
                                 Text="{Binding DllPath,UpdateSourceTrigger=PropertyChanged}"
-                                base:ControlAttachProperty.Watermark="DLL程序集文件路径"
+                                base:ControlAttachProperty.Watermark="请选择路径..."
                                 HorizontalAlignment="Left" 
                     >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="TextChanged"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </wpfcontrollib:FTextBox>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="TextChanged"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </wpfcontrollib:FTextBox>
 
-                <wpfcontrollib:FTextBox Grid.Row="1" Width="800" Height="30"  
+        <wpfcontrollib:FTextBox Grid.Row="1" Width="800" Height="30"  
                                 base:ControlAttachProperty.Label="XML路径" Margin="3" 
                                 Style="{StaticResource LabelOpenFileTextBox}" 
-                                base:ControlAttachProperty.Watermark="说明文档PDB文件路径"
+                                base:ControlAttachProperty.Watermark="请选择路径..."
                                 Text="{Binding PdbPath}"
                                 HorizontalAlignment="Left" ></wpfcontrollib:FTextBox>
 
-            </Grid>
 
-        </GroupBox>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
 
-        <TabControl Grid.Row="1">
-            <TabItem Header="生成类型">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="350"/>
-                        <ColumnDefinition Width="300"/>
-                        <ColumnDefinition Width="185*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
+            <TreeView x:Name="tv" ItemsSource="{Binding Collection,Mode=TwoWay }" BorderThickness="0" Background="Transparent">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type vm:TypeNodeClass}" ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <wpfcontrollib:FCheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeAutoGeneration}},Path=DataContext.RelayCommand}" CommandParameter="Generation"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="Unchecked">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeAutoGeneration}},Path=DataContext.RelayCommand}" CommandParameter="Generation"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </wpfcontrollib:FCheckBox>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
 
-                    <GroupBox Header="选择类型" >
-                        <ListBox ItemsSource="{Binding ClassCollection}">
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="{x:Type ListBoxItem}">
-                                    <Setter Property="Height" Value="30"/>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate  TargetType="ListBoxItem">
-                                                <Grid>
-                                                    <Border x:Name="ItemBackground" 
-                                                    Background="{TemplateBinding Background}"  
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"/>
+            <StackPanel Grid.Row="4" HorizontalAlignment="Left" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
 
-                                                    <wpfcontrollib:FCheckBox Content="{Binding Item2.Name}" IsChecked="{Binding Item1,Mode=TwoWay}">
-                                                        <i:Interaction.Triggers>
-                                                            <i:EventTrigger EventName="Checked">
-                                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Control_CodeAutoGeneration}}, Path=DataContext.RelayCommand}" 
-                                                                                       CommandParameter="ClassSelectionChanged"/>
-                                                            </i:EventTrigger>
-
-                                                            <i:EventTrigger EventName="Unchecked">
-                                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:Control_CodeAutoGeneration}}, Path=DataContext.RelayCommand}" 
-                                                                                       CommandParameter="ClassSelectionChanged"/>
-                                                            </i:EventTrigger>
-                                                        </i:Interaction.Triggers>
-                                                    </wpfcontrollib:FCheckBox>
-
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </ListBox.ItemContainerStyle>
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="ClassSelectionChanged"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </ListBox>
-                    </GroupBox>
-
-                    <GroupBox Header="选择属性" Grid.Column="1">
-                        <ListBox ItemsSource="{Binding PropertyCollection}">
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="{x:Type ListBoxItem}">
-                                    <Setter Property="Height" Value="30"/>
-                                    <!--<Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}"/>-->
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate  TargetType="ListBoxItem">
-                                                <Grid>
-                                                    <Border x:Name="ItemBackground" 
-                                                    Background="{TemplateBinding Background}"  
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"/>
-                                                    <wpfcontrollib:FCheckBox Content="{Binding Item2.Name}" IsChecked="{Binding Item1}"/>
-
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </ListBox.ItemContainerStyle>
-                        </ListBox>
-                    </GroupBox>
-
-
-                    <GroupBox Header="操作模板" Grid.Column="2">
-
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="297*"/>
-                            </Grid.RowDefinitions>
-
-                            <ComboBox base:ControlAttachProperty.Label="选择模板" SelectedIndex="0" DisplayMemberPath="Name" SelectedItem="{Binding SelectITemplateCommand}"
+                <ComboBox base:ControlAttachProperty.Label="选择模板" SelectedIndex="0" DisplayMemberPath="Name" SelectedItem="{Binding SelectITemplateCommand}"
                                       Style="{DynamicResource LabelComboBox}" ItemsSource="{Binding ITemplateCommandCollection}"
                                       base:ControlAttachProperty.Watermark="请选择一个模板！" HorizontalAlignment="Left">
 
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="TemplateSelectionChanged"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </ComboBox>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="TemplateSelectionChanged"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
 
-                            <TextBox Text="{Binding TemplateText}" Grid.Row="1" TextWrapping="Wrap"/>
-                        </Grid>
+            </StackPanel>
 
-                    </GroupBox>
-
-                    <StackPanel Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
-                        <wpfcontrollib:FButton  Content="生成..." Command="{Binding RelayCommand}" CommandParameter="Generation"/>
-                    </StackPanel>
+            <StackPanel Grid.Row="4" HorizontalAlignment="Right" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
 
 
-
-                </Grid>
-            </TabItem>
-        </TabControl>
+                <wpfcontrollib:FButton  Content="生成..." Command="{Binding RelayCommand}" CommandParameter="Generation"/>
 
 
+            </StackPanel>
 
+            <TextBox Grid.Column="1" Text="{Binding Result}" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="12" TextWrapping="Wrap"/>
+
+
+        </Grid>
     </Grid>
+    
 </UserControl>

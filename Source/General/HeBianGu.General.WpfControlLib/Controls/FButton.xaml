@@ -8,13 +8,16 @@
     </ResourceDictionary.MergedDictionaries>
     <!--FButton模板-->
     <ControlTemplate x:Key="FButton_Template" TargetType="{x:Type local:FButton}">
-        <Border x:Name="border" Background="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path= Background}" 
+       
+        <Grid>
+
+            <Border x:Name="border" Background="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path= Background}" 
                                     Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Height}" 
                                     CornerRadius="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=CornerRadius}" 
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                    Width="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Width}">
-            <Grid>
-                <!--Icon/Text-->
+                                    Width="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Width}"/>
+            
+            <!--Icon/Text-->
                 <StackPanel Orientation="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=Orientation}" VerticalAlignment="Center" 
                         Margin="{TemplateBinding Padding}"
@@ -43,7 +46,7 @@
                                    Foreground="{StaticResource S_AccentBrush}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
                
             </Grid>
-        </Border>
+        <!--</Border>-->
 
 
         <!--触发器-->
@@ -60,7 +63,7 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="0.5" Duration="0:0:0.4" />
+                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="0.8" Duration="0:0:0.2" />
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.EnterActions>
@@ -68,7 +71,7 @@
                 <Trigger.ExitActions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.4" />
+                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.ExitActions>
@@ -105,9 +108,9 @@
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=PressedForeground}" TargetName="txt"/>
 
-                <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Height,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>
-                <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Width,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>
-
+                <!--<Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Height,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>
+                <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Width,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>-->
+                
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 
@@ -155,9 +158,9 @@
         <Setter Property="Background" Value="{DynamicResource S_AccentBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="MouseOverBackground" Value="{StaticResource S_AccentBrush}" />
-        <Setter Property="MouseOverForeground" Value="{StaticResource S_OrangeNotice}" />
-        <Setter Property="PressedBackground" Value="{StaticResource S_GrayLightNotice}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="MouseOverForeground" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="PressedBackground" Value="{StaticResource S_GrayNotice}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_WhiteNotice}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="30" />
@@ -178,9 +181,9 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="MouseOverBackground" Value="Transparent" />
         <Setter Property="PressedBackground" Value="Transparent" />
-        <Setter Property="Foreground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}" />
         <Setter Property="MouseOverForeground" Value="{StaticResource S_AccentBrush}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_GrayLightNotice}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_GrayNotice}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Height" Value="Auto" />
         <Setter Property="Width" Value="Auto" />
@@ -202,7 +205,7 @@
         <Setter Property="PressedBackground" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource S_BlackNotice}" />
         <Setter Property="MouseOverForeground" Value="{StaticResource S_AccentBrush}" />
-        <Setter Property="PressedForeground" Value="{StaticResource S_GrayLightNotice}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_GrayNotice}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Height" Value="Auto" />
         <Setter Property="Width" Value="Auto" />

@@ -15,6 +15,7 @@
 */
 #endregion
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
@@ -254,6 +255,29 @@ namespace HeBianGu.Base.WpfBase
                 return new CornerRadius((double)value / System.Convert.ToDouble(parameter));
             }
             return new CornerRadius((double)value);
+        }
+    }
+
+    /// <summary> 布尔转不可用 </summary>
+    public class ComboBoxAutoSelectionConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+
+            IEnumerable collection = value as IEnumerable;
+
+            foreach (var item in collection)
+            {
+                if (item == parameter) return item;
+            }
+
+            return null;
+            
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return null;
         }
     }
 

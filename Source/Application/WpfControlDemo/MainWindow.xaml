@@ -9,6 +9,8 @@
         Style="{StaticResource ResourceKey=DefaultWindowStyle}" x:Name="main"
         Title="MainWindow" Height="760" Width="1079">
 
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>

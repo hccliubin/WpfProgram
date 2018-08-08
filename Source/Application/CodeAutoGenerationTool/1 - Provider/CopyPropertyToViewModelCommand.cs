@@ -11,11 +11,11 @@ namespace CodeAutoGenerationTool.Provider
     {
         public string Name { get => "生成ViewModel"; }
 
-        public string Template(string l,string k)
+        public string Template(string l, string k, string type = "string")
         {
-            string ss = @"    string _" + l.ToLower() + @";
+            string ss = @"            " + type + " _" + l.ToLower() + @";
             /// <summary> " + k + @" </summary>
-            public string " + l + @"
+            public " + type + " " + l + @"
             {
                 get
                 {

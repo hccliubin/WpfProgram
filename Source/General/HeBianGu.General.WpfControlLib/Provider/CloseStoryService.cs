@@ -83,6 +83,33 @@ namespace HeBianGu.General.WpfControlLib
         }
 
 
+        /// <summary> 从下到上渐隐藏窗体 </summary>
+        public void DownToUpOpsOpen(Window w)
+        {
+            w.OpacityMask = w.FindResource("ClosedBrush") as LinearGradientBrush;
+
+            ColorAnimation color1 = new ColorAnimation((Color)ColorConverter.ConvertFromString("#00000000"), new Duration(new TimeSpan(0)));
+
+            DoubleAnimation double1 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(1)));
+            DoubleAnimation double2 = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.75)));
+            double2.BeginTime = TimeSpan.FromSeconds(0.25);
+
+            Storyboard storyboard = new Storyboard();
+            Storyboard.SetTarget(double1, w);
+            Storyboard.SetTargetProperty(double1, new PropertyPath("OpacityMask.(GradientBrush.GradientStops)[1].Offset"));
+            storyboard.Children.Add(double1);
+            Storyboard.SetTarget(double2, w);
+            Storyboard.SetTargetProperty(double2, new PropertyPath("OpacityMask.(GradientBrush.GradientStops)[2].Offset"));
+            storyboard.Children.Add(double2);
+            Storyboard.SetTarget(color1, w);
+            Storyboard.SetTargetProperty(color1, new PropertyPath("OpacityMask.(GradientBrush.GradientStops)[2].Color"));
+            storyboard.Children.Add(color1);
+
+            storyboard.Completed += delegate { w.Close(); };
+            storyboard.Begin();
+        }
+
+
     }
 
 
