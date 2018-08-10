@@ -24,7 +24,7 @@
             </wpfcontrollib:MetroTabItem>
 
             <wpfcontrollib:MetroTabItem Header="数据生成"  Icon="&#xe617;">
-                <view:Control_CodeAutoGeneration/>
+                <local:Control_CodeTestDataGeneration/>
             </wpfcontrollib:MetroTabItem>
 
 

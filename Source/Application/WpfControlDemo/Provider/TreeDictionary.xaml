@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:WpfControlDemo.Provider">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <XmlDataProvider x:Key="xdp" XPath="FileSystem/Folder">
         <x:XData>
             <FileSystem xmlns="">
@@ -52,6 +51,8 @@
                 </Folder>
                 <Folder Name="主题配置" Value="../View/ThemeUserControlPage.xaml" FIcon="&#xe620;">
                     <Folder Name="主题配置" Value="../View/ThemeUserControlPage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="视觉规范" Value="../View/VisuaNormsPagePage.xaml" FIcon="&#xe615;"/>
+                    <Folder Name="系统颜色" Value="../View/WindowSystemPage.xaml" FIcon="&#xe615;"/>
                 </Folder>
             </FileSystem>
         </x:XData>

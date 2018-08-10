@@ -1,4 +1,6 @@
-﻿using HeBianGu.Base.WpfBase;
+﻿using CodeAutoGenerationTool.Domain;
+using CodeAutoGenerationTool.Provider;
+using HeBianGu.Base.WpfBase;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,8 +14,7 @@ using System.Threading.Tasks;
 namespace CodeAutoGenerationTool.ViewModel
 {
 
-
-    partial class CodeModelMapperGeneration
+    partial class CodeTestDataNotifyClass
     {
 
 
@@ -30,19 +31,29 @@ namespace CodeAutoGenerationTool.ViewModel
         }
 
 
-        private string _rightPath = @"D:\HealthyCottage\Product\Debug\Libs\HC.Gereral.Model.dll";
+        private ICodeTestTemlate _selectItemplateCommand;
         /// <summary> 说明  </summary>
-        public string RightPath
+        public ICodeTestTemlate SelectITemplateCommand
         {
-            get { return _rightPath; }
+            get { return _selectItemplateCommand; }
             set
             {
-                _rightPath = value;
-                RaisePropertyChanged("RightPath");
+                _selectItemplateCommand = value;
+                RaisePropertyChanged("SelectITemplateCommand");
             }
         }
 
-
+        private ObservableCollection<ICodeTestTemlate> _itemplateCommandcollection = new ObservableCollection<ICodeTestTemlate>();
+        /// <summary> 说明  </summary>
+        public ObservableCollection<ICodeTestTemlate> ITemplateCommandCollection
+        {
+            get { return _itemplateCommandcollection; }
+            set
+            {
+                _itemplateCommandcollection = value;
+                RaisePropertyChanged("ITemplateCommandCollection");
+            }
+        }
 
         public void RelayMethod(object obj)
         {
@@ -53,30 +64,16 @@ namespace CodeAutoGenerationTool.ViewModel
             {
                 this.RefreshLeftValue();
             }
-            //  Do：取消
-            else if (command == "RightTextChanged")
-            {
-                this.RefreshRightValue();
-            }
             else if (command == "Init")
             {
                 this.RefreshLeftValue();
 
-                this.RefreshRightValue();
+                ITemplateCommandCollection = CodeAutoGenerationDomain.Instance.GetAllCodeTestTemlates();
 
             }
             //  Do：取消
             else if (command == "Generation")
             {
-                this.Generation();
-            }
-            //  Do：取消
-            else if (command == "RightSelectChanged")
-            {
-                this.RightSelectChanged();
-
-                this.Calculate();
-
                 this.Generation();
             }
             //  Do：取消
@@ -105,9 +102,10 @@ namespace CodeAutoGenerationTool.ViewModel
 
 
             Func<TypeNodeClass, TypeNodeClass, bool> fuction = (l, k) =>
-      {
-          return l.Name.ToUpper() == k.Name.ToUpper();
-      };
+            {
+                return l.Name.ToUpper() == k.Name.ToUpper();
+            };
+
 
 
             ObservableCollection<TypeNodeClass> temp = new ObservableCollection<TypeNodeClass>();
@@ -120,21 +118,22 @@ namespace CodeAutoGenerationTool.ViewModel
 
                 item.MapNode = result;
 
-              
+
             }
 
             this.SelectionCollection = temp;
         }
 
-        public void RightSelectChanged()
+
+        private ObservableCollection<TypeNodeClass> _selectCollection = new ObservableCollection<TypeNodeClass>();
+        /// <summary> 说明  </summary>
+        public ObservableCollection<TypeNodeClass> SelectionCollection
         {
-            var result = this.GetAllCheckProperties(this.RightCollection);
-
-            this.ComboboxCollection.Clear();
-
-            foreach (var item in result)
+            get { return _selectCollection; }
+            set
             {
-                this.ComboboxCollection.Add(item);
+                _selectCollection = value;
+                RaisePropertyChanged("SelectionCollection");
             }
         }
 
@@ -144,6 +143,7 @@ namespace CodeAutoGenerationTool.ViewModel
             List<TypeNodeClass> results = new List<TypeNodeClass>();
 
             var collection = value.ToList().FindAll(l => l.IsChecked);
+
 
             foreach (var item in collection)
             {
@@ -209,20 +209,6 @@ namespace CodeAutoGenerationTool.ViewModel
             }
         }
 
-
-        private ObservableCollection<TypeNodeClass> _selectCollection = new ObservableCollection<TypeNodeClass>();
-        /// <summary> 说明  </summary>
-        public ObservableCollection<TypeNodeClass> SelectionCollection
-        {
-            get { return _selectCollection; }
-            set
-            {
-                _selectCollection = value;
-                RaisePropertyChanged("SelectionCollection");
-            }
-        }
-
-
         void RefreshLeftValue()
         {
             if (this.LeftPath == null) return;
@@ -263,18 +249,52 @@ namespace CodeAutoGenerationTool.ViewModel
 
             var selectionPropertis = this.GetAllCheckProperties(this.LeftCollection).ToList();
 
-            //foreach (var item in collection)
-            //{
-            //    string result = this.TypeToTemplate((item.Value as Type), selectionPropertis);
+            ICodeTestTemlate temlate = this.SelectITemplateCommand;
 
-            //    sb.AppendLine(result);
-            //}
 
             foreach (var item in selectionPropertis)
             {
-                string result = item.FullPath + "=" + (item.MapNode == null ? "" : item.MapNode.FullPath) + ";";
+                //string result = item.FullPath + "=" + (item.MapNode == null ? "" : item.MapNode.FullPath) + ";";
 
-                sb.AppendLine(result);
+                //sb.AppendLine(result);
+
+                if (item.Value is Type)
+                {
+                    //  Message：说明
+
+                    sb.AppendLine("//  开始自动生成测试数据 ：" + (item.Value as Type).Name);
+
+                }
+                else if (item.Value is PropertyInfo)
+                {
+                    var property = item.Value as PropertyInfo;
+
+                    string result = item.FullPath + "=" + temlate.Template(property);
+
+                    sb.AppendLine(result);
+
+                    //var property = item.Value as PropertyInfo;
+
+                    //Action<PropertyInfo> action = null;
+
+                    //action = l =>
+                    //  {
+                    //      string result = item.FullPath + "=" + temlate.Template(l);
+
+                    //      sb.AppendLine(result);
+
+                    //      if (property.PropertyType.IsPrimitive || property.PropertyType == typeof(string)) return;
+
+                    //      foreach (var current in l.PropertyType.GetProperties())
+                    //      {
+                    //          action(current);
+                    //      }
+                    //  };
+
+                    //action(property);
+
+                }
+
             }
 
 
@@ -360,43 +380,13 @@ namespace CodeAutoGenerationTool.ViewModel
             //Process.Start(path);
         }
 
-        void RefreshRightValue()
-        {
-            if (this.RightPath == null) return;
-
-            this.RightCollection.Clear();
-
-            //  Message：获取所有类型
-
-            var ass = Assembly.LoadFrom(this.RightPath);
-
-            var types = ass.GetTypes();
-
-            foreach (var item in ass.GetTypes().OrderBy(l => l.Name))
-            {
-
-                if (item.MemberType == MemberTypes.NestedType) continue;
-
-                //TypeNodeClass t = new TypeNodeClass();
-
-                //t.FullPath += item.Name.ToLower();
-
-                //t.Value = item;
-
-
-                TypeNodeClass t = TypeNodeClass.CreateTypeNode(item, item.Name.ToLower());
-
-                this.RightCollection.Add(t);
-            }
-
-        }
     }
 
-    partial class CodeModelMapperGeneration : INotifyPropertyChanged
+    partial class CodeTestDataNotifyClass : INotifyPropertyChanged
     {
         public RelayCommand RelayCommand { get; set; }
 
-        public CodeModelMapperGeneration()
+        public CodeTestDataNotifyClass()
         {
             RelayCommand = new RelayCommand(RelayMethod);
 
@@ -415,5 +405,4 @@ namespace CodeAutoGenerationTool.ViewModel
 
         #endregion
     }
-
 }

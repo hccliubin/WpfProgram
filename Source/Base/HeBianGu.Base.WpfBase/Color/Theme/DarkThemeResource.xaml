@@ -29,7 +29,7 @@
     <SolidColorBrush x:Key="S_OrangeNotice" Color="DarkOrange"/>
 
     <!--黑色主色调 一般用于字体颜色-->
-    <SolidColorBrush x:Key="S_BlackNotice" Color="#433F3E"/>
+    <SolidColorBrush x:Key="TitleTextForeground" Color="#433F3E"/>
 
     <!--红色主色调 一般用于警告异常-->
     <SolidColorBrush x:Key="S_RedNotice" Color="#FF0000"/>

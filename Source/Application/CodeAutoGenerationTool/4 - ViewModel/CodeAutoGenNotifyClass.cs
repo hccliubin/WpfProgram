@@ -89,7 +89,13 @@ namespace CodeAutoGenerationTool.ViewModel
 
                 this.TemplateText = this.SelectITemplateCommand.Template("propertyName", "说明");
             }
+            else if (command == "Expanded")
+            {
+                if (this.SelectITemplateCommand == null) return;
 
+                this.TemplateText = this.SelectITemplateCommand.Template("propertyName", "说明");
+            }
+            
         }
 
 
@@ -358,10 +364,8 @@ namespace CodeAutoGenerationTool.ViewModel
             {
 
                 if (item.MemberType == MemberTypes.NestedType) continue;
-
-                TypeNodeClass t = new TypeNodeClass();
-
-                t.Value = item;
+               
+                TypeNodeClass t = TypeNodeClass.CreateTypeNode(item, item.Name.ToLower());
 
                 this.Collection.Add(t);
             }

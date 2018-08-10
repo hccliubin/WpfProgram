@@ -20,7 +20,7 @@
 
         <Border Grid.Row="0" Background="{DynamicResource S_WhiteNotice}" Opacity="0.5" />
         <!--抬头-->
-        <windowbase:FButton FIcon="&#xe600;" Background="Transparent" Foreground="{StaticResource S_BlackNotice}" Grid.Row="0" FIconSize="60" Content="河边骨" FontSize="20" Height="Auto"  AllowsAnimation="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" Width="Auto" HorizontalAlignment="Left"/>
+        <windowbase:FButton FIcon="&#xe600;" Background="Transparent" Foreground="{StaticResource TitleTextForeground}" Grid.Row="0" FIconSize="60" Content="河边骨" FontSize="20" Height="Auto"  AllowsAnimation="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" Width="Auto" HorizontalAlignment="Left"/>
 
         <!--快捷工具-->
         <!--

@@ -81,33 +81,52 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="Auto" MinWidth="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
+            <GroupBox Header="From Assembly">
 
-            <TreeView x:Name="tv" ItemsSource="{Binding Collection,Mode=TwoWay }" BorderThickness="0" Background="Transparent">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type vm:TypeNodeClass}" ItemsSource="{Binding Children}">
-                        <StackPanel Orientation="Horizontal">
-                            <wpfcontrollib:FCheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}">
+                <TreeView x:Name="tv" ItemsSource="{Binding Collection,Mode=TwoWay }" BorderThickness="0" Background="Transparent" >
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="TreeViewItem">
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded,Mode=TwoWay}"/>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type TreeViewItem}" ItemsSource="{Binding Children}">
+                            <StackPanel Orientation="Horizontal">
+                                <wpfcontrollib:FCheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Checked">
+                                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeAutoGeneration}},Path=DataContext.RelayCommand}" CommandParameter="Generation"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="Unchecked">
+                                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeAutoGeneration}},Path=DataContext.RelayCommand}" CommandParameter="Generation"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </wpfcontrollib:FCheckBox>
+
                                 <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeAutoGeneration}},Path=DataContext.RelayCommand}" CommandParameter="Generation"/>
-                                    </i:EventTrigger>
-                                    <i:EventTrigger EventName="Unchecked">
-                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeAutoGeneration}},Path=DataContext.RelayCommand}" CommandParameter="Generation"/>
+                                    <i:EventTrigger EventName="Expanded">
+                                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Expanded"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
-                            </wpfcontrollib:FCheckBox>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+                            </StackPanel>
 
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+
+                    <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Expanded">
+                        <i:InvokeCommandAction Command="{Binding RelayCommand}" CommandParameter="Expanded"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+                </TreeView>
+            </GroupBox>
             <StackPanel Grid.Row="4" HorizontalAlignment="Left" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
 
                 <ComboBox base:ControlAttachProperty.Label="选择模板" SelectedIndex="0" DisplayMemberPath="Name" SelectedItem="{Binding SelectITemplateCommand}"
@@ -131,10 +150,10 @@
 
             </StackPanel>
 
-            <TextBox Grid.Column="1" Text="{Binding Result}" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="12" TextWrapping="Wrap"/>
+            <TextBox Grid.Column="1" Text="{Binding Result}" Background="{DynamicResource TextBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="12" TextWrapping="Wrap"/>
 
 
         </Grid>
     </Grid>
-    
+
 </UserControl>

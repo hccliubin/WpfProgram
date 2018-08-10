@@ -67,8 +67,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commond\ControlCommand.cs" />
+    <Compile Include="Controls\ColorPickControl.xaml.cs">
+      <DependentUpon>ColorPickControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FExpander.xaml.cs">
       <DependentUpon>FExpander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MetroColorPicker.xaml.cs">
+      <DependentUpon>MetroColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MetroProgressBar.xaml.cs">
       <DependentUpon>MetroProgressBar.xaml</DependentUpon>
@@ -153,6 +159,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Provider\CloseStoryService.cs" />
+    <Compile Include="UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowBase\MessageWindow.xaml.cs">
       <DependentUpon>MessageWindow.xaml</DependentUpon>
     </Compile>
@@ -178,7 +187,15 @@
     <Folder Include="Template\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\ColorPickControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\FExpander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MetroColorPicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -348,6 +365,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

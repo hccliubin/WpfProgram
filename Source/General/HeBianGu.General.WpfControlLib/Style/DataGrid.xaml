@@ -105,7 +105,7 @@
 
     <!--行样式-->
     <Style x:Key="DefaultDataGridRow" TargetType="{x:Type DataGridRow}">
-        <Setter Property="Foreground" Value="{DynamicResource S_BlackNotice}" />
+        <Setter Property="Foreground" Value="{DynamicResource TitleTextForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Margin" Value="0,0,0,0" />
 

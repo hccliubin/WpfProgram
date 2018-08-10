@@ -23,6 +23,13 @@ namespace CodeAutoGenerationTool.Domain
             return collection;
         }
 
+        public ObservableCollection<ICodeTestTemlate> GetAllCodeTestTemlates()
+        {
+            ObservableCollection<ICodeTestTemlate> collection = new ObservableCollection<ICodeTestTemlate>();
 
+            collection.Add(new CommonCodeTestTemlate());
+            collection.Add(new CommonCodeTestTemlate());
+            return collection;
+        }
     }
 }

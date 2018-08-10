@@ -50,7 +50,7 @@
     <Style TargetType="{x:Type ComboBox}" x:Key="DefaultComboBox">
         <Setter Property="Height" Value="30" />
         <Setter Property="MinWidth" Value="200" />
-        <Setter Property="Foreground" Value="{DynamicResource  S_BlackNotice}" />
+        <Setter Property="Foreground" Value="{DynamicResource  TitleTextForeground}" />
         <Setter Property="Background" Value="{DynamicResource  S_WhiteNotice}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

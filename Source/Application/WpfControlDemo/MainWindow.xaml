@@ -42,7 +42,7 @@
         </ScrollViewer>-->
         <!--<Frame Content="Frame" Grid.Column="1" Name="frame"/>-->
 
-        <TreeView  ItemsSource="{Binding Source={StaticResource xdp}}" Grid.Row="0" Grid.Column="0" x:Name="TreeRoot" Background="#E5EBF3">
+        <TreeView  ItemsSource="{Binding Source={StaticResource xdp}}" x:Name="TreeRoot" Background="{StaticResource S_GrayLight}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
                     <StackPanel  Height="25" Orientation="Horizontal">
@@ -55,13 +55,12 @@
             <TreeView.ItemContainerStyle>
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="True" />
-                
                 </Style>
             </TreeView.ItemContainerStyle>
             
         </TreeView>
-        
-        <Frame x:Name="PageContext" Grid.Column="1"  Background="#F3F3F3" BorderBrush="#888" BorderThickness="1" NavigationUIVisibility="Visible"  
+
+        <Frame x:Name="PageContext" Grid.Column="1"  Background="{StaticResource S_GrayLight}" BorderThickness="1" NavigationUIVisibility="Visible"  
                Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}"/>
     </Grid>
 </wpfcontrollib:WindowBase>

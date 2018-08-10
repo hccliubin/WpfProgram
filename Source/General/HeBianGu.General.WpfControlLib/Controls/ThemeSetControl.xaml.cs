@@ -19,9 +19,7 @@ using System.Windows.Shapes;
 
 namespace HeBianGu.General.WpfControlLib
 {
-    /// <summary>
-    /// ThemeSetControl.xaml 的交互逻辑
-    /// </summary>
+    /// <summary> 主题设置页面 </summary>
     public partial class ThemeSetControl : UserControl
     {
         public ThemeSetControl()
@@ -32,7 +30,7 @@ namespace HeBianGu.General.WpfControlLib
         }
     }
 
-
+    /// <summary> 主题设置模型 </summary>
     public class SettingsAppearanceViewModel : NotifyPropertyChanged
     {
         private const string FontSmall = "small";
@@ -41,7 +39,7 @@ namespace HeBianGu.General.WpfControlLib
         private const string PaletteMetro = "metro";
         private const string PaletteWP = "windows phone";
 
-        // 9 accent colors from metro design principles
+        //  Message：主题颜色
         private Color[] metroAccentColors = new Color[]{
             Color.FromRgb(0x33, 0x99, 0xff),   // blue
             Color.FromRgb(0x00, 0xab, 0xa9),   // teal
@@ -54,7 +52,7 @@ namespace HeBianGu.General.WpfControlLib
             Color.FromRgb(0xa2, 0x00, 0xff),   // purple            
         };
 
-        // 20 accent colors from Windows Phone 8
+        //  Message：主题颜色
         private Color[] wpAccentColors = new Color[]{
             Color.FromRgb(0xa4, 0xc4, 0x00),   // lime
             Color.FromRgb(0x60, 0xa9, 0x17),   // green
@@ -87,11 +85,11 @@ namespace HeBianGu.General.WpfControlLib
 
         public SettingsAppearanceViewModel()
         {
-            // add the default themes
+            //  Message：主题
             this.themes.Add(new Link { DisplayName = "dark", Source = ThemeService.DarkThemeSource });
             this.themes.Add(new Link { DisplayName = "light", Source = ThemeService.LightThemeSource });
 
-            // add additional themes
+
             this.themes.Add(new Link { DisplayName = "bing image", Source = new Uri("/ModernUIDemo;component/Assets/ModernUI.BingImage.xaml", UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "hello kitty", Source = new Uri("/ModernUIDemo;component/Assets/ModernUI.HelloKitty.xaml", UriKind.Relative) });
             this.themes.Add(new Link { DisplayName = "love", Source = new Uri("/ModernUIDemo;component/Assets/ModernUI.Love.xaml", UriKind.Relative) });
@@ -196,12 +194,41 @@ namespace HeBianGu.General.WpfControlLib
                 if (this.selectedAccentColor != value)
                 {
                     this.selectedAccentColor = value;
+
                     RaisePropertyChanged("SelectedAccentColor");
 
                     ThemeService.Current.AccentColor = value;
                 }
             }
         }
+
+
+
+        private bool _isFollowSystemSystem;
+        /// <summary> 说明  </summary>
+        public bool IsFollowSystemSystem
+        {
+            get { return _isFollowSystemSystem; }
+            set
+            {
+                _isFollowSystemSystem = value;
+
+                RaisePropertyChanged("IsFollowSystemSystem");
+
+                if (value == true)
+                {
+                    //  Message：备份一下之前的主题
+                    this.selectedAccentColor = ThemeService.Current.AccentColor;
+
+                    ThemeService.Current.AccentColor = SystemColors.DesktopColor;
+                }
+                else
+                {
+                    ThemeService.Current.AccentColor = SelectedAccentColor;
+                }
+            }
+        }
+
     }
 
 

@@ -45,7 +45,7 @@
                                             <Line Height="20" 
                                                   Width="5" 
                                                   HorizontalAlignment="Center" 
-                                                  Fill="Black" Stroke="{DynamicResource S_BlackNotice}" 
+                                                  Fill="Black" Stroke="{DynamicResource TitleTextForeground}" 
                                                   StrokeThickness="3"></Line>
                                             <Ellipse  x:Name="circle" StrokeThickness="3" 
                                                       Stroke="{TemplateBinding Background}"
@@ -74,8 +74,8 @@
                                     <ControlTemplate TargetType="Thumb">
                                         <Grid>
                                             <Line Height="20" Canvas.Left="60" 
-                                                  Fill="{DynamicResource S_BlackNotice}"  
-                                                  Stroke="{DynamicResource S_BlackNotice}"  
+                                                  Fill="{DynamicResource TitleTextForeground}"  
+                                                  Stroke="{DynamicResource TitleTextForeground}"  
                                                   StrokeThickness="3"></Line>
                                             <Ellipse  x:Name="circle" StrokeThickness="3" 
                                                       Stroke="{TemplateBinding Background}" 

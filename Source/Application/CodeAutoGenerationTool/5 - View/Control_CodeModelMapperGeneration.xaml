@@ -11,6 +11,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
     <UserControl.Resources>
+
         <Style TargetType="{x:Type ListBoxItem}" x:Key="typeItemStyle">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}"/>
@@ -87,45 +88,43 @@
 
         <Grid Grid.Row="1" Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"  MinWidth="150"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="Auto"  MinWidth="150"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
+            <GroupBox Header="From">
+                <Grid>
+                    <TreeView ItemsSource="{Binding LeftCollection,Mode=TwoWay }" BorderThickness="0" Background="Transparent">
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem">
+                                <Setter Property="IsExpanded" Value="{Binding IsExpanded,Mode=TwoWay}"/>
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type vm:TypeNodeClass}" ItemsSource="{Binding Children}">
+                                <StackPanel Orientation="Horizontal">
+                                    <wpfcontrollib:FCheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}" Width="250">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Checked">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="LeftSelectChanged"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="Unchecked">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="LeftSelectChanged"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </wpfcontrollib:FCheckBox>
 
-            <TreeView ItemsSource="{Binding LeftCollection,Mode=TwoWay }" BorderThickness="0" Background="Transparent">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type vm:TypeNodeClass}" ItemsSource="{Binding Children}">
-                        <StackPanel Orientation="Horizontal">
-                            <wpfcontrollib:FCheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}" Width="250">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="LeftSelectChanged"/>
-                                    </i:EventTrigger>
-                                    <i:EventTrigger EventName="Unchecked">
-                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="LeftSelectChanged"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </wpfcontrollib:FCheckBox>
 
-                            <ComboBox MinWidth="150" Width="Auto" Visibility="{Binding ComboboxVisible}"
-                                      DisplayMemberPath="Name"  SelectedItem="{Binding MapNode,Mode=TwoWay}"
-                                      ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.ComboboxCollection,Mode=TwoWay}">
-
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="ComboboxSelectionChanged"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                <!--SelectedItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.ComboboxCollection,Mode=TwoWay,Converter={x:Static base:XConverter.ComboBoxAutoSelectionConverter},ConverterParameter={Binding Name}}"-->
-</ComboBox>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </Grid>
+            </GroupBox>
 
             <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
 
@@ -151,28 +150,68 @@
 
 
             </StackPanel>
+            <GroupBox Header="To"  Grid.Column="2">
+                <TreeView ItemsSource="{Binding RightCollection,Mode=TwoWay }" BorderThickness="0" Background="Transparent">
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="TreeViewItem">
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded,Mode=TwoWay}"/>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type vm:TypeNodeClass}" ItemsSource="{Binding Children}">
+                            <StackPanel Orientation="Horizontal">
+                                <wpfcontrollib:FCheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Checked">
+                                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="RightSelectChanged"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger EventName="Unchecked">
+                                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="RightSelectChanged"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </wpfcontrollib:FCheckBox>
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+            </GroupBox>
+            <TabControl Grid.Column="1" Background="{DynamicResource TextBackground}" >
+                <TabItem Header="生成代码">
+                    <TextBox Text="{Binding Result}" Background="{DynamicResource TextBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="12" TextWrapping="Wrap"/>
 
-            <TreeView ItemsSource="{Binding RightCollection,Mode=TwoWay }" BorderThickness="0" Grid.Column="2" Background="Transparent">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type vm:TypeNodeClass}" ItemsSource="{Binding Children}">
-                        <StackPanel Orientation="Horizontal">
-                            <wpfcontrollib:FCheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="RightSelectChanged"/>
-                                    </i:EventTrigger>
-                                    <i:EventTrigger EventName="Unchecked">
-                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="RightSelectChanged"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </wpfcontrollib:FCheckBox>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+                </TabItem>
+                <TabItem Header="映射配置">
+                    <ListBox ItemsSource="{Binding SelectionCollection}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="25">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="300"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
 
+                                    <TextBlock Text="{Binding FullPath}"/>
 
-            <TextBox Grid.Column="1" Text="{Binding Result}"  Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="12" TextWrapping="Wrap"/>
+                                    <TextBlock Grid.Column="1" Text=" = "/>
+
+                                    <ComboBox Grid.Column="2" MinWidth="150" Width="Auto" Visibility="{Binding ComboboxVisible}" Height="25"
+                                      DisplayMemberPath="Name"  SelectedItem="{Binding MapNode,Mode=TwoWay}"
+                                      ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.ComboboxCollection,Mode=TwoWay}">
+
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.RelayCommand}" CommandParameter="ComboboxSelectionChanged"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <!--SelectedItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:Control_CodeModelMapperGeneration}},Path=DataContext.ComboboxCollection,Mode=TwoWay,Converter={x:Static base:XConverter.ComboBoxAutoSelectionConverter},ConverterParameter={Binding Name}}"-->
+                                    </ComboBox>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
+            </TabControl>
 
 
         </Grid>

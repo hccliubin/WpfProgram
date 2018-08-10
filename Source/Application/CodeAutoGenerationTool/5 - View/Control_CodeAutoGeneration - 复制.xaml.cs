@@ -1,7 +1,6 @@
 ﻿using CodeAutoGenerationTool.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,13 +29,6 @@ namespace CodeAutoGenerationTool.View
             InitializeComponent();
 
             this.DataContext = _vm;
-        }
-
-        private void tv_Expanded(object sender, RoutedEventArgs e)
-        {
-
-            Debug.WriteLine("说明");
-
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -25,13 +26,15 @@ namespace CodeAutoGenerationTool.ViewModel
             {
                 _isChecked = value;
 
+                RaisePropertyChanged("IsChecked");
+
+                if (this.Children == null) return;
+
 
                 foreach (var item in this.Children)
                 {
                     item.IsChecked = value;
                 }
-
-                RaisePropertyChanged("IsChecked");
             }
         }
 
@@ -96,56 +99,12 @@ namespace CodeAutoGenerationTool.ViewModel
         }
 
 
-        private ObservableCollection<TypeNodeClass> _children;
+        private ObservableCollection<TypeNodeClass> _children = new ObservableCollection<TypeNodeClass>();
         /// <summary> 说明  </summary>
         public ObservableCollection<TypeNodeClass> Children
         {
             get
             {
-                if (_children != null) return _children;
-
-                _children = new ObservableCollection<TypeNodeClass>();
-
-                if (this.Value is Type)
-                {
-                    var properties = (this.Value as Type).GetProperties();
-
-                    _children.Clear();
-
-                    foreach (var item in properties)
-                    {
-                        TypeNodeClass t = new TypeNodeClass();
-                        t.IsChecked = false;
-                        t.Value = item;
-                        t.FullPath = this.FullPath + "." + item.Name;
-
-                        this._children.Add(t);
-                    }
-                }
-                else if (this.Value is PropertyInfo)
-                {
-                    PropertyInfo p = this.Value as PropertyInfo;
-
-                    if (p.PropertyType.IsPrimitive || p.PropertyType == typeof(string))
-                    {
-                        return _children;
-                    }
-                    else
-                    {
-                        var properties = p.PropertyType.GetProperties();
-
-                        foreach (var item in properties)
-                        {
-                            TypeNodeClass t = new TypeNodeClass();
-                            t.IsChecked = false;
-                            t.FullPath = this.FullPath + "." + item.Name;
-                            t.Value = item;
-
-                            this._children.Add(t);
-                        }
-                    }
-
-                }
                 return _children;
             }
             set
@@ -199,6 +158,93 @@ namespace CodeAutoGenerationTool.ViewModel
             }
         }
 
+
+        void InitChildren()
+        {
+            _children = new ObservableCollection<TypeNodeClass>();
+
+            if (!(this.Value is PropertyInfo)) return;
+
+            PropertyInfo p = this.Value as PropertyInfo;
+
+            foreach (var item in p.PropertyType.GetProperties())
+            {
+
+                if (p.PropertyType.IsEnumerableType()) continue;
+
+                TypeNodeClass t = new TypeNodeClass();
+                t.IsChecked = false;
+                t.FullPath = this.FullPath + "." + item.Name;
+                t.Value = item;
+                this._children.Add(t);
+
+                //if (p.PropertyType.IsPrimitive || p.PropertyType == typeof(string)) continue;
+            }
+
+        }
+
+
+        void InitChildrenChildren()
+        {
+
+            foreach (var item in this.Children)
+            {
+                PropertyInfo p = item.Value as PropertyInfo;
+
+                if (p.PropertyType.IsPrimitive || p.PropertyType == typeof(string)||p.PropertyType.IsEnumerableType()) continue;
+
+                item.InitChildren();
+            }
+        }
+
+        void Init()
+        {
+            Type type = this.Value as Type;
+
+            foreach (var p in type.GetProperties())
+            {
+                TypeNodeClass t = new TypeNodeClass();
+                t.IsChecked = false;
+                t.FullPath = this.FullPath + "." + p.Name;
+                t.Value = p;
+                this._children.Add(t);
+
+                if (p.PropertyType.IsPrimitive || p.PropertyType == typeof(string)|| p.PropertyType.IsEnumerableType()) continue;
+
+                t.InitChildren();
+            }
+        }
+
+        /// <summary> 创建树形基础节点 </summary>
+        public static TypeNodeClass CreateTypeNode(Type t, string baseName)
+        {
+            TypeNodeClass node = new TypeNodeClass();
+            node.Value = t;
+            node.FullPath = baseName;
+            node.Init();
+
+            return node;
+        }
+
+
+        private bool _isExpanded;
+        /// <summary> 说明  </summary>
+        public bool IsExpanded
+        {
+            get { return _isExpanded; }
+            set
+            {
+                _isExpanded = value;
+
+                RaisePropertyChanged("IsExpanded");
+
+                if (!value) return;
+
+                this.InitChildrenChildren();
+
+            }
+        }
+
     }
 
     partial class TypeNodeClass : INotifyPropertyChanged
@@ -210,6 +256,8 @@ namespace CodeAutoGenerationTool.ViewModel
             RelayCommand = new RelayCommand(RelayMethod);
 
         }
+
+
         #region - MVVM -
 
         public event PropertyChangedEventHandler PropertyChanged;

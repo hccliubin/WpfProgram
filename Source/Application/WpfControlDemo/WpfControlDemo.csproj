@@ -41,6 +41,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Product\Dll\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -132,8 +136,14 @@
     <Compile Include="View\Viewport3DPage.xaml.cs">
       <DependentUpon>Viewport3DPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VisuaNormsPagePage.xaml.cs">
+      <DependentUpon>VisuaNormsPagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WaitingPage.xaml.cs">
       <DependentUpon>WaitingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowSystemPage.xaml.cs">
+      <DependentUpon>WindowSystemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\XmlDataProviderPage.xaml.cs">
       <DependentUpon>XmlDataProviderPage.xaml</DependentUpon>
@@ -250,7 +260,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\VisuaNormsPagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WaitingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowSystemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

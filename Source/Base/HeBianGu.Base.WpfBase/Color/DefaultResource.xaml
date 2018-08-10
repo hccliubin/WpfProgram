@@ -36,7 +36,7 @@
     <sys:Double x:Key="DisableOpacity">0.5</sys:Double>
     <sys:Double x:Key="ReadonlyOpacity">0.88</sys:Double>
 
-    <Color x:Key="AccentColor">#1ba1e2</Color>
+    <Color x:Key="AccentColor">#316ceb</Color>
     <SolidColorBrush x:Key="Accent" Color="{DynamicResource AccentColor}" />
 
     <sys:Double x:Key="HeaderFontSize">14</sys:Double>
