@@ -28,7 +28,7 @@
                 <ControlTemplate TargetType="{x:Type local:FCheckBox}">
                     <Grid x:Name="grid" Margin="{TemplateBinding Padding}" VerticalAlignment="Center">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock  x:Name="icon" Style="{StaticResource FIcon}" Text="&#xe62b;"
+                            <TextBlock  x:Name="icon" Style="{StaticResource FIcon}" Text="&#xe6ac;"
                                         FontSize="{TemplateBinding base:ControlAttachProperty.FIconSize}"
                                         Margin="{TemplateBinding base:ControlAttachProperty.FIconMargin}"
                                         Foreground="{TemplateBinding Foreground}"/>
@@ -42,7 +42,7 @@
                             <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}"></Setter>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="{x:Null}">
-                            <Setter Property="Text" Value="&#xe6ac;" TargetName="icon" ></Setter>
+                            <Setter Property="Text" Value="&#xe62b;" TargetName="icon" ></Setter>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}"></Setter>

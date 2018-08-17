@@ -39,9 +39,6 @@
     <Reference Include="Microsoft.Expression.Effects">
       <HintPath>..\..\..\Product\Dll\Microsoft.Expression.Effects.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Expression.Interactions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Solution\packages\Blend.Interactivity.Wpf.1.0.1340.0\lib\net\Microsoft.Expression.Interactions.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Windows.Shell, Version=6.0.147.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Product\Dll\Microsoft.Windows.Shell.dll</HintPath>
@@ -50,7 +47,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Solution\packages\Blend.Interactivity.Wpf.1.0.1340.0\lib\net\System.Windows.Interactivity.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Product\Dll\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,14 +64,29 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\BindPassWordBox.xaml.cs">
+      <DependentUpon>BindPassWordBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Commond\ControlCommand.cs" />
-    <Compile Include="Controls\ColorPickControl.xaml.cs">
-      <DependentUpon>ColorPickControl.xaml</DependentUpon>
+    <Compile Include="Controls\PromptableButton.xaml.cs">
+      <DependentUpon>PromptableButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FExpander.xaml.cs">
       <DependentUpon>FExpander.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MetroColorPicker.xaml.cs">
+    <Compile Include="Controls\DTextBox.xaml.cs">
+      <DependentUpon>DTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DTabItem.xaml.cs">
+      <DependentUpon>DTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WaterFallFlowControl.xaml.cs">
+      <DependentUpon>WaterFallFlowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericControl.xaml.cs">
+      <DependentUpon>NumericControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\MetroColorPicker.xaml.cs">
       <DependentUpon>MetroColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MetroProgressBar.xaml.cs">
@@ -94,7 +107,7 @@
     <Compile Include="Controls\AnimatedTabControl.xaml.cs">
       <DependentUpon>AnimatedTabControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\BindRichTextBox.xaml.cs">
+    <Compile Include="CustomControls\BindRichTextBox.xaml.cs">
       <DependentUpon>BindRichTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\BulletCheckBox.xaml.cs">
@@ -112,7 +125,7 @@
     <Compile Include="Controls\HighlightTextBlock.xaml.cs">
       <DependentUpon>HighlightTextBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MessageUserControl.xaml.cs">
+    <Compile Include="CustomControls\MessageUserControl.xaml.cs">
       <DependentUpon>MessageUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MultiComboBox.xaml.cs">
@@ -121,28 +134,28 @@
     <Compile Include="Controls\PagingDataGrid.xaml.cs">
       <DependentUpon>PagingDataGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProgressBarControl.xaml.cs">
+    <Compile Include="CustomControls\ProgressBarControl.xaml.cs">
       <DependentUpon>ProgressBarControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RingBox.xaml.cs">
       <DependentUpon>RingBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SpaceSpliterUserControl.xaml.cs">
+    <Compile Include="CustomControls\SpaceSpliterUserControl.xaml.cs">
       <DependentUpon>SpaceSpliterUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ThemeSetControl.xaml.cs">
+    <Compile Include="CustomControls\ThemeSetControl.xaml.cs">
       <DependentUpon>ThemeSetControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\WaitingBox.xaml.cs">
       <DependentUpon>WaitingBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControl\BaseUserControl.xaml.cs">
+    <Compile Include="Controls\BaseUserControl.xaml.cs">
       <DependentUpon>BaseUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControl\DataPager.xaml.cs">
+    <Compile Include="CustomControls\DataPager.xaml.cs">
       <DependentUpon>DataPager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControl\OpacityVisibleUserControl.xaml.cs">
+    <Compile Include="CustomControls\OpacityVisibleUserControl.xaml.cs">
       <DependentUpon>OpacityVisibleUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -159,8 +172,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Provider\CloseStoryService.cs" />
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="CustomControls\ScrollView3DControl.xaml.cs">
+      <DependentUpon>ScrollView3DControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowBase\MessageWindow.xaml.cs">
       <DependentUpon>MessageWindow.xaml</DependentUpon>
@@ -176,7 +189,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -187,15 +199,35 @@
     <Folder Include="Template\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\ColorPickControl.xaml">
+    <Page Include="Controls\BindPassWordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PromptableButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\FExpander.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\MetroColorPicker.xaml">
+    <Page Include="Controls\DTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DTabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\WaterFallFlowControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NumericControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\MetroColorPicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -223,7 +255,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\BindRichTextBox.xaml">
+    <Page Include="CustomControls\BindRichTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,7 +279,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MessageUserControl.xaml">
+    <Page Include="CustomControls\MessageUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -259,7 +291,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ProgressBarControl.xaml">
+    <Page Include="CustomControls\ProgressBarControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -267,11 +299,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SpaceSpliterUserControl.xaml">
+    <Page Include="CustomControls\SpaceSpliterUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\ThemeSetControl.xaml">
+    <Page Include="CustomControls\ThemeSetControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,15 +311,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControl\BaseUserControl.xaml">
+    <Page Include="Controls\BaseUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControl\DataPager.xaml">
+    <Page Include="CustomControls\DataPager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControl\OpacityVisibleUserControl.xaml">
+    <Page Include="CustomControls\OpacityVisibleUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +327,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="CustomControls\ScrollView3DControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\Calendar.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -313,6 +349,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\Slider.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -365,10 +409,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

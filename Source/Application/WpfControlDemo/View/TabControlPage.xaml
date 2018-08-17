@@ -49,7 +49,7 @@
                                 </TabItem>
                             </wpfcontrollib:AnimatedTabControl>
                         </Grid>
-                       
+
                     </StackPanel>
                 </ScrollViewer>
             </wpfcontrollib:MetroTabItem>
@@ -88,10 +88,64 @@
                     </StackPanel>
                 </ScrollViewer>
             </wpfcontrollib:MetroTabItem>
+
+            <wpfcontrollib:MetroTabItem Header="第三种分页样式" Icon="&#xe921;">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TabControl  Grid.Row="1"   Background="Transparent"  Style="{StaticResource DTabControlStyle}">
+                            <wpfcontrollib:DTabItem  Height="35"    Header="博客"  SelectForeground="White"  SelectedColor="#2BB669"  TabItemType="Left">
+                                <Grid Background="#2BB669" Height="300"/>
+                            </wpfcontrollib:DTabItem>
+                            
+                            <wpfcontrollib:DTabItem  Height="35"  Header="学院"  SelectForeground="White" SelectedColor="#FF1E9FFF" TabItemType="Middle">
+                                <Grid Background="#FF1E9FFF" Height="300"/>
+                            </wpfcontrollib:DTabItem>
+                            
+                            <wpfcontrollib:DTabItem Height="35" Header="论坛" >
+                            <Grid Background="#FF1E9FFF" Height="300"/>
+                            </wpfcontrollib:DTabItem>
+                        
+                            <wpfcontrollib:DTabItem Height="35" Header="问答">
+                                <Grid  Height="300"/>
+                            </wpfcontrollib:DTabItem>
+                        
+                            <wpfcontrollib:DTabItem Height="35"  Header="商城"  SelectForeground="White"  SelectedColor="#FF1E9FFF"  TabItemType="Right">
+                                <Grid Background="#FF1E9FFF" Height="300"/>
+                            </wpfcontrollib:DTabItem>
+                        </TabControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </wpfcontrollib:MetroTabItem>
+
+            <wpfcontrollib:MetroTabItem Header="第四种分页样式" Icon="&#xe921;">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid Background="{DynamicResource S_AccentBrush}">
+                            <TabControl x:Name="MainTab" Style="{DynamicResource TabControlStyle}"  Height="500">
+                                <TabItem Header="首页" IsTabStop="False"/>
+
+                                <TabItem Header="最热" IsTabStop="False">
+                                    <Grid Background="Yellow"/>
+                                </TabItem>
+                                <TabItem Header="专题" IsTabStop="False">
+                                    <Grid Background="PaleGreen"/>
+                                </TabItem>
+                                <TabItem Header="博客" IsTabStop="False">
+                                    <Grid Background="Aquamarine"/>
+                                </TabItem>
+                                <TabItem Header="问答" IsTabStop="False">
+                                    <Grid Background="Blue"/>
+                                </TabItem>
+                            </TabControl>
+                            
+                            <Border HorizontalAlignment="Left" VerticalAlignment="Top"  Height="60" Width="130">
+                                <TextBlock Text="CSDN" FontSize="44" Margin="5,0,0,0" Foreground="White"></TextBlock>
+                            </Border>
+                        </Grid>
+                 
+                    </StackPanel>
+                </ScrollViewer>
+            </wpfcontrollib:MetroTabItem>
         </wpfcontrollib:MetroTabControl >
-        
-    
-        <!--ItemContainerStyle="{StaticResource ShellTabItemStyle}"SelectedIndex="0"-->
-        <!--Background="{StaticResource headerBarBG}"-->
     </Grid>
 </Page>

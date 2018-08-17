@@ -47,8 +47,6 @@ namespace WpfControlDemo.View
             {
                 _isShow = value;
                 RaisePropertyChanged("IsShow");
-
-                this.rr.IsShow = value;
             }
         }
 

@@ -6,22 +6,30 @@
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml" />
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
     <!--FButton模板-->
     <ControlTemplate x:Key="FButton_Template" TargetType="{x:Type local:FButton}">
-       
-        <Grid>
-
+        <Grid >
             <Border x:Name="border" Background="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path= Background}" 
                                     Height="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Height}" 
                                     CornerRadius="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=CornerRadius}" 
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                                     Width="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Width}"/>
-            
-            <!--Icon/Text-->
+
+            <Grid  x:Name="grid">
+                <Grid.LayoutTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="grid_scale" ScaleX="1" ScaleY="1" />
+                    </TransformGroup>
+                </Grid.LayoutTransform>
+                <!--Icon/Text-->
                 <StackPanel Orientation="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=Orientation}" VerticalAlignment="Center" 
                         Margin="{TemplateBinding Padding}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+
+                  
+
                     <TextBlock x:Name="icon"  Margin="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=FIconMargin}" 
                            RenderTransformOrigin="0.5,0.5" Style="{StaticResource FIcon}"
                            Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path= FIcon}"
@@ -42,23 +50,28 @@
                            HorizontalAlignment="Center" />
                 </StackPanel>
 
-                <local:WaitingBox   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={StaticResource VisibilityConverter}}" 
-                                   Foreground="{StaticResource S_AccentBrush}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
-               
             </Grid>
+            <local:WaitingBox   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={StaticResource VisibilityConverter}}" 
+                                   Foreground="{StaticResource S_AccentBrush}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
+
+        </Grid>
         <!--</Border>-->
-
-
         <!--触发器-->
         <ControlTemplate.Triggers>
             <!--设置鼠标进入时的背景、前景样式-->
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=MouseOverBackground}" TargetName="border" />
+
+                <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
+                                Path=MouseOverForeground}"/>
+
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=MouseOverForeground}" TargetName="icon"/>
+                
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=MouseOverForeground}" TargetName="txt"/>
+                
 
                 <Trigger.EnterActions>
                     <BeginStoryboard>
@@ -76,7 +89,7 @@
                     </BeginStoryboard>
                 </Trigger.ExitActions>
             </Trigger>
-            
+
             <!--Ficon的动画触发器-->
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -101,19 +114,42 @@
 
             <!--鼠标按下时的前景、背景样式-->
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
-                                Path=PressedBackground}" TargetName="border" />
+                <!--<Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
+                                Path=PressedBackground}" TargetName="border" />-->
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=PressedForeground}" TargetName="icon"/>
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=PressedForeground}" TargetName="txt"/>
+                <!--<Setter Property="Margin" Value="0,3,0,0" TargetName="grid"/>-->
 
-                <!--<Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Height,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>
-                <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Width,Converter={x:Static base:XConverter.PressedSizeConverter}}" TargetName="border"/>-->
-                
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="grid">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="0.95" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"  Storyboard.TargetName="grid">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="0.95" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"   Storyboard.TargetName="grid">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"   Storyboard.TargetName="grid">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                
+
                 <Setter Property="Opacity" Value="0.5" TargetName="border"/>
 
                 <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
@@ -122,7 +158,7 @@
                                 Path=PressedForeground}" TargetName="icon"/>
                 <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, 
                                 Path=PressedForeground}" TargetName="txt"/>
-                
+
             </Trigger>
 
             <Trigger Property="base:ControlAttachProperty.IsBuzy" Value="true">
@@ -153,16 +189,16 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-
+    <!--默认按钮样式-->
     <Style x:Key="DefaultFButtonStyle" TargetType="{x:Type local:FButton}">
         <Setter Property="Background" Value="{DynamicResource S_AccentBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource S_WhiteNotice}" />
         <Setter Property="MouseOverBackground" Value="{StaticResource S_AccentBrush}" />
         <Setter Property="MouseOverForeground" Value="{StaticResource S_WhiteNotice}" />
-        <Setter Property="PressedBackground" Value="{StaticResource S_GrayNotice}" />
+        <Setter Property="PressedBackground" Value="{StaticResource S_OpacityGray}" />
         <Setter Property="PressedForeground" Value="{StaticResource S_WhiteNotice}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="Width" Value="100" />
+        <Setter Property="Width" Value="120" />
         <Setter Property="Height" Value="30" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="CornerRadius" Value="0" />
@@ -172,11 +208,12 @@
         <Setter Property="Content" Value="{x:Null}" />
         <Setter Property="FIconMargin" Value="0,0,5,0" />
         <Setter Property="AllowsAnimation" Value="False" />
+        <Setter Property="CornerRadius" Value="2" />
     </Style>
     <!--默认样式-->
     <Style TargetType="{x:Type local:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}"/>
 
-    <!--背景透明的FButton样式-->
+    <!--透明按钮-->
     <Style x:Key="FButton_Transparency" TargetType="{x:Type local:FButton}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="MouseOverBackground" Value="Transparent" />
@@ -198,7 +235,7 @@
         <Setter Property="Cursor" Value="Hand" />
     </Style>
 
-    <!--LinkButton的FButton样式，默认无FIcon-->
+    <!--超链接按钮-->
     <Style x:Key="FButton_LinkButton" TargetType="{x:Type local:FButton}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="MouseOverBackground" Value="Transparent" />
@@ -222,4 +259,42 @@
         <Setter Property="Cursor" Value="Hand" />
     </Style>
 
+    <!--圆形按钮-->
+    <Style x:Key="FButton_CircleButtonStyle" TargetType="{x:Type local:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}">
+        <Setter Property="Width" Value="35" />
+        <Setter Property="Height" Value="35" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="CornerRadius" Value="100" />
+        <Setter Property="FIconSize" Value="20" />
+        <Setter Property="FIconMargin" Value="0,0,0,0" />
+    </Style>
+
+    <!--圆形透明安妮-->
+    <Style x:Key="FButton_CircleTransparentStyle" TargetType="{x:Type local:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}">
+        <Setter Property="Width" Value="35" />
+        <Setter Property="Height" Value="35" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="CornerRadius" Value="100" />
+        <Setter Property="FIconSize" Value="20" />
+        <Setter Property="BorderBrush" Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="FIconMargin" Value="0,0,0,0" />
+        
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="MouseOverBackground" Value="{StaticResource S_AccentBrush}" />
+        <Setter Property="MouseOverForeground" Value="{StaticResource S_WhiteNotice}" />
+        <Setter Property="PressedBackground" Value="{StaticResource S_OpacityGray}" />
+        <Setter Property="PressedForeground" Value="{StaticResource S_WhiteNotice}" />
+    </Style>
+
+    <!--圆角按钮-->
+    <Style x:Key="FButton_CornerButtonStyle" TargetType="{x:Type local:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}">
+        <Setter Property="Width" Value="120" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="CornerRadius" Value="15" />
+        <Setter Property="FIconSize" Value="20" />
+        <Setter Property="FIconMargin" Value="0,0,0,0" />
+    </Style>
 </ResourceDictionary>

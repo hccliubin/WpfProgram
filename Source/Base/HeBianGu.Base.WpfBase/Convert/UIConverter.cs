@@ -76,7 +76,7 @@ namespace HeBianGu.Base.WpfBase
             if (string.IsNullOrEmpty(value.ToString().Trim())) return Colors.Gray;
 
             int v = int.Parse(value.ToString());
-            
+
             switch (v)
             {
                 case 1:
@@ -123,6 +123,29 @@ namespace HeBianGu.Base.WpfBase
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    /// <summary> 绑定图标转换 </summary>
+    public class ColorToBrushConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+
+            if (value == null) return null;
+
+            System.Windows.Media.Color color = (System.Windows.Media.Color)value;
+
+
+            return new SolidColorBrush(color);
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            SolidColorBrush brush = value as SolidColorBrush;
+
+            if (brush == null) return null;
+
+            return brush.Color;
         }
     }
 
@@ -272,7 +295,7 @@ namespace HeBianGu.Base.WpfBase
             }
 
             return null;
-            
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

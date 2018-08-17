@@ -19,6 +19,17 @@
     </Page.Resources>
 
     <Grid>
-        <wpfcontrollib:ThemeSetControl Style="{StaticResource DefaultUserControl}"/>
+        <wpfcontrollib:AnimatedTabControl >
+            <TabItem Header="主题颜色设置">
+                <wpfcontrollib:ThemeSetControl Style="{StaticResource DefaultUserControl}"/>
+            </TabItem>
+            <TabItem Header="颜色选择控件">
+                <wpfcontrollib:MetroColorPicker Grid.Row="1" Background="{DynamicResource S_AccentBrush}" Width="50" Height="50"/>
+
+            </TabItem>
+        </wpfcontrollib:AnimatedTabControl >
+    
+   
+
     </Grid>
 </Page>

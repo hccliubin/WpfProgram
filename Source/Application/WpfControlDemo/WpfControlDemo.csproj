@@ -64,8 +64,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\DefaultAsynNotify.cs" />
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="View\3DGalleryPage.xaml.cs">
+      <DependentUpon>3DGalleryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BaseUserControlPage.xaml.cs">
       <DependentUpon>BaseUserControlPage.xaml</DependentUpon>
@@ -100,17 +100,35 @@
     <Compile Include="View\ListViewPage.xaml.cs">
       <DependentUpon>ListViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\NumberPage.xaml.cs">
+      <DependentUpon>NumberPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ObjectDataPrividerPage.xaml.cs">
       <DependentUpon>ObjectDataPrividerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OtherControlPage.xaml.cs">
       <DependentUpon>OtherControlPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PanoramaControlPage.xaml.cs">
+      <DependentUpon>PanoramaControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PathDemo.xaml.cs">
       <DependentUpon>PathDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RadarChartPagexaml.xaml.cs">
       <DependentUpon>RadarChartPagexaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RainWavePage.xaml.cs">
+      <DependentUpon>RainWavePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RandomNumberPage.xaml.cs">
+      <DependentUpon>RandomNumberPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScrollView3DControlPage.xaml.cs">
+      <DependentUpon>ScrollView3DControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SliderPage.xaml.cs">
+      <DependentUpon>SliderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StoryBoardPage.xaml.cs">
       <DependentUpon>StoryBoardPage.xaml</DependentUpon>
@@ -142,6 +160,9 @@
     <Compile Include="View\WaitingPage.xaml.cs">
       <DependentUpon>WaitingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WaterFallPage.xaml.cs">
+      <DependentUpon>WaterFallPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowSystemPage.xaml.cs">
       <DependentUpon>WindowSystemPage.xaml</DependentUpon>
     </Compile>
@@ -164,7 +185,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl1.xaml">
+    <Page Include="View\3DGalleryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -212,6 +233,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\NumberPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ObjectDataPrividerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,11 +245,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PanoramaControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PathDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RadarChartPagexaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RainWavePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RandomNumberPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ScrollView3DControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SliderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,6 +310,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WaitingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WaterFallPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +391,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\titleMuenIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\001.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

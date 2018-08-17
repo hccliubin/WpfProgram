@@ -52,6 +52,26 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3DGalleryControl\ContainerBox.cs" />
+    <Compile Include="3DGalleryControl\Demo\ScrollWindowUserControl.xaml.cs">
+      <DependentUpon>ScrollWindowUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3DGalleryControl\Demo\SwitchUserControl.xaml.cs">
+      <DependentUpon>SwitchUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3DGalleryControl\Demo\ViewPort3DUserControl.xaml.cs">
+      <DependentUpon>ViewPort3DUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3DGalleryControl\ImageScrollView.xaml.cs">
+      <DependentUpon>ImageScrollView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3DGalleryControl\ImageSwitchView.xaml.cs">
+      <DependentUpon>ImageSwitchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3DGalleryControl\ScrollContainerView.cs" />
+    <Compile Include="3DGalleryControl\Viewport3DControl.xaml.cs">
+      <DependentUpon>Viewport3DControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BatteryControl\BatteryControl.xaml.cs">
       <DependentUpon>BatteryControl.xaml</DependentUpon>
     </Compile>
@@ -64,6 +84,15 @@
     <Compile Include="ChartControl\RadarChartControl\RadarChartTitleList.xaml.cs">
       <DependentUpon>RadarChartTitleList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PanoramaControl\IPanoramaTile.cs" />
+    <Compile Include="PanoramaControl\Panorama.cs" />
+    <Compile Include="PanoramaControl\PanoramaControl.xaml.cs">
+      <DependentUpon>PanoramaControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PanoramaControl\PanoramaGroup.cs" />
+    <Compile Include="PanoramaControl\PanoramaGroupWidthConverter.cs" />
+    <Compile Include="PanoramaControl\SimpleCommand.cs" />
+    <Compile Include="PanoramaControl\TreeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -77,11 +106,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RandomNumberControl\NumberGroup.xaml.cs">
+      <DependentUpon>NumberGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RandomNumberControl\NumberItem.xaml.cs">
+      <DependentUpon>NumberItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RandomNumberControl\NumberPanel.xaml.cs">
+      <DependentUpon>NumberPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TPageControl\PageBar.xaml.cs">
       <DependentUpon>PageBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="TPageControl\TPageControl.xaml.cs">
       <DependentUpon>TPageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaveSimControl\WaveSimControl.xaml.cs">
+      <DependentUpon>WaveSimControl.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,6 +153,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="3DGalleryControl\Demo\ScrollWindowUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3DGalleryControl\Demo\SwitchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3DGalleryControl\Demo\ViewPort3DUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3DGalleryControl\ImageScrollView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="3DGalleryControl\ImageSwitchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="3DGalleryControl\Viewport3DControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BatteryControl\BatteryControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,6 +193,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="PanoramaControl\PanoramaControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PanoramaControl\PanoramaTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RandomNumberControl\NumberGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RandomNumberControl\NumberItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RandomNumberControl\NumberPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TPageControl\PageBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,7 +225,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="WaveSimControl\WaveSimControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="3DGalleryControl\images\13221820.gif" />
+    <Resource Include="3DGalleryControl\images\down.png" />
+    <Resource Include="3DGalleryControl\images\image1.png" />
+    <Resource Include="3DGalleryControl\images\image2.png" />
+    <Resource Include="3DGalleryControl\images\image3.png" />
+    <Resource Include="3DGalleryControl\images\image4.png" />
+    <Resource Include="3DGalleryControl\images\image5.png" />
+    <Resource Include="3DGalleryControl\images\image6.png" />
+    <Resource Include="3DGalleryControl\images\image7.png" />
+    <Resource Include="3DGalleryControl\images\image8.png" />
+    <Resource Include="3DGalleryControl\images\image9.png" />
+    <Resource Include="3DGalleryControl\images\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PanoramaControl\Images\Add.png" />
+    <Resource Include="PanoramaControl\Images\Adobe.png" />
+    <Resource Include="PanoramaControl\Images\Android.png" />
+    <Resource Include="PanoramaControl\Images\Author.png" />
+    <Resource Include="PanoramaControl\Images\Blogger.png" />
+    <Resource Include="PanoramaControl\Images\Copy.png" />
+    <Resource Include="PanoramaControl\Images\Delete.png" />
+    <Resource Include="PanoramaControl\Images\Digg.png" />
+    <Resource Include="PanoramaControl\Images\Edit.png" />
+    <Resource Include="PanoramaControl\Images\Facebook.png" />
+    <Resource Include="PanoramaControl\Images\GMail.png" />
+    <Resource Include="PanoramaControl\Images\RSS.png" />
+    <Resource Include="PanoramaControl\Images\Save.png" />
+    <Resource Include="PanoramaControl\Images\Search.png" />
+    <Resource Include="PanoramaControl\Images\Trash.png" />
+    <Resource Include="PanoramaControl\Images\Twitter.png" />
+    <Resource Include="PanoramaControl\Images\VisualStudio.png" />
+    <Resource Include="PanoramaControl\Images\Wordpress.png" />
+    <Resource Include="PanoramaControl\Images\Yahoo.png" />
+    <Resource Include="PanoramaControl\Images\YouTube.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

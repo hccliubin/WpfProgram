@@ -5,7 +5,7 @@
     <ResourceDictionary.MergedDictionaries>
         <!--<ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/DefaultResource.xaml"/>
         <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/Theme/LightThemeResource.xaml"/>-->
-       
+
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FTextBox.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/FCheckBox.xaml"/>
@@ -20,12 +20,18 @@
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroTextBox.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/SwitchToggleButton.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MetroProgressBar.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/NumericControl.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/DTextBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/DTabItem.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/WaterFallFlowControl.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/PromptableButton.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/BindPassWordBox.xaml"/>
 
-        <!--<ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/UserControl1.xaml"/>-->
-
+        
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MultiComboBox.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
-        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/CustomControl/BaseUserControl.xaml"/>
+
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/BaseUserControl.xaml"/>
         
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/Scroll.xaml"/>
@@ -41,7 +47,9 @@
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/PageTheme.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/GridTheme.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/GroupBoxTheme.xaml"/>
-
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/Slider.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/TabControl.xaml"/>
+        
         
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
     </ResourceDictionary.MergedDictionaries>

@@ -6,8 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfControlDemo"
         mc:Ignorable="d" 
-        Style="{StaticResource ResourceKey=DefaultWindowStyle}" x:Name="main"
-        Title="MainWindow" Height="760" Width="1079">
+        Style="{StaticResource ResourceKey=DefaultWindowStyle}" x:Name="main" CaptionHeight="50" FIconSize="30"
+        Title="HeBianGu for WPF 控件示例" Height="760" Width="1079">
 
 
 

@@ -21,7 +21,6 @@
             <Style TargetType="{x:Type c:FTextBox}" BasedOn="{StaticResource DefaultTextBox}"></Style>
             <Style TargetType="{x:Type c:FCheckBox}" BasedOn="{StaticResource DefaultCheckBox}"></Style>
             <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButton}"></Style>
-            <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource DefaultPasswordBox}"></Style>
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBox}"></Style>
             <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DefaultDatePicker}"></Style>
             <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListView}"></Style>

@@ -37,8 +37,11 @@ namespace WpfControlDemo.View
             var bin = new CommandBinding(this.BusyCommand);
             bin.Executed += buzy_Executed;
             this.CommandBindings.Add(bin);
+
+            this.Loaded += ButtonPage_Loaded;
         }
 
+    
         public static readonly DependencyProperty BusyCommandProperty =
     DependencyProperty.Register("BusyCommand", typeof(RoutedCommand), typeof(ButtonPage), new PropertyMetadata(null));
 
@@ -73,6 +76,26 @@ namespace WpfControlDemo.View
         private void FButton_Click(object sender, RoutedEventArgs e)
         {
             MessageWindow.ShowDialog("看到蒙版了么？", this.grid_all);
+        }
+
+
+        private void ButtonPage_Loaded(object sender, RoutedEventArgs e)
+        {
+           // AdornerLayer layer = AdornerLayer.GetAdornerLayer(grid_all);
+           //layer.Add(new PromptAdorner(Prompbutton));
+        }
+
+
+        private void btnPlus_Click(object sender, RoutedEventArgs e)
+        {
+            int v = int.Parse(Prompbutton.PromptCount) + 1;
+
+            Prompbutton.PromptCount = v.ToString();
+        }
+
+        private void btnReduce_Click(object sender, RoutedEventArgs e)
+        {
+            Prompbutton.PromptCount = (int.Parse(Prompbutton.PromptCount) - 1).ToString();
         }
     }
 

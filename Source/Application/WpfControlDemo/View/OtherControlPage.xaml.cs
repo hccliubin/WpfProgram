@@ -29,10 +29,7 @@ namespace WpfControlDemo.View
         {
             InitializeComponent();
 
-            this.Loaded +=(s, e) =>
-                                {
-                                    this.DataContext = _vm;
-                                };
+     
 
 
 
@@ -40,48 +37,5 @@ namespace WpfControlDemo.View
         }
     }
 
-    /// <summary> 说明 </summary>
-    partial class MyClass
-    {
-        private double _left = 0.1;
-        /// <summary> 说明 </summary>
-        public double Left
-        {
-            get { return _left; }
-            set
-            {
-                _left = value;
-                RaisePropertyChanged();
-            }
-        }
 
-        private double _right = 0.7;
-        /// <summary> 说明 </summary>
-        public double Right
-        {
-            get { return _right; }
-            set
-            {
-                _right = value;
-                RaisePropertyChanged();
-            }
-        }
-
-
-    }
-
-    partial class MyClass : INotifyPropertyChanged
-    {
-        #region - MVVM -
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void RaisePropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
-    }
 }

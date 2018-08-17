@@ -79,6 +79,11 @@ namespace HeBianGu.Base.WpfBase
         }
 
 
+        public static ColorToBrushConverter ColorToBrushConverter
+        {
+            get { return new ColorToBrushConverter(); }
+        }
+
         
 
         //public static SelectTextConverter SelectTextConverter

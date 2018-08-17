@@ -22,7 +22,5 @@
             <CheckBox IsChecked="{Binding IsShow,Mode=TwoWay}" Content="是否显示"/>
         </StackPanel>
         <wpfcontrollib:OpacityVisibleUserControl x:Name="tt" Grid.Row="1"  IsShow="{Binding IsShow,Mode=TwoWay}"/>
-
-        <wpfcontroldemo:UserControl1 Grid.Row="2" x:Name="rr"/>
     </Grid>
 </Page>
