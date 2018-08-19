@@ -17,6 +17,8 @@
                     <Folder Name="状态按钮" Value="../View/ToggleButtonPage.xaml"  FIcon="&#xe60f;"/>
                     <Folder Name="数字控件" Value="../View/NumberPage.xaml"  FIcon="&#xe60f;"/>
                     <Folder Name="拖动控件" Value="../View/SliderPage.xaml"  FIcon="&#xe60f;"/>
+                    <Folder Name="属性控件" Value="../View/PropertyGridPage.xaml"  FIcon="&#xe60f;"/>
+
                 </Folder>
                 <Folder Name="自定义控件" Value="../View/DocumentPage.xaml"  FIcon="&#xe620;">
                     <Folder Name="瀑布控件" Value="../View/WaterFallPage.xaml"  FIcon="&#xe60f;"/>

@@ -5,9 +5,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfControlDemo"
-        mc:Ignorable="d" 
-        Style="{StaticResource ResourceKey=DefaultWindowStyle}" x:Name="main" CaptionHeight="50" FIconSize="30"
-        Title="HeBianGu for WPF 控件示例" Height="760" Width="1079">
+                          xmlns:propertygrid="clr-namespace:HeBianGu.Control.PropertyGrid;assembly=HeBianGu.Control.PropertyGrid"
+                          mc:Ignorable="d" 
+        Style="{StaticResource ResourceKey=DefaultWindowStyle}" 
+                          x:Name="main" CaptionHeight="50" 
+                          FIconSize="30"
+        Title="HeBianGu for WPF 控件示例" 
+                          Height="760" Width="1079" >
 
 
 
@@ -15,6 +19,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="263*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <!--<ScrollViewer>
             <StackPanel Background="White">
@@ -60,7 +65,14 @@
             
         </TreeView>
 
-        <Frame x:Name="PageContext" Grid.Column="1"  Background="{StaticResource S_GrayLight}" BorderThickness="1" NavigationUIVisibility="Visible"  
-               Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}"/>
+        <Frame x:Name="PageContext"  Grid.Column="1"  Background="{StaticResource S_GrayLight}" BorderThickness="1" NavigationUIVisibility="Visible"  
+               Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}"
+               
+                          Keyboard.GotKeyboardFocus="property_GotKeyboardFocus"
+               />
+
+        <propertygrid:PropertyGrid  Background="{StaticResource S_GrayLight}" Grid.Column="2"  x:Name="property" PropertyFilterVisibility="Collapsed"/>
+
+        <!--BindSelectedObjects="{Binding BindSelectedObjects}"-->
     </Grid>
 </wpfcontrollib:WindowBase>

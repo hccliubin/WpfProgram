@@ -20,7 +20,7 @@
             </wpfcontrollib:MetroTabItem>
 
             <wpfcontrollib:MetroTabItem Header="类查看器"  Icon="&#xe617;">
-                <view:Control_CodeAutoGeneration/>
+                <local:Control_CodeModelPropertyView/>
             </wpfcontrollib:MetroTabItem>
 
             <wpfcontrollib:MetroTabItem Header="数据生成"  Icon="&#xe617;">

@@ -45,6 +45,7 @@ namespace CodeAutoGenerationTool.ViewModel
 
 
 
+
         public void RelayMethod(object obj)
         {
             string command = obj.ToString();
@@ -86,6 +87,33 @@ namespace CodeAutoGenerationTool.ViewModel
                 this.Calculate();
 
                 this.Generation();
+
+                var collection = this.LeftCollection.ToList().FindAll(l => l.IsChecked);
+
+                if (collection == null) return;
+
+                List<object> objs = new List<object>();
+
+                foreach (var item in collection)
+                {
+                    if (item.Value is Type)
+                    {
+                        //this.BindSelectedObject = Activator.CreateInstance((Type)temp.Value);
+
+                        objs.Add(Activator.CreateInstance((Type)item.Value));
+                    }
+                }
+             
+
+                this.BindSelectedObjects = objs.ToArray();
+                //else if(temp.FirstOrDefault().Value is PropertyInfo)
+                //{
+
+                //    PropertyInfo propertyinfo = temp.FirstOrDefault().Value as PropertyInfo;
+
+
+                //    this.BindSelectedObject = Activator.CreateInstance(propertyinfo.PropertyType);
+                //}
             }
             //  Do：取消
             else if (command == "Calculate")
@@ -121,10 +149,11 @@ namespace CodeAutoGenerationTool.ViewModel
 
                 item.MapNode = result;
 
-              
+
             }
 
             this.SelectionCollection = temp;
+
         }
 
         public void RightSelectChanged()
@@ -182,6 +211,31 @@ namespace CodeAutoGenerationTool.ViewModel
             {
                 _leftcollection = value;
                 RaisePropertyChanged("Collection");
+            }
+        }
+
+
+        private object _bindSelectedObject;
+        /// <summary> 说明  </summary>
+        public object BindSelectedObject
+        {
+            get { return _bindSelectedObject; }
+            set
+            {
+                _bindSelectedObject = value;
+                RaisePropertyChanged("BindSelectedObject");
+            }
+        }
+
+        private object[] _bindSelectedObjects;
+        /// <summary> 说明  </summary>
+        public object[] BindSelectedObjects
+        {
+            get { return _bindSelectedObjects; }
+            set
+            {
+                _bindSelectedObjects = value;
+                RaisePropertyChanged("BindSelectedObjects");
             }
         }
 

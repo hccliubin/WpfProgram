@@ -67,6 +67,7 @@
     <Compile Include="1 - Provider\CodeTestTemlate\CommonCodeTestTemlate.cs" />
     <Compile Include="1 - Provider\CodeTestTemlate\ICodeTestTemlate.cs" />
     <Compile Include="3 - Domain\CodeAutoGenerationDomain.cs" />
+    <Compile Include="4 - ViewModel\CodeModelPropertyNotifyClass.cs" />
     <Compile Include="4 - ViewModel\CodeModelMapperGeneration.cs" />
     <Compile Include="4 - ViewModel\CodeTestDataNotifyClass.cs" />
     <Compile Include="4 - ViewModel\TupleExtend.cs" />
@@ -83,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="5 - View\Control_CodeModelPropertyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +101,9 @@
     </Compile>
     <Compile Include="5 - View\Control_CodeTestDataGeneration.xaml.cs">
       <DependentUpon>Control_CodeTestDataGeneration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="5 - View\Control_CodeModelPropertyView.xaml.cs">
+      <DependentUpon>Control_CodeModelPropertyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -148,6 +156,10 @@
     <ProjectReference Include="..\..\General\HeBianGu.General.WpfControlLib\HeBianGu.General.WpfControlLib.csproj">
       <Project>{b49dc15f-b43c-4306-adf4-8fa6f5df7f84}</Project>
       <Name>HeBianGu.General.WpfControlLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UserControl\HeBianGu.Control.PropertyGrid\HeBianGu.Control.PropertyGrid.csproj">
+      <Project>{5a332cc8-390f-4526-a13a-d6140878d135}</Project>
+      <Name>HeBianGu.Control.PropertyGrid</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

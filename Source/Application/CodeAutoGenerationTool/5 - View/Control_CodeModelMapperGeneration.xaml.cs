@@ -1,6 +1,7 @@
 ﻿using CodeAutoGenerationTool.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +30,7 @@ namespace CodeAutoGenerationTool.View
 
             this.DataContext = _vm;
         }
+
+  
     }
 }

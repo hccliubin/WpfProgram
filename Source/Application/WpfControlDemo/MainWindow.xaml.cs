@@ -24,6 +24,10 @@ namespace WpfControlDemo
         {
             InitializeComponent();
         }
-        
+
+        private void property_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            this.property.SelectedObject = e.NewFocus;
+        }
     }
 }

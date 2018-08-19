@@ -115,6 +115,9 @@
     <Compile Include="View\PathDemo.xaml.cs">
       <DependentUpon>PathDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PropertyGridPage.xaml.cs">
+      <DependentUpon>PropertyGridPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RadarChartPagexaml.xaml.cs">
       <DependentUpon>RadarChartPagexaml.xaml</DependentUpon>
     </Compile>
@@ -253,6 +256,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PropertyGridPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RadarChartPagexaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -368,6 +375,10 @@
     <ProjectReference Include="..\..\General\HeBianGu.General.WpfDocument\HeBianGu.General.WpfDocument.csproj">
       <Project>{d17c1033-77d9-46fc-b039-b1f9e1c8cde2}</Project>
       <Name>HeBianGu.General.WpfDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UserControl\HeBianGu.Control.PropertyGrid\HeBianGu.Control.PropertyGrid.csproj">
+      <Project>{5a332cc8-390f-4526-a13a-d6140878d135}</Project>
+      <Name>HeBianGu.Control.PropertyGrid</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\UserControl\HeBianGu.Control.UserControls\HeBianGu.Control.UserControls.csproj">
       <Project>{0c615dbb-f647-4386-b323-18aaa895d2c1}</Project>
