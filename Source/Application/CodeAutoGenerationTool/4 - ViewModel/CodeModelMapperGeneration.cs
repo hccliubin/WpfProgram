@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -231,6 +232,8 @@ namespace CodeAutoGenerationTool.ViewModel
 
             //  Message：获取所有类型
 
+            if (!File.Exists(this.LeftPath)) return;
+
             var ass = Assembly.LoadFrom(this.LeftPath);
 
             var types = ass.GetTypes();
@@ -367,6 +370,8 @@ namespace CodeAutoGenerationTool.ViewModel
             this.RightCollection.Clear();
 
             //  Message：获取所有类型
+
+            if (!File.Exists(this.RightPath)) return;
 
             var ass = Assembly.LoadFrom(this.RightPath);
 
