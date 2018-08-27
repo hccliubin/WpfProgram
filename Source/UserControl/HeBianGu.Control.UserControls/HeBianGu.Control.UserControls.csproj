@@ -84,6 +84,20 @@
     <Compile Include="ChartControl\RadarChartControl\RadarChartTitleList.xaml.cs">
       <DependentUpon>RadarChartTitleList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GaugeControl\Codebase\Defaults.cs" />
+    <Compile Include="GaugeControl\Codebase\ExtensionMethods.cs" />
+    <Compile Include="GaugeControl\Codebase\Global.cs" />
+    <Compile Include="GaugeControl\Converters\SubtractionFormatter.cs" />
+    <Compile Include="GaugeControl\Converters\ValueTextMarginConverter.cs" />
+    <Compile Include="GaugeControl\GoalMarker.xaml.cs">
+      <DependentUpon>GoalMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GaugeControl\TickMarker.xaml.cs">
+      <DependentUpon>TickMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GaugeControl\WpfGauge.xaml.cs">
+      <DependentUpon>WpfGauge.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PanoramaControl\IPanoramaTile.cs" />
     <Compile Include="PanoramaControl\Panorama.cs" />
     <Compile Include="PanoramaControl\PanoramaControl.xaml.cs">
@@ -193,6 +207,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GaugeControl\GoalMarker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GaugeControl\TickMarker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GaugeControl\WpfGauge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PanoramaControl\PanoramaControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -265,6 +291,9 @@
     <Resource Include="PanoramaControl\Images\Wordpress.png" />
     <Resource Include="PanoramaControl\Images\Yahoo.png" />
     <Resource Include="PanoramaControl\Images\YouTube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GaugeControl\Images\gauge_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

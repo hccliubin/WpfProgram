@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HeBianGu.Control.DockPanelControl;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,25 @@ namespace WpfControlDemo
 
         private void property_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            this.property.SelectedObject = e.NewFocus;
+
+            // if (!this.IsActive) return;
+
+            // //if (this.selectProperty.State == DockableContentState.AutoHide) return;
+
+            // if (this.selectProperty.State == DockableContentState.Hidden) return;
+
+            // if (this.selectProperty.State != DockableContentState.Docked) return;
+
+            //this.property.SelectedObject = e.NewFocus;
+
+            if (this.AutoProperty.IsChecked.Value)
+
+                this.property.SelectedObject = e.NewFocus;
+
+            Debug.WriteLine("说明");
+
         }
+
+
     }
 }

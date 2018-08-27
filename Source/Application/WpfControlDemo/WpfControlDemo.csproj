@@ -38,6 +38,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\CsvHelper.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Product\Dll\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -70,6 +74,9 @@
     <Compile Include="View\BaseUserControlPage.xaml.cs">
       <DependentUpon>BaseUserControlPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BlendBehaviorsPage.xaml.cs">
+      <DependentUpon>BlendBehaviorsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ButtonPage.xaml.cs">
       <DependentUpon>ButtonPage.xaml</DependentUpon>
     </Compile>
@@ -88,17 +95,32 @@
     <Compile Include="View\DatePickerDemo.xaml.cs">
       <DependentUpon>DatePickerDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DockPanelPage.xaml.cs">
+      <DependentUpon>DockPanelPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DocumentPage.xaml.cs">
       <DependentUpon>DocumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EffectsBackgroundPage.xaml.cs">
+      <DependentUpon>EffectsBackgroundPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ExpanderPage.xaml.cs">
       <DependentUpon>ExpanderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GaugeControlPage.xaml.cs">
+      <DependentUpon>GaugeControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HightTextBlockPage.xaml.cs">
       <DependentUpon>HightTextBlockPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InlineDialogPage.xaml.cs">
+      <DependentUpon>InlineDialogPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ListViewPage.xaml.cs">
       <DependentUpon>ListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NotifyPage.xaml.cs">
+      <DependentUpon>NotifyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NumberPage.xaml.cs">
       <DependentUpon>NumberPage.xaml</DependentUpon>
@@ -138,6 +160,9 @@
     </Compile>
     <Compile Include="View\TabControlPage.xaml.cs">
       <DependentUpon>TabControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TextBlockPage.xaml.cs">
+      <DependentUpon>TextBlockPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TextBoxPage.xaml.cs">
       <DependentUpon>TextBoxPage.xaml</DependentUpon>
@@ -196,6 +221,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\BlendBehaviorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,7 +249,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DockPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DocumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EffectsBackgroundPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,11 +265,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\GaugeControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HightTextBlockPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\InlineDialogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ListViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NotifyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -285,6 +334,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TabControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TextBlockPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -376,6 +429,10 @@
       <Project>{d17c1033-77d9-46fc-b039-b1f9e1c8cde2}</Project>
       <Name>HeBianGu.General.WpfDocument</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\UserControl\HeBianGu.Control.DockPanelControl\HeBianGu.Control.DockPanelControl.csproj">
+      <Project>{48340131-1e63-4f56-944c-7738c46d6ab2}</Project>
+      <Name>HeBianGu.Control.DockPanelControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\UserControl\HeBianGu.Control.PropertyGrid\HeBianGu.Control.PropertyGrid.csproj">
       <Project>{5a332cc8-390f-4526-a13a-d6140878d135}</Project>
       <Name>HeBianGu.Control.PropertyGrid</Name>
@@ -405,6 +462,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Spongebob.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Patrick 1.ico" />
+    <Resource Include="Resources\Patrick 2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

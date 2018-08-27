@@ -26,9 +26,10 @@
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/WaterFallFlowControl.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/PromptableButton.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/BindPassWordBox.xaml"/>
-
-        
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/InlineModalDialog.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/MultiComboBox.xaml"/>
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/ModernProgressRing.xaml"/>
+
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
 
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/BaseUserControl.xaml"/>

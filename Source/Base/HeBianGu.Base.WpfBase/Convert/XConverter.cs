@@ -31,7 +31,13 @@ namespace HeBianGu.Base.WpfBase
         }
 
 
+        public static VisibilityConverter VisibilityConverter
+        {
+            get { return new VisibilityConverter(); }
+        }
 
+
+        
         //public static BackgroundToForegroundConverter BackgroundToForegroundConverter
         //{
         //    get { return Singleton<BackgroundToForegroundConverter>.GetInstance(); }

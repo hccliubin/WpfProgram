@@ -23,6 +23,9 @@
 
                         <controls:ProgressBarControl  CanvasSize="100" EllipseCount="15" EllipseSize="10" StepAngle="10" TimeSpan="50"></controls:ProgressBarControl>
 
+                        <ProgressBar Minimum="0" Maximum="1" Height="50" Width="500" IsIndeterminate="True" Margin="5"   Style="{StaticResource RunningPointProgressBar}"/>
+                        
+                        
                         <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Style="{StaticResource SimpleProgressBar}" x:Name="pro4"></ProgressBar>
                         <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Height="15" x:Name="pro5" Background="LightSteelBlue" Foreground="OrangeRed" Style="{StaticResource SimpleProgressBar}"></ProgressBar>
                         <TextBlock x:Name="proValue"  Text="{Binding Percent,Mode=OneWay,StringFormat={}{0:p1}}" HorizontalAlignment="Center"></TextBlock>
@@ -71,6 +74,38 @@
                                     <controls:MetroProgressBar x:Name="pb1" Title="MetroProgressBar 调整" Margin="5" Value="20" ProgressBarHeight="20" CornerRadius="0" ProgressBarState="None" TextHorizontalAlignment="Center" />
                                     <controls:MetroProgressBar x:Name="pb2" Title="MetroProgressBar 正常" Margin="5" Value="0" TextHorizontalAlignment="Right" Maximum="50" />
                                     <controls:MetroProgressBar Title="MetroProgressBar 错误" Margin="5" Value="40" ProgressBarState="Error" />
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="ModernProgressRing">
+                <ScrollViewer>
+                    <StackPanel>
+                        <GroupBox Header="进度条">
+                            <Grid>
+                                <StackPanel MinWidth="200" HorizontalAlignment="Left">
+                                    <TextBlock Text="MODERNPROGRESSRING" Margin="0,0,0,8" />
+                                    <!--<mui:BBCodeBlock BBCode="Represents a control that indicates that an operation is ongoing. The control comes with 8 built-in spinner styles, ported from [url=https://github.com/nigel-sampson/spinkit-xaml]SpinKit.Xaml[/url]." Margin="0,0,0,8" />-->
+                                    <!--<mui:BBCodeBlock BBCode="Note: the styles automatically fill the given control size, except for [i]Wandering Cubes[/i] which is hard coded for 80 x 80." Margin="0,0,0,16" />-->
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,32">
+                                        <TextBlock Text="Style:" VerticalAlignment="Center" />
+                                        <ComboBox x:Name="CmbRingStyle" Margin="8,0,0,0">
+                                            <ComboBoxItem Content="Chasing Dots" Tag="{StaticResource ChasingDotsProgressRingStyle}" />
+                                            <ComboBoxItem Content="Circle (default style)" IsSelected="True" Tag="{StaticResource CircleProgressRingStyle}" />
+                                            <ComboBoxItem Content="Double Bounce" Tag="{StaticResource DoubleBounceProgressRingStyle}" />
+                                            <ComboBoxItem Content="Pulse" Tag="{StaticResource PulseProgressRingStyle}" />
+                                            <ComboBoxItem Content="Rotating Plane" Tag="{StaticResource RotatingPlaneProgressRingStyle}" />
+                                            <ComboBoxItem Content="Three Bounce" Tag="{StaticResource ThreeBounceProgressRingStyle}" />
+                                            <ComboBoxItem Content="Wandering Cubes" Tag="{StaticResource WanderingCubesProgressRingStyle}" />
+                                            <ComboBoxItem Content="Wave" Tag="{StaticResource WaveProgressRingStyle}" />
+                                        </ComboBox>
+                                    </StackPanel>
+
+                                    <controls:ModernProgressRing IsActive="True" Width="80" Height="80" Style="{Binding SelectedItem.Tag, ElementName=CmbRingStyle}" />
                                 </StackPanel>
                             </Grid>
                         </GroupBox>

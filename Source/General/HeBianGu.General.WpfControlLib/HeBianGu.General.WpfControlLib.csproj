@@ -68,6 +68,18 @@
       <DependentUpon>BindPassWordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commond\ControlCommand.cs" />
+    <Compile Include="Controls\InlineModalDialog.xaml.cs">
+      <DependentUpon>InlineModalDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AnimatedTextBlock.xaml.cs">
+      <DependentUpon>AnimatedTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModernProgressRing.xaml.cs">
+      <DependentUpon>ModernProgressRing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NotifyIcon.xaml.cs">
+      <DependentUpon>NotifyIcon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PromptableButton.xaml.cs">
       <DependentUpon>PromptableButton.xaml</DependentUpon>
     </Compile>
@@ -175,6 +187,13 @@
     <Compile Include="CustomControls\ScrollView3DControl.xaml.cs">
       <DependentUpon>ScrollView3DControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Provider\Effect\BlendEffect.cs" />
+    <Compile Include="Provider\Effect\PointLightEffect.cs" />
+    <Compile Include="Provider\Effect\UriHelper.cs" />
+    <Compile Include="Provider\ImageHelper.cs" />
+    <Compile Include="Provider\ListItemMoveBehavior.cs" />
+    <Compile Include="Provider\RelativeAnimatingContentControl.cs" />
+    <Compile Include="Provider\UIHelpers.cs" />
     <Compile Include="WindowBase\MessageWindow.xaml.cs">
       <DependentUpon>MessageWindow.xaml</DependentUpon>
     </Compile>
@@ -193,6 +212,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Provider\Effect\Blend.ps" />
+    <Resource Include="Provider\Effect\PointLight.ps" />
     <Resource Include="Resources\iconfont.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +223,22 @@
     <Page Include="Controls\BindPassWordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InlineModalDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\AnimatedTextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ModernProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NotifyIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\PromptableButton.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -432,6 +469,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Provider\Effect\Blend.fx" />
+    <Resource Include="Provider\Effect\PointLight.fx" />
     <Content Include="Resources\demo_unicode.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

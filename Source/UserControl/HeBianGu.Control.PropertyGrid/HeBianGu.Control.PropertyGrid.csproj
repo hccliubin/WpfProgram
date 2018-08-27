@@ -99,10 +99,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="Controls\DoubleEditor.cs" />
     <Compile Include="Controls\EnumDropdown.cs" />
     <Compile Include="Controls\SearchTextBox.cs" />
@@ -160,10 +156,6 @@
     <Compile Include="PropertyValueChangedEventArgs.cs" />
     <Compile Include="ResourceLocator.cs" />
     <Compile Include="TypeEditor.cs" />
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -191,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="CustomDictionary.xml" />
-    <Resource Include="License.txt" />
     <Resource Include="Themes\Images\clear.png" />
     <Resource Include="Themes\Images\search.png" />
   </ItemGroup>

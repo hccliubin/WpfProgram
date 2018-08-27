@@ -2,77 +2,93 @@
         xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfControlDemo"
                           xmlns:propertygrid="clr-namespace:HeBianGu.Control.PropertyGrid;assembly=HeBianGu.Control.PropertyGrid"
+                          xmlns:avalonDock="clr-namespace:HeBianGu.Control.DockPanelControl;assembly=HeBianGu.Control.DockPanelControl"
                           mc:Ignorable="d" 
         Style="{StaticResource ResourceKey=DefaultWindowStyle}" 
                           x:Name="main" CaptionHeight="50" 
                           FIconSize="30"
         Title="HeBianGu for WPF 控件示例" 
-                          Height="760" Width="1079" >
+                          Height="760" Width="1200" >
 
 
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="263*"/>
+            <ColumnDefinition Width="263*" MinWidth="600"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <!--<ScrollViewer>
-            <StackPanel Background="White">
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="ButtonDemo" Tag="View/ButtonPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="TextBoxDemo" Tag="View/TextBoxPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="CheckBoxDemo" Tag="View/CheckBoxPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="WaitingDemo" Tag="View/WaitingPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="ComboboxDemo" Tag="View/ComboboxPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="DatePickerDemo" Tag="View/DatePickerDemo.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="HightTextBlockDemo" Tag="View/HightTextBlockPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="ListViewDemo" Tag="View/ListViewPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="DataPageDemo" Tag="View/DataPagePage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="TabControlDemo" Tag="View/TabControlPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="Viewport3DDemo" Tag="View/Viewport3DPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="StoryBoardDemo" Tag="View/StoryBoardPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="RadarChartDemo" Tag="View/RadarChartPagexaml.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="UserControlDemo" Tag="View/UserControlDemo.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="PathDemo" Tag="View/PathDemo.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="DocumentDemo" Tag="View/DocumentPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="TPageControlDemo" Tag="View/TPageControlPage.xaml"/>
-                <wpfcontrollib:FButton FIcon="&#xe600;" Content="OtherControlDemo" Tag="View/OtherControlPage.xaml"/>
 
-                
-            </StackPanel>
-        </ScrollViewer>-->
-        <!--<Frame Content="Frame" Grid.Column="1" Name="frame"/>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        <avalonDock:DockingManager x:Name="dockManager" Grid.Column="0" Grid.ColumnSpan="2">
+            <avalonDock:ResizingPanel Orientation="Vertical">
+                <avalonDock:ResizingPanel Orientation="Horizontal">
+                    
+                    <!--左側-->
+                    <avalonDock:ResizingPanel avalonDock:ResizingPanel.ResizeWidth="200" Orientation="Vertical" MinWidth="200">
+                        <avalonDock:DockablePane avalonDock:ResizingPanel.ResizeWidth="200" >
+                            <avalonDock:DockableContent x:Name="dcTools" Title="All Controls Demo">
+                                <TreeView  ItemsSource="{Binding Source={StaticResource xdp}}" x:Name="TreeRoot" Background="{StaticResource S_GrayLight}">
+                                    <TreeView.ItemTemplate>
+                                        <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
+                                            <StackPanel  Height="25" Orientation="Horizontal">
+                                                <TextBlock Text="{Binding XPath=@FIcon}" FontSize="15" Style="{StaticResource FIcon}" VerticalAlignment="Center"/>
+                                                <TextBlock x:Name="a" Text="{Binding XPath=@Name}"  VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                    </TreeView.ItemTemplate>
 
-        <TreeView  ItemsSource="{Binding Source={StaticResource xdp}}" x:Name="TreeRoot" Background="{StaticResource S_GrayLight}">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
-                    <StackPanel  Height="25" Orientation="Horizontal">
-                        <TextBlock Text="{Binding XPath=@FIcon}" FontSize="15" Style="{StaticResource FIcon}" VerticalAlignment="Center"/>
-                        <TextBlock x:Name="a" Text="{Binding XPath=@Name}"  VerticalAlignment="Center"/>
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
+                                    <TreeView.ItemContainerStyle>
+                                        <Style TargetType="TreeViewItem">
+                                            <Setter Property="IsExpanded" Value="False" />
+                                        </Style>
+                                    </TreeView.ItemContainerStyle>
 
-            <TreeView.ItemContainerStyle>
-                <Style TargetType="TreeViewItem">
-                    <Setter Property="IsExpanded" Value="True" />
-                </Style>
-            </TreeView.ItemContainerStyle>
-            
-        </TreeView>
+                                </TreeView>
+                            </avalonDock:DockableContent>
+                        </avalonDock:DockablePane>
+                    </avalonDock:ResizingPanel>
+                    
+                    <!--中間-->
+                    <avalonDock:DocumentPane Name="DPWorkArea" MinWidth="600" Width="Auto">
+                        <avalonDock:DocumentContent Title="Control Detial">
+                            <Frame x:Name="PageContext"  
+                                   Grid.Column="1" 
+                                   Background="{StaticResource S_GrayLight}" 
+                                   BorderThickness="1" 
+                                   NavigationUIVisibility="Visible"  
+                                   Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}" 
+                                   Keyboard.GotKeyboardFocus="property_GotKeyboardFocus" />
 
-        <Frame x:Name="PageContext"  Grid.Column="1"  Background="{StaticResource S_GrayLight}" BorderThickness="1" NavigationUIVisibility="Visible"  
-               Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}"
-               
-                          Keyboard.GotKeyboardFocus="property_GotKeyboardFocus"
-               />
+                        </avalonDock:DocumentContent>
+                    </avalonDock:DocumentPane>
+                </avalonDock:ResizingPanel>
+            </avalonDock:ResizingPanel>
+        </avalonDock:DockingManager>
 
-        <propertygrid:PropertyGrid  Background="{StaticResource S_GrayLight}" Grid.Column="2"  x:Name="property" PropertyFilterVisibility="Collapsed"/>
+        <propertygrid:PropertyGrid Grid.Column="2"  
+                                   Background="{StaticResource S_GrayLight}"  
+                                   HorizontalAlignment="Stretch" 
+                                   Visibility="{Binding ElementName=AutoProperty,Path=IsChecked,Converter={StaticResource VisibilityConverter}}"
+                                   VerticalAlignment="Stretch"
+                                    PropertyFilter="true" 
+                                    PropertyDisplayMode="All" 
+                                    PropertyFilterVisibility="Visible" 
+                                    ShowAttachedProperties="True"
+                                   x:Name="property"
+                                   HorizontalContentAlignment="Stretch" 
+                                   VerticalContentAlignment="Stretch" />
 
-        <!--BindSelectedObjects="{Binding BindSelectedObjects}"-->
+        <wpfcontrollib:FCheckBox x:Name="AutoProperty" Grid.Row="1" Content="是否显示控件属性"/>
     </Grid>
 </wpfcontrollib:WindowBase>

@@ -1,0 +1,42 @@
+﻿<Page x:Class="WpfControlDemo.View.DockPanelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfControlDemo.View"
+      xmlns:avalonDock="clr-namespace:HeBianGu.Control.DockPanelControl;assembly=HeBianGu.Control.DockPanelControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="800"
+      Title="DockPanelPage">
+
+    <Grid>
+        <avalonDock:DockingManager x:Name="dockManager" Grid.Row="1">
+            <avalonDock:ResizingPanel Orientation="Vertical">
+                <avalonDock:ResizingPanel Orientation="Horizontal">
+                    <avalonDock:ResizingPanel avalonDock:ResizingPanel.ResizeWidth="200" Orientation="Vertical">
+                        <avalonDock:DockablePane avalonDock:ResizingPanel.ResizeWidth="200" >
+                            <avalonDock:DockableContent x:Name="dcTools" Title="Tools">
+                                <TextBox/>
+                            </avalonDock:DockableContent>
+                        </avalonDock:DockablePane>
+                    </avalonDock:ResizingPanel>
+                    <avalonDock:DocumentPane Name="DPWorkArea">
+                        <avalonDock:DocumentContent Title="Test"/>
+                    </avalonDock:DocumentPane>
+                    <avalonDock:ResizingPanel Orientation="Vertical" avalonDock:ResizingPanel.ResizeWidth="200">
+                        <avalonDock:DockablePane >
+                            <avalonDock:DockableContent x:Name="dcProjectExplore" Title="Project Explorer" >
+                                <TextBox/>
+                            </avalonDock:DockableContent>
+                        </avalonDock:DockablePane>
+                        <avalonDock:DockablePane>
+                            <avalonDock:DockableContent x:Name="dcPropertiesWindow" Title="Properties" >
+                                <TextBox/>
+                            </avalonDock:DockableContent>
+                        </avalonDock:DockablePane>
+                    </avalonDock:ResizingPanel>
+                </avalonDock:ResizingPanel>
+            </avalonDock:ResizingPanel>
+        </avalonDock:DockingManager>
+    </Grid>
+</Page>
