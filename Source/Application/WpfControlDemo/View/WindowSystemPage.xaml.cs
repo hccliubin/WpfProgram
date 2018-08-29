@@ -76,6 +76,7 @@ namespace WpfControlDemo.View
                         this.Collection.Add(itemClass);
 
                     }
+                    
                     //else if(item.PropertyType==typeof(Color))
                     //{
                     //    ItemNotifyClass itemClass = new ItemNotifyClass();
@@ -86,13 +87,35 @@ namespace WpfControlDemo.View
 
                     //    this.Collection.Add(itemClass);
                     //}
-                    
-                 
-
-                   
-
                 }
 
+
+                //foreach (var item in typeof(SystemFonts).GetProperties())
+                //{
+                //    var value = item.GetValue(null, null);
+
+                //    if (item.PropertyType == typeof(SolidColorBrush))
+                //    {
+                //        ItemNotifyClass itemClass = new ItemNotifyClass();
+                //        SolidColorBrush brush = value as SolidColorBrush;
+                //        itemClass.Color = brush;
+                //        itemClass.Name = item.Name.ToString();
+                //        itemClass.Value = value.ToString();
+
+                //        this.Collection.Add(itemClass);
+
+                //    }
+                //    //else if(item.PropertyType==typeof(Color))
+                //    //{
+                //    //    ItemNotifyClass itemClass = new ItemNotifyClass();
+                //    //    Color brush = (Color)value;
+                //    //    itemClass.Color = new SolidColorBrush(brush);
+                //    //    itemClass.Name = item.Name.ToString();
+                //    //    itemClass.Value = value.ToString();
+
+                //    //    this.Collection.Add(itemClass);
+                //    //}
+                //}
 
 
                 //foreach (var item in resource.Keys)

@@ -64,6 +64,18 @@ namespace WpfControlDemo.View
             }
         }
 
+        private ObservableCollection<ItemNotifyClass> _fontcollection = new ObservableCollection<ItemNotifyClass>();
+        /// <summary> 说明  </summary>
+        public ObservableCollection<ItemNotifyClass> FontCollection
+        {
+            get { return _fontcollection; }
+            set
+            {
+                _fontcollection = value;
+                RaisePropertyChanged("FontCollection");
+            }
+        }
+
 
         public void RelayMethod(object obj)
         {
@@ -72,8 +84,6 @@ namespace WpfControlDemo.View
             //  Do：应用
             if (command == "Loaded")
             {
-
-
 
                 ResourceDictionary resource = this.GetThemeDictionary();
 
@@ -152,9 +162,9 @@ namespace WpfControlDemo.View
         }
 
 
-        private Brush _color;
+        private object _color;
         /// <summary> 说明  </summary>
-        public Brush Color
+        public object Color
         {
             get { return _color; }
             set

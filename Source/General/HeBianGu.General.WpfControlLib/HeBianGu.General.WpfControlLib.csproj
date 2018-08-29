@@ -74,6 +74,9 @@
     <Compile Include="Controls\AnimatedTextBlock.xaml.cs">
       <DependentUpon>AnimatedTextBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ModernFrame.xaml.cs">
+      <DependentUpon>ModernFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ModernProgressRing.xaml.cs">
       <DependentUpon>ModernProgressRing.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\AnimatedTextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ModernFrame.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

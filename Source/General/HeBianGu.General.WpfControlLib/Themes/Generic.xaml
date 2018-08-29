@@ -33,7 +33,8 @@
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/WindowBase/WindowBase.xaml"/>
 
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/BaseUserControl.xaml"/>
-        
+        <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Controls/ModernFrame.xaml"/>
+
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/Scroll.xaml"/>
         <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Style/Menu.xaml"/>

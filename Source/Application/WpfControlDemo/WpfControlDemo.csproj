@@ -67,6 +67,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\FrameUsePage1.xaml.cs">
+      <DependentUpon>FrameUsePage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrameUserControl.xaml.cs">
+      <DependentUpon>FrameUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrameUserControl1.xaml.cs">
+      <DependentUpon>FrameUserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrameUserPage.xaml.cs">
+      <DependentUpon>FrameUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\DefaultAsynNotify.cs" />
     <Compile Include="View\3DGalleryPage.xaml.cs">
       <DependentUpon>3DGalleryPage.xaml</DependentUpon>
@@ -106,6 +118,9 @@
     </Compile>
     <Compile Include="View\ExpanderPage.xaml.cs">
       <DependentUpon>ExpanderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FramePage.xaml.cs">
+      <DependentUpon>FramePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GaugeControlPage.xaml.cs">
       <DependentUpon>GaugeControlPage.xaml</DependentUpon>
@@ -197,6 +212,22 @@
     <Compile Include="View\XmlDataProviderPage.xaml.cs">
       <DependentUpon>XmlDataProviderPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\FrameUsePage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FrameUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FrameUserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FrameUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -262,6 +293,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ExpanderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FramePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
