@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace HeBianGu.General.WpfControlLib
 {
-    /// <summary>
+    /// <summary>  
     /// BaseUserControl.xaml 的交互逻辑
     /// </summary>
     public partial class BaseUserControl : UserControl
@@ -96,12 +96,6 @@ namespace HeBianGu.General.WpfControlLib
                  }
 
              }));
-
-
-       public bool ISSHOWS()
-        {
-            return false;
-        }
 
     }
 }
