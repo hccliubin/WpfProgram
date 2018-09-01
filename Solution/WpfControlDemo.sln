@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Blend for Visual Studio 15
-VisualStudioVersion = 15.0.26228.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{9F7F847E-37FF-4F5F-857B-5568F7C147FA}"
 EndProject
@@ -40,6 +40,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.PropertyGrid", "..\Source\UserControl\HeBianGu.Control.PropertyGrid\HeBianGu.Control.PropertyGrid.csproj", "{5A332CC8-390F-4526-A13A-D6140878D135}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.DockPanelControl", "..\Source\UserControl\HeBianGu.Control.DockPanelControl\HeBianGu.Control.DockPanelControl.csproj", "{48340131-1E63-4F56-944C-7738C46D6AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.MaterialControl", "..\Source\UserControl\HeBianGu.Control.MaterialControl\HeBianGu.Control.MaterialControl.csproj", "{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +109,10 @@ Global
 		{48340131-1E63-4F56-944C-7738C46D6AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48340131-1E63-4F56-944C-7738C46D6AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48340131-1E63-4F56-944C-7738C46D6AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +132,7 @@ Global
 		{B8218CB1-C782-489A-863F-A2F27A0EE380} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
 		{5A332CC8-390F-4526-A13A-D6140878D135} = {54283D36-38CD-4852-8E5B-715FE2549384}
 		{48340131-1E63-4F56-944C-7738C46D6AB2} = {54283D36-38CD-4852-8E5B-715FE2549384}
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC} = {54283D36-38CD-4852-8E5B-715FE2549384}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {203DA33E-8184-413E-84C7-D6E1200BF8FA}

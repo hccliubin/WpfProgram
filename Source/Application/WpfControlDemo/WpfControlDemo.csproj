@@ -113,6 +113,9 @@
     <Compile Include="View\DocumentPage.xaml.cs">
       <DependentUpon>DocumentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DrawHostPage.xaml.cs">
+      <DependentUpon>DrawHostPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EffectsBackgroundPage.xaml.cs">
       <DependentUpon>EffectsBackgroundPage.xaml</DependentUpon>
     </Compile>
@@ -285,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DocumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DrawHostPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -467,6 +474,10 @@
     <ProjectReference Include="..\..\UserControl\HeBianGu.Control.DockPanelControl\HeBianGu.Control.DockPanelControl.csproj">
       <Project>{48340131-1e63-4f56-944c-7738c46d6ab2}</Project>
       <Name>HeBianGu.Control.DockPanelControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UserControl\HeBianGu.Control.MaterialControl\HeBianGu.Control.MaterialControl.csproj">
+      <Project>{d17357ae-3430-4f1b-9b6b-ca692a9aeeac}</Project>
+      <Name>HeBianGu.Control.MaterialControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\UserControl\HeBianGu.Control.PropertyGrid\HeBianGu.Control.PropertyGrid.csproj">
       <Project>{5a332cc8-390f-4526-a13a-d6140878d135}</Project>

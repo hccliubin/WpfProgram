@@ -1,0 +1,995 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>HeBianGu.Controls.MaterialControl</RootNamespace>
+    <AssemblyName>HeBianGu.Control.MaterialControl</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\SampleMessageDialog.xaml.cs">
+      <DependentUpon>SampleMessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resource\Hue.cs" />
+    <Compile Include="Resource\Swatch.cs" />
+    <Compile Include="Resource\SwatchesProvider.cs" />
+    <Compile Include="Themes\Badged.cs" />
+    <Compile Include="Themes\ButtonProgressAssist.cs" />
+    <Compile Include="Themes\Card.cs" />
+    <Compile Include="Themes\Chip.cs" />
+    <Compile Include="Themes\Clock.cs" />
+    <Compile Include="Themes\ClockChoiceMadeEventArgs.cs" />
+    <Compile Include="Themes\ClockItemButton.cs" />
+    <Compile Include="Themes\ColorZone.cs" />
+    <Compile Include="Themes\ColorZoneAssist.cs" />
+    <Compile Include="Themes\ComboBoxAssist.cs" />
+    <Compile Include="Themes\ComboBoxPopup.cs" />
+    <Compile Include="Themes\ControlzEx\BadgedEx.cs" />
+    <Compile Include="Themes\ControlzEx\PackIconBase.cs" />
+    <Compile Include="Themes\ControlzEx\PopupEx.cs" />
+    <Compile Include="Themes\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Themes\Converters\BrushRoundConverter.cs" />
+    <Compile Include="Themes\Converters\BrushToRadialGradientBrushConverter.cs" />
+    <Compile Include="Themes\Converters\CalendarDateCoalesceConverter.cs" />
+    <Compile Include="Themes\Converters\CircularProgressBar\ArcEndPointConverter.cs" />
+    <Compile Include="Themes\Converters\CircularProgressBar\ArcSizeConverter.cs" />
+    <Compile Include="Themes\Converters\CircularProgressBar\LargeArcConverter.cs" />
+    <Compile Include="Themes\Converters\CircularProgressBar\LocalEx.cs" />
+    <Compile Include="Themes\Converters\CircularProgressBar\RotateTransformCentreConverter.cs" />
+    <Compile Include="Themes\Converters\CircularProgressBar\RotateTransformConverter.cs" />
+    <Compile Include="Themes\Converters\CircularProgressBar\StartPointConverter.cs" />
+    <Compile Include="Themes\Converters\ClockItemIsCheckedConverter.cs" />
+    <Compile Include="Themes\Converters\ClockLineConverter.cs" />
+    <Compile Include="Themes\Converters\DrawerOffsetConverter.cs" />
+    <Compile Include="Themes\Converters\EqualityToVisibilityConverter.cs" />
+    <Compile Include="Themes\Converters\HintProxyFabricConverter.cs" />
+    <Compile Include="Themes\Converters\ListViewItemContainerStyleConverter.cs" />
+    <Compile Include="Themes\Converters\MathConverter.cs" />
+    <Compile Include="Themes\Converters\MathMultipleConverter.cs" />
+    <Compile Include="Themes\Converters\NotConverter.cs" />
+    <Compile Include="Themes\Converters\NotZeroConverter.cs" />
+    <Compile Include="Themes\Converters\NotZeroToVisibilityConverter.cs" />
+    <Compile Include="Themes\Converters\NullableDateTimeToCurrentDateConverter.cs" />
+    <Compile Include="Themes\Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Themes\Converters\PointValueConverter.cs" />
+    <Compile Include="Themes\Converters\RangeLengthConverter.cs" />
+    <Compile Include="Themes\Converters\RangePositionConverterConverter.cs" />
+    <Compile Include="Themes\Converters\ShadowConverter.cs" />
+    <Compile Include="Themes\Converters\ShadowEdgeConverter.cs" />
+    <Compile Include="Themes\Converters\ShadowInfo.cs" />
+    <Compile Include="Themes\Converters\SizeToRectConverter.cs" />
+    <Compile Include="Themes\Converters\SnackbarMessageTypeConverter.cs" />
+    <Compile Include="Themes\Converters\TextFieldHintVisibilityConverter.cs" />
+    <Compile Include="Themes\Converters\TimeToVisibilityConverter.cs" />
+    <Compile Include="Themes\CustomPopupPlacementCallbackHelper.cs" />
+    <Compile Include="Themes\DataGridAssist.cs" />
+    <Compile Include="Themes\DateTimeEx.cs" />
+    <Compile Include="Themes\DialogClosingEventArgs.cs" />
+    <Compile Include="Themes\DialogClosingEventHandler.cs" />
+    <Compile Include="Themes\DialogHost.cs" />
+    <Compile Include="Themes\DialogHostEx.cs" />
+    <Compile Include="Themes\DialogOpenedEventArgs.cs" />
+    <Compile Include="Themes\DialogOpenedEventHandler.cs" />
+    <Compile Include="Themes\DialogSession.cs" />
+    <Compile Include="Themes\DpiHelper.cs" />
+    <Compile Include="Themes\DrawerHost.cs" />
+    <Compile Include="Themes\Extensions.cs" />
+    <Compile Include="Themes\Flipper.cs" />
+    <Compile Include="Themes\HintAssist.cs" />
+    <Compile Include="Themes\HintProxyFabric.ComboBox.cs" />
+    <Compile Include="Themes\HintProxyFabric.cs" />
+    <Compile Include="Themes\HintProxyFabric.PasswordBox.cs" />
+    <Compile Include="Themes\HintProxyFabric.TextBox.cs" />
+    <Compile Include="Themes\Icon.cs" />
+    <Compile Include="Themes\IconType.cs" />
+    <Compile Include="Themes\IHintProxy.cs" />
+    <Compile Include="Themes\ISnackbarMessageQueue.cs" />
+    <Compile Include="Themes\ListBoxAssist.cs" />
+    <Compile Include="Themes\ListSortDirectionIndicator.cs" />
+    <Compile Include="Themes\ListViewAssist.cs" />
+    <Compile Include="Themes\MaterialDataGridComboBoxColumn.cs" />
+    <Compile Include="Themes\MaterialDataGridTextColumn.cs" />
+    <Compile Include="Themes\MaterialDateDisplay.cs" />
+    <Compile Include="Themes\MessageQueueExtension.cs" />
+    <Compile Include="Themes\PackIcon.cs" />
+    <Compile Include="Themes\PackIconDataFactory.cs" />
+    <Compile Include="Themes\PackIconExtension.cs" />
+    <Compile Include="Themes\PackIconKind.cs" />
+    <Compile Include="Themes\Palette.cs" />
+    <Compile Include="Themes\PaletteHelper.cs" />
+    <Compile Include="Themes\Plane3D.cs" />
+    <Compile Include="Themes\PopupBox.cs" />
+    <Compile Include="Themes\RatingBar.cs" />
+    <Compile Include="Themes\RatingBarButton.cs" />
+    <Compile Include="Themes\Ripple.cs" />
+    <Compile Include="Themes\RippleAssist.cs" />
+    <Compile Include="Themes\ScaleHost.cs" />
+    <Compile Include="Themes\Screen.cs" />
+    <Compile Include="Themes\ScrollViewerAssist.cs" />
+    <Compile Include="Themes\ShadowAssist.cs" />
+    <Compile Include="Themes\SmartHint.cs" />
+    <Compile Include="Themes\Snackbar.cs" />
+    <Compile Include="Themes\SnackbarMessage.cs" />
+    <Compile Include="Themes\SnackbarMessageEventArgs.cs" />
+    <Compile Include="Themes\SnackbarMessageQueue.cs" />
+    <Compile Include="Themes\SnackbarMessageQueueItem.cs" />
+    <Compile Include="Themes\Spelling.cs" />
+    <Compile Include="Themes\StringExtensions.cs" />
+    <Compile Include="Themes\TextFieldAssist.cs" />
+    <Compile Include="Themes\TimePicker.cs" />
+    <Compile Include="Themes\ToggleButtonAssist.cs" />
+    <Compile Include="Themes\ToolTipAssist.cs" />
+    <Compile Include="Themes\Transitions\CircleWipe.cs" />
+    <Compile Include="Themes\Transitions\FadeWipe.cs" />
+    <Compile Include="Themes\Transitions\IndexedItemOffsetMultiplierExtension.cs" />
+    <Compile Include="Themes\Transitions\ITransitionEffect.cs" />
+    <Compile Include="Themes\Transitions\ITransitionEffectSubject.cs" />
+    <Compile Include="Themes\Transitions\ITransitionWipe.cs" />
+    <Compile Include="Themes\Transitions\IZIndexController.cs" />
+    <Compile Include="Themes\Transitions\SlideDirection.cs" />
+    <Compile Include="Themes\Transitions\SlideOutWipe.cs" />
+    <Compile Include="Themes\Transitions\SlideWipe.cs" />
+    <Compile Include="Themes\Transitions\TransitionAssist.cs" />
+    <Compile Include="Themes\Transitions\TransitionEffect.cs" />
+    <Compile Include="Themes\Transitions\TransitionEffectBase.cs" />
+    <Compile Include="Themes\Transitions\TransitionEffectExtension.cs" />
+    <Compile Include="Themes\Transitions\TransitionEffectKind.cs" />
+    <Compile Include="Themes\Transitions\TransitionEffectTypeConverter.cs" />
+    <Compile Include="Themes\Transitions\Transitioner.cs" />
+    <Compile Include="Themes\Transitions\TransitionerSlide.cs" />
+    <Compile Include="Themes\Transitions\TransitionerSlideState.cs" />
+    <Compile Include="Themes\Transitions\TransitioningContent.cs" />
+    <Compile Include="Themes\Transitions\TransitioningContentBase.cs" />
+    <Compile Include="Themes\TreeHelper.cs" />
+    <Compile Include="Themes\TreeViewAssist.cs" />
+    <Compile Include="Themes\Underline.cs" />
+    <Compile Include="Themes\ValidationAssist.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Resources\Roboto\Roboto-Black.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-BlackItalic.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-Bold.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-BoldItalic.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-Italic.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-Light.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-LightItalic.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-Medium.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-MediumItalic.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-Regular.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-Thin.ttf" />
+    <Resource Include="Resources\Roboto\Roboto-ThinItalic.ttf" />
+    <Resource Include="Resources\Roboto\RobotoCondensed-Bold.ttf" />
+    <Resource Include="Resources\Roboto\RobotoCondensed-BoldItalic.ttf" />
+    <Resource Include="Resources\Roboto\RobotoCondensed-Italic.ttf" />
+    <Resource Include="Resources\Roboto\RobotoCondensed-Light.ttf" />
+    <Resource Include="Resources\Roboto\RobotoCondensed-LightItalic.ttf" />
+    <Resource Include="Resources\Roboto\RobotoCondensed-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\SampleMessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Amber.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Amber.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Amber.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Amber.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Amber.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Amber.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Blue.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Blue.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Blue.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Blue.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Blue.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.BlueGrey.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.BlueGrey.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.BlueGrey.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.BlueGrey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Brown.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Brown.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Brown.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Cyan.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Cyan.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Cyan.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Cyan.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Cyan.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Cyan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepOrange.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepOrange.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepOrange.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepOrange.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepOrange.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepOrange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepPurple.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepPurple.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepPurple.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepPurple.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepPurple.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.DeepPurple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Green.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Green.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Green.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Green.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Green.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Grey.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Grey.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Grey.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Grey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Indigo.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Indigo.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Indigo.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Indigo.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Indigo.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Indigo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightBlue.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightBlue.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightBlue.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightBlue.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightBlue.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightGreen.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightGreen.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightGreen.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightGreen.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightGreen.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.LightGreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Lime.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Lime.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Lime.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Lime.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Lime.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Lime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Orange.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Orange.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Orange.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Orange.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Orange.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Orange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Pink.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Pink.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Pink.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Pink.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Pink.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Pink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Purple.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Purple.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Purple.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Purple.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Purple.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Red.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Red.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Red.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Red.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Red.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Red.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Teal.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Teal.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Teal.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Teal.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Teal.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Teal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Yellow.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Yellow.Named.Accent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Yellow.Named.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Yellow.Named.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Yellow.Primary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\MaterialDesignColor.Yellow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Amber.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Cyan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.DeepOrange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.DeepPurple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Indigo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.LightBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.LightGreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Lime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Orange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Pink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Red.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Teal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Accent\MaterialDesignColor.Yellow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Amber.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.BlueGrey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Cyan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.DeepOrange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.DeepPurple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Grey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Indigo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.LightBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.LightGreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Lime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Orange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Pink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Red.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Teal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Themes\Recommended\Primary\MaterialDesignColor.Yellow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Badged.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Chip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Clock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.DataGrid.ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Defaults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.DialogHost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Expander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Flipper.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Font.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.GridSplitter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.GroupBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Hyperlink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.PopupBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.RadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.RatingBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ScrollViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Shadows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Slider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.SmartHint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Snackbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.Thumb.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.TimePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ToggleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ToolBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ToolBarTray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ToolTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.TreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes\MaterialDesignTheme.ValidationErrorTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
