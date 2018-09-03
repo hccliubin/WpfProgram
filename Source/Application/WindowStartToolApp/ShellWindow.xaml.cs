@@ -175,11 +175,11 @@ namespace WindowStartToolApp
             ShortCutHookService.Instance.RegisterCommand(ed, actiont);
         }
 
-        NotifyIcon notifyIcon;
+        System.Windows.Forms.NotifyIcon notifyIcon;
         /// <summary> 注册托盘 </summary>
         void RegisterNotify()
         {
-            this.notifyIcon = new NotifyIcon();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon();
             this.notifyIcon.BalloonTipText = "光速启动";
             this.notifyIcon.ShowBalloonTip(2000);
             this.notifyIcon.Text = "光速启动";

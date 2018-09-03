@@ -20,7 +20,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="220"/>
             <ColumnDefinition Width="263*" MinWidth="600"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
@@ -29,40 +29,30 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        
-        <avalonDock:DockingManager x:Name="dockManager" Grid.Column="0" Grid.ColumnSpan="2">
-            <avalonDock:ResizingPanel Orientation="Vertical">
-                <avalonDock:ResizingPanel Orientation="Horizontal">
-                    
-                    <!--左側-->
-                    <avalonDock:ResizingPanel avalonDock:ResizingPanel.ResizeWidth="200" Orientation="Vertical" MinWidth="200">
-                        <avalonDock:DockablePane avalonDock:ResizingPanel.ResizeWidth="200" >
-                            <avalonDock:DockableContent x:Name="dcTools" Title="All Controls Demo">
-                                <TreeView  ItemsSource="{Binding Source={StaticResource xdp}}" x:Name="TreeRoot" Background="{StaticResource S_GrayLight}">
-                                    <TreeView.ItemTemplate>
-                                        <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
-                                            <StackPanel  Height="25" Orientation="Horizontal">
-                                                <TextBlock Text="{Binding XPath=@FIcon}" FontSize="15" Style="{StaticResource FIcon}" VerticalAlignment="Center"/>
-                                                <TextBlock x:Name="a" Text="{Binding XPath=@Name}"  VerticalAlignment="Center"/>
-                                            </StackPanel>
-                                        </HierarchicalDataTemplate>
-                                    </TreeView.ItemTemplate>
 
-                                    <TreeView.ItemContainerStyle>
+
+        <TreeView  Grid.Column="0" 
+                   ItemsSource="{Binding Source={StaticResource xdp}}" 
+                   x:Name="TreeRoot" 
+                   Background="{StaticResource S_GrayLight}" 
+                   ItemContainerStyle="{StaticResource MaterialDesignTreeViewItem}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
+                    <StackPanel  Height="13" Orientation="Horizontal">
+                        <TextBlock Text="{Binding XPath=@FIcon}" FontSize="15" Style="{StaticResource FIcon}" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="a" Text="{Binding XPath=@Name}"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+
+            <!--<TreeView.ItemContainerStyle>
                                         <Style TargetType="TreeViewItem">
                                             <Setter Property="IsExpanded" Value="False" />
                                         </Style>
-                                    </TreeView.ItemContainerStyle>
+                                    </TreeView.ItemContainerStyle>-->
 
-                                </TreeView>
-                            </avalonDock:DockableContent>
-                        </avalonDock:DockablePane>
-                    </avalonDock:ResizingPanel>
-                    
-                    <!--中間-->
-                    <avalonDock:DocumentPane Name="DPWorkArea" MinWidth="600" Width="Auto">
-                        <avalonDock:DocumentContent Title="Control Detial">
-                            <Frame x:Name="PageContext"  
+        </TreeView>
+        <Frame x:Name="PageContext"  
                                    Grid.Column="1" 
                                    Background="{StaticResource S_GrayLight}" 
                                    BorderThickness="1" 
@@ -70,16 +60,10 @@
                                    Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}" 
                                    Keyboard.GotKeyboardFocus="property_GotKeyboardFocus" />
 
-                        </avalonDock:DocumentContent>
-                    </avalonDock:DocumentPane>
-                </avalonDock:ResizingPanel>
-            </avalonDock:ResizingPanel>
-        </avalonDock:DockingManager>
-
         <propertygrid:PropertyGrid Grid.Column="2"  
                                    Background="{StaticResource S_GrayLight}"  
                                    HorizontalAlignment="Stretch" 
-                                   Visibility="{Binding ElementName=AutoProperty,Path=IsChecked,Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding ElementName=AutoProperty,Path=IsChecked,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}"
                                    VerticalAlignment="Stretch"
                                     PropertyFilter="true" 
                                     PropertyDisplayMode="All" 

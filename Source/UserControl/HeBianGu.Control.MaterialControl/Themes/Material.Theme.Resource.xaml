@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/materialdesigntheme.Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Calendar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/materialdesigntheme.CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/materialdesigntheme.ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.DataGrid.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.DatePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.DialogHost.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Expander.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Font.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.GridSplitter.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.GroupBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Hyperlink.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Label.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ListBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ListView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Menu.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.PasswordBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.RadioButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ScrollBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Shadows.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/materialdesigntheme.Slider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/materialdesigntheme.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.TextBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.TimePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/materialdesigntheme.ToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ToolBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ToolBarTray.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ToolTip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.TreeView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Thumb.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ValidationErrorTemplate.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

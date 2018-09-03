@@ -107,6 +107,9 @@
     <Compile Include="View\DatePickerDemo.xaml.cs">
       <DependentUpon>DatePickerDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DialogMessagePage.xaml.cs">
+      <DependentUpon>DialogMessagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DockPanelPage.xaml.cs">
       <DependentUpon>DockPanelPage.xaml</DependentUpon>
     </Compile>
@@ -280,6 +283,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DatePickerDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DialogMessagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,35 +7,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
-                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/DefaultResource.xaml"/>
-                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Color/Theme/LightThemeResource.xaml"/>
-
-
-                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Themes/Generic.xaml"/>
-
-
-                <ResourceDictionary Source="/HeBianGu.Control.UserControls;component/Themes/Generic.xaml"/>
-
-                <ResourceDictionary Source="/Provider/TreeDictionary.xaml" />
+                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Themes/HeBianGu.Themes.Resource.xaml"/>
+                <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Themes/Color/LightThemeResource.xaml"/>
+                <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Themes/HeBianGu.Themes.Default.xaml"/>
                 
+                <ResourceDictionary Source="/HeBianGu.Control.UserControls;component/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="/Provider/TreeDictionary.xaml" />
+
+                <ResourceDictionary Source="/HeBianGu.Control.MaterialControl;component/Themes/Material.Theme.Resource.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
 
-            <!--默认样式-->
-            <Style TargetType="{x:Type c:FButton}" BasedOn="{StaticResource DefaultFButtonStyle}"/>
-            <Style TargetType="{x:Type c:FTextBox}" BasedOn="{StaticResource DefaultTextBox}"></Style>
-            <Style TargetType="{x:Type c:FCheckBox}" BasedOn="{StaticResource DefaultCheckBox}"></Style>
-            <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource DefaultRadioButton}"></Style>
-            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBox}"></Style>
-            <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DefaultDatePicker}"></Style>
-            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource DefaultListView}"></Style>
-            <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DefaultDataGrid}"></Style>
-
-            <!--设置全局样式-->
-            <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource DefaultScrollBar}"></Style>
-            <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewer}"></Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

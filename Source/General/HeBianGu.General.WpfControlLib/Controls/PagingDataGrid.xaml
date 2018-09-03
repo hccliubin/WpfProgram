@@ -113,7 +113,7 @@
                             </ScrollViewer>
 
                             <!--分页控件-->
-                            <Grid Grid.Row="1" Visibility="{Binding IsShowPaging,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource VisibilityConverter}}">
+                            <Grid Grid.Row="1" Visibility="{Binding IsShowPaging,RelativeSource={RelativeSource TemplatedParent},Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition />

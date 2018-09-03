@@ -4,12 +4,13 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Controls/FButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type local:FExpander}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-<!--内容背景色-->
+         <!--内容背景色-->
         <Setter Property="Background" Value="{DynamicResource S_GrayLight}"/>
         <Setter Property="MinWidth" Value="180"/>
         <Setter Property="CanHide" Value="True"/>
@@ -57,7 +58,7 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Border BorderBrush="{DynamicResource S_AccentBrush}" BorderThickness="0,0,0,1">
+                                <Border BorderBrush="{DynamicResource S_GrayLight}" BorderThickness="0,0,0,1">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition x:Name="iconWidth" Width="Auto"/>
@@ -67,8 +68,8 @@
                                             <ColumnDefinition x:Name="algleWidth" Width="Auto"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <local:FButton Grid.ColumnSpan="5" Foreground="Transparent"  Background="Transparent" BorderThickness="0"  Command="local:FExpander.ButtonClickCommand"/>
-
+                                        <local:FButton Grid.ColumnSpan="5" Foreground="Transparent" Background="Transparent" Width="{TemplateBinding Width}" FIcon="" 
+                                                       MouseOverBackground="Transparent" BorderThickness="0"  Command="local:FExpander.ButtonClickCommand"/>
 
                                         <Image Width="12" Height="12" Margin="10,0,0,0" VerticalAlignment="Center" Source="{TemplateBinding Icon}" Opacity="0.7"/>
 
@@ -90,7 +91,7 @@
                                         </Border>
                                         
                                         <!--下拉图标-->
-                                        <Grid Grid.Column="4" Margin="10,0" VerticalAlignment="Center"  IsHitTestVisible="False" >
+                                        <Grid Grid.Column="4" Margin="10,0" VerticalAlignment="Center"  IsHitTestVisible="True" >
                                             <Polyline Points="0,0 5,5 0,10" Stroke="#000000" RenderTransformOrigin="0.5,0.5" Opacity="0.65">
                                                 <Polyline.RenderTransform>
                                                     <TransformGroup>

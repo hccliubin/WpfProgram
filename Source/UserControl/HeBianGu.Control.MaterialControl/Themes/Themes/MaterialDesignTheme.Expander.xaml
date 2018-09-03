@@ -7,7 +7,6 @@
     <converters:MathMultipleConverter x:Key="MathMlpMultipleConverter" Operation="Multiply" />
 
 
-
     <Style x:Key="MaterialDesignExpanderToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="Template">
             <Setter.Value>

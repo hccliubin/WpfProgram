@@ -14,10 +14,10 @@ namespace HeBianGu.Base.WpfBase.Color
     {
         /// <summary> 深颜色主题 </summary>
 
-        public static readonly Uri DarkThemeSource = new Uri("/HeBianGu.Base.WpfBase;component/Color/Theme/DarkThemeResource.xaml", UriKind.Relative);
+        public static readonly Uri DarkThemeSource = new Uri("/HeBianGu.Base.WpfBase;component/Themes/Color/DarkThemeResource.xaml", UriKind.Relative);
 
         /// <summary> 浅颜色主题 </summary>
-        public static readonly Uri LightThemeSource = new Uri("/HeBianGu.Base.WpfBase;component/Color/Theme/LightThemeResource.xaml", UriKind.Relative);
+        public static readonly Uri LightThemeSource = new Uri("/HeBianGu.Base.WpfBase;component/Themes/Color/LightThemeResource.xaml", UriKind.Relative);
 
         /// <summary> 主颜色Key </summary>
         public const string KeyAccentColor = "AccentColor";

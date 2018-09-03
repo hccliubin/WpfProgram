@@ -30,6 +30,7 @@
                     <Folder Name="内部弹窗" Value="../View/InlineDialogPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="自定义Frame控件" Value="../View/FramePage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="停靠控件" Value="../View/DrawHostPage.xaml"  FIcon="&#xe799;"/>
+                    <Folder Name="消息对话" Value="../View/DialogMessagePage.xaml"  FIcon="&#xe799;"/>
                 </Folder>
                 <Folder Name="自定义控件" Value="../View/DocumentPage.xaml"  FIcon="&#xe785;">
                     <Folder Name="停靠控件" Value="../View/DockPanelPage.xaml"  FIcon="&#xe799;"/>

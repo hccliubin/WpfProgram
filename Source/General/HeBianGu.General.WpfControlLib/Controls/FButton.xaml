@@ -3,8 +3,7 @@
                     xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
                     xmlns:local="clr-namespace:HeBianGu.General.WpfControlLib">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
+        <ResourceDictionary Source="../Style/FIcon.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--FButton模板-->
@@ -51,7 +50,7 @@
                 </StackPanel>
 
             </Grid>
-            <local:WaitingBox   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={StaticResource VisibilityConverter}}" 
+            <local:WaitingBox   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
                                    Foreground="{StaticResource S_AccentBrush}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
 
         </Grid>

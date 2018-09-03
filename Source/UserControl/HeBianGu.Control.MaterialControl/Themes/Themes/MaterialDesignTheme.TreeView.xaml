@@ -188,10 +188,8 @@
                                 <VisualState Name="Normal"/>
                                 <VisualState Name="MouseOver">
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="MouseOverBorder" Storyboard.TargetProperty="Opacity"
-                                                             To="0.1" Duration="0"/>
-                                        <DoubleAnimation Storyboard.TargetName="MouseOverBorder" Storyboard.TargetProperty="Opacity"
-                                                             To="0.1" Duration="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="MouseOverBorder" Storyboard.TargetProperty="Opacity"  To="0.1" Duration="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="MouseOverBorder" Storyboard.TargetProperty="Opacity" To="0.1" Duration="0"/>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState Name="Disabled"/>
@@ -202,9 +200,7 @@
                                 </VisualStateGroup.Transitions>
                                 <VisualState Name="Selected">
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="SelectedBorder"
-                                                         Storyboard.TargetProperty="Opacity"
-                                                         To="0.18" Duration="0"/>
+                                        <DoubleAnimation Storyboard.TargetName="SelectedBorder" Storyboard.TargetProperty="Opacity" To="0.18" Duration="0"/>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState Name="Unselected"/>

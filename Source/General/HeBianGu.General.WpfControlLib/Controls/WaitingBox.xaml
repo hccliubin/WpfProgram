@@ -4,8 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/FIcon.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
-        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary.MergedDictionaries>
     
     <Style TargetType="{x:Type local:WaitingBox}">
         <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}"/>

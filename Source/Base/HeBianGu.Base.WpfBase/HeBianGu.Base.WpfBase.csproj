@@ -57,15 +57,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attach\ControlAttachEvent.cs" />
-    <Compile Include="Attach\ControlAttachProperty.cs" />
-    <Compile Include="Color\ThemeService.cs" />
-    <Compile Include="Command\RelayCommand.cs" />
-    <Compile Include="Convert\DataConverter.cs" />
-    <Compile Include="Convert\UIConverter.cs" />
-    <Compile Include="Convert\XConverter.cs" />
-    <Compile Include="Mvvm\NotifyPropertyChanged.cs" />
-    <Compile Include="Mvvm\TriggerNotifyPropertyChange.cs" />
+    <Compile Include="Service\Attach\ControlAttachEvent.cs" />
+    <Compile Include="Service\Attach\ControlAttachProperty.cs" />
+    <Compile Include="Themes\Color\ThemeService.cs" />
+    <Compile Include="Service\Command\RelayCommand.cs" />
+    <Compile Include="Service\Convert\DataConverter.cs" />
+    <Compile Include="Service\Convert\UIConverter.cs" />
+    <Compile Include="Service\Convert\XConverter.cs" />
+    <Compile Include="Service\Mvvm\NotifyPropertyChanged.cs" />
+    <Compile Include="Service\Mvvm\TriggerNotifyPropertyChange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,26 +96,22 @@
     <EmbeddedResource Include="Resources\iconfont.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Color\视觉规范.png" />
+    <Resource Include="Themes\Color\视觉规范.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Color\DefaultResource.xaml">
+    <Page Include="Themes\HeBianGu.Themes.Resource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Color\ConvertResource.xaml">
+    <Page Include="Themes\StoryBoard\StoryBoardResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Color\StoryBoardResource.xaml">
+    <Page Include="Themes\Color\DarkThemeResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Color\Theme\DarkThemeResource.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Color\Theme\LightThemeResource.xaml">
+    <Page Include="Themes\Color\LightThemeResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,5 +123,6 @@
   <ItemGroup>
     <Resource Include="Resources\demo_unicode.html" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

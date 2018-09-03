@@ -119,5 +119,10 @@ namespace HeBianGu.Controls.MaterialControl
         {
             OnActionClick();
         }
+
+        public static implicit operator SnackbarMessage(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

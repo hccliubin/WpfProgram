@@ -5,51 +5,132 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfControlDemo.View"
       xmlns:wpfcontrollib="clr-namespace:HeBianGu.General.WpfControlLib;assembly=HeBianGu.General.WpfControlLib"
+     xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl;assembly=HeBianGu.Control.MaterialControl"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="1000"
       Title="DataPagePage">
 
     <Grid>
 
-        <ScrollViewer>
-            <StackPanel>
-                <TextBlock Text="分开绑定"/>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <DataGrid ItemsSource="{Binding Path=ItemsSource,ElementName=dataPager}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                            <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
-                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
+        <TabControl>
 
-                    <wpfcontrollib:DataPager Grid.Row="1" 
+            <TabItem Header="分页绑定一">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <DataGrid ItemsSource="{Binding Path=ItemsSource,ElementName=dataPager}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                    <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
+                                    <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <wpfcontrollib:DataPager Grid.Row="1" 
                                      Name="dataPager" 
                                      PageSizeList="10,20,30"
                                      ItemsSource="{Binding Path=Students}"
                                      Total="{Binding Path=Total}"
                                      PageChanged="dataPager_PageChanged" />
-                </Grid>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
 
-                <TextBlock Text="自定义分页控件"/>
-                <Grid>
-                    <wpfcontrollib:PagingDataGrid 
+            <TabItem Header="分页绑定二">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid>
+                            <wpfcontrollib:PagingDataGrid 
             PageSizeList="10,20,30"
             ItemsSource="{Binding Students}" 
             Total="{Binding Total}" 
             PagingChanged="PagingDataGrid_PagingChanged">
-                        <wpfcontrollib:PagingDataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                            <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
-                            <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
-                        </wpfcontrollib:PagingDataGrid.Columns>
-                    </wpfcontrollib:PagingDataGrid>
-                </Grid>
-            </StackPanel>
-        </ScrollViewer>
+                                <wpfcontrollib:PagingDataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                    <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
+                                    <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
+                                </wpfcontrollib:PagingDataGrid.Columns>
+                            </wpfcontrollib:PagingDataGrid>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="数据表格样式">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid>
+                            <DataGrid Margin="0 8 0 0" 
+                                      ItemsSource="{Binding Students}" 
+                                      Style="{StaticResource MaterialDesignDataGrid}" 
+                                      CanUserSortColumns="True" 
+                                      CanUserAddRows="False" AutoGenerateColumns="False"
+                          wpf:DataGridAssist.CellPadding="13 8 8 8" wpf:DataGridAssist.ColumnHeaderPadding="8">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn Binding="{Binding IsSelected}" 
+                                            ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                                            EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+                                        <DataGridCheckBoxColumn.Header>
+                                            <!--padding to allow hit test to pass thru for sorting -->
+                                            <Border Background="Transparent" Padding="6 0 6 0" HorizontalAlignment="Center">
+                                                <CheckBox HorizontalAlignment="Center"
+                                          DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext}"
+                                          IsChecked="{Binding IsAllItems3Selected}" />
+                                            </Border>
+                                        </DataGridCheckBoxColumn.Header>
+                                    </DataGridCheckBoxColumn>
+                                    <DataGridTextColumn Binding="{Binding Code}"
+                                        Header="Code"
+                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                    <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+                                    <wpf:MaterialDataGridTextColumn Binding="{Binding Name}"
+                                                               Header="Name"
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" 
+                                                               />
+                                    <!-- set a max length to get an indicator in the editor -->
+                                    <wpf:MaterialDataGridTextColumn Binding="{Binding Description}"
+                                                               Header="Description"
+                                                               MaxLength="255" 
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"  />
+                                    <wpf:MaterialDataGridTextColumn Binding="{Binding Numeric}"
+                                                        Header="Number with long header"
+                                                        Width="120"
+                                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                                        <DataGridTextColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                                <Setter Property="ContentTemplate">
+                                                    <Setter.Value>
+                                                        <DataTemplate>
+                                                            <TextBlock TextWrapping="Wrap" Text="{Binding}" TextAlignment="Right"/>
+                                                        </DataTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </DataGridTextColumn.HeaderStyle>
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </wpf:MaterialDataGridTextColumn>
+
+                                    <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
+                                    <wpf:MaterialDataGridComboBoxColumn Header="Food"
+                                                                   SelectedValueBinding="{Binding Food}"
+                                                                   ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Foods}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>

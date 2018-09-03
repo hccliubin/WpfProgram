@@ -4,10 +4,6 @@
                     xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/HeBianGu.Base.WpfBase;component/Themes/Generic.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-
     <SolidColorBrush x:Key="ControlBorderBrush" Color="#999C9F"></SolidColorBrush>
     <SolidColorBrush x:Key="FocusBorderBrush" Color="#EBCECE"></SolidColorBrush>
     <SolidColorBrush x:Key="TextForeground" Color="White"></SolidColorBrush>
