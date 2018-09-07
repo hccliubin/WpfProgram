@@ -25,6 +25,8 @@ using System.ComponentModel.Composition;
 using Microsoft.Practices.Prism.Regions;
 using HeBianGu.General.ModuleManager.ModuleManager;
 
+
+
 namespace ClipBoardModule
 {
     [ModuleExport(typeof(ClipBoardModule))]
