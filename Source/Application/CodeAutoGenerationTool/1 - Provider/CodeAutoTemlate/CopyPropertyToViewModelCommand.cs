@@ -31,5 +31,33 @@ namespace CodeAutoGenerationTool.Provider
 
             return ss;
         }
+
+        public string ToEnd(string className)
+        {
+            return "}";
+        }
+
+        public string ToFirst(string item)
+        {
+            return item;
+        }
+
+        public string ToLast(string item)
+        {
+            return item;
+        }
+
+        public string ToStart(string className)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("class " + className.Substring(0, 1).ToUpper() + className.Substring(1) + "_ViewModel"); 
+
+            sb.AppendLine("{");
+
+
+            return sb.ToString();
+
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace CodeAutoGenerationTool.Domain
             ObservableCollection<ITemplateCommand> collection = new ObservableCollection<ITemplateCommand>();
 
             collection.Add(new CopyPropertyToViewModelCommand());
-            collection.Add(new CopyPropertyToViewModelCommand());
+            collection.Add(new CopyPropertyToCreateTableCommand());
             return collection;
         }
 

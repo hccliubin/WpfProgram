@@ -88,6 +88,8 @@ namespace CodeAutoGenerationTool.ViewModel
                 if (this.SelectITemplateCommand == null) return;
 
                 this.TemplateText = this.SelectITemplateCommand.Template("propertyName", "说明");
+
+                this.Generation();
             }
             else if (command == "Expanded")
             {
@@ -95,7 +97,7 @@ namespace CodeAutoGenerationTool.ViewModel
 
                 this.TemplateText = this.SelectITemplateCommand.Template("propertyName", "说明");
             }
-            
+
         }
 
 
@@ -124,7 +126,7 @@ namespace CodeAutoGenerationTool.ViewModel
                 RaisePropertyChanged("ITemplateCommandCollection");
             }
         }
-        
+
         void Generation()
         {
             Stopwatch watch = new Stopwatch();
@@ -140,7 +142,7 @@ namespace CodeAutoGenerationTool.ViewModel
 
             foreach (var item in collection)
             {
-                string result = this.TypeToTemplate((item.Value as Type),selectionPropertis);
+                string result = this.TypeToTemplate((item.Value as Type), selectionPropertis);
 
                 sb.AppendLine(result);
             }
@@ -149,7 +151,7 @@ namespace CodeAutoGenerationTool.ViewModel
             watch.Stop();
 
 
-            Debug.WriteLine("更新数据用时："+watch.Elapsed.TotalSeconds);
+            Debug.WriteLine("更新数据用时：" + watch.Elapsed.TotalSeconds);
 
             watch.Restart();
             this.WriteText(sb.ToString());
@@ -160,11 +162,11 @@ namespace CodeAutoGenerationTool.ViewModel
 
         }
 
-        string TypeToTemplate(Type type,List<PropertyInfo> selectionPropertis)
+        string TypeToTemplate(Type type, List<PropertyInfo> selectionPropertis)
         {
             StringBuilder sb = new StringBuilder();
 
-           
+
 
             var proprotis = type.GetProperties().ToList();
 
@@ -173,28 +175,45 @@ namespace CodeAutoGenerationTool.ViewModel
 
             List<string> define = new List<string>();
 
-            sb.AppendLine("class " + this.ToViewModel(type.Name));
+            //sb.AppendLine("class " + this.ToViewModel(type.Name));
 
-            sb.AppendLine("{");
+            //sb.AppendLine("{");
 
-            foreach (var e in exsits)
+            sb.AppendLine(this.SelectITemplateCommand.ToStart(type.Name));
+
+            for (int i = 0; i < exsits.Count; i++)
             {
-                if (e.PropertyType.IsPrimitive || e.PropertyType == typeof(string))
+                var e = exsits[i];
+
+                if (e.PropertyType.IsPrimitive || e.PropertyType == typeof(string)|| e.PropertyType.IsEnumerableType())
                 {
                     //  Do：基础类型直接生成
                     string result = this.PropertyToTemplate(e, e.Name, e.PropertyType.Name);
 
+                    if (i == 0)
+                        result = this.SelectITemplateCommand.ToFirst(result);
+
+                    if (i == exsits.Count - 1)
+                        result = this.SelectITemplateCommand.ToLast(result);
+
                     sb.AppendLine(result);
 
                 }
-                else if (e.PropertyType.IsEnumerableType())
-                {
-                    //  Do：集合类型生成集合
-                }
+                //else if (e.PropertyType.IsEnumerableType())
+                //{
+                //    //  Do：集合类型生成集合
+                //}
                 else
                 {
                     //  Do：自定义类型递归生成
                     string result = this.PropertyToTemplate(e, e.Name, this.ToViewModel(e.Name));
+
+
+                    if (i == 0)
+                        result = this.SelectITemplateCommand.ToFirst(result);
+
+                    if (i == exsits.Count - 1)
+                        result = this.SelectITemplateCommand.ToLast(result);
 
                     sb.AppendLine(result);
 
@@ -202,7 +221,8 @@ namespace CodeAutoGenerationTool.ViewModel
                 }
             }
 
-            sb.AppendLine("}");
+
+            sb.AppendLine(this.SelectITemplateCommand.ToEnd(type.Name));
 
             foreach (var item in define)
             {
@@ -219,9 +239,9 @@ namespace CodeAutoGenerationTool.ViewModel
         {
             List<PropertyInfo> results = new List<PropertyInfo>();
 
-           var collection=  this.Collection.ToList().FindAll(l=>l.IsChecked);
+            var collection = this.Collection.ToList().FindAll(l => l.IsChecked);
 
- 
+
             foreach (var item in collection)
             {
                 Action<TypeNodeClass> ergodic = null;
@@ -239,7 +259,7 @@ namespace CodeAutoGenerationTool.ViewModel
                                   ergodic(c);
                               }
 
-                             
+
                           }
                       }
                   };
@@ -360,11 +380,11 @@ namespace CodeAutoGenerationTool.ViewModel
 
             var types = ass.GetTypes();
 
-            foreach (var item in ass.GetTypes().OrderBy(l=>l.Name))
+            foreach (var item in ass.GetTypes().OrderBy(l => l.Name))
             {
 
                 if (item.MemberType == MemberTypes.NestedType) continue;
-               
+
                 TypeNodeClass t = TypeNodeClass.CreateTypeNode(item, item.Name.ToLower());
 
                 this.Collection.Add(t);
