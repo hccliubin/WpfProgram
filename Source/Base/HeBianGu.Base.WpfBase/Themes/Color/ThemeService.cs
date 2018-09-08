@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace HeBianGu.Base.WpfBase.Color
 {
@@ -63,6 +65,14 @@ namespace HeBianGu.Base.WpfBase.Color
             //        }
             //    }
             //}, o => o is Color || o is string);
+        }
+        
+
+        private void Storyboard_CurrentGlobalSpeedInvalidated(object sender, EventArgs e)
+        {
+
+            Debug.WriteLine("说明");
+
         }
 
 

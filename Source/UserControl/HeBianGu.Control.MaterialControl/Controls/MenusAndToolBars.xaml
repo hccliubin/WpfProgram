@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="HeBianGu.Controls.MaterialControl.MenusAndToolBars"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <smtx:XamlDisplay Key="menus_1" DockPanel.Dock="Top" Margin="5 5 0 5">
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_File">
+                    <MenuItem Header="Save">
+                        <MenuItem.Icon>
+                            <local:PackIcon Kind="ContentSave" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Save As.." />
+                    <MenuItem Header="Exit" InputGestureText="Ctrl+E">
+                        <MenuItem.Icon>
+                            <local:PackIcon Kind="ExitToApp" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
+                    <MenuItem Header="Rubbish" IsCheckable="True" />
+                    <MenuItem Header="Dig Deeper" InputGestureText="Ctrl+D">
+                        <MenuItem Header="Enlightenment?" IsCheckable="True" />
+                        <MenuItem Header="Disappointment" IsCheckable="True" />
+                    </MenuItem>
+                    <MenuItem Header="Look Deeper" InputGestureText="Ctrl+D">
+                        <MenuItem Header="Plain" />
+                        <MenuItem Header="Ice Cream" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Cut" Command="Cut">
+                        <MenuItem.Icon>
+                            <local:PackIcon Kind="ContentCut" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Copy" Command="Copy">
+                        <MenuItem.Icon>
+                            <local:PackIcon Kind="ContentCopy" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Paste" Command="Paste">
+                        <MenuItem.Icon>
+                            <local:PackIcon Kind="ContentPaste" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay Key="menus_2" DockPanel.Dock="Top" Margin="5 0 0 0">
+            <ToolBarTray>
+                <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                    <Button ToolTip="Follow me on Twitter" Click="TwitterButton_OnClick">
+                        <local:PackIcon Kind="TwitterBox" />
+                    </Button>
+                    <Button ToolTip="Save">
+                        <local:PackIcon Kind="ContentSave" />
+                    </Button>
+                    <Separator />
+                    <Button Command="Cut" ToolTip="Cut" ToolBar.OverflowMode="AsNeeded">
+                        <local:PackIcon Kind="ContentCut" />
+                    </Button>
+                    <Button Command="Copy" ToolTip="Copy that stuff" ToolBar.OverflowMode="AsNeeded">
+                        <local:PackIcon Kind="ContentCopy" />
+                    </Button>
+                    <Separator />
+                    <Button Command="Paste" ToolTip="Paste some stuff" ToolBar.OverflowMode="AsNeeded">
+                        <local:PackIcon Kind="ContentPaste" />
+                    </Button>
+                    <!-- when badging in a toolbar, make sure the parent ToolBar.ClipToBounds="False", and 
+                     manually apply the button style -->
+                    <local:Badged ToolBar.OverflowMode="AsNeeded" Badge="{local:PackIcon Alert}">
+                        <Button ToolTip="Badge it up!" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                            <local:PackIcon Kind="AirplaneTakeoff" />
+                        </Button>
+                    </local:Badged>
+                    <Separator/>
+                    <ListBox>
+                        <ListBoxItem ToolTip="This is a lonley toggle with TextBlock instead of icon">
+                            <TextBlock>W</TextBlock>
+                        </ListBoxItem>
+                    </ListBox>
+                    <Separator/>
+                    <ListBox SelectedIndex="0">
+                        <ListBox.ToolTip>
+                            <StackPanel>
+                                <TextBlock Text="MaterialDesignToolToggleFlatListBox" />
+                                <TextBlock Text="Exclusive selection" />
+                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
+                            </StackPanel>
+                        </ListBox.ToolTip>
+                        <ListBoxItem >
+                            <local:PackIcon Kind="FormatAlignLeft"/>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <local:PackIcon Kind="FormatAlignCenter"/>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <local:PackIcon Kind="FormatAlignRight"/>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <local:PackIcon Kind="FormatAlignJustify"/>
+                        </ListBoxItem>
+                    </ListBox>
+                    <Separator/>
+                    <ListBox SelectionMode="Extended">
+                        <ListBox.ToolTip>
+                            <StackPanel>
+                                <TextBlock Text="MaterialDesignToolToggleListBox" />
+                                <TextBlock Text="Multiple selection" />
+                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
+                            </StackPanel>
+                        </ListBox.ToolTip>
+                        <ListBoxItem>
+                            <local:PackIcon Kind="FormatBold"/>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <local:PackIcon Kind="FormatItalic"/>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="UnderlineCheckbox">
+                            <local:PackIcon Kind="FormatUnderline"/>
+                        </ListBoxItem>
+                    </ListBox>
+                    <Separator/>
+                    <Label Content="Font size:" VerticalAlignment="Center"/>
+                    <ComboBox>
+                        <ComboBoxItem Content="10"/>
+                        <ComboBoxItem IsSelected="True" Content="12"/>
+                        <ComboBoxItem Content="14"/>
+                        <ComboBoxItem Content="16"/>
+                    </ComboBox>
+                    <CheckBox>
+                        Check
+                    </CheckBox>
+                    <Button ToolTip="Take a nap" ToolBar.OverflowMode="Always">
+                        <local:PackIcon Kind="Hotel" />
+                    </Button>
+                    <RadioButton GroupName="XXX" Content="Radio" />
+                    <RadioButton GroupName="XXX" Content="Ga Ga" />
+                    <ToggleButton/>
+                </ToolBar>
+            </ToolBarTray>
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay Key="menus_3" Margin="16" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBox Text="With Default Context Menu" />
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay Key="menus_4" Margin="16" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBox Text="With Custom Context Menu">
+                <TextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Hello World" />
+                        <MenuItem Header="Clickety Click">
+                            <MenuItem Header="Clackety Clack" />
+                        </MenuItem>
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+        </smtx:XamlDisplay>
+
+    </DockPanel>
+</UserControl>
+

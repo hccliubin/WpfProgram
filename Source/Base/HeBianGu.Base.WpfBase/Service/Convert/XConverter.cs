@@ -72,7 +72,12 @@ namespace HeBianGu.Base.WpfBase
         {
             get { return new VisibilityEmptyConverter(); }
         }
+        public static VisibilityStringConverter VisibilityStringConverter
+        {
+            get { return new VisibilityStringConverter(); }
+        }
 
+        
         public static CornerRadiusToDouble CornerRadiusToDouble
         {
             get { return new CornerRadiusToDouble(); }

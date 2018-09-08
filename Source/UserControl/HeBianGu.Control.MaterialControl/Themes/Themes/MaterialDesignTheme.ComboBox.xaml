@@ -1,19 +1,17 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="clr-namespace:HeBianGu.Controls.MaterialControl.Converters"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib"
-                    xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl"
-                    xmlns:materialdesign="clr-namespace:HeBianGu.Controls.MaterialControl">
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.Shadows.xaml" />
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ValidationErrorTemplate.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <converters:TextFieldHintVisibilityConverter x:Key="TextFieldHintVisibilityConverter" IsNotEmptyValue="Collapsed" />
-    <converters:MathConverter x:Key="MathAddConverter" Operation="Add" />
-    <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
-    <converters:BooleanToVisibilityConverter x:Key="InverseBoolToVisConverter" TrueValue="Collapsed" FalseValue="Visible"/>
+    <local:TextFieldHintVisibilityConverter x:Key="TextFieldHintVisibilityConverter" IsNotEmptyValue="Collapsed" />
+    <local:MathConverter x:Key="MathAddConverter" Operation="Add" />
+    <local:BrushRoundConverter x:Key="BrushRoundConverter" />
+    <local:BooleanToVisibilityConverter x:Key="InverseBoolToVisConverter" TrueValue="Collapsed" FalseValue="Visible"/>
     
     <system:Double x:Key="PopupContentPresenterExtend">4</system:Double>
     <system:Double x:Key="PopupTopBottomMargin">8</system:Double>
@@ -76,7 +74,7 @@
                             Width="{StaticResource PopupLeftRightMargin}"
                            Background="{Binding ElementName=PART_Popup, Path=Background}"/>
                     <Grid Grid.Column="1"
-                          Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type wpf:ComboBoxPopup}}, Path=VisiblePlacementWidth}"
+                          Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ComboBoxPopup}}, Path=VisiblePlacementWidth}"
                           Height="{Binding ElementName=templateRoot, Path=ActualHeight}"/>
                     <Border Grid.Column="2"
                             MinWidth="{StaticResource PopupLeftRightMargin}"
@@ -130,7 +128,7 @@
                             Background="{Binding ElementName=PART_Popup, Path=Background}"
                                />
                     <Grid Grid.Column="1"
-                          Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type wpf:ComboBoxPopup}}, Path=VisiblePlacementWidth}"
+                          Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ComboBoxPopup}}, Path=VisiblePlacementWidth}"
                           Height="{Binding ElementName=templateRoot, Path=ActualHeight}"/>
                     <Border Grid.Column="2"
                             MinWidth="{StaticResource PopupLeftRightMargin}"
@@ -277,7 +275,7 @@
                                                  Converter={StaticResource BrushRoundConverter}}"
                     Opacity="0"
                     RenderTransformOrigin="0.5,0.5" />
-            <wpf:Ripple HorizontalAlignment="Stretch"
+            <local:Ripple HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -431,16 +429,16 @@
                                  CaretBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"                                 
                                  Visibility="Collapsed" />
 
-                        <wpf:SmartHint x:Name="Hint"
-                                       HintProxy="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static converters:HintProxyFabricConverter.Instance}}"
+                        <local:SmartHint x:Name="Hint"
+                                       HintProxy="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:HintProxyFabricConverter.Instance}}"
                                        FontSize="{TemplateBinding FontSize}"
                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                        UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
-                                       UseFloating="{Binding Path=(wpf:HintAssist.IsFloating), RelativeSource={RelativeSource TemplatedParent}}"
-                                       FloatingScale="{Binding Path=(wpf:HintAssist.FloatingScale), RelativeSource={RelativeSource TemplatedParent}}"
-                                       FloatingOffset="{Binding Path=(wpf:HintAssist.FloatingOffset), RelativeSource={RelativeSource TemplatedParent}}"                                               
-                                       HintOpacity="{Binding Path=(wpf:HintAssist.HintOpacity), RelativeSource={RelativeSource TemplatedParent}}"
-                                       Hint="{TemplateBinding wpf:HintAssist.Hint}" />
+                                       UseFloating="{Binding Path=(local:HintAssist.IsFloating), RelativeSource={RelativeSource TemplatedParent}}"
+                                       FloatingScale="{Binding Path=(local:HintAssist.FloatingScale), RelativeSource={RelativeSource TemplatedParent}}"
+                                       FloatingOffset="{Binding Path=(local:HintAssist.FloatingOffset), RelativeSource={RelativeSource TemplatedParent}}"                                               
+                                       HintOpacity="{Binding Path=(local:HintAssist.HintOpacity), RelativeSource={RelativeSource TemplatedParent}}"
+                                       Hint="{TemplateBinding local:HintAssist.Hint}" />
                     </Grid>
                 </Grid>
                 <Line x:Name="DashedLine" Grid.ColumnSpan="2" VerticalAlignment="Bottom"
@@ -448,12 +446,12 @@
                       StrokeThickness="1.25" StrokeDashArray="1,2.5" StrokeDashCap="Round"
                       X1="0" X2="{Binding ActualWidth, ElementName=toggleButton}" Y1="0" Y2="0" 
                       Stroke="{TemplateBinding BorderBrush}" Opacity="0.56" />
-                <wpf:Underline x:Name="Underline"
+                <local:Underline x:Name="Underline"
                                Grid.ColumnSpan="2"
                                IsActive="{Binding ElementName=PART_EditableTextBox, Path=IsKeyboardFocused}"
-                               Visibility="{Binding Path=(wpf:TextFieldAssist.DecorationVisibility), RelativeSource={RelativeSource TemplatedParent}}"/>
+                               Visibility="{Binding Path=(local:TextFieldAssist.DecorationVisibility), RelativeSource={RelativeSource TemplatedParent}}"/>
 
-                <wpf:ComboBoxPopup x:Name="PART_Popup"
+                <local:ComboBoxPopup x:Name="PART_Popup"
                                    AllowsTransparency="true"
                                    Focusable="False"
                                    HorizontalOffset="-11.5"
@@ -467,7 +465,7 @@
                                    DefaultVerticalOffset="5"
                                    DownVerticalOffset="-15.5"
                                    UpVerticalOffset="15"
-                                   ClassicMode="{Binding Path=(wpf:ComboBoxAssist.ClassicMode), RelativeSource={RelativeSource TemplatedParent}}"
+                                   ClassicMode="{Binding Path=(local:ComboBoxAssist.ClassicMode), RelativeSource={RelativeSource TemplatedParent}}"
                                    UpContentTemplate="{StaticResource PopupContentUpTemplate}"
                                    DownContentTemplate="{StaticResource PopupContentDownTemplate}"
                                    ClassicContentTemplate="{StaticResource PopupContentClassicTemplate}">
@@ -477,11 +475,11 @@
                             <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" />
                         </ScrollViewer>
                     </ContentControl>
-                </wpf:ComboBoxPopup>
+                </local:ComboBoxPopup>
             </Grid>
         </Grid>
         <ControlTemplate.Triggers>
-            <Trigger SourceName="PART_Popup" Property="PopupPlacement" Value="{x:Static materialdesign:ComboBoxPopupPlacement.Classic}">
+            <Trigger SourceName="PART_Popup" Property="PopupPlacement" Value="{x:Static local:ComboBoxPopupPlacement.Classic}">
                 <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignComboBoxItemStyle}" />
             </Trigger>
             <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
@@ -493,10 +491,10 @@
             </Trigger>
             <Trigger Property="IsEditable" Value="True">
                 <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible" />
-                <Setter TargetName="Underline" Property="Visibility" Value="{Binding Path=(wpf:TextFieldAssist.DecorationVisibility), RelativeSource={RelativeSource TemplatedParent}}" />
+                <Setter TargetName="Underline" Property="Visibility" Value="{Binding Path=(local:TextFieldAssist.DecorationVisibility), RelativeSource={RelativeSource TemplatedParent}}" />
                 <Setter TargetName="contentPresenter" Property="Visibility" Value="Collapsed" />
             </Trigger>
-            <Trigger Property="wpf:HintAssist.IsFloating" Value="True">
+            <Trigger Property="local:HintAssist.IsFloating" Value="True">
                 <Setter TargetName="InnerRoot" Property="Margin" Value="0 11.5 0 0" />
             </Trigger>
             <MultiTrigger>
@@ -510,7 +508,7 @@
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition SourceName="Hint" Property="IsContentNullOrEmpty" Value="False" />
-                    <Condition Property="wpf:HintAssist.IsFloating" Value="True" />
+                    <Condition Property="local:HintAssist.IsFloating" Value="True" />
                     <Condition Property="IsKeyboardFocusWithin" Value="True" />
                 </MultiTrigger.Conditions>
                 <Setter TargetName="Hint" Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -518,7 +516,7 @@
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="wpf:HintAssist.IsFloating" Value="True" />
+                    <Condition Property="local:HintAssist.IsFloating" Value="True" />
                     <Condition SourceName="Hint" Property="IsHintInFloatingPosition" Value="True" />
                     <Condition Property="IsKeyboardFocusWithin" Value="True" />
                 </MultiTrigger.Conditions>
@@ -592,7 +590,7 @@
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource MaterialDesignValidationErrorTemplate}"/>
-        <Setter Property="wpf:TextFieldAssist.TextBoxViewMargin" Value="1 0 1 0" />
+        <Setter Property="local:TextFieldAssist.TextBoxViewMargin" Value="1 0 1 0" />
         <Setter Property="Template" Value="{StaticResource MaterialDesignFloatingHintComboBoxTemplate}" />
         <Style.Triggers>
             <Trigger Property="IsKeyboardFocused" Value="true">
@@ -604,10 +602,10 @@
             <Trigger Property="IsEditable" Value="true">
                 <Setter Property="IsTabStop" Value="false" />
                 <!-- designer prefers hard bool -->
-                <Setter Property="wpf:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}" />
+                <Setter Property="local:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}" />
             </Trigger>
             <!-- designer prefers hard bool -->
-            <Trigger Property="wpf:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}" >
+            <Trigger Property="local:ComboBoxAssist.ShowSelectedItem" Value="{StaticResource TrueValue}" >
                 <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialDesignComboBoxItemStyle}" />
             </Trigger>
         </Style.Triggers>
@@ -616,7 +614,7 @@
     <Style x:Key="MaterialDesignFloatingHintComboBox"
            BasedOn="{StaticResource MaterialDesignComboBox}"
            TargetType="{x:Type ComboBox}">
-        <Setter Property="wpf:HintAssist.IsFloating" Value="True"/>
+        <Setter Property="local:HintAssist.IsFloating" Value="True"/>
     </Style>
 
 </ResourceDictionary>

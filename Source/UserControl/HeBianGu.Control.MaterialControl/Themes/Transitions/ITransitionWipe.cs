@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     public interface ITransitionWipe
     {

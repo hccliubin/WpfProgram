@@ -6,21 +6,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:base="clr-namespace:HeBianGu.Base.WpfBase;assembly=HeBianGu.Base.WpfBase"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfControlDemo"
-                          xmlns:propertygrid="clr-namespace:HeBianGu.Control.PropertyGrid;assembly=HeBianGu.Control.PropertyGrid"
-                          xmlns:avalonDock="clr-namespace:HeBianGu.Control.DockPanelControl;assembly=HeBianGu.Control.DockPanelControl"
-                          mc:Ignorable="d" 
-        Style="{StaticResource ResourceKey=DefaultWindowStyle}" 
-                          x:Name="main" CaptionHeight="50" 
-                          FIconSize="30"
-        Title="HeBianGu for WPF 控件示例" 
-                          Height="760" Width="1200" >
-
-
-
+        xmlns:local="clr-namespace:WpfControlDemo" Style="{StaticResource DefaultWindowStyle}"
+        xmlns:propertygrid="clr-namespace:HeBianGu.Control.PropertyGrid;assembly=HeBianGu.Control.PropertyGrid"
+        xmlns:avalonDock="clr-namespace:HeBianGu.Control.DockPanelControl;assembly=HeBianGu.Control.DockPanelControl"
+        mc:Ignorable="d"  x:Name="main" CaptionHeight="50" FIconSize="30"
+        Title="HeBianGu for WPF 控件示例"  Height="760" Width="1200" >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition MinWidth="220"  Width="*"/>
+            <ColumnDefinition Width="2"/>
             <ColumnDefinition Width="263*" MinWidth="600"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
@@ -30,11 +24,12 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
+        <GridSplitter Grid.Column="1" Width="5"  Background="Transparent"/>
 
-        <TreeView  Grid.Column="0" 
+        <TreeView  Grid.Column="0" HorizontalAlignment="Stretch"
                    ItemsSource="{Binding Source={StaticResource xdp}}" 
                    x:Name="TreeRoot" 
-                   Background="{StaticResource S_GrayLight}" 
+                    Background="{StaticResource S_GrayLight}" BorderThickness="0" 
                    ItemContainerStyle="{StaticResource MaterialDesignTreeViewItem}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
@@ -53,14 +48,14 @@
 
         </TreeView>
         <Frame x:Name="PageContext"  
-                                   Grid.Column="1" 
-                                   Background="{StaticResource S_GrayLight}" 
+                                   Grid.Column="2" 
+                                    Background="{StaticResource S_GrayLight}"  
                                    BorderThickness="1" 
                                    NavigationUIVisibility="Visible"  
                                    Source="{Binding ElementName=TreeRoot, Path=SelectedItem.Attributes[Value].Value}" 
                                    Keyboard.GotKeyboardFocus="property_GotKeyboardFocus" />
 
-        <propertygrid:PropertyGrid Grid.Column="2"  
+        <propertygrid:PropertyGrid Grid.Column="3"  
                                    Background="{StaticResource S_GrayLight}"  
                                    HorizontalAlignment="Stretch" 
                                    Visibility="{Binding ElementName=AutoProperty,Path=IsChecked,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}"
@@ -73,6 +68,8 @@
                                    HorizontalContentAlignment="Stretch" 
                                    VerticalContentAlignment="Stretch" />
 
-        <wpfcontrollib:FCheckBox x:Name="AutoProperty" Grid.Row="1" Content="是否显示控件属性"/>
+        <wpfcontrollib:FCheckBox x:Name="AutoProperty" Grid.Row="1" Content="是否显示控件属性"  Foreground="{StaticResource S_GrayLight}" />
     </Grid>
+
+
 </wpfcontrollib:WindowBase>

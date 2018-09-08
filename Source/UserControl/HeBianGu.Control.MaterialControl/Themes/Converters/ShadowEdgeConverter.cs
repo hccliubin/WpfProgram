@@ -5,7 +5,7 @@ using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 
-namespace HeBianGu.Controls.MaterialControl.Converters
+namespace HeBianGu.Controls.MaterialControl
 {
     public class ShadowEdgeConverter : IMultiValueConverter
     {

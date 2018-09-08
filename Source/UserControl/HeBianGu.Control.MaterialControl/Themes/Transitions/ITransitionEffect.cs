@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     public interface ITransitionEffect
     {

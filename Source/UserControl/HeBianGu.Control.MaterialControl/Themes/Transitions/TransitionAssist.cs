@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     /// <summary>
     /// Allows transitions to be disabled where supported.

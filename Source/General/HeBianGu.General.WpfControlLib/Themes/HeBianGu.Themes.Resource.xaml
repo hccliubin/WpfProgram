@@ -46,6 +46,5 @@
         <ResourceDictionary Source="../Style/GroupBoxTheme.xaml"/>
         <ResourceDictionary Source="../Style/Slider.xaml"/>
         <ResourceDictionary Source="../Style/TabControl.xaml"/>
-        <ResourceDictionary Source="../WindowBase/WindowBase.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

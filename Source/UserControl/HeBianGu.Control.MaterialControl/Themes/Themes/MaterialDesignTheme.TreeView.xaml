@@ -1,17 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl"
-                    xmlns:converters="clr-namespace:HeBianGu.Controls.MaterialControl.Converters"
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
-            <converters:BrushRoundConverter x:Key="BrushRoundConverter"/>
-            <converters:MathMultipleConverter x:Key="MathMlpMultipleConverter" Operation="Multiply" />
+            <local:BrushRoundConverter x:Key="BrushRoundConverter"/>
+            <local:MathMultipleConverter x:Key="MathMlpMultipleConverter" Operation="Multiply" />
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
-    <converters:NullableToVisibilityConverter x:Key="NullableToVisibilityConverter" />
+    <local:NullableToVisibilityConverter x:Key="NullableToVisibilityConverter" />
 
     <Style x:Key="MaterialDesignTreeView" TargetType="{x:Type TreeView}">
         <Setter Property="Background" Value="Transparent"/>
@@ -252,7 +251,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <wpf:ScaleHost x:Name="ScaleHost" />
+                        <local:ScaleHost x:Name="ScaleHost" />
                         <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" 
                                       Style="{StaticResource MaterialDesignExpandCollapseToggleStyle}"
                                       Foreground="{TemplateBinding Foreground}"
@@ -273,21 +272,21 @@
                                 Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"/>
 
                         <Grid Grid.Column="1" Grid.ColumnSpan="2" x:Name="ContentGrid" Background="Transparent">
-                            <wpf:Ripple Feedback="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
+                            <local:Ripple Feedback="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
                                         Focusable="False"
                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                         Padding="{TemplateBinding Padding}">
                                 <ContentPresenter x:Name="PART_Header" ContentSource="Header"/>
-                            </wpf:Ripple>
+                            </local:Ripple>
                         </Grid>
 
                         <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                                         x:Name="AdditionalContentControl"
                                         Content="{TemplateBinding Header}"
-                                        ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:TreeViewAssist.AdditionalTemplate)}"
-                                        ContentTemplateSelector="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:TreeViewAssist.AdditionalTemplateSelector)}"                                        
+                                        ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:TreeViewAssist.AdditionalTemplate)}"
+                                        ContentTemplateSelector="{Binding RelativeSource={RelativeSource Self}, Path=(local:TreeViewAssist.AdditionalTemplateSelector)}"                                        
                                         Visibility="Collapsed">
                         </ContentControl>
 
@@ -308,11 +307,11 @@
                         </StackPanel>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:TreeViewAssist.AdditionalTemplate), Converter={StaticResource NullableToVisibilityConverter}, Mode=OneWay}" 
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(local:TreeViewAssist.AdditionalTemplate), Converter={StaticResource NullableToVisibilityConverter}, Mode=OneWay}" 
                                      Value="Visible">
                             <Setter TargetName="AdditionalContentControl" Property="Visibility" Value="Visible" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:TreeViewAssist.AdditionalTemplateSelector), Converter={StaticResource NullableToVisibilityConverter}, Mode=OneWay}" 
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=(local:TreeViewAssist.AdditionalTemplateSelector), Converter={StaticResource NullableToVisibilityConverter}, Mode=OneWay}" 
                                      Value="Visible">
                             <Setter TargetName="AdditionalContentControl" Property="Visibility" Value="Visible" />
                         </DataTrigger>

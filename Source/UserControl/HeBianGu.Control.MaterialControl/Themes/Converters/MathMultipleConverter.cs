@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace HeBianGu.Controls.MaterialControl.Converters
+namespace HeBianGu.Controls.MaterialControl
 {
     public sealed class MathMultipleConverter : IMultiValueConverter
     {

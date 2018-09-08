@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Markup;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     [MarkupExtensionReturnType(typeof(TransitionEffectBase))]
     public class TransitionEffectExtension : MarkupExtension

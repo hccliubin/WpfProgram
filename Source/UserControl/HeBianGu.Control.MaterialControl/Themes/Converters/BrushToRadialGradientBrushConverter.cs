@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace HeBianGu.Controls.MaterialControl.Converters
+namespace HeBianGu.Controls.MaterialControl
 {
 	public class BrushToRadialGradientBrushConverter : IValueConverter
 	{

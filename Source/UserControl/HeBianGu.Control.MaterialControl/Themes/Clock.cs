@@ -14,8 +14,8 @@ using System.Windows.Media.Converters;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HeBianGu.Controls.MaterialControl.Converters;
-using HeBianGu.Controls.MaterialControl.Transitions;
+
+
 
 namespace HeBianGu.Controls.MaterialControl
 {

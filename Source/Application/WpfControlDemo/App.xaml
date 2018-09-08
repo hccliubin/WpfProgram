@@ -7,6 +7,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+
+                <!--自定义资源引用-->
                 <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Themes/HeBianGu.Themes.Resource.xaml"/>
                 <ResourceDictionary Source="/HeBianGu.Base.WpfBase;component/Themes/Color/LightThemeResource.xaml"/>
                 <ResourceDictionary Source="/HeBianGu.General.WpfControlLib;component/Themes/HeBianGu.Themes.Default.xaml"/>
@@ -14,9 +16,19 @@
                 <ResourceDictionary Source="/HeBianGu.Control.UserControls;component/Themes/Generic.xaml"/>
                 <ResourceDictionary Source="/Provider/TreeDictionary.xaml" />
 
+                <!--第三方资源引用-->
                 <ResourceDictionary Source="/HeBianGu.Control.MaterialControl;component/Themes/Material.Theme.Resource.xaml" />
 
+                <!--第三方资源引用-->
+                <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Assets/ModernUI.xaml" />
+                <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Assets/ModernUI.Light.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
+
+            
+            <!--从资源中设置默认样式-->
+            <Style x:Key="{x:Type Button}"  BasedOn="{StaticResource ModernDefultBaseButtonStyle}" TargetType="{x:Type Button}"/>
+
 
         </ResourceDictionary>
     </Application.Resources>

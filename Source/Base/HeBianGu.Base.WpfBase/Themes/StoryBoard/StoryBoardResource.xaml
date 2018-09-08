@@ -253,8 +253,7 @@
             <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.4" />
         </DoubleAnimationUsingKeyFrames>
         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
-            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.4" />
+            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.4" /> 
         </DoubleAnimationUsingKeyFrames>
     </Storyboard>
-    
 </ResourceDictionary>

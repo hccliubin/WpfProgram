@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace HeBianGu.Controls.MaterialControl.Converters
+namespace HeBianGu.Controls.MaterialControl
 {
 	public class ClockLineConverter : MarkupExtension, IValueConverter
     {

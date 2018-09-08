@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace HeBianGu.Controls.MaterialControl.Converters
+namespace HeBianGu.Controls.MaterialControl
 {    
     public class DrawerOffsetConverter : IValueConverter
     {

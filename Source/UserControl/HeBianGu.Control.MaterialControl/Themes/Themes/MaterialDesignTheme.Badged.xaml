@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl">
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl">
 
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <SineEase EasingMode="EaseOut" x:Key="BadgeEase" />
@@ -15,7 +15,7 @@
         </DoubleAnimationUsingKeyFrames>
     </Storyboard>
     
-    <Style TargetType="{x:Type wpf:Badged}">
+    <Style TargetType="{x:Type local:Badged}">
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
@@ -24,7 +24,7 @@
         <Setter Property="BadgeChangedStoryboard" Value="{StaticResource BadgeChangedStoryboard}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type wpf:Badged}">
+                <ControlTemplate TargetType="{x:Type local:Badged}">
                     <Grid>
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -47,7 +47,7 @@
                                 RenderTransformOrigin=".5,.5"
                                 Visibility="{TemplateBinding IsBadgeSet, Converter={StaticResource BooleanToVisibilityConverter}}">
                             <Border.Resources>
-                                <Style TargetType="wpf:PackIcon">
+                                <Style TargetType="local:PackIcon">
                                     <Setter Property="Width" Value="12" />
                                     <Setter Property="Height" Value="12" />
                                 </Style>

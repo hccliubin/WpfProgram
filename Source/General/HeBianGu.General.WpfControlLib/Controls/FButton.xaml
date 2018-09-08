@@ -50,8 +50,8 @@
                 </StackPanel>
 
             </Grid>
-            <local:WaitingBox   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
-                                   Foreground="{StaticResource S_AccentBrush}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
+            <local:WaitingBox  Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
+                                   Foreground="{TemplateBinding Foreground}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
 
         </Grid>
         <!--</Border>-->

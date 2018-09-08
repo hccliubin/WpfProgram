@@ -22,6 +22,12 @@
                     <Folder Name="托盘控件" Value="../View/NotifyPage.xaml"  FIcon="&#xe799;"/>
                 </Folder>
 
+                <Folder Name="第三方控件" Value="../View/ThridParty/MaterialControl/MaterialControlPage.xaml"  FIcon="&#xe785;">
+                    <Folder Name="MaterialControl" Value="../View/ThridParty/MaterialControl/MaterialControlPage.xaml"  FIcon="&#xe799;"/>
+                    <Folder Name="ArthasControl" Value="../View/ThridParty/ArthasControl/ArthasControlPage.xaml"  FIcon="&#xe799;"/>
+                    <Folder Name="ModernControl" Value="../View/ThridParty/ModernControl/ModernControlPage.xaml"  FIcon="&#xe799;"/>
+                </Folder>
+
                 <Folder Name="布局控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe785;">
                     <Folder Name="停靠控件" Value="../View/DockPanelPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="瀑布控件" Value="../View/WaterFallPage.xaml"  FIcon="&#xe799;"/>
@@ -29,7 +35,6 @@
                     <Folder Name="分页控件" Value="../View/TabControlPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="内部弹窗" Value="../View/InlineDialogPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="自定义Frame控件" Value="../View/FramePage.xaml"  FIcon="&#xe799;"/>
-                    <Folder Name="停靠控件" Value="../View/DrawHostPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="消息对话" Value="../View/DialogMessagePage.xaml"  FIcon="&#xe799;"/>
                 </Folder>
                 <Folder Name="自定义控件" Value="../View/DocumentPage.xaml"  FIcon="&#xe785;">

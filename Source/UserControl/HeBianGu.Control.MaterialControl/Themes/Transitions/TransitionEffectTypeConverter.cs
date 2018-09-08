@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Markup;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     public class TransitionEffectTypeConverter : TypeConverter
     {

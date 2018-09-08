@@ -163,10 +163,6 @@
       <Project>{ec5512d9-32de-4057-91e3-9b646f1d5f7c}</Project>
       <Name>CasePrototypeModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\ClipBoardModule\ClipBoardModule.csproj">
-      <Project>{23715a3c-4aae-4230-9901-e137e979f221}</Project>
-      <Name>ClipBoardModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Modules\CommonDocumentModule\CommonDocumentModule.csproj">
       <Project>{f472080c-a32f-4d94-9949-d715fc69cb70}</Project>
       <Name>CommonDocumentModule</Name>

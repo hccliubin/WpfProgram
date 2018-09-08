@@ -486,7 +486,7 @@
   <ItemGroup>
     <Resource Include="Provider\Effect\Blend.fx" />
     <Resource Include="Provider\Effect\PointLight.fx" />
-    <Content Include="Resources\demo_unicode.html" />
+    <Resource Include="Resources\demo_unicode.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
 using System;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     public interface ITransitionEffectSubject
     {

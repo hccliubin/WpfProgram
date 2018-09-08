@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="FirstFloor.ModernUI.App.Pages.LayoutTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:mui="clr-namespace:HeBianGu.Controls.ModernControl;assembly=HeBianGu.Control.ModernControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <mui:ModernTab SelectedSource="/View/ThridParty/ModernControl/View/ThridParty/Content/LoremIpsum.xaml" Layout="Tab">
+            <mui:ModernTab.Links>
+                <mui:Link DisplayName="Basic" Source="/View/ThridParty/ModernControl/Content/LoremIpsum.xaml" />
+                <mui:Link DisplayName="Split" Source="/View/ThridParty/ModernControl/Content/LoremIpsumSplit.xaml" />
+                <mui:Link DisplayName="List" Source="/View/ThridParty/ModernControl/Content/LoremIpsumList.xaml" />
+            </mui:ModernTab.Links>
+        </mui:ModernTab>
+    </Grid>
+</UserControl>

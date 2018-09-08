@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl"
-                    xmlns:converters="clr-namespace:HeBianGu.Controls.MaterialControl.Converters">
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.ListBox.xaml" />
@@ -29,7 +28,7 @@
                                           Focusable="false"
                                           HorizontalScrollBarVisibility="Hidden"
                                           VerticalScrollBarVisibility="Hidden"
-                                          wpf:ScrollViewerAssist.SyncHorizontalOffset="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                          local:ScrollViewerAssist.SyncHorizontalOffset="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
                                 <Border BorderBrush="{DynamicResource MaterialDesignDivider}" BorderThickness="0,0,0,1">
                                     <StackPanel Orientation="Horizontal">
                                         <GridViewHeaderRowPresenter x:Name="PART_GridViewHeaderRowPresenter"
@@ -42,7 +41,7 @@
                                                                 Columns="{Binding Path=TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}"
                                                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                         <!-- NB: Rectangle added to keep the width of the header ScrollViewer the same size as the list items -->
-                                        <Rectangle Margin="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:ListViewAssist.ListViewItemPadding)}" />
+                                        <Rectangle Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:ListViewAssist.ListViewItemPadding)}" />
                                     </StackPanel>
                                 </Border>
 
@@ -82,7 +81,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBlock.FontWeight" Value="Medium" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:DataGridAssist.ColumnHeaderPadding)}" />
+        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridAssist.ColumnHeaderPadding)}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignColumnHeader}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -147,7 +146,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
                     <Border x:Name="Border"
-                            Padding="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:ListViewAssist.ListViewItemPadding)}"
+                            Padding="{Binding RelativeSource={RelativeSource Self}, Path=(local:ListViewAssist.ListViewItemPadding)}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{DynamicResource MaterialDesignDivider}"
                             BorderThickness="0,0,0,1"
@@ -190,13 +189,13 @@
         </Style.Triggers>
     </Style>
 
-    <converters:ListViewGridViewConverter 
+    <local:ListViewGridViewConverter 
         x:Key="MaterialDesignListViewItemContainerStyleConverter"
         DefaultValue="{StaticResource MaterialDesignListBoxItem}"
         ViewValue="{StaticResource MaterialDesignGridViewItem}" />
 
-    <converters:ListViewGridViewConverter x:Key="MaterialDesignListViewTemplateConverter">
-        <converters:ListViewGridViewConverter.DefaultValue>
+    <local:ListViewGridViewConverter x:Key="MaterialDesignListViewTemplateConverter">
+        <local:ListViewGridViewConverter.DefaultValue>
             <ControlTemplate TargetType="{x:Type ListView}">
                 <ScrollViewer>
                     <ItemsPresenter />
@@ -207,8 +206,8 @@
                     </Trigger>
                 </ControlTemplate.Triggers>
             </ControlTemplate>
-        </converters:ListViewGridViewConverter.DefaultValue>
-        <converters:ListViewGridViewConverter.ViewValue>
+        </local:ListViewGridViewConverter.DefaultValue>
+        <local:ListViewGridViewConverter.ViewValue>
             <ControlTemplate TargetType="{x:Type ListView}">
                 <ScrollViewer Style="{DynamicResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
                     <ItemsPresenter />
@@ -219,8 +218,8 @@
                     </Trigger>
                 </ControlTemplate.Triggers>
             </ControlTemplate>
-        </converters:ListViewGridViewConverter.ViewValue>
-    </converters:ListViewGridViewConverter>
+        </local:ListViewGridViewConverter.ViewValue>
+    </local:ListViewGridViewConverter>
 
     <Style x:Key="MaterialDesignListView" TargetType="{x:Type ListView}">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />

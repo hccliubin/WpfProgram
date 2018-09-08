@@ -4,9 +4,8 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
-using HeBianGu.Controls.MaterialControl.Transitions;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     /// <summary>
     /// Content control to host the content of an individual page within a <see cref="Transitioner"/>.

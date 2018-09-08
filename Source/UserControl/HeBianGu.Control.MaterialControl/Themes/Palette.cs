@@ -4,7 +4,7 @@ namespace HeBianGu.Controls.MaterialControl
     /// <summary>
     /// Provides full information about a palette.
     /// </summary>
-    public class Palette
+    public partial class Palette
     {
         public Palette(Swatch primarySwatch, Swatch accentSwatch, int primaryLightHueIndex, int primaryMidHueIndex, int primaryDarkHueIndex, int accentHueIndex)
         {

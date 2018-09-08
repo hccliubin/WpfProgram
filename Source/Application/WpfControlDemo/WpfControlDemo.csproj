@@ -38,9 +38,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\CsvHelper.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Product\Dll\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Product\Dll\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="ShowMeTheXAML, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Product\Dll\ShowMeTheXAML.dll</HintPath>
+    </Reference>
+    <Reference Include="ShowMeTheXAML.AvalonEdit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Product\Dll\ShowMeTheXAML.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -116,8 +128,11 @@
     <Compile Include="View\DocumentPage.xaml.cs">
       <DependentUpon>DocumentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DrawHostPage.xaml.cs">
-      <DependentUpon>DrawHostPage.xaml</DependentUpon>
+    <Compile Include="View\ThridParty\ArthasControl\ArthasControlPage.xaml.cs">
+      <DependentUpon>ArthasControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\MaterialControl\MaterialControlPage.xaml.cs">
+      <DependentUpon>MaterialControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EffectsBackgroundPage.xaml.cs">
       <DependentUpon>EffectsBackgroundPage.xaml</DependentUpon>
@@ -191,6 +206,126 @@
     <Compile Include="View\ThemeUserControlPage.xaml.cs">
       <DependentUpon>ThemeUserControlPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ThridParty\ModernControl\BingImage.cs" />
+    <Compile Include="View\ThridParty\ModernControl\Content\ContentLoaderImages.xaml.cs">
+      <DependentUpon>ContentLoaderImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ContentLoaderIntro.xaml.cs">
+      <DependentUpon>ContentLoaderIntro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsModernBBCodeBlock.xaml.cs">
+      <DependentUpon>ControlsModernBBCodeBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsModernButton.xaml.cs">
+      <DependentUpon>ControlsModernButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsModernDialog.xaml.cs">
+      <DependentUpon>ControlsModernDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsModernFrame.xaml.cs">
+      <DependentUpon>ControlsModernFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsModernMenu.xaml.cs">
+      <DependentUpon>ControlsModernMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsModernProgressRing.xaml.cs">
+      <DependentUpon>ControlsModernProgressRing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsModernWindow.xaml.cs">
+      <DependentUpon>ControlsModernWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesButton.xaml.cs">
+      <DependentUpon>ControlsStylesButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesDataGrid.xaml.cs">
+      <DependentUpon>ControlsStylesDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesDate.xaml.cs">
+      <DependentUpon>ControlsStylesDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesItemsControl.xaml.cs">
+      <DependentUpon>ControlsStylesItemsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesProgressBar.xaml.cs">
+      <DependentUpon>ControlsStylesProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesSampleForm.xaml.cs">
+      <DependentUpon>ControlsStylesSampleForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesSlider.xaml.cs">
+      <DependentUpon>ControlsStylesSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ControlsStylesText.xaml.cs">
+      <DependentUpon>ControlsStylesText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\LoremIpsum.xaml.cs">
+      <DependentUpon>LoremIpsum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\LoremIpsumList.xaml.cs">
+      <DependentUpon>LoremIpsumList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\LoremIpsumSplit.xaml.cs">
+      <DependentUpon>LoremIpsumSplit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ModernFrame\CancelNavigateSample.xaml.cs">
+      <DependentUpon>CancelNavigateSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ModernFrame\ErrorSample.xaml.cs">
+      <DependentUpon>ErrorSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\ModernFrame\Sample.xaml.cs">
+      <DependentUpon>Sample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\SettingsAppearance.xaml.cs">
+      <DependentUpon>SettingsAppearance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Content\SettingsAppearanceViewModel.cs" />
+    <Compile Include="View\ThridParty\ModernControl\FlickrImageLoader.cs" />
+    <Compile Include="View\ThridParty\ModernControl\LoremIpsumLoader.cs" />
+    <Compile Include="View\ThridParty\ModernControl\ModernControlPage.xaml.cs">
+      <DependentUpon>ModernControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\ContentLoader.xaml.cs">
+      <DependentUpon>ContentLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\ControlsModern.xaml.cs">
+      <DependentUpon>ControlsModern.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\ControlsStyles.xaml.cs">
+      <DependentUpon>ControlsStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\DpiAwareness.xaml.cs">
+      <DependentUpon>DpiAwareness.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\DpiAwarenessViewModel.cs" />
+    <Compile Include="View\ThridParty\ModernControl\Pages\Introduction.xaml.cs">
+      <DependentUpon>Introduction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\LayoutBasic.xaml.cs">
+      <DependentUpon>LayoutBasic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\LayoutList.xaml.cs">
+      <DependentUpon>LayoutList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\LayoutSplit.xaml.cs">
+      <DependentUpon>LayoutSplit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\LayoutTab.xaml.cs">
+      <DependentUpon>LayoutTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\LayoutWireframe.xaml.cs">
+      <DependentUpon>LayoutWireframe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\Navigation.xaml.cs">
+      <DependentUpon>Navigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\Pages\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThridParty\ModernControl\SampleDisabledCommand.cs" />
+    <Compile Include="View\ThridParty\ModernControl\SampleFormViewModel.cs" />
+    <Compile Include="View\ThridParty\ModernControl\SampleMsgBoxCommand.cs" />
+    <Compile Include="View\ThridParty\ModernControl\SampleParameterCommand.cs" />
     <Compile Include="View\ToggleButtonPage.xaml.cs">
       <DependentUpon>ToggleButtonPage.xaml</DependentUpon>
     </Compile>
@@ -298,7 +433,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DrawHostPage.xaml">
+    <Page Include="View\ThridParty\ArthasControl\ArthasControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThridParty\MaterialControl\MaterialControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -398,6 +537,230 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.add.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.adobe.bridge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.arrow.collapsed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.arrow.corner.up.right.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.arrow.down.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.arrow.expand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.box.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.camera.flash.off.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.camera.flash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.camera.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.cards.club.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.cards.diamond.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.cards.heart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.cards.spade.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\appbar.check.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\ModernUI.BingImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\ModernUI.HelloKitty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\ModernUI.Love.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Assets\ModernUI.Snowflakes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ContentLoaderImages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ContentLoaderIntro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsModernBBCodeBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsModernButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsModernDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsModernFrame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsModernMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsModernProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsModernWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesDate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesItemsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesSampleForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ControlsStylesText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\LoremIpsum.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\LoremIpsumList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\LoremIpsumSplit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ModernFrame\CancelNavigateSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ModernFrame\ErrorSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\ModernFrame\Sample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Content\SettingsAppearance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\ModernControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\ContentLoader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\ControlsModern.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\ControlsStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\DpiAwareness.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\Introduction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\LayoutBasic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\LayoutList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\LayoutSplit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\LayoutTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\LayoutWireframe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThridParty\ModernControl\Pages\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\ToggleButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -478,6 +841,10 @@
       <Project>{d17c1033-77d9-46fc-b039-b1f9e1c8cde2}</Project>
       <Name>HeBianGu.General.WpfDocument</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\UserControl\HeBianGu.Control.ArthasControl\HeBianGu.Control.ArthasControl.csproj">
+      <Project>{b3242efa-2514-4cdd-8480-d46d4e678ad2}</Project>
+      <Name>HeBianGu.Control.ArthasControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\UserControl\HeBianGu.Control.DockPanelControl\HeBianGu.Control.DockPanelControl.csproj">
       <Project>{48340131-1e63-4f56-944c-7738c46d6ab2}</Project>
       <Name>HeBianGu.Control.DockPanelControl</Name>
@@ -485,6 +852,10 @@
     <ProjectReference Include="..\..\UserControl\HeBianGu.Control.MaterialControl\HeBianGu.Control.MaterialControl.csproj">
       <Project>{d17357ae-3430-4f1b-9b6b-ca692a9aeeac}</Project>
       <Name>HeBianGu.Control.MaterialControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UserControl\HeBianGu.Control.ModernControl\HeBianGu.Control.ModernControl.csproj">
+      <Project>{7bbb2da8-07c0-4614-adcb-e3956f082535}</Project>
+      <Name>HeBianGu.Control.ModernControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\UserControl\HeBianGu.Control.PropertyGrid\HeBianGu.Control.PropertyGrid.csproj">
       <Project>{5a332cc8-390f-4526-a13a-d6140878d135}</Project>
@@ -522,6 +893,18 @@
   <ItemGroup>
     <Resource Include="Resources\Patrick 1.ico" />
     <Resource Include="Resources\Patrick 2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="View\ThridParty\ArthasControl\Image\about.html" />
+    <Resource Include="View\ThridParty\ModernControl\Assets\background.kitty.png" />
+    <Resource Include="View\ThridParty\ModernControl\Assets\background.love.jpg" />
+    <Resource Include="View\ThridParty\ModernControl\Assets\background.snowflakes.jpg" />
+    <Resource Include="View\ThridParty\ArthasControl\Image\editIcon.png" />
+    <Resource Include="View\ThridParty\ArthasControl\Image\icon.png" />
+    <Resource Include="View\ThridParty\ArthasControl\Image\iconMove.png" />
+    <Resource Include="View\ThridParty\ArthasControl\Image\pic.jpg" />
+    <Resource Include="View\ThridParty\ArthasControl\Image\tabIcon.png" />
+    <Resource Include="View\ThridParty\ArthasControl\Image\titleMuenIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HeBianGu.Controls.ModernControl"
+                    xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/BBCodeBlock.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernButton.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernToggleButton.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernDialog.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernFrame.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernMenu.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernProgressRing.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernTab.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/ModernWindow.xaml" />
+        <ResourceDictionary Source="/HeBianGu.Control.ModernControl;component/Themes/TransitioningContentControl.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+ 
+</ResourceDictionary>

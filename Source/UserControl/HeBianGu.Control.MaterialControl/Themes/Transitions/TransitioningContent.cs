@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     [Flags]
     public enum TransitioningContentRunHint

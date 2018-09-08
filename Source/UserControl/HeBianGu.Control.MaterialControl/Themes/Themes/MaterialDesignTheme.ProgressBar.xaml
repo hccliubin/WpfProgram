@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:circularProgressBar="clr-namespace:HeBianGu.Controls.MaterialControl.Converters.CircularProgressBar"
-                    xmlns:transitions="clr-namespace:HeBianGu.Controls.MaterialControl.Transitions"
-                    xmlns:converters="clr-namespace:HeBianGu.Controls.MaterialControl.Converters">
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl">
     
     <Style x:Key="MaterialDesignLinearProgressBar" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}"/>
@@ -79,7 +78,7 @@
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="transitions:TransitionAssist.DisableTransitions" Value="True">
+                        <Trigger Property="  local:TransitionAssist.DisableTransitions" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource OnLoadedNoAnimation}" Name="BeginStoryboardOnLoadedNoAnimation" />
                             </Trigger.EnterActions>
@@ -90,7 +89,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsVisible" Value="True" />
-                                <Condition Property="transitions:TransitionAssist.DisableTransitions" Value="False" />
+                                <Condition Property="  local:TransitionAssist.DisableTransitions" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource OnLoaded}" Name="BeginStoryboardOnLoaded" />
@@ -115,13 +114,13 @@
         </Setter>
     </Style>
 
-    <circularProgressBar:StartPointConverter x:Key="StartPointConverter" />
-    <circularProgressBar:ArcSizeConverter x:Key="ArcSizeConverter" />
-    <circularProgressBar:ArcEndPointConverter x:Key="ArcEndPointConverter" />
-    <circularProgressBar:LargeArcConverter x:Key="LargeArcConverter" />
-    <circularProgressBar:RotateTransformConverter x:Key="RotateTransformConverter" />
-    <circularProgressBar:RotateTransformCentreConverter x:Key="RotateTransformCentreConverter" />
-    <converters:NotZeroConverter x:Key="NotZeroConverter" />
+    <local:StartPointConverter x:Key="StartPointConverter" />
+    <local:ArcSizeConverter x:Key="ArcSizeConverter" />
+    <local:ArcEndPointConverter x:Key="ArcEndPointConverter" />
+    <local:LargeArcConverter x:Key="LargeArcConverter" />
+    <local:RotateTransformConverter x:Key="RotateTransformConverter" />
+    <local:RotateTransformCentreConverter x:Key="RotateTransformCentreConverter" />
+    <local:NotZeroConverter x:Key="NotZeroConverter" />
 
     <Style x:Key="MaterialDesignCircularProgressBar" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using HeBianGu.Controls.MaterialControl.Transitions;
+
 
 namespace HeBianGu.Controls.MaterialControl
 {

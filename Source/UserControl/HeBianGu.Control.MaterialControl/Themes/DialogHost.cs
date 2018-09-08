@@ -9,7 +9,6 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Threading;
-using HeBianGu.Controls.MaterialControl.Transitions;
 
 namespace HeBianGu.Controls.MaterialControl
 {

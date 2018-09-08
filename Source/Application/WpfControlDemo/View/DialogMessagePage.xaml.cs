@@ -1,6 +1,5 @@
 ﻿using HeBianGu.Base.WpfBase;
 using HeBianGu.Controls.MaterialControl;
-using MaterialDesignColors.WpfExample.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -111,7 +110,7 @@ namespace WpfControlDemo.View
         {
             var view = new SampleMessageDialog();
 
-            view.MessageStr = "测试";
+            view.MessageStr = "测试"; 
 
             //show the dialog
             var result = await DialogHost.Show(view, "RootDialog");

@@ -56,6 +56,49 @@ namespace HeBianGu.General.WpfControlLib
              }));
 
 
+
+
+        public double IconFontSize
+        {
+            get { return (double)GetValue(IconFontSizeProperty); }
+            set { SetValue(IconFontSizeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IconFontSizeProperty =
+            DependencyProperty.Register("IconFontSize", typeof(double), typeof(MetroTabItem), new PropertyMetadata(28.0, (d, e) =>
+             {
+                 MetroTabItem control = d as MetroTabItem;
+
+                 if (control == null) return;
+
+                 //double config = e.NewValue as double;
+
+             }));
+
+
+
+        public Thickness IconMargin
+        {
+            get { return (Thickness)GetValue(IconMarginProperty); }
+            set { SetValue(IconMarginProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IconMarginProperty =
+            DependencyProperty.Register("IconMargin", typeof(Thickness), typeof(MetroTabItem), new PropertyMetadata(default(Thickness), (d, e) =>
+             {
+                 MetroTabItem control = d as MetroTabItem;
+
+                 if (control == null) return;
+
+                 //Thickness config = e.NewValue as Thickness;
+
+             }));
+
+
+
+
         static MetroTabItem()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(MetroTabItem), new FrameworkPropertyMetadata(typeof(MetroTabItem)));

@@ -1,8 +1,7 @@
 using System.Windows;
 using System.Windows.Media.Animation;
-using HeBianGu.Controls.MaterialControl.Transitions;
 
-namespace HeBianGu.Controls.MaterialControl.Transitions
+namespace HeBianGu.Controls.MaterialControl
 {
     public abstract class TransitionEffectBase : FrameworkElement, ITransitionEffect
     {

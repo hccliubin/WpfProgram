@@ -1,17 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
-                    xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl"
-                    xmlns:converters="clr-namespace:HeBianGu.Controls.MaterialControl.Converters">
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl">
 
-    <converters:BooleanToVisibilityConverter x:Key="BoolToVisConverter"/>
-    <converters:BooleanToVisibilityConverter x:Key="InverseBoolToVisConverter" TrueValue="Collapsed" FalseValue="Visible"/>
-    <converters:RangePositionConverter x:Key="RangePositionConverter"/>
-    <converters:MathMultipleConverter x:Key="TranslateConverter" Operation="Multiply"/>
+    <local:BooleanToVisibilityConverter x:Key="BoolToVisConverter"/>
+    <local:BooleanToVisibilityConverter x:Key="InverseBoolToVisConverter" TrueValue="Collapsed" FalseValue="Visible"/>
+    <local:RangePositionConverter x:Key="RangePositionConverter"/>
+    <local:MathMultipleConverter x:Key="TranslateConverter" Operation="Multiply"/>
     <system:Double x:Key="NoContentFloatingScale">1.0</system:Double>
     <SineEase x:Key="AnimationEasingFunction" EasingMode="EaseOut"/>
 
-    <Style TargetType="{x:Type wpf:SmartHint}">
+    <Style TargetType="{x:Type local:SmartHint}">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -19,7 +18,7 @@
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type wpf:SmartHint}">
+                <ControlTemplate TargetType="{x:Type local:SmartHint}">
                     <Grid Margin="{TemplateBinding Padding}"
                           HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                           VerticalAlignment="{TemplateBinding VerticalAlignment}">
@@ -71,7 +70,7 @@
             <Trigger Property="UseFloating" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type wpf:SmartHint}">
+                        <ControlTemplate TargetType="{x:Type local:SmartHint}">
                             <Grid Margin="{TemplateBinding Padding}"
                                   HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                   VerticalAlignment="{TemplateBinding VerticalAlignment}">
@@ -117,7 +116,7 @@
                                         </VisualState>
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
-                                <wpf:ScaleHost x:Name="ScaleHost" />
+                                <local:ScaleHost x:Name="ScaleHost" />
                                 <ContentControl x:Name="FloatingHintTextBlock"
                                         Visibility="{TemplateBinding UseFloating, Converter={StaticResource BoolToVisConverter}}"
                                         Content="{TemplateBinding Hint}"

@@ -10,14 +10,14 @@
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.General.WpfControlLib;component/Style/ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!--加载渐显-->
+    <!--加载渐显--><!--
     <LinearGradientBrush x:Key="WindowOpMack" StartPoint="0.5,1" EndPoint="0.5,0">
         <GradientStop Color="#00000000" Offset="0"/>
         <GradientStop Color="#00000000" Offset="1"/>
         <GradientStop Color="#00000000" Offset="1"/>
     </LinearGradientBrush>
 
-    <!--关闭渐隐-->
+    --><!--关闭渐隐--><!--
     <LinearGradientBrush x:Key="ClosedBrush" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#FF000000" Offset="0"/>
         <GradientStop Color="#FF000000" Offset="1"/>
@@ -29,7 +29,7 @@
             <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
             <SplineDoubleKeyFrame KeyTime="00:00:00.5" Value="-304.47500610351562"/>
         </DoubleAnimationUsingKeyFrames>
-    </Storyboard>
+    </Storyboard>-->
 
     <!--WindowBase基本样式，可以自定义头部-->
     <Style x:Key="BaseWindowStyle" TargetType="{x:Type local:WindowBase}">

@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl"
-                    xmlns:converters="clr-namespace:HeBianGu.Controls.MaterialControl.Converters"
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl"
                     xmlns:controlzEx="clr-namespace:ControlzEx">
 
     <ResourceDictionary.MergedDictionaries>
@@ -11,33 +10,33 @@
     </ResourceDictionary.MergedDictionaries>
         
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    <converters:NullableToVisibilityConverter x:Key="NullVisibilityConverter" />
-    <converters:NullableToVisibilityConverter x:Key="InvertedNullVisibilityConverter" NullValue="Visible" NotNullValue="Collapsed" />
-    <converters:BrushRoundConverter x:Key="BrushRoundConverter"/>
+    <local:NullableToVisibilityConverter x:Key="NullVisibilityConverter" />
+    <local:NullableToVisibilityConverter x:Key="InvertedNullVisibilityConverter" NullValue="Visible" NotNullValue="Collapsed" />
+    <local:BrushRoundConverter x:Key="BrushRoundConverter"/>
 
-    <wpf:PackIcon Kind="DotsVertical" x:Key="MaterialDesignPopupBoxToggleContent" x:Shared="False" Margin="4 0 4 0" Width="24" Height="24"
-                  Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=Foreground}" />
+    <local:PackIcon Kind="DotsVertical" x:Key="MaterialDesignPopupBoxToggleContent" x:Shared="False" Margin="4 0 4 0" Width="24" Height="24"
+                  Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:PopupBox}, Path=Foreground}" />
     
-    <Style TargetType="{x:Type wpf:PopupBox}" x:Key="MaterialDesignPopupBox">
+    <Style TargetType="{x:Type local:PopupBox}" x:Key="MaterialDesignPopupBox">
         <Setter Property="ToggleContent" Value="{StaticResource MaterialDesignPopupBoxToggleContent}" />
-        <Setter Property="wpf:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignFlatButtonRipple}" />
+        <Setter Property="local:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignFlatButtonRipple}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth3" />
+        <Setter Property="local:ShadowAssist.ShadowDepth" Value="Depth3" />
         <Setter Property="TextElement.FontWeight" Value="Normal" />
         <Setter Property="Padding" Value="0 8 0 8" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type wpf:PopupBox}">
+                <ControlTemplate TargetType="{x:Type local:PopupBox}">
                     <ControlTemplate.Resources>
                         <Style TargetType="Separator" BasedOn="{StaticResource MaterialDesignSeparator}"/>
                         <Style TargetType="ToggleButton" x:Key="ToggleButtonStyle">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="ToggleButton">
-                                        <wpf:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
+                                        <local:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
                                                     ClipToBounds="False"
-                                                    wpf:RippleAssist.IsCentered="True"
+                                                    local:RippleAssist.IsCentered="True"
                                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                                     Padding="{TemplateBinding Padding}" 
@@ -61,14 +60,14 @@
                                             Placement="Custom"
                                             PopupAnimation="Fade"
                                             AllowsTransparency="True">
-                            <wpf:Card Content="{TemplateBinding PopupContent}" ContentTemplate="{TemplateBinding PopupContentTemplate}"
+                            <local:Card Content="{TemplateBinding PopupContent}" ContentTemplate="{TemplateBinding PopupContentTemplate}"
                                       Foreground="{DynamicResource MaterialDesignBody}"
                                       FontSize="15"
                                       FontWeight="Regular"
                                       Padding="{TemplateBinding Padding}"
                                       RenderOptions.ClearTypeHint="Enabled"                                      
                                       Margin="5">
-                                <wpf:Card.Resources>
+                                <local:Card.Resources>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="VerticalContentAlignment" Value="Bottom" />
                                         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -105,7 +104,7 @@
                                                         <Border x:Name="MouseOverBorder"
                                                                 Opacity="0"
                                                                 Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"/>
-                                                        <wpf:Ripple Feedback="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
+                                                        <local:Ripple Feedback="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
                                                                     Focusable="False"
                                                                     MinHeight="48"
                                                                     Content="{TemplateBinding Content}"
@@ -120,8 +119,8 @@
                                             </Setter.Value>
                                         </Setter>
                                     </Style>
-                                </wpf:Card.Resources>
-                            </wpf:Card>
+                                </local:Card.Resources>
+                            </local:Card>
                         </controlzEx:PopupEx>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -134,23 +133,23 @@
         </Setter>
     </Style>
 
-    <Style x:Key="MaterialDesignToolPopupBox" BasedOn="{StaticResource MaterialDesignPopupBox}" TargetType="wpf:PopupBox">
+    <Style x:Key="MaterialDesignToolPopupBox" BasedOn="{StaticResource MaterialDesignPopupBox}" TargetType="local:PopupBox">
         <Setter Property="Foreground" Value="#616161" />
         <Setter Property="Padding" Value="4"/>
     </Style>
 
-    <Style x:Key="MaterialDesignToolForegroundPopupBox" BasedOn="{StaticResource MaterialDesignToolPopupBox}" TargetType="wpf:PopupBox">
+    <Style x:Key="MaterialDesignToolForegroundPopupBox" BasedOn="{StaticResource MaterialDesignToolPopupBox}" TargetType="local:PopupBox">
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"/>
     </Style>
     
-    <wpf:PackIcon x:Shared="False" x:Key="MaterialDesignMultiFloatingActionPopupBoxIcon"
-                  Kind="Plus" Width="24" Height="24" Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=Foreground}" />
+    <local:PackIcon x:Shared="False" x:Key="MaterialDesignMultiFloatingActionPopupBoxIcon"
+                  Kind="Plus" Width="24" Height="24" Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:PopupBox}, Path=Foreground}" />
     
-    <Style TargetType="{x:Type wpf:PopupBox}" x:Key="MaterialDesignMultiFloatingActionPopupBox">
+    <Style TargetType="{x:Type local:PopupBox}" x:Key="MaterialDesignMultiFloatingActionPopupBox">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
-        <Setter Property="wpf:RippleAssist.Feedback" Value="White" />
+        <Setter Property="local:RippleAssist.Feedback" Value="White" />
         <Setter Property="PlacementMode" Value="TopAndAlignCentres" />
         <Setter Property="PopupMode" Value="MouseOverEager" />
         <Setter Property="ToolTipService.Placement" Value="Left" />
@@ -158,13 +157,13 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth2" />
+        <Setter Property="local:ShadowAssist.ShadowDepth" Value="Depth2" />
         <Setter Property="Width" Value="56" />
         <Setter Property="Height" Value="56" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type wpf:PopupBox}">
+                <ControlTemplate TargetType="{x:Type local:PopupBox}">
                     <ControlTemplate.Resources>
                         <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MaterialDesignToolTip}">
                             <Style.Setters>
@@ -222,15 +221,15 @@
                                                     </VisualState>
                                                 </VisualStateGroup>
                                             </VisualStateManager.VisualStateGroups>
-                                            <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:ShadowAssist.CacheMode)}">
+                                            <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowAssist.CacheMode)}">
                                                 <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" 
-                                                         Effect="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=(wpf:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}"
+                                                         Effect="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:PopupBox}, Path=(local:ShadowAssist.ShadowDepth), Converter={x:Static local:ShadowConverter.Instance}}"
                                                          x:Name="border">
                                                 </Ellipse>
                                             </AdornerDecorator>
-                                            <wpf:Ripple Focusable="False"  
+                                            <local:Ripple Focusable="False"  
                                                         Clip="{Binding ElementName=GeometryEllipse, Path=RenderedGeometry}" ClipToBounds="True"
-                                                        wpf:RippleAssist.IsCentered="True"
+                                                        local:RippleAssist.IsCentered="True"
                                                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                                         Padding="{TemplateBinding Padding}" 
@@ -242,7 +241,7 @@
                                                         <RotateTransform x:Name="ContentRotateTransform" Angle="0" />
                                                     </ContentControl.RenderTransform>
                                                 </ContentControl>
-                                            </wpf:Ripple>
+                                            </local:Ripple>
                                             <Ellipse x:Name="GeometryEllipse" Fill="Transparent" IsHitTestVisible="False" Focusable="False" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
@@ -250,14 +249,14 @@
                                                 <Setter Property="Opacity" Value="0.23"/>
                                             </Trigger>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="border" Property="wpf:ShadowAssist.Darken" Value="True" />
+                                                <Setter TargetName="border" Property="local:ShadowAssist.Darken" Value="True" />
                                             </Trigger>
-                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=PopupMode}"
-                                                         Value="{x:Static wpf:PopupBoxPopupMode.MouseOver}">
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:PopupBox}, Path=PopupMode}"
+                                                         Value="{x:Static local:PopupBoxPopupMode.MouseOver}">
                                                 <Setter TargetName="RootGrid" Property="Background" Value="Transparent" />
                                             </DataTrigger>
-                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=PopupMode}"
-                                                         Value="{x:Static wpf:PopupBoxPopupMode.MouseOverEager}">
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:PopupBox}, Path=PopupMode}"
+                                                         Value="{x:Static local:PopupBoxPopupMode.MouseOverEager}">
                                                 <Setter TargetName="RootGrid" Property="Background" Value="Transparent" />
                                             </DataTrigger>
                                         </ControlTemplate.Triggers>
@@ -315,7 +314,7 @@
                                       VerticalAlignment="Stretch"
                                       HorizontalAlignment="Stretch"                                      
                                       ToolTip="{TemplateBinding ToolTip}"
-                                      ToolTipService.Placement="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=(ToolTipService.Placement)}">
+                                      ToolTipService.Placement="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:PopupBox}, Path=(ToolTipService.Placement)}">
                             <Grid>
                                 <ContentControl x:Name="StandardToggleContent" Content="{TemplateBinding ToggleContent}" ContentTemplate="{TemplateBinding ToggleContentTemplate}"
                                                 Visibility="{TemplateBinding ToggleCheckedContent, Converter={StaticResource InvertedNullVisibilityConverter}}" Focusable="False"/>
@@ -358,7 +357,7 @@
                                             </Style>
                                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFloatingActionMiniLightButton}">
                                                 <Style.Setters>
-                                                    <Setter Property="ToolTipService.Placement" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=(ToolTipService.Placement)}"/>
+                                                    <Setter Property="ToolTipService.Placement" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:PopupBox}, Path=(ToolTipService.Placement)}"/>
                                                     <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
                                                     <Setter Property="Margin" Value="4" />
                                                 </Style.Setters>
@@ -394,7 +393,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type wpf:PopupBox}" 
+    <Style TargetType="{x:Type local:PopupBox}" 
            x:Key="MaterialDesignMultiFloatingActionLightPopupBox"
            BasedOn="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
@@ -402,7 +401,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
     </Style>
 
-    <Style TargetType="{x:Type wpf:PopupBox}" 
+    <Style TargetType="{x:Type local:PopupBox}" 
            x:Key="MaterialDesignMultiFloatingActionDarkPopupBox"
            BasedOn="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"/>
@@ -410,7 +409,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
     </Style>
 
-    <Style TargetType="{x:Type wpf:PopupBox}" 
+    <Style TargetType="{x:Type local:PopupBox}" 
            x:Key="MaterialDesignMultiFloatingActionAccentPopupBox"
            BasedOn="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
         <Setter Property="Background" Value="{DynamicResource SecondaryAccentBrush}"/>

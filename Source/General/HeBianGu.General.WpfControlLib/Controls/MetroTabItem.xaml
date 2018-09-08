@@ -38,8 +38,16 @@
 
                         <Rectangle x:Name="backstory" Grid.ColumnSpan="2" Fill="{DynamicResource S_WhiteNotice}" Opacity="0"/>
 
-                        <TextBlock x:Name="icon" Style="{StaticResource FIcon}" Foreground="{DynamicResource S_WhiteNotice}"  Width="24" Height="24" Margin="10,8" Text="{TemplateBinding Icon}"/>
-                        
+                        <StackPanel    VerticalAlignment="Center"   HorizontalAlignment="Center"  Width="45" Height="45" >
+                            <TextBlock  x:Name="icon" 
+                                    Style="{StaticResource FIcon}" 
+                                    Foreground="{DynamicResource S_WhiteNotice}" 
+                                    FontSize="{TemplateBinding IconFontSize}"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" 
+                                    Margin="{TemplateBinding IconMargin}"
+                                   Text="{TemplateBinding Icon}"/>
+                        </StackPanel>
                         <TextBlock x:Name="title" Grid.Column="2" Text="{TemplateBinding Header}" Foreground="{DynamicResource S_WhiteNotice}" Margin="0,0,15,0" VerticalAlignment="Center" HorizontalAlignment="{TemplateBinding TextHorizontalAlignment}"/>
 
                     </Grid>

@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="HeBianGu.Controls.MaterialControl.TransitionsDemoHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.TextBlock.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="256" />
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource MaterialDesignDisplay2TextBlock}">Transitions Demo</TextBlock>
+
+        <smtx:XamlDisplay Key="transitions" Grid.Row="1">
+            <!-- the transitioner will manage your transitions. notice how SelectedIndex is set to zero: the first slide (instead of the default of -1) -->
+            <local:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+                <local:Transitioner.InputBindings>
+                    <KeyBinding Key="Left" Command="{x:Static local:Transitioner.MovePreviousCommand}" />
+                    <KeyBinding Key="Right" Command="{x:Static local:Transitioner.MoveNextCommand}" />
+                </local:Transitioner.InputBindings>
+
+                <!-- you can use a slide for each page, let's add a touch of fade for our first page  -->
+                <local:TransitionerSlide OpeningEffect="{local:TransitionEffect FadeIn}">
+                    <local:Slide1_Intro />
+                </local:TransitionerSlide>
+
+                <!-- but you can use bare xaml too -->
+                <local:Slide2_Intro />
+
+                <!-- you can control (and create your own) wipes -->
+                <local:TransitionerSlide>
+                    <local:TransitionerSlide.BackwardWipe>
+                        <local:CircleWipe />
+                    </local:TransitionerSlide.BackwardWipe>
+                    <local:TransitionerSlide.ForwardWipe>
+                        <local:SlideWipe Direction="Right" />
+                    </local:TransitionerSlide.ForwardWipe>
+                    <local:Slide3_Intro />
+                </local:TransitionerSlide>
+
+                <!-- now we are going to slide this in by combining some extra effects.  the inner content slides in, so we'll set the outer background and clip, to keep things nice -->
+                <local:TransitionerSlide Background="{DynamicResource MaterialDesignDarkBackground}"
+                                              Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                                              ClipToBounds="True">
+                    <local:TransitionerSlide.OpeningEffects>
+                        <local:TransitionEffect Kind="SlideInFromLeft" Duration="0:0:0.8" />
+                        <local:TransitionEffect Kind="SlideInFromBottom" Duration="0:0:0.8" OffsetTime="0:0:0.15" />
+                    </local:TransitionerSlide.OpeningEffects>
+                    <local:Slide4_CombineTransitions />
+                </local:TransitionerSlide>
+
+                <local:Slide5_TransitioningContent />
+
+                <local:Slide6_Origins />
+
+                <local:Slide7_MVVM />
+
+            </local:Transitioner>
+        </smtx:XamlDisplay>
+    </Grid>
+
+</UserControl>
+

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace HeBianGu.Controls.MaterialControl.Converters.CircularProgressBar
+namespace HeBianGu.Controls.MaterialControl
 {
     public class RotateTransformConverter : IMultiValueConverter
     {

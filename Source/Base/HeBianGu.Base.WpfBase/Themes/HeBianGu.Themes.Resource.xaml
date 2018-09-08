@@ -49,6 +49,27 @@
     <!--Close system button-->
     <sys:Double x:Key="CloseButtonWidth">32</sys:Double>
 
+    <!--加载渐显-->
+    <LinearGradientBrush x:Key="WindowOpMack" StartPoint="0.5,1" EndPoint="0.5,0">
+        <GradientStop Color="#00000000" Offset="0"/>
+        <GradientStop Color="#00000000" Offset="1"/>
+        <GradientStop Color="#00000000" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--关闭渐隐-->
+    <LinearGradientBrush x:Key="ClosedBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FF000000" Offset="0"/>
+        <GradientStop Color="#FF000000" Offset="1"/>
+        <GradientStop Color="#FF000000" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Storyboard x:Key="Story_MessageUnLoad">
+        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+            <SplineDoubleKeyFrame KeyTime="00:00:00.5" Value="-304.47500610351562"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
     <!--System Button-->
     <sys:Double x:Key="SystemButtonHeight">24</sys:Double>
     <sys:Double x:Key="SystemButtonWidth">32</sys:Double>
@@ -62,4 +83,6 @@
         <ResourceDictionary Source="StoryBoard/StoryBoardResource.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    
+    
 </ResourceDictionary>

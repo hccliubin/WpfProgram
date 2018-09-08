@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using HeBianGu.Controls.MaterialControl.Transitions;
 using System.Collections.Generic;
 
 namespace HeBianGu.Controls.MaterialControl

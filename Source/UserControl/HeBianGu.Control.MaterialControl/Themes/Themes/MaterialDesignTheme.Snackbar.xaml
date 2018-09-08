@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:wpf="clr-namespace:HeBianGu.Controls.MaterialControl"
-                    xmlns:converters="clr-namespace:HeBianGu.Controls.MaterialControl.Converters"
+                    xmlns:local="clr-namespace:HeBianGu.Controls.MaterialControl"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
@@ -9,8 +8,8 @@
         <ResourceDictionary Source="pack://application:,,,/HeBianGu.Control.MaterialControl;component/Themes/Themes/MaterialDesignTheme.TextBlock.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <converters:NullableToVisibilityConverter x:Key="NullableToVisibilityConverter" />
-    <converters:MathMultipleConverter x:Key="MathMultipleConverter" Operation="Multiply" />
+    <local:NullableToVisibilityConverter x:Key="NullableToVisibilityConverter" />
+    <local:MathMultipleConverter x:Key="MathMultipleConverter" Operation="Multiply" />
 
     <Style x:Key="MaterialDesignSnackbarActionButton" TargetType="Button">
         <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -19,7 +18,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="wpf:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignSnackbarRipple}" />
+        <Setter Property="local:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignSnackbarRipple}" />
         <Setter Property="TextBlock.FontWeight" Value="Medium"/>
         <Setter Property="TextBlock.FontSize" Value="14"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -31,7 +30,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid x:Name="Root" Background="{TemplateBinding Background}">
-                        <wpf:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"    
+                        <local:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"    
                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Padding="{TemplateBinding Padding}" 
@@ -62,11 +61,11 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
     </Style>
 
-    <Style TargetType="wpf:SnackbarMessage">
+    <Style TargetType="local:SnackbarMessage">
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="wpf:SnackbarMessage">
+                <ControlTemplate TargetType="local:SnackbarMessage">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -104,7 +103,7 @@
                                 ContentTemplateSelector="{TemplateBinding ActionContentTemplateSelector}"                                      
                                 HorizontalAlignment="Right"
                                 Visibility="{TemplateBinding ActionContent, Converter={StaticResource NullableToVisibilityConverter}}"
-                                Style="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type wpf:Snackbar}}, Path=ActionButtonStyle}"
+                                Style="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Snackbar}}, Path=ActionButtonStyle}"
                                 DockPanel.Dock="Right" />
                     </Grid>
                 </ControlTemplate>
@@ -112,7 +111,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="wpf:Snackbar">
+    <Style TargetType="local:Snackbar">
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -126,7 +125,7 @@
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="wpf:Snackbar">
+                <ControlTemplate TargetType="local:Snackbar">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="ActivateStoryboard" Duration="0:0:0.3">
                             <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Tag" From="0" To="1" Duration="0:0:0.3">

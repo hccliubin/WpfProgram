@@ -177,6 +177,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
+
+    <Style TargetType="{x:Type local:FCheckBox}" BasedOn="{StaticResource DefaultCheckBox}"/>
 </ResourceDictionary>
