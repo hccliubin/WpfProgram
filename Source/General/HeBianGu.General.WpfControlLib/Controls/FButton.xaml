@@ -50,8 +50,21 @@
                 </StackPanel>
 
             </Grid>
-            <local:WaitingBox  Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
-                                   Foreground="{TemplateBinding Foreground}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>
+            
+            <!--<local:WaitingBox  Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
+                                   Foreground="{TemplateBinding Foreground}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>-->
+
+            <ProgressBar  Background="Transparent"  Opacity="0.5"   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
+                                     BorderBrush="Transparent"  IsIndeterminate="True"
+                                     BorderThickness="0">
+                <ProgressBar.Clip>
+                    <RectangleGeometry  RadiusX="{TemplateBinding base:ControlAttachProperty.CornerRadius}" RadiusY="{TemplateBinding base:ControlAttachProperty.CornerRadius}">
+                        <RectangleGeometry.Rect>
+                            <Rect Width="280" Height="52"/>
+                        </RectangleGeometry.Rect>
+                    </RectangleGeometry>
+                </ProgressBar.Clip>
+            </ProgressBar>
 
         </Grid>
         <!--</Border>-->

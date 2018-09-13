@@ -33,9 +33,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\arctic drive.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -60,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="2 - Domain\ConfigeService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -109,6 +114,10 @@
       <Project>{435FEB82-599F-48E3-8891-755ACF8E4117}</Project>
       <Name>HeBianGu.Base.WpfBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\General\HeBianGu.General.Logger\HeBianGu.General.Logger.csproj">
+      <Project>{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}</Project>
+      <Name>HeBianGu.General.Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\General\HeBianGu.General.WpfControlLib\HeBianGu.General.WpfControlLib.csproj">
       <Project>{b49dc15f-b43c-4306-adf4-8fa6f5df7f84}</Project>
       <Name>HeBianGu.General.WpfControlLib</Name>
@@ -118,6 +127,11 @@
       <Name>HeBianGu.Control.ModernControl</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="arctic drive.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\arctic drive.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

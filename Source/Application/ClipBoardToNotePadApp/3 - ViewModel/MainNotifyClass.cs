@@ -122,13 +122,7 @@ namespace ClipBoardToNotePadApp
 
             Task.Run(() =>
             {
-                string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config", "config.txt");
-
-                if (!System.IO.Path.GetDirectoryName(filePath).IsExistDirectory())
-                {
-                    System.IO.Path.GetDirectoryName(filePath).CreateDir();
-                }
-
+                string filePath = ConfigService.Instance.LocalDataPath;
 
                 List<NotePadItem> models = new List<NotePadItem>();
 
@@ -154,7 +148,7 @@ namespace ClipBoardToNotePadApp
 
         void Load()
         {
-            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config", "config.txt");
+            string filePath = ConfigService.Instance.LocalDataPath;
 
             if (!System.IO.Path.GetDirectoryName(filePath).IsExistDirectory())
             {

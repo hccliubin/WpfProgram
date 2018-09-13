@@ -60,7 +60,7 @@ namespace CodeAutoGenerationTool.Provider
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("CREATE TABLE  " + className.Substring(0, 1).ToUpper() + className.Substring(1) + "s");
+            sb.AppendLine("CREATE TABLE  " + className.Substring(0, 1).ToUpper() + className.Substring(1));
 
             sb.AppendLine("(");
 

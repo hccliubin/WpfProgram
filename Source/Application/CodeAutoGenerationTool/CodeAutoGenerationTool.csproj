@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\graphite drive.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Windows.Shell, Version=6.0.147.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -40,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Product\Dll\System.Windows.Interactivity.dll</HintPath>
@@ -154,6 +158,10 @@
       <Project>{435feb82-599f-48e3-8891-755acf8e4117}</Project>
       <Name>HeBianGu.Base.WpfBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\General\HeBianGu.General.Logger\HeBianGu.General.Logger.csproj">
+      <Project>{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}</Project>
+      <Name>HeBianGu.General.Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\General\HeBianGu.General.WpfControlLib\HeBianGu.General.WpfControlLib.csproj">
       <Project>{b49dc15f-b43c-4306-adf4-8fa6f5df7f84}</Project>
       <Name>HeBianGu.General.WpfControlLib</Name>
@@ -162,6 +170,9 @@
       <Project>{5a332cc8-390f-4526-a13a-d6140878d135}</Project>
       <Name>HeBianGu.Control.PropertyGrid</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\graphite drive.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

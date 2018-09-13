@@ -8,11 +8,11 @@ using System.Windows;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("CodeAutoGenerationTool")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("代码自动生成工具")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("河边骨")]
 [assembly: AssemblyProduct("CodeAutoGenerationTool")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright ©  2018 By HeBianGu")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

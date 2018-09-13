@@ -24,7 +24,6 @@ namespace CodeAutoGenerationTool.Provider
                 set
                 {
                     _" + l.ToLower() + @" = value;
-
                     RaisePropertyChanged();
                 }
             }";

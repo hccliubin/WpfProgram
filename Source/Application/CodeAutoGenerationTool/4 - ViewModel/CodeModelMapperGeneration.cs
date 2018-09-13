@@ -426,6 +426,7 @@ namespace CodeAutoGenerationTool.ViewModel
             //  Message：获取所有类型
 
             if (!File.Exists(this.RightPath)) return;
+            
 
             var ass = Assembly.LoadFrom(this.RightPath);
 

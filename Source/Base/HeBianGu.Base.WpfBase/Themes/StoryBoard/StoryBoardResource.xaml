@@ -55,6 +55,14 @@
         </DoubleAnimationUsingKeyFrames>
     </Storyboard>
 
+    <Storyboard  x:Key="Story_OpacityForever">
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"  BeginTime="00:00:00" 
+                                     From="1" To="0" 
+                                     Duration="00:00:01" 
+                                     AutoReverse="True"   
+                                     RepeatBehavior="Forever"/>
+    </Storyboard>
+
     <!--透明度渐隐藏-->
     <Storyboard  x:Key="Story_UnLoadOpacityVisble">
         <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Visibility)">

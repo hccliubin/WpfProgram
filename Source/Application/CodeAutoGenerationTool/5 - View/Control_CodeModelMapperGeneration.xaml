@@ -127,7 +127,7 @@
                 </Grid>
             </GroupBox>
 
-            <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
+            <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Margin="3,0" Orientation="Horizontal">
 
                 <ComboBox base:ControlAttachProperty.Label="匹配规则" SelectedIndex="0" DisplayMemberPath="Name" SelectedItem="{Binding SelectITemplateCommand}"
                                       Style="{DynamicResource LabelComboBox}" ItemsSource="{Binding ITemplateCommandCollection}"
@@ -143,7 +143,7 @@
 
             </StackPanel>
 
-            <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Grid.Row="4" Grid.ColumnSpan="3"  Margin="3,0"  Orientation="Horizontal" HorizontalAlignment="Right">
 
                 <wpfcontrollib:FButton  Content="匹配..." Command="{Binding RelayCommand}" CommandParameter="Calculate" Margin="10,0"/>
 
@@ -178,7 +178,7 @@
             </GroupBox>
             <TabControl Grid.Column="1" Background="{DynamicResource TextBackground}" >
                 <TabItem Header="生成代码">
-                    <TextBox Text="{Binding Result}" Background="{DynamicResource TextBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="12" TextWrapping="Wrap"/>
+                    <TextBox Text="{Binding Result}" Background="{DynamicResource TextBackground}" TextBlock.LineHeight="20"  ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="15" TextWrapping="Wrap"/>
 
                 </TabItem>
                 <TabItem Header="映射配置">

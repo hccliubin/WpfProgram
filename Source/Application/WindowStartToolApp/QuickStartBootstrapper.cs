@@ -26,6 +26,7 @@ using System.Windows;
 using CommonDocumentModule;
 using ProcessingBatchModule;
 using WindowToolModule.Modules;
+using ClipBoardModule;
 
 namespace WindowStartToolApp
 {

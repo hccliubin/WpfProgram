@@ -2,7 +2,7 @@
     xmlns:local="clr-namespace:HeBianGu.General.WpfControlLib"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="RotatingPlaneProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FRotatingPlaneProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />
@@ -58,7 +58,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DoubleBounceProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FDoubleBounceProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />
@@ -131,7 +131,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="WaveProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FWaveProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />
@@ -239,7 +239,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="WanderingCubesProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FWanderingCubesProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />
@@ -380,7 +380,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PulseProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FPulseProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />
@@ -438,7 +438,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ChasingDotsProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FChasingDotsProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />
@@ -529,7 +529,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ThreeBounceProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FThreeBounceProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />
@@ -637,7 +637,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CircleProgressRingStyle" TargetType="local:ModernProgressRing">
+    <Style x:Key="FCircleProgressRingStyle" TargetType="local:ModernProgressRing">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource Accent}" />
         <Setter Property="IsHitTestVisible" Value="False" />

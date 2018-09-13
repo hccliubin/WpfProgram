@@ -29,8 +29,41 @@
                         <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Style="{StaticResource SimpleProgressBar}" x:Name="pro4"></ProgressBar>
                         <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Height="15" x:Name="pro5" Background="LightSteelBlue" Foreground="OrangeRed" Style="{StaticResource SimpleProgressBar}"></ProgressBar>
                         <TextBlock x:Name="proValue"  Text="{Binding Percent,Mode=OneWay,StringFormat={}{0:p1}}" HorizontalAlignment="Center"></TextBlock>
-                        <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}" Height="20" Style="{StaticResource BaseProgressBar}" IsIndeterminate="True"></ProgressBar>
-  
+                        <ProgressBar Margin="5" Value="{Binding Percent,Mode=OneWay}"  base:ControlAttachProperty.CornerRadius="28" Height="50" Style="{StaticResource BaseProgressBar}" IsIndeterminate="True"></ProgressBar>
+
+                        <Grid Background="White" Height="50" Width="500">
+                            <Grid.Clip>
+                                <RectangleGeometry RadiusX="28" RadiusY="28">
+                                    <RectangleGeometry.Rect>
+                                        <Rect Width="500" Height="50"/>
+                                    </RectangleGeometry.Rect>
+                                </RectangleGeometry>
+                            </Grid.Clip>
+
+                            <ProgressBar Value="50" 
+                                         Maximum="100" 
+                                         Minimum="0" 
+                                         Style="{StaticResource FRunningWaittingProgressBar}"/>
+
+
+                            <ProgressBar Value="100" 
+                                         Background="Transparent"
+                                         Opacity="0.5" 
+                                         Foreground="{StaticResource S_OrangeNotice}" 
+                                         Maximum="100"   Minimum="0"  IsIndeterminate="True"/>
+
+                            <TextBlock Text="当前进度 50%" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" FontSize="22">
+                                <TextBlock.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard Storyboard="{StaticResource Story_OpacityForever}"/>
+                                    </EventTrigger>
+                                </TextBlock.Triggers>
+                            </TextBlock>
+
+                        </Grid>
+                       
+
+                        
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
@@ -94,14 +127,14 @@
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,32">
                                         <TextBlock Text="Style:" VerticalAlignment="Center" />
                                         <ComboBox x:Name="CmbRingStyle" Margin="8,0,0,0">
-                                            <ComboBoxItem Content="Chasing Dots" Tag="{StaticResource ChasingDotsProgressRingStyle}" />
-                                            <ComboBoxItem Content="Circle (default style)" IsSelected="True" Tag="{StaticResource CircleProgressRingStyle}" />
-                                            <ComboBoxItem Content="Double Bounce" Tag="{StaticResource DoubleBounceProgressRingStyle}" />
-                                            <ComboBoxItem Content="Pulse" Tag="{StaticResource PulseProgressRingStyle}" />
-                                            <ComboBoxItem Content="Rotating Plane" Tag="{StaticResource RotatingPlaneProgressRingStyle}" />
-                                            <ComboBoxItem Content="Three Bounce" Tag="{StaticResource ThreeBounceProgressRingStyle}" />
-                                            <ComboBoxItem Content="Wandering Cubes" Tag="{StaticResource WanderingCubesProgressRingStyle}" />
-                                            <ComboBoxItem Content="Wave" Tag="{StaticResource WaveProgressRingStyle}" />
+                                            <ComboBoxItem Content="Chasing Dots" Tag="{StaticResource FChasingDotsProgressRingStyle}" />
+                                            <ComboBoxItem Content="Circle (default style)" IsSelected="True" Tag="{StaticResource FCircleProgressRingStyle}" />
+                                            <ComboBoxItem Content="Double Bounce" Tag="{StaticResource FDoubleBounceProgressRingStyle}" />
+                                            <ComboBoxItem Content="Pulse" Tag="{StaticResource FPulseProgressRingStyle}" />
+                                            <ComboBoxItem Content="Rotating Plane" Tag="{StaticResource FRotatingPlaneProgressRingStyle}" />
+                                            <ComboBoxItem Content="Three Bounce" Tag="{StaticResource FThreeBounceProgressRingStyle}" />
+                                            <ComboBoxItem Content="Wandering Cubes" Tag="{StaticResource FWanderingCubesProgressRingStyle}" />
+                                            <ComboBoxItem Content="Wave" Tag="{StaticResource FWaveProgressRingStyle}" />
                                         </ComboBox>
                                     </StackPanel>
 

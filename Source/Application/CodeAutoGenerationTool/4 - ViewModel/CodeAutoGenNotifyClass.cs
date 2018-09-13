@@ -224,11 +224,6 @@ namespace CodeAutoGenerationTool.ViewModel
 
             sb.AppendLine(this.SelectITemplateCommand.ToEnd(type.Name));
 
-            foreach (var item in define)
-            {
-                sb.AppendLine(item);
-            }
-
             return sb.ToString();
 
 
@@ -376,7 +371,9 @@ namespace CodeAutoGenerationTool.ViewModel
 
             //  Message：获取所有类型
 
-            var ass = Assembly.LoadFrom(this.DllPath);
+            byte[] fileData = File.ReadAllBytes(this.DllPath);
+
+            var ass = Assembly.Load(fileData);
 
             var types = ass.GetTypes();
 
@@ -389,7 +386,6 @@ namespace CodeAutoGenerationTool.ViewModel
 
                 this.Collection.Add(t);
             }
-
         }
 
 

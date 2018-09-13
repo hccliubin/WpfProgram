@@ -61,9 +61,10 @@
                     <Folder Name="绑定事件" Value="../View/PathDemo.xaml" FIcon="&#xe799;"/>
                     <Folder Name="Behaviors" Value="../View/BlendBehaviorsPage.xaml" FIcon="&#xe799;"/>
                 </Folder>
-                
-                <Folder Name="路径效果" Value="../View/PathDemo.xaml" FIcon="&#xe785;">
-                    <Folder Name="路径示例" Value="../View/PathDemo.xaml" FIcon="&#xe799;"/>
+
+                <Folder Name="Geometry效果" Value="../View/PathDemo.xaml" FIcon="&#xe785;">
+                    <Folder Name="Path示例" Value="../View/PathDemo.xaml" FIcon="&#xe799;"/>
+                    <Folder Name="Geometry示例" Value="../View/GeometryPage.xaml" FIcon="&#xe799;"/>
                 </Folder>
 
                 <Folder Name="动画效果" Value="../View/StoryBoardPage.xaml" FIcon="&#xe785;">

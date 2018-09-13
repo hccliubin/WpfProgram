@@ -128,6 +128,9 @@
     <Compile Include="View\DocumentPage.xaml.cs">
       <DependentUpon>DocumentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GeometryPage.xaml.cs">
+      <DependentUpon>GeometryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ThridParty\ArthasControl\ArthasControlPage.xaml.cs">
       <DependentUpon>ArthasControlPage.xaml</DependentUpon>
     </Compile>
@@ -430,6 +433,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DocumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeometryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -832,6 +839,10 @@
     <ProjectReference Include="..\..\Base\HeBianGu.Base.WpfBase\HeBianGu.Base.WpfBase.csproj">
       <Project>{435feb82-599f-48e3-8891-755acf8e4117}</Project>
       <Name>HeBianGu.Base.WpfBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\General\HeBianGu.General.Logger\HeBianGu.General.Logger.csproj">
+      <Project>{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}</Project>
+      <Name>HeBianGu.General.Logger</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\General\HeBianGu.General.WpfControlLib\HeBianGu.General.WpfControlLib.csproj">
       <Project>{b49dc15f-b43c-4306-adf4-8fa6f5df7f84}</Project>

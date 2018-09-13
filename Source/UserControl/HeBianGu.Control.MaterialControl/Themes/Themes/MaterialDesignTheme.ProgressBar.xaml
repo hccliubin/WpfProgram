@@ -78,7 +78,7 @@
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="  local:TransitionAssist.DisableTransitions" Value="True">
+                        <Trigger Property="local:TransitionAssist.DisableTransitions" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource OnLoadedNoAnimation}" Name="BeginStoryboardOnLoadedNoAnimation" />
                             </Trigger.EnterActions>
@@ -89,7 +89,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsVisible" Value="True" />
-                                <Condition Property="  local:TransitionAssist.DisableTransitions" Value="False" />
+                                <Condition Property="local:TransitionAssist.DisableTransitions" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource OnLoaded}" Name="BeginStoryboardOnLoaded" />

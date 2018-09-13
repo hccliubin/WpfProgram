@@ -1,0 +1,140 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{9F7F847E-37FF-4F5F-857B-5568F7C147FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{C3E49EF3-33DB-4DEC-A21A-1EF352C1627B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.General.WpfControlLib", "..\Source\General\HeBianGu.General.WpfControlLib\HeBianGu.General.WpfControlLib.csproj", "{B49DC15F-B43C-4306-ADF4-8FA6F5DF7F84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserControl", "UserControl", "{54283D36-38CD-4852-8E5B-715FE2549384}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.General.ModuleManager", "..\Source\General\HeBianGu.General.ModuleManager\HeBianGu.General.ModuleManager.csproj", "{0A44787B-1386-4A3B-B7D4-C9E72249AA8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Base.Util", "..\Source\Base\HeBianGu.Base.Util\HeBianGu.Base.Util.csproj", "{06FFA263-BFFA-45DF-8E59-DC8FBE0B3007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.UserControls", "..\Source\UserControl\HeBianGu.Control.UserControls\HeBianGu.Control.UserControls.csproj", "{0C615DBB-F647-4386-B323-18AAA895D2C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Base.WpfBase", "..\Source\Base\HeBianGu.Base.WpfBase\HeBianGu.Base.WpfBase.csproj", "{435FEB82-599F-48E3-8891-755ACF8E4117}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.General.WpfDocument", "..\Source\General\HeBianGu.General.WpfDocument\HeBianGu.General.WpfDocument.csproj", "{D17C1033-77D9-46FC-B039-B1F9E1C8CDE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.General.Logger", "..\Source\General\HeBianGu.General.Logger\HeBianGu.General.Logger.csproj", "{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{F33B4709-5AA9-4B55-9044-4C3A3D593E7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControlDemo", "..\Source\Application\WpfControlDemo\WpfControlDemo.csproj", "{533BD2CA-CF75-431A-80EF-92B6612E781F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowToolModule", "..\Source\Modules\WindowToolModule\WindowToolModule.csproj", "{C3F4121E-F4A3-4965-A354-32E29A818032}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.PropertyGrid", "..\Source\UserControl\HeBianGu.Control.PropertyGrid\HeBianGu.Control.PropertyGrid.csproj", "{5A332CC8-390F-4526-A13A-D6140878D135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.DockPanelControl", "..\Source\UserControl\HeBianGu.Control.DockPanelControl\HeBianGu.Control.DockPanelControl.csproj", "{48340131-1E63-4F56-944C-7738C46D6AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.MaterialControl", "..\Source\UserControl\HeBianGu.Control.MaterialControl\HeBianGu.Control.MaterialControl.csproj", "{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.ArthasControl", "..\Source\UserControl\HeBianGu.Control.ArthasControl\HeBianGu.Control.ArthasControl.csproj", "{B3242EFA-2514-4CDD-8480-D46D4E678AD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Control.ModernControl", "..\Source\UserControl\HeBianGu.Control.ModernControl\HeBianGu.Control.ModernControl.csproj", "{7BBB2DA8-07C0-4614-ADCB-E3956F082535}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipBoardToNotePadApp", "..\Source\Application\ClipBoardToNotePadApp\ClipBoardToNotePadApp.csproj", "{DA67C13B-0761-42AA-B1FD-0615D9229CAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SetUp", "SetUp", "{C7261E67-A28A-4200-BC63-011B6D706216}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ClipBoardToNotePadAppSetup", "..\SetUp\ClipBoardToNotePadAppSetup\ClipBoardToNotePadAppSetup.vdproj", "{559E030A-3941-4B06-ABC2-C23643B7D1E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B49DC15F-B43C-4306-ADF4-8FA6F5DF7F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49DC15F-B43C-4306-ADF4-8FA6F5DF7F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49DC15F-B43C-4306-ADF4-8FA6F5DF7F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49DC15F-B43C-4306-ADF4-8FA6F5DF7F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A44787B-1386-4A3B-B7D4-C9E72249AA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A44787B-1386-4A3B-B7D4-C9E72249AA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A44787B-1386-4A3B-B7D4-C9E72249AA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A44787B-1386-4A3B-B7D4-C9E72249AA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06FFA263-BFFA-45DF-8E59-DC8FBE0B3007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06FFA263-BFFA-45DF-8E59-DC8FBE0B3007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06FFA263-BFFA-45DF-8E59-DC8FBE0B3007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06FFA263-BFFA-45DF-8E59-DC8FBE0B3007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C615DBB-F647-4386-B323-18AAA895D2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{435FEB82-599F-48E3-8891-755ACF8E4117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{435FEB82-599F-48E3-8891-755ACF8E4117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{435FEB82-599F-48E3-8891-755ACF8E4117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{435FEB82-599F-48E3-8891-755ACF8E4117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17C1033-77D9-46FC-B039-B1F9E1C8CDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17C1033-77D9-46FC-B039-B1F9E1C8CDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17C1033-77D9-46FC-B039-B1F9E1C8CDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17C1033-77D9-46FC-B039-B1F9E1C8CDE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533BD2CA-CF75-431A-80EF-92B6612E781F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533BD2CA-CF75-431A-80EF-92B6612E781F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533BD2CA-CF75-431A-80EF-92B6612E781F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533BD2CA-CF75-431A-80EF-92B6612E781F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3F4121E-F4A3-4965-A354-32E29A818032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3F4121E-F4A3-4965-A354-32E29A818032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3F4121E-F4A3-4965-A354-32E29A818032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3F4121E-F4A3-4965-A354-32E29A818032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A332CC8-390F-4526-A13A-D6140878D135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A332CC8-390F-4526-A13A-D6140878D135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A332CC8-390F-4526-A13A-D6140878D135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A332CC8-390F-4526-A13A-D6140878D135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48340131-1E63-4F56-944C-7738C46D6AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48340131-1E63-4F56-944C-7738C46D6AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48340131-1E63-4F56-944C-7738C46D6AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48340131-1E63-4F56-944C-7738C46D6AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3242EFA-2514-4CDD-8480-D46D4E678AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3242EFA-2514-4CDD-8480-D46D4E678AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3242EFA-2514-4CDD-8480-D46D4E678AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3242EFA-2514-4CDD-8480-D46D4E678AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BBB2DA8-07C0-4614-ADCB-E3956F082535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBB2DA8-07C0-4614-ADCB-E3956F082535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBB2DA8-07C0-4614-ADCB-E3956F082535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBB2DA8-07C0-4614-ADCB-E3956F082535}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA67C13B-0761-42AA-B1FD-0615D9229CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA67C13B-0761-42AA-B1FD-0615D9229CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA67C13B-0761-42AA-B1FD-0615D9229CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA67C13B-0761-42AA-B1FD-0615D9229CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559E030A-3941-4B06-ABC2-C23643B7D1E8}.Debug|Any CPU.ActiveCfg = Debug
+		{559E030A-3941-4B06-ABC2-C23643B7D1E8}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B49DC15F-B43C-4306-ADF4-8FA6F5DF7F84} = {C3E49EF3-33DB-4DEC-A21A-1EF352C1627B}
+		{0A44787B-1386-4A3B-B7D4-C9E72249AA8A} = {C3E49EF3-33DB-4DEC-A21A-1EF352C1627B}
+		{06FFA263-BFFA-45DF-8E59-DC8FBE0B3007} = {9F7F847E-37FF-4F5F-857B-5568F7C147FA}
+		{0C615DBB-F647-4386-B323-18AAA895D2C1} = {54283D36-38CD-4852-8E5B-715FE2549384}
+		{435FEB82-599F-48E3-8891-755ACF8E4117} = {9F7F847E-37FF-4F5F-857B-5568F7C147FA}
+		{D17C1033-77D9-46FC-B039-B1F9E1C8CDE2} = {C3E49EF3-33DB-4DEC-A21A-1EF352C1627B}
+		{A51AD5CF-BBAA-4E6E-A671-60F79A80F4C5} = {C3E49EF3-33DB-4DEC-A21A-1EF352C1627B}
+		{533BD2CA-CF75-431A-80EF-92B6612E781F} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
+		{5A332CC8-390F-4526-A13A-D6140878D135} = {54283D36-38CD-4852-8E5B-715FE2549384}
+		{48340131-1E63-4F56-944C-7738C46D6AB2} = {54283D36-38CD-4852-8E5B-715FE2549384}
+		{D17357AE-3430-4F1B-9B6B-CA692A9AEEAC} = {54283D36-38CD-4852-8E5B-715FE2549384}
+		{B3242EFA-2514-4CDD-8480-D46D4E678AD2} = {54283D36-38CD-4852-8E5B-715FE2549384}
+		{7BBB2DA8-07C0-4614-ADCB-E3956F082535} = {54283D36-38CD-4852-8E5B-715FE2549384}
+		{DA67C13B-0761-42AA-B1FD-0615D9229CAE} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
+		{559E030A-3941-4B06-ABC2-C23643B7D1E8} = {C7261E67-A28A-4200-BC63-011B6D706216}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {203DA33E-8184-413E-84C7-D6E1200BF8FA}
+	EndGlobalSection
+EndGlobal

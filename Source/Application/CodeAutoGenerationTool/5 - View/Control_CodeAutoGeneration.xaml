@@ -127,7 +127,7 @@
                 </i:Interaction.Triggers>-->
                 </TreeView>
             </GroupBox>
-            <StackPanel Grid.Row="4" HorizontalAlignment="Left" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
+            <StackPanel Grid.Row="4" HorizontalAlignment="Left" Grid.ColumnSpan="3" Margin="3,0" Orientation="Horizontal">
 
                 <ComboBox base:ControlAttachProperty.Label="选择模板" SelectedIndex="0" DisplayMemberPath="Name" SelectedItem="{Binding SelectITemplateCommand}"
                                       Style="{DynamicResource LabelComboBox}" ItemsSource="{Binding ITemplateCommandCollection}"
@@ -142,7 +142,7 @@
 
             </StackPanel>
 
-            <StackPanel Grid.Row="4" HorizontalAlignment="Right" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
+            <StackPanel Grid.Row="4" HorizontalAlignment="Right" Grid.ColumnSpan="3" Margin="3,0" Orientation="Horizontal">
 
 
                 <wpfcontrollib:FButton  Content="生成..." Command="{Binding RelayCommand}" CommandParameter="Generation"/>
@@ -150,7 +150,7 @@
 
             </StackPanel>
 
-            <TextBox Grid.Column="1" Text="{Binding Result}" Background="{DynamicResource TextBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="12" TextWrapping="Wrap"/>
+            <TextBox Grid.Column="1" Text="{Binding Result}" Background="{DynamicResource TextBackground}"  TextBlock.LineHeight="20"  ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="15" TextWrapping="Wrap"/>
 
 
         </Grid>

@@ -20,15 +20,14 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="base:ControlAttachProperty.CornerRadius" Value="0" />
     </Style>
-    
+
     <!--ProgressBar Style-->
     <Style TargetType="ProgressBar" x:Key="SimpleProgressBar" BasedOn="{StaticResource BaseProgressBar}">
         <Setter Property="base:ControlAttachProperty.CornerRadius" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
-                    <Grid x:Name="Root" >
-
+                    <Grid x:Name="Root">
                         <Border x:Name="PART_Track" Background="{TemplateBinding Background}" 
                                 CornerRadius="{TemplateBinding base:ControlAttachProperty.CornerRadius}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
@@ -38,10 +37,10 @@
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
 
                         <Grid.Effect>
-                            <DropShadowEffect ShadowDepth="0" BlurRadius="50"  Color="#007ACC" /> 
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="50"  Color="#007ACC" />
                         </Grid.Effect>
-                        
-                        
+
+
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Orientation" Value="Vertical">
@@ -225,6 +224,65 @@
                             <Setter Property="Background" TargetName="PART_Track" Value="Transparent" />
                         </Trigger>
                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+
+    <Style TargetType="ProgressBar" x:Key="FRunningWaittingProgressBar">
+        <Setter Property="Foreground" Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="Background"   Value="{DynamicResource S_AccentBrush}" />
+        <Setter Property="BorderThickness"  Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ProgressBar">
+                    <Grid Height="{TemplateBinding Height}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Determinate"/>
+                                <VisualState x:Name="Indeterminate">
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <PointAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
+                                            <EasingPointKeyFrame KeyTime="0:0:0" Value="0.5,0.5"/>
+                                            <EasingPointKeyFrame KeyTime="0:0:1.5" Value="1.95,0.5"/>
+                                            <EasingPointKeyFrame KeyTime="0:0:3" Value="0.5,0.5"/>
+                                        </PointAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Margin="{TemplateBinding BorderThickness}">
+                            <Border x:Name="PART_Track" CornerRadius="28">
+                                <Grid x:Name="PART_Indicator" ClipToBounds="True" HorizontalAlignment="Left" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition x:Name="width1"/>
+                                        <ColumnDefinition x:Name="width2" Width="0"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid x:Name="Animation"  RenderTransformOrigin="0.5,0.5">
+                                        <Grid.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                                                <SkewTransform AngleY="0" AngleX="0"/>
+                                                <RotateTransform Angle="180"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Grid.RenderTransform>
+
+                                        <Border Background="{TemplateBinding Background}"  CornerRadius="0,28,28,0"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                    <!--<ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource Story_OpacityForever}"/>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

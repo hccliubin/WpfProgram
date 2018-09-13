@@ -72,7 +72,7 @@
                 </TreeView>
 
             </GroupBox>
-            <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal">
+            <StackPanel Grid.Row="4" Grid.ColumnSpan="3"  Margin="3,0"  Orientation="Horizontal">
 
                 <ComboBox base:ControlAttachProperty.Label="匹配规则" SelectedIndex="0" DisplayMemberPath="Name" SelectedItem="{Binding SelectITemplateCommand}"
                                       Style="{DynamicResource LabelComboBox}" ItemsSource="{Binding ITemplateCommandCollection}"
@@ -88,7 +88,7 @@
 
             </StackPanel>
 
-            <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Margin="50,0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Grid.Row="4" Grid.ColumnSpan="3"  Margin="3,0" Orientation="Horizontal" HorizontalAlignment="Right">
 
                 <wpfcontrollib:FButton  Content="匹配..." Command="{Binding RelayCommand}" CommandParameter="Calculate" Margin="10,0"/>
 
