@@ -5,6 +5,8 @@
             <FileSystem xmlns="">
                 <Folder Name="基础控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe785;">
                     <Folder Name="按钮控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe799;"/>
+                    <Folder Name="工具栏控件" Value="../View/ToolBarPage.xaml"  FIcon="&#xe799;"/>
+
                     <Folder Name="输入控件" Value="../View/TextBoxPage.xaml" FIcon="&#xe799;"/>
                     <Folder Name="文本控件" Value="../View/TextBlockPage.xaml" FIcon="&#xe799;"/>
                     <Folder Name="勾选控件" Value="../View/CheckBoxPage.xaml"  FIcon="&#xe799;"/>

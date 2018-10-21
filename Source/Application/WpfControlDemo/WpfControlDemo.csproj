@@ -332,6 +332,9 @@
     <Compile Include="View\ToggleButtonPage.xaml.cs">
       <DependentUpon>ToggleButtonPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ToolBarPage.xaml.cs">
+      <DependentUpon>ToolBarPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TPageControlPage.xaml.cs">
       <DependentUpon>TPageControlPage.xaml</DependentUpon>
     </Compile>
@@ -769,6 +772,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ToggleButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ToolBarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
