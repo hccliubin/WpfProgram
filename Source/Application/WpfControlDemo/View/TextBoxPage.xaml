@@ -177,10 +177,10 @@
                                                           PassWord="{Binding ElementName=tb_bind,Path=Text,Mode=TwoWay}" Margin="3"  />
 
                                 <controls:BindPassWordBox Style="{StaticResource DefaultBindPasswordBox}" base:ControlAttachProperty.Watermark="请输入姓名" Margin="3"  />
-                                <controls:BindPassWordBox Style="{StaticResource ClearButtonBindPasswordBox}" Margin="3" />
-                                <controls:BindPassWordBox Style="{StaticResource LabelBindPasswordBox}" base:ControlAttachProperty.Label="密码：" Margin="3" />
-                                <controls:BindPassWordBox  Style="{StaticResource LabelClearButtonBindPasswordBox}" base:ControlAttachProperty.Label="密码：" Margin="3"/>
-                                <controls:BindPassWordBox  Style="{StaticResource DefaultBindPasswordBox}"  IsEnabled="False" PassWord="111" Margin="3"/>
+                                <controls:BindPassWordBox Style="{StaticResource ClearButtonBindPasswordBox}" base:ControlAttachProperty.Watermark="请输入姓名" Margin="3" />
+                                <controls:BindPassWordBox Style="{StaticResource LabelBindPasswordBox}" base:ControlAttachProperty.Watermark="请输入姓名" base:ControlAttachProperty.Label="密码：" Margin="3" />
+                                <controls:BindPassWordBox  Style="{StaticResource LabelClearButtonBindPasswordBox}" base:ControlAttachProperty.Watermark="请输入姓名" base:ControlAttachProperty.Label="密码：" Margin="3"/>
+                                <controls:BindPassWordBox  Style="{StaticResource DefaultBindPasswordBox}" base:ControlAttachProperty.Watermark="请输入姓名"  IsEnabled="False" PassWord="111" Margin="3"/>
 
                             </StackPanel>
                         </GroupBox>

@@ -37,7 +37,7 @@
             </ContextMenu>
 
             <ControlTemplate x:Key="ListBoxItem_NotepadTempalte" TargetType="{x:Type ListBoxItem}">
-                <Grid ContextMenu="{StaticResource CMenu_ListDelete}" MinHeight="100" Margin="0,2">
+                <Grid ContextMenu="{StaticResource CMenu_ListDelete}" MinHeight="100" Margin="0,2" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="*"/>
@@ -74,6 +74,7 @@
                 <Setter Property="ItemsSource" Value="{Binding Collection}"/>
                 <Setter Property="SelectedItem" Value="{Binding SelectItem}"/>
                 <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
             </Style>
         </ResourceDictionary>
     </Window.Resources>
@@ -131,6 +132,7 @@
                         <Style TargetType="{x:Type ListBoxItem}">
                             <Setter Property="Visibility" Value="{Binding Type,Converter={x:Static base:XConverter.VisibilityStringConverter},ConverterParameter={x:Static local:ModuleService.CSharp}}"/>
                             <Setter Property="Template" Value="{StaticResource ListBoxItem_NotepadTempalte}"/>
+                            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>
