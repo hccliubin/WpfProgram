@@ -197,6 +197,9 @@
     <Compile Include="Provider\ListItemMoveBehavior.cs" />
     <Compile Include="Provider\RelativeAnimatingContentControl.cs" />
     <Compile Include="Provider\UIHelpers.cs" />
+    <Compile Include="Controls\ToolBarControl.xaml.cs">
+      <DependentUpon>ToolBarControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowBase\MessageWindow.xaml.cs">
       <DependentUpon>MessageWindow.xaml</DependentUpon>
     </Compile>
@@ -461,6 +464,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\HeBianGu.Themes.Default.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ToolBarControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
