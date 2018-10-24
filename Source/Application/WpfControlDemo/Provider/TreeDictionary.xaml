@@ -62,6 +62,7 @@
                 <Folder Name="Blend Interaction 示例" Value="../View/PathDemo.xaml" FIcon="&#xe785;">
                     <Folder Name="绑定事件" Value="../View/PathDemo.xaml" FIcon="&#xe799;"/>
                     <Folder Name="Behaviors" Value="../View/BlendBehaviorsPage.xaml" FIcon="&#xe799;"/>
+                    <Folder Name="DataTemplate" Value="../View/DataTemplatePage.xaml" FIcon="&#xe799;"/>
                 </Folder>
 
                 <Folder Name="Geometry效果" Value="../View/PathDemo.xaml" FIcon="&#xe785;">

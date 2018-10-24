@@ -1,0 +1,103 @@
+﻿<Page x:Class="WpfControlDemo.View.DataTemplatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfControlDemo.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="DataTemplatePage">
+    <Page.Resources>
+        <!--年级模版-->
+        <HierarchicalDataTemplate DataType="Grade" ItemsSource="{Binding XPath=Class}">
+            <TextBlock Text="{Binding XPath=@Name}"></TextBlock>
+        </HierarchicalDataTemplate>
+        <!--班级模版-->
+        <HierarchicalDataTemplate DataType="Class" ItemsSource="{Binding XPath=Group}">
+            <RadioButton Content="{Binding XPath=@Name}"></RadioButton>
+        </HierarchicalDataTemplate>
+        <!--分组模版-->
+        <HierarchicalDataTemplate DataType="Group">
+            <CheckBox Content="{Binding XPath=@Name}"></CheckBox>
+        </HierarchicalDataTemplate>
+        <!--数据模版-->
+        <XmlDataProvider x:Key="ds" XPath="Data/Grade">
+            <x:XData>
+                <Data xmlns="">
+                    <Grade Name="一年级">
+                        <Class Name="甲班">
+                            <Group Name="A组"></Group>
+                            <Group Name="B组"></Group>
+                            <Group Name="C组"></Group>
+                        </Class>
+                        <Class Name="乙班">
+                            <Group Name="A组"></Group>
+                            <Group Name="B组"></Group>
+                            <Group Name="C组"></Group>
+                        </Class>
+                    </Grade>
+                    <Grade Name="二年级">
+                        <Class Name="丙班">
+                            <Group Name="A组"></Group>
+                            <Group Name="B组"></Group>
+                            <Group Name="C组"></Group>
+                        </Class>
+                        <Class Name="丁班">
+                            <Group Name="A组"></Group>
+                            <Group Name="B组"></Group>
+                            <Group Name="C组"></Group>
+                        </Class>
+                    </Grade>
+                </Data>
+            </x:XData>
+        </XmlDataProvider>
+
+
+        <!--Xml中的元素名可以作为DataType-->
+        <DataTemplate DataType="XUnit">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Rectangle Fill="Red" Width="{Binding XPath=@Price}" Stroke="Yellow"></Rectangle>
+                        <TextBlock Text="{Binding XPath=@Year}"/>
+                    </Grid>
+                    <TextBlock Text="{Binding XPath=@Price}"></TextBlock>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <!--XPath指定一组节点-->
+        <XmlDataProvider x:Key="ds1" XPath="XUnits/XUnit">
+            <x:XData>
+                <XUnits xmlns="">
+                    <XUnit Price="100" Year="2001"></XUnit>
+                    <XUnit Price="120" Year="2002"></XUnit>
+                    <XUnit Price="140" Year="2003"></XUnit>
+                    <XUnit Price="180" Year="2004"></XUnit>
+                    <XUnit Price="150" Year="2005"></XUnit>
+                    <XUnit Price="200" Year="2006"></XUnit>
+                </XUnits>
+            </x:XData>
+        </XmlDataProvider>
+    </Page.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="绑定Xml数据">
+                <Grid>
+                    <!--监听事件-->
+                    <StackPanel>
+                        <Menu ItemsSource="{Binding Source={StaticResource ds}}"></Menu>
+                        <TreeView ItemsSource="{Binding Source={StaticResource ds}}" Margin="5"></TreeView>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="绑定的自定义类型">
+                <StackPanel>
+                    <!--XmlDataProvider使用Binding-->
+                    <ListBox x:Name="_listBox" ItemsSource="{Binding Source={StaticResource ds1}}"></ListBox>
+                    <ComboBox x:Name="_comBox" ItemsSource="{Binding Source={StaticResource ds1}}"></ComboBox>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

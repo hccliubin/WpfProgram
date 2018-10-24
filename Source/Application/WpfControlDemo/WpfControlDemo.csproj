@@ -116,6 +116,9 @@
     <Compile Include="View\DataPagePage.xaml.cs">
       <DependentUpon>DataPagePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DataTemplatePage.xaml.cs">
+      <DependentUpon>DataTemplatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DatePickerDemo.xaml.cs">
       <DependentUpon>DatePickerDemo.xaml</DependentUpon>
     </Compile>
@@ -420,6 +423,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DataPagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataTemplatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
