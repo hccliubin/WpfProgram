@@ -134,6 +134,15 @@
     <Compile Include="View\GeometryPage.xaml.cs">
       <DependentUpon>GeometryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InputBindPage.xaml.cs">
+      <DependentUpon>InputBindPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ObjectDataProviderPage.xaml.cs">
+      <DependentUpon>ObjectDataProviderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SystemCommandsPage.xaml.cs">
+      <DependentUpon>SystemCommandsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ThridParty\ArthasControl\ArthasControlPage.xaml.cs">
       <DependentUpon>ArthasControlPage.xaml</DependentUpon>
     </Compile>
@@ -447,6 +456,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\GeometryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InputBindPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ObjectDataProviderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SystemCommandsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

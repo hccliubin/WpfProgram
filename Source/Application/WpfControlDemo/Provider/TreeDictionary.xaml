@@ -63,6 +63,8 @@
                     <Folder Name="绑定事件" Value="../View/PathDemo.xaml" FIcon="&#xe799;"/>
                     <Folder Name="Behaviors" Value="../View/BlendBehaviorsPage.xaml" FIcon="&#xe799;"/>
                     <Folder Name="DataTemplate" Value="../View/DataTemplatePage.xaml" FIcon="&#xe799;"/>
+                    <Folder Name="InputBinding" Value="../View/InputBindPage.xaml" FIcon="&#xe799;"/>
+                    <Folder Name="SystemCommands" Value="../View/SystemCommandsPage.xaml" FIcon="&#xe799;"/>
                 </Folder>
 
                 <Folder Name="Geometry效果" Value="../View/PathDemo.xaml" FIcon="&#xe785;">
@@ -87,6 +89,8 @@
 
                 <Folder Name="Data" Value="../View/StoryBoardPage.xaml" FIcon="&#xe785;">
                     <Folder Name="Data控件" Value="../View/DataBindingPage.xaml" FIcon="&#xe799;"/>
+                    <Folder Name="ObjectDataProvider" Value="../View/ObjectDataProviderPage.xaml" FIcon="&#xe799;"/>
+                    
                 </Folder>
 
                 <Folder Name="继承控件" Value="../View/BaseUserControlPage.xaml" FIcon="&#xe785;">

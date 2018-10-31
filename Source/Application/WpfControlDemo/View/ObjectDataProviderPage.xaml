@@ -1,0 +1,71 @@
+﻿<Page x:Class="WpfControlDemo.View.ObjectDataProviderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfControlDemo.View"
+      mc:Ignorable="d" FontSize="20"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      d:DesignHeight="300" d:DesignWidth="1000"
+      Title="ObjectDataProviderPage">
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="绑定枚举值">
+                <TabItem.Resources>
+                    <ObjectDataProvider x:Key="Source_Key" MethodName="GetEnumValues" ObjectType="{x:Type local:ObjectDataSourceService}">
+                        <ObjectDataProvider.MethodParameters>
+                            <x:Type Type="Key"></x:Type>
+                        </ObjectDataProvider.MethodParameters>
+                    </ObjectDataProvider>
+                </TabItem.Resources>
+                <DockPanel>
+                    <ListBox ItemsSource="{Binding Source={StaticResource Source_Key}}"/>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="绑定方法">
+                <TabItem.Resources>
+                    <ObjectDataProvider x:Key="Source_ObjectDataSourceService_ApplicationCommands" MethodName="GetStaticPropertys" ObjectType="{x:Type local:ObjectDataSourceService}">
+                        <ObjectDataProvider.MethodParameters>
+                            <x:Type Type="ApplicationCommands"></x:Type>
+                            <x:Type Type="RoutedUICommand"></x:Type>
+                        </ObjectDataProvider.MethodParameters>
+                    </ObjectDataProvider>
+
+                    <ObjectDataProvider x:Key="Source_ObjectDataSourceService_SystemColors" MethodName="GetStaticPropertys" ObjectType="{x:Type local:ObjectDataSourceService}">
+                        <ObjectDataProvider.MethodParameters>
+                            <x:Type Type="SystemColors"></x:Type>
+                            <x:Type Type="SolidColorBrush"></x:Type>
+                        </ObjectDataProvider.MethodParameters>
+                    </ObjectDataProvider>
+                    
+                </TabItem.Resources>
+                <DockPanel>
+                    <ListBox ItemsSource="{Binding Source={StaticResource Source_ObjectDataSourceService_ApplicationCommands}}"/>
+                    <ListBox ItemsSource="{Binding Source={StaticResource Source_ObjectDataSourceService_SystemColors}}"/>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="绑定计算逻辑">
+                <TabItem.Resources>
+                    <ObjectDataProvider x:Key="Source_ObjectDataSourceService_Add" MethodName="MethodAdd" ObjectType="{x:Type local:MathTest}">
+                        <ObjectDataProvider.MethodParameters>
+                            <sys:String>5</sys:String>
+                            <sys:String>10</sys:String>
+                        </ObjectDataProvider.MethodParameters>
+                    </ObjectDataProvider>
+
+                </TabItem.Resources>
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <TextBox Width="100" Text="{Binding Source={StaticResource Source_ObjectDataSourceService_Add},Path=MethodParameters[0],BindsDirectlyToSource=true,UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="+"/>
+                    <TextBox  Width="100"  Text="{Binding Source={StaticResource Source_ObjectDataSourceService_Add},Path=MethodParameters[1],BindsDirectlyToSource=true,UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock  Text="="/>
+                    <TextBox  Width="100"  Text="{Binding Source={StaticResource Source_ObjectDataSourceService_Add},Mode=OneWay}"/>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Page>

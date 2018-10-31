@@ -1,0 +1,452 @@
+﻿<Page x:Class="WpfControlDemo.View.SystemCommandsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfControlDemo.View"
+      mc:Ignorable="d"   FontSize="20"
+      d:DesignHeight="300" d:DesignWidth="1000"
+      Title="SystemCommandsPage">
+
+    <Page.Resources>
+        <ObjectDataProvider x:Key="SourceComponentCommands" MethodName="GetCommands" ObjectType="{x:Type local:CommandsClass}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ComponentCommands"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="SourceApplicationCommands" MethodName="GetCommands" ObjectType="{x:Type local:CommandsClass}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ApplicationCommands"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="SourceNavigationCommands" MethodName="GetCommands" ObjectType="{x:Type local:CommandsClass}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="NavigationCommands"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="SourceMediaCommands" MethodName="GetCommands" ObjectType="{x:Type local:CommandsClass}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="MediaCommands"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+
+        <ObjectDataProvider x:Key="SourceEditingCommands" MethodName="GetCommands" ObjectType="{x:Type local:CommandsClass}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="EditingCommands"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <!--<DataTemplate DataType="{x:Type RoutedUICommand}">
+            <Grid>
+                <MenuItem Command="{Binding }"  Header="trtr"/>
+            </Grid>
+        </DataTemplate>-->
+    </Page.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="ApplicationCommands">
+                <DockPanel  LastChildFill ="True" >
+                    <Menu ItemsSource="{Binding Source={StaticResource SourceApplicationCommands}}" DockPanel.Dock="Top"/>
+                    <RichTextBox>
+                        <FlowDocument >
+                            <Paragraph>
+                                CancelPrint	
+获取表示“取消打印”命令的值。
+Close	
+获取表示“关闭”命令的值。
+ContextMenu	
+获取表示上下文菜单命令的值。
+Copy	
+获取表示“复制”命令的值。
+CorrectionList	
+获取表示“更正列表”命令的值。
+Cut	
+获取表示“剪切”命令的值。
+Delete	
+获取表示“删除”命令的值。
+Find	
+获取表示 Find 命令的值。
+Help	
+获取表示 Help 命令的值。
+New	
+获取表示 New 命令的值。
+NotACommand	
+表示始终被忽略的命令。
+Open	
+获取表示“打开”命令的值。
+Paste	
+获取表示“粘贴”命令的值。
+Print	
+获取表示“打印”命令的值。
+PrintPreview	
+获取表示“打印预览”命令的值。
+Properties	
+获取表示“属性”命令的值。
+Redo	
+获取表示“重做”命令的值。
+Replace	
+获取表示“替换”命令的值。
+Save	
+获取表示“保存”命令的值。
+SaveAs	
+获取表示“另存为”命令的值。
+SelectAll	
+获取表示“全选”命令的值。
+Stop	
+获取表示“停止”命令的值。
+Undo	
+获取表示“撤销”命令的值。
+                            </Paragraph>
+                        </FlowDocument >
+                    </RichTextBox >
+                </DockPanel >
+            </TabItem>
+
+            <TabItem Header="NavigationCommands">
+
+                <DockPanel  LastChildFill ="True">
+                    <Menu ItemsSource="{Binding Source={StaticResource SourceNavigationCommands}}" DockPanel.Dock="Top"/>
+             
+                <RichTextBox >
+                    <FlowDocument >
+                        <Paragraph>
+                            BrowseBack	
+获取表示 Browse Back 命令的值。
+BrowseForward	
+获取表示 Browse Forward 命令的值。
+BrowseHome	
+获取表示 Browse Home 命令的值。
+BrowseStop	
+获取表示 Browse Stop 命令的值。
+DecreaseZoom	
+获取表示 Decrease Zoom 命令的值。
+Favorites	
+获取表示 Favorites 命令的值。
+FirstPage	
+获取表示 First Page 命令的值。
+GoToPage	
+获取表示 Go To Page 命令的值。
+IncreaseZoom	
+获取表示 Increase Zoom 命令的值。
+LastPage	
+获取表示 Last Page 命令的值。
+NavigateJournal	
+获取表示 Navigate Journal 命令的值。
+NextPage	
+获取表示 Next Page 命令的值。
+PreviousPage	
+获取表示 Previous Page 命令的值。
+Refresh	
+获取表示 Refresh 命令的值。
+Search	
+获取表示 Search 命令的值。
+Zoom	
+获取表示 Zoom 命令的值。
+                        </Paragraph>
+                    </FlowDocument >
+                </RichTextBox >
+
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="MediaCommands">
+
+                <DockPanel  LastChildFill ="True">
+                    <Menu ItemsSource="{Binding Source={StaticResource SourceMediaCommands}}" DockPanel.Dock="Top"/>
+
+                    
+                    <RichTextBox >
+                    <FlowDocument >
+                        <Paragraph>
+                            BoostBass	
+获取表示“提升基础”命令的值。
+ChannelDown	
+获取表示 Channel Down 命令的值。
+ChannelUp	
+获取表示“频道递增”命令的值。
+DecreaseBass	
+获取表示“降低低音”命令的值。
+DecreaseMicrophoneVolume	
+获取表示 Decrease Microphone Volume 命令的值。
+DecreaseTreble	
+获取表示“降低高音”命令的值。
+DecreaseVolume	
+获取表示“降低音量”命令的值。
+FastForward	
+获取表示 Fast Forward 命令的值。
+IncreaseBass	
+获取表示“提高低音”命令的值。
+IncreaseMicrophoneVolume	
+获取表示“提高麦克风音量”命令的值。
+IncreaseTreble	
+获取表示“提高高音”命令的值。
+IncreaseVolume	
+获取表示“提高音量”命令的值。
+MuteMicrophoneVolume	
+获取表示“将麦克风静音”命令的值。
+MuteVolume	
+获取表示“静音”命令的值。
+NextTrack	
+获取表示“下一曲目”命令的值。
+Pause	
+获取表示“暂停”命令的值。
+Play	
+获取表示“播放”命令的值。
+PreviousTrack	
+获取表示 Previous Track 命令的值。
+Record	
+获取表示“记录”命令的值。
+Rewind	
+获取表示“后退”命令的值。
+Select	
+获取表示“选择”命令的值。
+Stop	
+获取表示“停止”命令的值。
+ToggleMicrophoneOnOff	
+获取表示“打开/关闭麦克风”命令的值。
+TogglePlayPause	
+获取表示“切换播放暂停”命令的值。
+                        </Paragraph>
+                    </FlowDocument >
+                </RichTextBox >
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="EditingCommands">
+
+                <DockPanel  LastChildFill ="True">
+                    <Menu ItemsSource="{Binding Source={StaticResource SourceEditingCommands}}" DockPanel.Dock="Top"/>
+
+                    
+                    <RichTextBox >
+                    <FlowDocument >
+                        <Paragraph>
+                            AlignCenter	
+表示 AlignCenter 命令，该命令请求将当前段落或选中的段落居中。
+AlignJustify	
+表示 AlignJustify 命令，该命令请求将当前段落或选中的段落两端对齐。
+AlignLeft	
+表示 AlignLeft 命令，该命令请求将所选内容左对齐。
+AlignRight	
+表示 AlignRight 命令，该命令请求将所选内容右对齐。
+Backspace	
+表示 Backspace 命令，该命令请求在当前位置或当前所选内容上输入一个退格。
+CorrectSpellingError	
+表示 CorrectSpellingError 命令，该命令请求更正当前位置任何拼写错误的单词。
+DecreaseFontSize	
+表示 DecreaseFontSize 命令，该命令请求将当前所选内容的字号缩小 1 磅。
+DecreaseIndentation	
+表示 DecreaseIndentation 命令，该命令请求将当前段落的缩进减少一个制表位。
+Delete	
+表示 Delete 命令，该命令请求删除当前所选内容。
+DeleteNextWord	
+表示 DeleteNextWord 命令，该命令请求删除下一单词（相对于当前位置而言）。
+DeletePreviousWord	
+表示 DeletePreviousWord 命令，该命令请求删除上一单词（相对于当前位置而言）。
+EnterLineBreak	
+表示 EnterLineBreak 命令，该命令请求在当前位置或当前所选内容上插入一个换行符。
+EnterParagraphBreak	
+表示 EnterParagraphBreak 命令，该命令请求在当前位置或当前所选内容上插入一个分段符。
+IgnoreSpellingError	
+表示 IgnoreSpellingError 命令，该命令请求忽略当前位置或当前所选内容中任何拼写错误的单词的实例。
+IncreaseFontSize	
+表示 IncreaseFontSize 命令，该命令请求将当前所选内容的字号增加 1 磅。
+IncreaseIndentation	
+表示 IncreaseIndentation 命令，该命令请求将当前段落的缩进增加一个制表位。
+MoveDownByLine	
+表示 MoveDownByLine 命令，该命令请求将插入符号向下移动一行。
+MoveDownByPage	
+表示 MoveDownByPage 命令，该命令请求将插入符号向下移动一页。
+MoveDownByParagraph	
+表示 MoveDownByParagraph 命令，该命令请求将插入符号向下移动一个段落。
+MoveLeftByCharacter	
+表示 MoveLeftByCharacter 命令，该命令请求将插入符号向左移动一个字符。
+MoveLeftByWord	
+表示 MoveLeftByWord 命令，该命令请求将插入符号向左移动一个单词。
+MoveRightByCharacter	
+表示 MoveRightByCharacter 命令，该命令请求将插入符号向右移动一个字符。
+MoveRightByWord	
+表示 MoveRightByWord 命令，该命令请求将插入符号向右移动一个单词。
+MoveToDocumentEnd	
+表示 MoveToDocumentEnd 命令，该命令请求将插入符号移至内容的末尾。
+MoveToDocumentStart	
+表示 MoveToDocumentStart 命令，该命令请求将插入符号移至内容的开头。
+MoveToLineEnd	
+表示 MoveToLineEnd 命令，该命令请求将插入符号移至当前行的末尾。
+MoveToLineStart	
+表示 MoveToLineStart 命令，该命令请求将插入符号移至当前行的开头。
+MoveUpByLine	
+表示 MoveUpByLine 命令，该命令请求将插入符号向上移动一行。
+MoveUpByPage	
+表示 MoveUpByPage 命令，该命令请求将插入符号向上移动一页。
+MoveUpByParagraph	
+表示 MoveUpByParagraph 命令，该命令请求将插入符号向上移动一个段落。
+SelectDownByLine	
+表示 SelectDownByLine 命令，该命令请求将当前选择范围向下扩展一行。
+SelectDownByPage	
+表示 SelectDownByPage 命令，该命令请求将当前选择范围向下扩展一页。
+SelectDownByParagraph	
+表示 SelectDownByParagraph 命令，该命令请求将当前选择范围向下扩展一段。
+SelectLeftByCharacter	
+表示 SelectLeftByCharacter 命令，该命令请求将当前选择范围向左扩展一个字符。
+SelectLeftByWord	
+表示 SelectLeftByWord 命令，该命令请求将当前选择范围向左扩展一个单词。
+SelectRightByCharacter	
+表示 SelectRightByCharacter 命令，该命令请求将当前选择范围向右扩展一个字符。
+SelectRightByWord	
+表示 SelectRightByWord 命令，该命令请求将当前选择范围向右扩展一个单词。
+SelectToDocumentEnd	
+表示 SelectToDocumentEnd 命令，该命令请求将当前选择范围扩展到内容末尾处。
+SelectToDocumentStart	
+表示 SelectToDocumentStart 命令，该命令请求将当前选择范围扩展到内容开头处。
+SelectToLineEnd	
+表示 SelectToLineEnd 命令，该命令请求将当前选择范围扩展到当前行的末尾。
+SelectToLineStart	
+表示 SelectToLineStart 命令，该命令请求将当前选择范围扩展到当前行的开头。
+SelectUpByLine	
+表示 SelectUpByLine 命令，该命令请求将当前选择范围向上扩展一行。
+SelectUpByPage	
+表示 SelectUpByPage 命令，该命令请求将当前选择范围向上扩展一页。
+SelectUpByParagraph	
+表示 SelectUpByParagraph 命令，该命令请求将当前选择范围向上扩展一段。
+TabBackward	
+表示 TabBackward 命令。
+TabForward	
+表示 TabForward 命令。
+ToggleBold	
+表示 ToggleBold 命令，该命令请求对当前所选内容进行 Bold 格式切换。
+ToggleBullets	
+表示 ToggleBullets 命令，该命令请求对当前所选内容进行无序列表（也称为项目符号列表）格式切换。
+ToggleInsert	
+表示 ToggleInsert 命令，该命令用于切换“插入”和“改写”键入模式。
+ToggleItalic	
+表示 ToggleItalic 命令，该命令请求对当前所选内容进行 Italic 格式切换。
+ToggleNumbering	
+表示 ToggleNumbering 命令，该命令请求对当前所选内容进行排序列表（也称为编号列表）格式切换。
+ToggleSubscript	
+表示 ToggleSubscript 命令，该命令请求对当前所选内容进行下标格式切换。
+ToggleSuperscript	
+表示 ToggleSuperscript 命令，该命令请求对当前所选内容进行上标格式切换。
+ToggleUnderline	
+表示 ToggleUnderline 命令，该命令请求对当前所选内容进行 Underline 格式切换。
+                        </Paragraph>
+                    </FlowDocument >
+                </RichTextBox >
+                </DockPanel>
+            </TabItem>
+
+
+            <TabItem Header="ComponentCommands">
+                <DockPanel>
+                    <!--<Menu ItemsPanel="{Binding Source={StaticResource SourceComponentCommandsClass}}">
+                        <MenuItem  Command ="ComponentCommands.ExtendSelectionDown" Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}"/>
+                        <MenuItem  Command ="ComponentCommands.ExtendSelectionLeft"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.ExtendSelectionRight"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.ExtendSelectionUp"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveDown"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveFocusBack"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveFocusDown"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.ScrollPageUp"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.ScrollPageDown"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveFocusForward"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveFocusPageDown"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveFocusPageUp"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveFocusUp"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveLeft"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveRight"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveToEnd"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveToHome"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.MoveToPageDown"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.ScrollPageLeft"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.ScrollPageRight"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.ScrollPageUp"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.SelectToEnd"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.SelectToHome"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.SelectToPageDown"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <MenuItem  Command ="ComponentCommands.SelectToPageUp"  Header ="{Binding Path=Command.Text, RelativeSource={RelativeSource Self}}" />
+                    </Menu>-->
+
+                    <Menu ItemsSource="{Binding Source={StaticResource SourceComponentCommands}}" DockPanel.Dock="Top"/>
+
+                    <TextBox Text="十分激烈快速解決"  DockPanel.Dock="Top"/>
+
+                    <ListBox ItemsSource="{Binding Source={StaticResource SourceComponentCommands}}"/>
+                    <RichTextBox>
+                        <FlowDocument >
+                            <Paragraph>
+                                ExtendSelectionDown	
+获取表示“向下扩展选择”命令的值。
+ExtendSelectionLeft	
+获取表示 Extend Selection Left 命令的值。
+ExtendSelectionRight	
+获取表示 Extend Selection Right 命令的值。
+ExtendSelectionUp	
+获取表示 Extend Selection Up 命令的值。
+MoveDown	
+获取表示“下移”命令的值。
+MoveFocusBack	
+获取表示“焦点后移”命令的值。
+MoveFocusDown	
+获取表示“焦点下移”命令的值。
+MoveFocusForward	
+获取表示 Move Focus Forward 命令的值。
+MoveFocusPageDown	
+获取表示“焦点页下移”命令的值。
+MoveFocusPageUp	
+获取表示“焦点页上移”命令的值。
+MoveFocusUp	
+获取表示“焦点上移”命令的值。
+MoveLeft	
+获取表示“左移”命令的值。
+MoveRight	
+获取表示“右移”命令的值。
+MoveToEnd	
+获取表示“移动到末尾”命令的值。
+MoveToHome	
+获取表示“移动到开头”命令的值。
+MoveToPageDown	
+获取表示“移到下一页”命令的值。
+MoveToPageUp	
+获取表示“移动到上一页”命令的值。
+MoveUp	
+获取表示“向上移动”命令的值。
+ScrollByLine	
+获取表示“按行滚动”命令的值。
+ScrollPageDown	
+获取表示 Scroll Page Down 命令的值。
+ScrollPageLeft	
+获取表示“向左滚动一页”命令的值。
+ScrollPageRight	
+获取表示“向右滚动一页”命令的值。
+ScrollPageUp	
+获取表示“向上滚动页面”命令的值。
+SelectToEnd	
+获取表示“选择到末尾”命令的值。
+SelectToHome	
+获取表示“选择到开头”命令的值。
+SelectToPageDown	
+获取表示“选择下一页”命令的值。
+SelectToPageUp	
+获取表示“选择上一页”命令的值。
+                            </Paragraph>
+                        </FlowDocument >
+                    </RichTextBox >
+                    
+                </DockPanel>
+            </TabItem>
+
+            <!--<TabItem Header="Slider.DecreaseLarge">
+
+            </TabItem>
+
+            <TabItem Header="Slider.DecreaseSmall">
+
+            </TabItem>-->
+        </TabControl>
+    </Grid>
+
+</Page>

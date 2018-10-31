@@ -44,7 +44,7 @@ namespace WpfControlDemo
 
                 this.property.SelectedObject = e.NewFocus;
 
-            Debug.WriteLine("说明");
+            Debug.WriteLine(e.NewFocus);
 
         }
 
