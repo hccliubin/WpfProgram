@@ -6,7 +6,6 @@
                 <Folder Name="基础控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe785;">
                     <Folder Name="按钮控件" Value="../View/ButtonPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="工具栏控件" Value="../View/ToolBarPage.xaml"  FIcon="&#xe799;"/>
-
                     <Folder Name="输入控件" Value="../View/TextBoxPage.xaml" FIcon="&#xe799;"/>
                     <Folder Name="文本控件" Value="../View/TextBlockPage.xaml" FIcon="&#xe799;"/>
                     <Folder Name="勾选控件" Value="../View/CheckBoxPage.xaml"  FIcon="&#xe799;"/>
@@ -22,6 +21,7 @@
                     <Folder Name="拖动控件" Value="../View/SliderPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="属性控件" Value="../View/PropertyGridPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="托盘控件" Value="../View/NotifyPage.xaml"  FIcon="&#xe799;"/>
+                    <Folder Name="其他基础控件" Value="../View/OtherBasePage.xaml"  FIcon="&#xe799;"/>
                 </Folder>
 
                 <Folder Name="第三方控件" Value="../View/ThridParty/MaterialControl/MaterialControlPage.xaml"  FIcon="&#xe785;">

@@ -140,6 +140,9 @@
     <Compile Include="View\ObjectDataProviderPage.xaml.cs">
       <DependentUpon>ObjectDataProviderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\OtherBasePage.xaml.cs">
+      <DependentUpon>OtherBasePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SystemCommandsPage.xaml.cs">
       <DependentUpon>SystemCommandsPage.xaml</DependentUpon>
     </Compile>
@@ -464,6 +467,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ObjectDataProviderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OtherBasePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
