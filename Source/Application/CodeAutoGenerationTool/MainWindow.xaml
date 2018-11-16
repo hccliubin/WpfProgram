@@ -6,9 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodeAutoGenerationTool"
                           xmlns:view="clr-namespace:CodeAutoGenerationTool.View"
-                          mc:Ignorable="d" 
+                          mc:Ignorable="d"  CaptionHeight="40"
         Style="{StaticResource ResourceKey=DefaultWindowStyle}"
-        Title="MainWindow" Height="800" Width="1400">
+        Title="C#代码生成工具 By HeBianGu" Height="800" Width="1400">
     <Grid>
         <wpfcontrollib:MetroTabControl Background="{DynamicResource S_GrayLightOpacity}">
             <wpfcontrollib:MetroTabItem Header="生成模型" Icon="&#xe61f;">

@@ -36,6 +36,14 @@
                                     SmallChange="0.1" Style="{StaticResource OpacitySliderStyle}" />
             </GroupBox>
 
+            <GroupBox Header="实心滚动条">
+                <Slider Style="{DynamicResource SliderStyle1}" 
+                        Minimum="12" 
+                        Maximum="20"  
+                        VerticalAlignment="Center" 
+                        Value="{Binding FontSize ,ElementName=RichTextBoxLogs}"
+                        Width="100"/>
+            </GroupBox>
             <GroupBox Header="区间滚动条">
                 <StackPanel Margin="10">
 

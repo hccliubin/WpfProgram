@@ -44,7 +44,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <Border BorderBrush="{StaticResource S_GrayDark}" BorderThickness="0,0,0,1"/>
+        <Border BorderBrush="{StaticResource S_GrayNotice}" BorderThickness="0,0,0,1"/>
         
         <StackPanel Orientation="Horizontal">
             <RadioButton x:Name="rb_1" Content="基本设置" IsChecked="False">

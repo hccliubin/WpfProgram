@@ -324,6 +324,7 @@ namespace MovieBrowserToolApp.ViewModel
 
                 this.ButtonClickFunc("OpenCase");
             }
+            
             // Todo ：类型设置 
             else if (buttonName == "TypeSet")
             {

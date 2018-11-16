@@ -135,6 +135,12 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
 
         public FileSetingViewModel()
         {
+
+
+            RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
+
+            if (CaseNotifyService.MatchTypes == null) return;
+
             foreach (var item in CaseNotifyService.MatchTypes)
             {
                 SettingFileItemViewModel model = new SettingFileItemViewModel(item);
@@ -147,6 +153,8 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
                 this.MatchFileCollection.Add(model);
             }
 
+            if (CaseNotifyService.MovieTypes == null) return;
+
             foreach (var item in CaseNotifyService.MovieTypes)
             {
                 SettingFileItemViewModel model = new SettingFileItemViewModel(item);
@@ -158,8 +166,6 @@ namespace HeBianGu.MovieBrowser.Modules.MenuItem.Controls
                 this.FileTypeCollection.Add(model);
 
             }
-
-            RelayCommand = new RelayCommand(new Action<object>(ButtonClickFunc));
         }
 
         private string _addMatchString;

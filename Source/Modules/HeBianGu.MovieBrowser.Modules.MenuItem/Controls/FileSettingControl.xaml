@@ -153,10 +153,10 @@
                         <wpfcontrollib:FCheckBox Content="自动缩放类型显示" />
                     </StackPanel>
 
-                    <Border BorderBrush="{StaticResource S_GrayDark}"   Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
-                    <Border BorderBrush="{StaticResource S_GrayDark}" Grid.Row="2"  Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
-                    <Border BorderBrush="{StaticResource S_GrayDark}" Grid.Row="4"   Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
-                    <Border BorderBrush="{StaticResource S_GrayDark}" Grid.Row="6"   Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
+                    <Border BorderBrush="{StaticResource S_GrayNotice}"   Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
+                    <Border BorderBrush="{StaticResource S_GrayNotice}" Grid.Row="2"  Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
+                    <Border BorderBrush="{StaticResource S_GrayNotice}" Grid.Row="4"   Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
+                    <Border BorderBrush="{StaticResource S_GrayNotice}" Grid.Row="6"   Grid.ColumnSpan="2" Margin="0,-2,0,0" BorderThickness="0,1,0,0"/>
 
                 </Grid>
             </StackPanel>

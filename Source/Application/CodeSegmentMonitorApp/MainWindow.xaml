@@ -79,7 +79,7 @@
         </Style>
 
     </Window.Resources>
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="5"/>
@@ -107,7 +107,7 @@
 
 
 
-        <Grid Grid.Column="2" Grid.Row="1">
+        <Grid Grid.Column="2" Grid.Row="1"  Background="{DynamicResource S_GrayLightOpacity}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="200"/>
@@ -143,15 +143,19 @@
 
             <Grid Grid.Column="0">
                 <controls:BindRichTextBox Background="{DynamicResource S_GrayLightOpacity}" BindText="{Binding ElementName=listBox,Path=SelectedItem.Snippet,Mode=TwoWay}"/>
-
-                <!--<TextBox Style="{StaticResource CodeSnippetParagraph}" Text="{Binding ElementName=listBox,Path=SelectedItem.Snippet,Mode=TwoWay}" xml:space="preserve"/>-->
             </Grid>
 
         </Grid>
 
         <Grid Grid.Row="2" Grid.ColumnSpan="3">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <wpfcontrollib:FButton Content="添加.." Margin="0,0,500,0" Command="{Binding RelayCommand}" CommandParameter="Add"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <wpfcontrollib:FButton Content="添加.." Grid.Column="0" Margin="2,0" Command="{Binding RelayCommand}" CommandParameter="Add"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
                 <wpfcontrollib:FButton Content="移除.."  Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="Remove"/>
                 <wpfcontrollib:FButton Content="保存.."  Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="Save"/>
                 <wpfcontrollib:FButton Content="另存为.."  Margin="10,0" Command="{Binding RelayCommand}" CommandParameter="SaveOther"/>

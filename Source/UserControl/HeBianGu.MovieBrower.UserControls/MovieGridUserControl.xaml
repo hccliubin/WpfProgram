@@ -315,6 +315,8 @@
             <Setter Property="TextAlignment" Value="Center"></Setter>
             <Setter Property="Foreground" Value="Black"></Setter>
         </Style>
+        
+        
         <Style TargetType="Border">
             <Setter Property="BorderThickness" Value="0,0,1,1"></Setter>
             <Setter Property="BorderBrush" Value="Black"></Setter>
@@ -406,7 +408,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             
             <!--文件列表-->
-            <ListBox Width="370" Name="lb_list" Grid.Row="2" Visibility="{Binding ElementName=cb_showImageList,Path=IsChecked,Converter={StaticResource VisibilityConverter}}"
+            <ListBox Width="370" Name="lb_list" Grid.Row="2" Visibility="{Binding ElementName=cb_showImageList,Path=IsChecked,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}"
                  Style="{StaticResource MovieImageListStyle}"
                  ItemsSource="{Binding CommonSource}"
                  SelectedItem="{Binding SelectItem}"  FontSize="12" 
@@ -425,7 +427,7 @@
 
             </ListBox>
 
-            <ListBox Name="lb_list1" Grid.Row="2" Visibility="{Binding ElementName=cb_showDetailList,Path=IsChecked,Converter={StaticResource VisibilityConverter}}"
+            <ListBox Name="lb_list1" Grid.Row="2" Visibility="{Binding ElementName=cb_showDetailList,Path=IsChecked,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}"
 
                  Style="{StaticResource MovieListStyle}"
                  ItemsSource="{Binding CommonSource}"

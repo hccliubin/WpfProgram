@@ -28,7 +28,7 @@ namespace HeBianGu.Base.Util
 
     /// <summary> 剪贴板服务 </summary>
     public class ClipBoardRegisterService : BaseFactory<ClipBoardRegisterService>
-    {
+    {   
         #region - 监视剪切板 -
 
         /// <summary>
