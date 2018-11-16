@@ -157,12 +157,12 @@ Zoom
 
                 <DockPanel  LastChildFill ="True">
                     <Menu ItemsSource="{Binding Source={StaticResource SourceMediaCommands}}" DockPanel.Dock="Top"/>
-
-                    
-                    <RichTextBox >
-                    <FlowDocument >
-                        <Paragraph>
-                            BoostBass	
+                    <StackPanel>
+                        <!--<MediaElement Source="F:\GitHub\WPF-FFMPEG\Document\ffmpeg\wjz.mp4"/>-->
+                        <RichTextBox >
+                            <FlowDocument >
+                                <Paragraph>
+                                    BoostBass	
 获取表示“提升基础”命令的值。
 ChannelDown	
 获取表示 Channel Down 命令的值。
@@ -210,9 +210,10 @@ ToggleMicrophoneOnOff
 获取表示“打开/关闭麦克风”命令的值。
 TogglePlayPause	
 获取表示“切换播放暂停”命令的值。
-                        </Paragraph>
-                    </FlowDocument >
-                </RichTextBox >
+                                </Paragraph>
+                            </FlowDocument >
+                        </RichTextBox >
+                    </StackPanel>
                 </DockPanel>
             </TabItem>
 

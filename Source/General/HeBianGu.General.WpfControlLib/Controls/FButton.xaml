@@ -54,9 +54,13 @@
             <!--<local:WaitingBox  Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
                                    Foreground="{TemplateBinding Foreground}" IsBusy="{TemplateBinding base:ControlAttachProperty.IsBuzy}"/>-->
 
-            <ProgressBar  Background="Transparent"  Opacity="0.5"   Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
-                                     BorderBrush="Transparent"  IsIndeterminate="True"
-                                     BorderThickness="0">
+            <ProgressBar  Background="Transparent"  Foreground="{TemplateBinding Foreground}"
+                          Opacity="0.5"   
+                          Visibility="{TemplateBinding base:ControlAttachProperty.IsBuzy,Converter={x:Static base:XConverter.BooleanToVisibilityConverter}}" 
+                          BorderBrush="Transparent"  
+                          IsIndeterminate="True"
+                          BorderThickness="0">
+                
                 <ProgressBar.Clip>
                     <RectangleGeometry  RadiusX="{TemplateBinding base:ControlAttachProperty.CornerRadius}" RadiusY="{TemplateBinding base:ControlAttachProperty.CornerRadius}">
                         <RectangleGeometry.Rect>
