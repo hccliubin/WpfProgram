@@ -57,7 +57,7 @@
                                        Visibility="Visible"
                                        Foreground="{TemplateBinding Foreground}" />
                             <!--右指针-->
-                            <TextBlock x:Name="PART_Arrow" Grid.Column="3" Text="&#xe605;" 
+                            <TextBlock x:Name="PART_Arrow" Grid.Column="3" Text="&#xe9bf;" 
                                        Foreground="{TemplateBinding Foreground}" 
                                        FontSize="14" 
                                        Style="{StaticResource FIcon}"/>
@@ -192,9 +192,10 @@
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
                     <Grid>
                         <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" Margin="5"
-                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                            <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle"
+                            <ItemsPresenter x:Name="ItemsPresenter" TextBlock.Foreground="{TemplateBinding Foreground}"  KeyboardNavigation.DirectionalNavigation="Cycle"
                                                 Grid.IsSharedSizeScope="True" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                 KeyboardNavigation.TabNavigation="Cycle" />
                         </Border>
