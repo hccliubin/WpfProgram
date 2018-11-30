@@ -192,6 +192,7 @@ namespace HeBianGu.Base.WpfBase.Color
             RaisePropertyChanged("AccentColor");
         }
 
+
         /// <summary>
         /// The command that sets the dark theme.
         /// </summary>

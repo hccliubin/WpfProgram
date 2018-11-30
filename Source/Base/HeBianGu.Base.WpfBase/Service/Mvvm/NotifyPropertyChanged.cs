@@ -28,6 +28,21 @@ namespace HeBianGu.Base.WpfBase
     /// <summary> Mvvm绑定模型基类 </summary>
     public abstract class NotifyPropertyChanged : INotifyPropertyChanged
     {
+        public RelayCommand RelayCommand { get; set; }
+
+        protected virtual void RelayMethod(object obj)
+        {
+
+        }
+
+        public NotifyPropertyChanged()
+        {
+            RelayCommand = new RelayCommand(RelayMethod);
+
+            RelayMethod("init");
+
+        }
+
         #region - MVVM -
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -30,7 +30,13 @@ namespace HeBianGu.Base.WpfBase
             get { return new BooleanToVisibilityConverter(); }
         }
 
+        public static FalseToVisibilityConverter FalseToVisibilityConverter
+        {
+            get { return new FalseToVisibilityConverter(); }
+        }
 
+
+        
         public static VisibilityConverter VisibilityConverter
         {
             get { return new VisibilityConverter(); }
@@ -57,6 +63,12 @@ namespace HeBianGu.Base.WpfBase
         {
             get { return new TrueToFalseConverter(); }
         }
+
+        public static TrueToFalseMultiConverter TrueToFalseMultiConverter
+        {
+            get { return new TrueToFalseMultiConverter(); }
+        }
+        
 
         public static PressedSizeConverter PressedSizeConverter
         {

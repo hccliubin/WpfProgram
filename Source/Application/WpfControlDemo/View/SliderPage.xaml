@@ -45,9 +45,10 @@
                         Width="100"/>
             </GroupBox>
             <GroupBox Header="区间滚动条">
-                <StackPanel Margin="10">
+                <StackPanel  Margin="10">
 
-                    <wpfcontrollib:SpaceSpliterUserControl  LeftPercent="{Binding Left,Mode=TwoWay}" RightPercent="{Binding Right,Mode=TwoWay}" Margin="10"/>
+                    <wpfcontrollib:SpaceSpliterUserControl Background="Red" LeftPercent="{Binding Left,Mode=TwoWay}" RightPercent="{Binding Right,Mode=TwoWay}" Margin="10"/>
+                    <wpfcontrollib:SpaceSpliterUserControl  Background="Red" LeftPercent="0.1" RightPercent="0.9"  Margin="10"/>
 
                     <TextBlock>
                 <Run Text="左侧值："/>

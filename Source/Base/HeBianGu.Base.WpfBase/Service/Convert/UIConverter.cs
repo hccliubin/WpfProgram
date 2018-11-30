@@ -46,6 +46,23 @@ namespace HeBianGu.Base.WpfBase
         }
     }
 
+    /// <summary> 布尔为true转不可用 </summary>
+    [ValueConversion(typeof(Visibility), typeof(bool))]
+    public class FalseToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            //将bool值转换为什么呢？自己在这里定义
+            return (bool)value ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            //反转换方法，就是对照上面的把男女再转换回去
+            return (Visibility)value == Visibility.Collapsed;
+        }
+    }
+
     /// <summary> 空文本不可用 </summary>
     [ValueConversion(typeof(Visibility), typeof(string))]
     public class VisibilityEmptyConverter : IValueConverter
@@ -120,7 +137,6 @@ namespace HeBianGu.Base.WpfBase
             throw new Exception();
         }
     }
-
 
     /// <summary> 绑定图标转换 </summary>
     [ValueConversion(typeof(Icon), typeof(ImageSource))]
@@ -245,6 +261,32 @@ namespace HeBianGu.Base.WpfBase
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    /// <summary>
+    /// 这是一个颠倒黑白的世界 其中有一个为true则反馈false
+    /// </summary>
+    public sealed class TrueToFalseMultiConverter : IMultiValueConverter
+    {
+        public object Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
+        {
+            foreach (var item in value)
+            {
+                var v = (bool)item;
+
+                if (v)
+                {
+                    return false;
+
+                }
+            }
+            return true;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

@@ -117,8 +117,7 @@ namespace HeBianGu.General.WpfControlLib
             set { SetValue(ContentDecorationsProperty, value); }
         }
 
-        public static readonly DependencyProperty IsCheckedProperty =
-DependencyProperty.Register("IsChecked", typeof(bool), typeof(FButton), new PropertyMetadata(false));
+        public static readonly DependencyProperty IsCheckedProperty =DependencyProperty.Register("IsChecked", typeof(bool), typeof(FButton), new PropertyMetadata(false));
         /// <summary> 按钮是否被选中 </summary>
         public bool IsChecked
         {
@@ -140,5 +139,7 @@ DependencyProperty.Register("IsChecked", typeof(bool), typeof(FButton), new Prop
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FButton), new FrameworkPropertyMetadata(typeof(FButton)));
         }
+
+       
     }
 }

@@ -25,9 +25,16 @@ namespace HeBianGu.General.WpfControlLib
         public SpaceSpliterUserControl()
         {
             InitializeComponent();
+
+
         }
 
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
 
+            this.SetPosition();
+        }
 
         public double LeftPercent
         {
@@ -37,7 +44,7 @@ namespace HeBianGu.General.WpfControlLib
 
         // Using a DependencyProperty as the backing store for LeftPercent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty LeftPercentProperty =
-            DependencyProperty.Register("LeftPercent", typeof(double), typeof(SpaceSpliterUserControl), new PropertyMetadata(0.0, (l, e) =>
+            DependencyProperty.Register("LeftPercent", typeof(double), typeof(SpaceSpliterUserControl), new PropertyMetadata(0.2, (l, e) =>
             {
                 var control = l as SpaceSpliterUserControl;
                 control.SetPosition();
@@ -53,7 +60,7 @@ namespace HeBianGu.General.WpfControlLib
 
         // Using a DependencyProperty as the backing store for RightPercent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RightPercentProperty =
-            DependencyProperty.Register("RightPercent", typeof(double), typeof(SpaceSpliterUserControl), new PropertyMetadata(1.0, (l, e) =>
+            DependencyProperty.Register("RightPercent", typeof(double), typeof(SpaceSpliterUserControl), new PropertyMetadata(0.8, (l, e) =>
             {
                 var control = l as SpaceSpliterUserControl;
                 control.SetPosition();

@@ -62,6 +62,8 @@ namespace HeBianGu.Base.WpfBase
                 }
             }
         }
+
+       
     }
 
     /// <summary>
@@ -127,5 +129,6 @@ namespace HeBianGu.Base.WpfBase
         {
             get { return this.links; }
         }
+
     }
 }

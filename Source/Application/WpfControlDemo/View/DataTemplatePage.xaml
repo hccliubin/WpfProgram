@@ -98,6 +98,245 @@
                     <ComboBox x:Name="_comBox" ItemsSource="{Binding Source={StaticResource ds1}}"></ComboBox>
                 </StackPanel>
             </TabItem>
+
+            <TabItem Header="绑定的外部文件类型">
+                <StackPanel>
+                    <!--<Window.Resources>
+                        <XmlDataProvider Source="a.xml" x:Key="aa" XPath="/Root"/>
+                    </Window.Resources>
+                    <Grid>
+                        <TextBlock Text="{Binding ElementName=lb,Path=SelectedValue}" />
+                        <StackPanel Orientation="Horizontal" Margin="20,40,342,0">
+                            --><!-- DisplayMemberPath="@Data" 必须加【@】 -->
+                            <!--筛选：ID==1   "="必须转义，改为"/="--><!--
+                            <ListBox DataContext="{Binding Source={StaticResource aa},XPath=/Root/Item[@ID/=1]}" Width="100"  Name="lb"                      ItemsSource="{Binding}" DisplayMemberPath="@Data" SelectedValuePath="@ID"></ListBox>
+                            <ListBox DataContext="{Binding Source={StaticResource aa},XPath=/Root/Item[4]}"  Name="lb1" Width="100"                       ItemsSource="{Binding}" DisplayMemberPath="@Data" SelectedValuePath="@ID"></ListBox>
+                            --><!--筛选：ID大于2   ">"必须转义，改为"&gt;"--><!--
+                            <ListBox DataContext="{Binding Source={StaticResource aa},XPath=/Root/Item[@ID&gt;2]}"  Name="lb2" Width="100"                       ItemsSource="{Binding}" DisplayMemberPath="@Data" SelectedValuePath="@ID"></ListBox>
+                        </StackPanel>
+                    </Grid>-->
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="绑定的自定义类型">
+                <StackPanel>
+                    <Canvas x:Name="LayoutRoot">
+                        <StackPanel Width="214" Height="Auto">
+                            <StackPanel.Resources>
+                                <XmlDataProvider x:Key="FavoriteColors">
+                                    <x:XData>
+                                        <Colors xmlns="">
+                                            <Color>红</Color>
+                                            <Color>橙</Color>
+                                            <Color>黄</Color>
+                                            <Color>绿</Color>
+                                            <Color>蓝</Color>
+                                            <Color>靛</Color>
+                                            <Color>紫</Color>
+                                        </Colors>
+                                    </x:XData>
+                                </XmlDataProvider>
+                            </StackPanel.Resources>
+                            <TextBlock HorizontalAlignment="Center" FontWeight="Bold"> 喜欢的颜色</TextBlock>
+                            <ListBox Width="200" Height="120" ItemsSource="{Binding Source={StaticResource FavoriteColors}, XPath=/Colors/Color}"></ListBox>
+                        </StackPanel>
+                    </Canvas>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="绑定的自定义类型">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <XmlDataProvider x:Key="xml" XPath="/countries/country">
+                            <!-- 示例数据 -->
+                            <x:XData>
+                                <countries xmlns="">
+                                    <country name="中国">
+                                        <province name="陕西">
+                                            <city>西安</city>
+                                            <city>宝鸡</city>
+                                        </province>
+                                        <province name="山西">
+                                            <city>太原</city>
+                                            <city>大同</city>
+                                        </province>
+                                        <province name="内蒙古自治区">
+                                            <city>呼和浩特</city>
+                                            <city>包头</city>
+                                            <city>集宁</city>
+                                        </province>
+                                        <province name="河北">
+                                            <city>石家庄</city>
+                                            <city>保定</city>
+                                        </province>
+                                    </country>
+                                    <country name="美国">
+                                        <province name="加利福尼亚">
+                                            <city>洛杉矶</city>
+                                            <city>圣迭戈</city>
+                                        </province>
+                                        <province name="福罗里达">
+                                            <city>杰克逊维尔</city>
+                                            <city>迈阿密</city>
+                                        </province>
+                                    </country>
+                                </countries>
+                            </x:XData>
+                        </XmlDataProvider>
+
+                        <Style TargetType="HeaderedContentControl">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="HeaderedContentControl">
+                                        <DockPanel>
+                                            <Border DockPanel.Dock="Top"
+                               Margin="3"
+                               CornerRadius="3"
+                               Background="DarkRed">
+                                                <TextBlock Text="{TemplateBinding Header}"
+                                      HorizontalAlignment="Center"
+                                      Foreground="White"></TextBlock>
+                                            </Border>
+                                            <ContentPresenter ContentSource="Content"
+                                         ContentTemplate="{TemplateBinding ContentTemplate}"></ContentPresenter>
+                                        </DockPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="SnapsToDevicePixels" Value="true"/>
+                            <Setter Property="OverridesDefaultStyle" Value="true"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Name="Border"
+                           Padding="2"
+                           SnapsToDevicePixels="true">
+                                            <ContentPresenter />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="YellowGreen"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </StackPanel.Resources>
+                    
+                    <Grid DataContext="{Binding Source={StaticResource xml}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <HeaderedContentControl Header="国家">
+                            <ListBox ItemsSource="{Binding}"
+                DisplayMemberPath="@name"
+                IsSynchronizedWithCurrentItem="True"></ListBox>
+                        </HeaderedContentControl>
+                        <HeaderedContentControl Header="省/州"
+                          Grid.Column="1">
+                            <ListBox Name="lbxProvince"
+                ItemsSource="{Binding XPath=province}"
+                DisplayMemberPath="@name"
+                IsSynchronizedWithCurrentItem="True"></ListBox>
+                        </HeaderedContentControl>
+                        <HeaderedContentControl Header="城市"
+                           Grid.Column="2">
+                            <ListBox DataContext="{Binding ElementName=lbxProvince, Path=SelectedItem}"
+                ItemsSource="{Binding XPath=city}"
+                IsSynchronizedWithCurrentItem="True"></ListBox>
+                        </HeaderedContentControl>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="绑定的自定义类型">
+                <StackPanel Background="Cornsilk">
+
+                    <StackPanel.Resources>
+                        <XmlDataProvider x:Key="InventoryData" XPath="Inventory/Books">
+                            <x:XData>
+                                <Inventory >
+                                    <Books>
+                                        <Book ISBN="0-7356-0562-9" Stock="in" Number="9">
+                                            <Title>XML in Action</Title>
+                                            <Summary>XML Web Technology</Summary>
+                                        </Book>
+                                        <Book ISBN="0-7356-1370-2" Stock="in" Number="8">
+                                            <Title>Programming Microsoft Windows With C#</Title>
+                                            <Summary>C# Programming using the .NET Framework</Summary>
+                                        </Book>
+                                        <Book ISBN="0-7356-1288-9" Stock="out" Number="7">
+                                            <Title>Inside C#</Title>
+                                            <Summary>C# Language Programming</Summary>
+                                        </Book>
+                                        <Book ISBN="0-7356-1377-X" Stock="in" Number="5">
+                                            <Title>Introducing Microsoft .NET</Title>
+                                            <Summary>Overview of .NET Technology</Summary>
+                                        </Book>
+                                        <Book ISBN="0-7356-1448-2" Stock="out" Number="4">
+                                            <Title>Microsoft C# Language Specifications</Title>
+                                            <Summary>The C# language definition</Summary>
+                                        </Book>
+                                    </Books>
+                                    <CDs>
+                                        <CD Stock="in" Number="3">
+                                            <Title>Classical Collection</Title>
+                                            <Summary>Classical Music</Summary>
+                                        </CD>
+                                        <CD Stock="out" Number="9">
+                                            <Title>Jazz Collection</Title>
+                                            <Summary>Jazz Music</Summary>
+                                        </CD>
+                                    </CDs>
+                                </Inventory>
+                            </x:XData>
+                        </XmlDataProvider>
+                    </StackPanel.Resources>
+
+                    <TextBlock FontSize="18" FontWeight="Bold" Margin="10"
+    HorizontalAlignment="Center">XML Data Source Sample</TextBlock>
+                    <ListBox
+    Width="400" Height="300" Background="Honeydew">
+                        <ListBox.ItemsSource>
+                            <Binding Source="{StaticResource InventoryData}"
+               XPath="*[@Stock='out'] | *[@Number>=8 or @Number=3]"/>
+                        </ListBox.ItemsSource>
+
+                        <!--Alternatively, you can do the following. -->
+                        <!--<ListBox Width="400" Height="300" Background="Honeydew"
+      ItemsSource="{Binding Source={StaticResource InventoryData},
+      XPath=*[@Stock\=\'out\'] | *[@Number>\=8 or @Number\=3]}">-->
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="12" Foreground="Red">
+                                    <TextBlock.Text>
+                                        <Binding XPath="Title"/>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="绑定的XmlDocument">
+                <StackPanel Background="Cornsilk">
+
+                    <StackPanel.Resources>
+                        <XmlDataProvider x:Key="InventoryData" XPath="Inventory/Books" Document="{Binding MyDocument}"/>
+
+                    </StackPanel.Resources>
+
+                 
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </Page>
