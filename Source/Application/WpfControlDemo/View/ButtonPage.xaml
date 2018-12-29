@@ -83,6 +83,16 @@
                         </StackPanel>
                     </GroupBox>
 
+                    <GroupBox Header="自定义形状按钮">
+                        <StackPanel HorizontalAlignment="Center">
+
+                            <wpfcontrollib:FButton FIcon="&#xe756;" Style="{StaticResource   Style.FButton.MouseOverOpacity}" Margin="4"/>
+
+                        </StackPanel>
+                    </GroupBox>
+
+                    
+                  
 
                 </StackPanel>
             </TabItem>
