@@ -140,6 +140,9 @@
     <Compile Include="View\InputBindPage.xaml.cs">
       <DependentUpon>InputBindPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InputNumControlPage.xaml.cs">
+      <DependentUpon>InputNumControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ObjectDataProviderPage.xaml.cs">
       <DependentUpon>ObjectDataProviderPage.xaml</DependentUpon>
     </Compile>
@@ -470,6 +473,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\InputBindPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InputNumControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -52,6 +52,7 @@
                     <Folder Name="老虎机控件" Value="../View/RandomNumberPage.xaml" FIcon="&#xe799;"/>
                     <Folder Name="雨滴控件" Value="../View/RainWavePage.xaml" FIcon="&#xe799;"/>
                     <Folder Name="仪表盘" Value="../View/GaugeControlPage.xaml" FIcon="&#xe799;"/>
+                    <Folder Name="数字键盘" Value="../View/InputNumControlPage.xaml" FIcon="&#xe799;"/>
                 </Folder>
                 <Folder Name="三维效果"  Value="../View/TabControlPage.xaml" FIcon="&#xe785;">
                     <Folder Name="分页控件" Value="../View/TabControlPage.xaml" FIcon="&#xe799;"/>

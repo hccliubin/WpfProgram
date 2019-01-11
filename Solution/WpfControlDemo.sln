@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramModule", "..\Source\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FavoriteModule", "..\Source\Modules\FavoriteModule\FavoriteModule.csproj", "{0CBB737D-DA4B-4949-A6A8-9233719B2BC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Product.App.KeyBoardApp", "..\Source\Application\HeBianGu.Product.App.KeyBoardApp\HeBianGu.Product.App.KeyBoardApp.csproj", "{2A6E57B3-782C-4E8B-84D3-154B785718B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,10 @@ Global
 		{0CBB737D-DA4B-4949-A6A8-9233719B2BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CBB737D-DA4B-4949-A6A8-9233719B2BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CBB737D-DA4B-4949-A6A8-9233719B2BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6E57B3-782C-4E8B-84D3-154B785718B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6E57B3-782C-4E8B-84D3-154B785718B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6E57B3-782C-4E8B-84D3-154B785718B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6E57B3-782C-4E8B-84D3-154B785718B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -172,6 +178,7 @@ Global
 		{B3242EFA-2514-4CDD-8480-D46D4E678AD2} = {54283D36-38CD-4852-8E5B-715FE2549384}
 		{7BBB2DA8-07C0-4614-ADCB-E3956F082535} = {54283D36-38CD-4852-8E5B-715FE2549384}
 		{DA67C13B-0761-42AA-B1FD-0615D9229CAE} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
+		{2A6E57B3-782C-4E8B-84D3-154B785718B9} = {F33B4709-5AA9-4B55-9044-4C3A3D593E7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {203DA33E-8184-413E-84C7-D6E1200BF8FA}
