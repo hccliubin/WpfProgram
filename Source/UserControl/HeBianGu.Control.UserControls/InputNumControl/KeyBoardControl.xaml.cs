@@ -49,10 +49,16 @@ namespace LTO.Base.Theme.Style
             {
 
                 //// Do ：打开大写 
-                //if (this.btn_shift.IsChecked)
-                //{
-                //    KeyHelper.OnKeyDown(Convert.ToByte(this.btn_shift.Tag.ToString()));
-                //}
+                if (this.btn_shift.IsChecked)
+                {
+                    KeyHelper.OnKeyDown(Convert.ToByte(this.btn_shift.Tag.ToString()));
+                }
+
+                if (this.btn_shift.IsChecked)
+                {
+                    KeyHelper.OnKeyDown(Convert.ToByte(this.btn_shift.Tag.ToString()));
+                }
+
 
                 string tag = button.Tag.ToString();
 
