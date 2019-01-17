@@ -28,13 +28,12 @@ namespace HeBianGu.Base.Util
     public class ShortCutHookService : BaseFactory<ShortCutHookService>
     {
         /// <summary> 创建监控引擎 </summary>
-         void CreateMoniter()
+        public ShortCutHookService()
         {
             HookKeyboardEngine.KeyUp += HookKeyboardEngine_KeyUp;
 
             HookKeyboardEngine.KeyDown += HookKeyboardEngine_KeyDown;
         }
-
         private void HookKeyboardEngine_KeyDown(object sender, KeyEventArgs e)
         {
             KeyEntity k = new KeyEntity();
@@ -70,11 +69,6 @@ namespace HeBianGu.Base.Util
         /// <summary> 注册执行命令 </summary>
         public void RegisterCommand(ShortCutEntitys match, Action action)
         {
-            if (_collection.Count == 0)
-            {
-                this.CreateMoniter();
-            }
-
             Tuple<ShortCutEntitys, Action> t = new Tuple<ShortCutEntitys, Action>(match, action);
             _collection.Add(t);
         }
@@ -91,7 +85,7 @@ namespace HeBianGu.Base.Util
         public const string SptitString = "+";
 
         /// <summary> 触发范围 </summary>
-        public const double SplitSecond = 0.1;
+        public const double Milliseconds = 500;
 
         /// <summary> 按下状态 </summary>
         public const char downChar = '↓';
@@ -212,7 +206,7 @@ namespace HeBianGu.Base.Util
                 // Todo ：判断时间间隔 
                 if (i == s.Keys.Count - 1) continue;
 
-                if ((this.Keys[this.Keys.Count - i - 1].Time - this.Keys[this.Keys.Count - i - 2].Time).Seconds > ShortCutConfiger.SplitSecond)
+                if ((this.Keys[this.Keys.Count - i - 1].Time - this.Keys[this.Keys.Count - i - 2].Time).TotalMilliseconds > ShortCutConfiger.Milliseconds)
                 {
                     return false;
                 }
