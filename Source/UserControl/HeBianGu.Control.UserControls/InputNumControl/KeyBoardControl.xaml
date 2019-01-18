@@ -221,7 +221,13 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <local:FuncButtonControl x:Name="btn_caps" Click="btn_caps_Click" Grid.Row="1" IsCheckedControl="True" Grid.Column="0" Width="250" HorizontalAlignment="Left" Content="Caps" Tag="20"/>
+                <local:FuncButtonControl x:Name="btn_caps" Click="btn_caps_Click" 
+                                         Grid.Row="1" 
+                                         IsCheckedControl="True" 
+                                         Grid.Column="0" 
+                                         Width="250" 
+                                         HorizontalAlignment="Left" 
+                                         Content="Caps" Tag="20"/>
 
                 <local:FuncButtonControl Grid.Row="1" Grid.Column="1" Content="a"  Tag="65"/>
 

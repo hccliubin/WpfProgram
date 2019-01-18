@@ -25,6 +25,11 @@ namespace LTO.Base.Theme.Style
         public KeyBoardControl()
         {
             InitializeComponent();
+
+
+            this.btn_caps.IsChecked = Console.CapsLock;
+
+            this.RefreshCaps();
         }
 
         private void Grid_Click(object sender, RoutedEventArgs e)
@@ -163,10 +168,7 @@ namespace LTO.Base.Theme.Style
 
         void RefreshCaps()
         {
-
-
             var btns = FindVisualChild<FuncButtonControl>(this.grid_center);
-
 
             foreach (var btn in btns)
             {
@@ -174,7 +176,7 @@ namespace LTO.Base.Theme.Style
 
                 if (btn.Content.ToString().Length != 1) continue;
 
-                btn.Content = Console.CapsLock ? btn.Content.ToString().ToLower() : btn.Content.ToString().ToUpper();
+                btn.Content = this.btn_caps.IsChecked ? btn.Content.ToString().ToUpper() : btn.Content.ToString().ToLower();
 
             }
 
