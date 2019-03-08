@@ -13,6 +13,7 @@
                     <Folder Name="表格控件(DataGrid)" Value="../View/DataPagePage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="日期控件" Value="../View/DatePickerDemo.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="表格控件(ListView)" Value="../View/ListViewPage.xaml"  FIcon="&#xe799;"/>
+                    <Folder Name="树形控件(TreeListView)" Value="../View/TreeViewPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="分页控件" Value="../View/TabControlPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="进度控件" Value="../View/WaitingPage.xaml"  FIcon="&#xe799;"/>
                     <Folder Name="导航控件" Value="../View/ExpanderPage.xaml"  FIcon="&#xe799;"/>

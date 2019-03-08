@@ -28,6 +28,7 @@
         <ResourceDictionary Source="../Controls/InlineModalDialog.xaml"/>
         <ResourceDictionary Source="../Controls/MultiComboBox.xaml"/>
         <ResourceDictionary Source="../Controls/ModernProgressRing.xaml"/>
+        <ResourceDictionary Source="../Controls/TreeListView.xaml"/>
         <ResourceDictionary Source="../WindowBase/WindowBase.xaml"/>
         <ResourceDictionary Source="../Controls/BaseUserControl.xaml"/>
         <ResourceDictionary Source="../Controls/ModernFrame.xaml"/>

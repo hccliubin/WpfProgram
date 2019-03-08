@@ -159,10 +159,6 @@
       <Project>{b49dc15f-b43c-4306-adf4-8fa6f5df7f84}</Project>
       <Name>HeBianGu.General.WpfControlLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\CasePrototypeModule\CasePrototypeModule.csproj">
-      <Project>{ec5512d9-32de-4057-91e3-9b646f1d5f7c}</Project>
-      <Name>CasePrototypeModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Modules\ClipBoardModule\ClipBoardModule.csproj">
       <Project>{23715A3C-4AAE-4230-9901-E137E979F221}</Project>
       <Name>ClipBoardModule</Name>
@@ -170,10 +166,6 @@
     <ProjectReference Include="..\..\Modules\CommonDocumentModule\CommonDocumentModule.csproj">
       <Project>{f472080c-a32f-4d94-9949-d715fc69cb70}</Project>
       <Name>CommonDocumentModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Modules\FavoriteModule\FavoriteModule.csproj">
-      <Project>{0cbb737d-da4b-4949-a6a8-9233719b2bc8}</Project>
-      <Name>FavoriteModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\IntergrationToolModule\IntergrationToolModule.csproj">
       <Project>{ec924e03-c118-40a6-8b38-a37422fd8ed0}</Project>
@@ -191,17 +183,9 @@
       <Project>{efd1472d-9e19-4d6c-9c37-1532b864e122}</Project>
       <Name>ProcessingBatchModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\ProgramModule\ProgramModule.csproj">
-      <Project>{ad8d4b12-5404-438d-b260-c986d9af9175}</Project>
-      <Name>ProgramModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Modules\SystemFolderModule\SystemFolderModule.csproj">
       <Project>{dc9682c2-dd15-435b-a2de-41fa25fbcf89}</Project>
       <Name>SystemFolderModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Modules\WindowToolModule\WindowToolModule.csproj">
-      <Project>{c3f4121e-f4a3-4965-a354-32e29a818032}</Project>
-      <Name>WindowToolModule</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

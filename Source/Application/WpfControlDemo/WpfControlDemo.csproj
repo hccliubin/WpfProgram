@@ -359,6 +359,9 @@
     <Compile Include="View\TPageControlPage.xaml.cs">
       <DependentUpon>TPageControlPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TreeViewPage.xaml.cs">
+      <DependentUpon>TreeViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControlDemo.xaml.cs">
       <DependentUpon>UserControlDemo.xaml</DependentUpon>
     </Compile>
@@ -829,6 +832,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TPageControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TreeViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -68,6 +68,9 @@
       <DependentUpon>BindPassWordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commond\ControlCommand.cs" />
+    <Compile Include="Controls\TreeListView.xaml.cs">
+      <DependentUpon>TreeListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\InlineModalDialog.xaml.cs">
       <DependentUpon>InlineModalDialog.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,10 @@
     <Page Include="Controls\BindPassWordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TreeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\InlineModalDialog.xaml">
       <Generator>MSBuild:Compile</Generator>

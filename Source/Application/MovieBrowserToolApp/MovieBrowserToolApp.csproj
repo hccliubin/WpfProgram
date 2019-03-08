@@ -170,17 +170,9 @@
       <Project>{08D5A4B5-B04A-419C-81B0-EFDD6D377730}</Project>
       <Name>HeBianGu.MovieBrowser.Modules.MovieBrowserfavoriteModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule\HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule.csproj">
-      <Project>{FFED060B-C0A9-485F-A8D3-8F86A93E715A}</Project>
-      <Name>HeBianGu.MovieBrowser.Modules.MovieBrowserManagerModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Modules\HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule\HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule.csproj">
       <Project>{01D83067-E1AD-4C6A-928B-BF5CA637F3AF}</Project>
       <Name>HeBianGu.MovieBrowserModules.MovieBrowserDeleteModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\UserControl\HeBianGu.MovieBrower.UserControls\HeBianGu.MovieBrower.UserControls.csproj">
-      <Project>{3FEECBC2-01D1-41DA-A6EA-E90EA27C8F0D}</Project>
-      <Name>HeBianGu.MovieBrower.UserControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
