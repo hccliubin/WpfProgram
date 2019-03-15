@@ -36,6 +36,17 @@
                                     SmallChange="0.1" Style="{StaticResource OpacitySliderStyle}" />
             </GroupBox>
 
+            <GroupBox Header="进度条样式的拖动条">
+                <Slider
+                                    Margin="5"
+                                    LargeChange="0.1"
+                                    Maximum="1"
+                                    SmallChange="0.1" Style="{StaticResource Slider_CustomStyle}" />
+            </GroupBox>
+
+
+
+            
             <GroupBox Header="实心滚动条">
                 <Slider Style="{DynamicResource SliderStyle1}" 
                         Minimum="12" 
@@ -60,6 +71,16 @@
                     </TextBlock>
                 </StackPanel>
 
+            </GroupBox>
+
+            <GroupBox Header="缓冲播放进度条">
+                <StackPanel>
+                    <wpfcontrollib:BufferPlayControl x:Name="control_bufferPlay"/>
+                    <TextBlock x:Name="txt_persent"/>
+                    <TextBlock Text="{Binding ElementName=control_bufferPlay,Path=Value}"/>
+                    <Button Content="开始" Click="Button_Click"/>
+                    <Button x:Name="btn_play" Content="暂停" Click="Button_Click_1"/>
+                </StackPanel>
             </GroupBox>
         </StackPanel>
     </Grid>

@@ -64,6 +64,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\BufferPlayControl.xaml.cs">
+      <DependentUpon>BufferPlayControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BindPassWordBox.xaml.cs">
       <DependentUpon>BindPassWordBox.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,10 @@
     <Folder Include="Template\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CustomControls\BufferPlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\BindPassWordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
